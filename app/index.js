@@ -73,10 +73,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 this.directory(this.cacheRoot() + '/shirhatti/aspnet_vnext_samples/master/console', this.applicationName);
                 break;
             case 'web':
-                this.directory('/shirhatti/aspnet_vnext_samples/master/web', this.applicationName);
+                this.directory(this.cacheRoot() + '/shirhatti/aspnet_vnext_samples/master/web', this.applicationName);
                 break;
             case 'mvc':
-                this.directory('/shirhatti/aspnet_vnext_samples/master/mvc', this.applicationName);
+                this.directory(this.cacheRoot() + '/shirhatti/aspnet_vnext_samples/master/mvc', this.applicationName);
                 break;
             default:
                 console.log('Unimplemented');
