@@ -2,6 +2,8 @@
 
 Yeoman generator for ASP.NET vNext projects
 
+![](http://giant.gfycat.com/CreepyCandidBichonfrise.gif)
+
 ## Getting Started
 
 - Install: `npm install -g generator-aspnet`
