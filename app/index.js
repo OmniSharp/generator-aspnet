@@ -60,7 +60,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     retrieveContent: function () {
         var done = this.async();
 
-        this.remote('shirhatti', 'aspnet_vnext_samples', function(err, remote) {
+        this.remote('ligershark', 'aspnet_vnext_samples', function(err, remote) {
             done();
         });
     },
