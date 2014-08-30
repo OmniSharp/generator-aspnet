@@ -15,7 +15,7 @@
       "name": "Sayed Hashimi",
       "email": "sayed.hashimi@gmail.com"
     }
-  ]
+  ],
   "engines": {
     "node": ">=0.10.0"
   },
