@@ -4,3 +4,5 @@ deploy:
     secure: mmvjwORjdf6HZ3JSLeYElHxacQ15nQSfVwuwxRSmNOiCs5BiUcsLhUo5rdp39F7nbhynIZqP/8KLNVwliIy9FAbeyyLqq2fJgTpgKvPuSl4ZDX0L1tivqNgmFVdNlMbStZ6die9em5RfGhXunQkHS8qcgiCMDt1nO/7PpVp7GTE=
   email: shirhatti@outlook.com
   provider: npm
+  on:
+    branch: release
