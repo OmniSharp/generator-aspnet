@@ -5,11 +5,17 @@
   "license": "Apache License 2.0",
   "main": "app/index.js",
   "repository": "ligershark/generator-aspnet",
-  "author": {
-    "name": "Sourabh Shirhatti",
-    "email": "shirhatti@outlook.com",
-    "url": "https://github.com/shirhatti"
-  },
+  "contributors": [
+    {
+      "name": "Sourabh Shirhatti",
+      "email": "shirhatti@outlook.com",
+      "url": "https://github.com/shirhatti"
+    },
+    {
+      "name": "Sayed Hashimi",
+      "email": "sayed.hashimi@gmail.com"
+    }
+  ]
   "engines": {
     "node": ">=0.10.0"
   },

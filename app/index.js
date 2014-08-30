@@ -60,23 +60,23 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     retrieveContent: function () {
         var done = this.async();
 
-        this.remote('shirhatti', 'aspnet_vnext_samples', function(err, remote) {
+        this.remote('ligershark', 'aspnet_vnext_samples', function(err, remote) {
             done();
         });
     },
 
     writing: function () {
-        this.copy(this.cacheRoot() + '/shirhatti/aspnet_vnext_samples/master/NuGet.config', 'NuGet.config');
+        this.copy(this.cacheRoot() + '/ligershark/aspnet_vnext_samples/master/NuGet.config', 'NuGet.config');
         this.mkdir(this.applicationName);
         switch(this.type) {
             case 'console':
-                this.directory(this.cacheRoot() + '/shirhatti/aspnet_vnext_samples/master/console', this.applicationName);
+                this.directory(this.cacheRoot() + '/ligershark/aspnet_vnext_samples/master/console', this.applicationName);
                 break;
             case 'web':
-                this.directory(this.cacheRoot() + '/shirhatti/aspnet_vnext_samples/master/web', this.applicationName);
+                this.directory(this.cacheRoot() + '/ligershark/aspnet_vnext_samples/master/web', this.applicationName);
                 break;
             case 'mvc':
-                this.directory(this.cacheRoot() + '/shirhatti/aspnet_vnext_samples/master/mvc', this.applicationName);
+                this.directory(this.cacheRoot() + '/ligershark/aspnet_vnext_samples/master/mvc', this.applicationName);
                 break;
             default:
                 console.log('Unimplemented');
