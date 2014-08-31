@@ -1,5 +1,7 @@
 # generator-aspnet
 
+[![Build Status](https://travis-ci.org/ligershark/generator-aspnet.svg?branch=master)](https://travis-ci.org/ligershark/generator-aspnet)
+
 Yeoman generator for ASP.NET vNext projects
 
 ![](http://giant.gfycat.com/CreepyCandidBichonfrise.gif)
