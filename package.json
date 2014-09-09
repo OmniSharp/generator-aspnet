@@ -1,6 +1,6 @@
 {
   "name": "generator-aspnet",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Yeoman generator for ASP.NET vNext apps",
   "license": "Apache License 2.0",
   "main": "app/index.js",
