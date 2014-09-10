@@ -8,7 +8,7 @@ var chalk = require('chalk');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
     init: function () {
-        this.log(yosay('Welcome to the marvellous Aspnet generator!'));
+        this.log(yosay('Welcome to the marvellous ASP.NET generator!'));
     },
 
     askFor: function () {
@@ -22,19 +22,19 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 {
                     name: 'Console Application',
                     value: 'console'
-            },
+                },
                 {
                     name: 'Web Application',
                     value: 'web'
-            },
+                },
                 {
                     name: 'MVC Application',
                     value: 'mvc'
-            },
+                },
                 {
-                    name: 'Nancy ASP.Net Application',
+                    name: 'Nancy ASP.NET Application',
                     value: 'nancy'
-            }
+                }
             ]
         }];
 
@@ -50,13 +50,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         var app = '';
         switch (this.type) {
         case 'console':
-            app = 'ConsoleApplication1';
+            app = 'ConsoleApplication';
             break;
         case 'web':
-            app = 'WebApplication1';
+            app = 'WebApplication';
             break;
         case 'mvc':
-            app = 'MvcApplication1';
+            app = 'MvcApplication';
             break;
         case 'nancy':
             app = 'NancyApplication'
@@ -108,7 +108,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.directory(this.cacheRoot() + '/jchannon/aspnet_vnext_samples/master/web', this.applicationName);
             break;
         default:
-            console.log('Unimplemented');
+            console.log('Unknown project type');
         }
     },
 
