@@ -66,7 +66,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             name: 'applicationName',
             message: 'What\'s the name of your ASP.NET application?',
             default: app
-        }];
+        } ];
         this.prompt(prompts, function (props) {
             this.applicationName = props.applicationName;
 
@@ -114,13 +114,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         console.log(this.cacheRoot());
         if (!this.options['skip-install']) {
             this.config.set('skip-install', true)
-            //this.installDependencies();
-            try{
-                this.spawnCommand('kpm', ['restore', './' + this.applicationName]);
-            }
-            catch(e){
-                console.log("Unable to execute 'kpm restore''"+e);
-            }
+            
+            console.log('\r\nYour project is now created, you can use the following commands to get going');
+            console.log(chalk.green('    kpm restore'));
+            console.log(chalk.green('    kpm build'));
+            console.log(chalk.green('    kpm run'),' for console projects');
+            console.log(chalk.green('    kpm kestrel'),'or',chalk.green('kpm web'), 'for web projects\r\n');
         }
     }
 });
