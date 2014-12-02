@@ -76,31 +76,25 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
     retrieveContent: function () {
         var done = this.async();
-        if (this.type === 'nancy') {
-            this.remote('jchannon', 'aspnet_vnext_samples', 'master', function (err, remote) {
+        this.remote('OmniSharp', 'generator-aspnet', 'master', function (err, remote) {
                 done();
             }, true);
-        } else {
-            this.remote('ligershark', 'aspnet_vnext_samples', 'master', function (err, remote) {
-                done();
-            }, true);
-        }
     },
 
     writing: function () {
         this.mkdir(this.applicationName);
         switch (this.type) {
         case 'console':
-            this.directory(this.cacheRoot() + '/ligershark/aspnet_vnext_samples/master/console', this.applicationName);
+            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/master/samples/console', this.applicationName);
             break;
         case 'web':
-            this.directory(this.cacheRoot() + '/ligershark/aspnet_vnext_samples/master/web', this.applicationName);
+            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/master/samples/web', this.applicationName);
             break;
         case 'mvc':
-            this.directory(this.cacheRoot() + '/ligershark/aspnet_vnext_samples/master/mvc', this.applicationName);
+            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/master/samples/mvc', this.applicationName);
             break;
         case 'nancy':
-            this.directory(this.cacheRoot() + '/jchannon/aspnet_vnext_samples/master/web', this.applicationName);
+            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/master/samples/nancy', this.applicationName);
             break;
         default:
             console.log('Unknown project type');
