@@ -34,6 +34,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 {
                     name: 'Nancy ASP.NET Application',
                     value: 'nancy'
+                },
+                {
+                    name: 'Class Library',
+                    value: 'classlib'
                 }
             ]
         }];
@@ -60,6 +64,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             break;
         case 'nancy':
             app = 'NancyApplication'
+            break;
+        case 'classlib':
+            app = 'ClassLibrary'
             break;
         }
         var prompts = [{
@@ -95,6 +102,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             break;
         case 'nancy':
             this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/master/samples/nancy', this.applicationName);
+            break;
+        case 'classlib':
+            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/master/samples/classlib', this.applicationName);
             break;
         default:
             console.log('Unknown project type');
