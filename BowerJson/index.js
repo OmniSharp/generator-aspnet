@@ -1,17 +1,16 @@
 'use strict';
 var util = require('util');
 var yeoman = require('yeoman-generator');
+var ScriptBase = require('../script-base');
+
+var Generator = module.exports = function Generator() {
+	ScriptBase.apply(this, arguments);
+}
+
+util.inherits(Generator, ScriptBase);
+
+Generator.prototype.createItem = function(){
+	this.generateStandardFile('bower.json', 'bower.json');
+};
 
 
-var AspnetItemGenerator = yeoman.generators.Base.extend({
-  initializing: function () {
-    this.log('You called the aspnet subgenerator with the argument bower.json .');
-  },
-
-  writing: function () {
-    this.src.copy('bower.json', 'bower.json');
-    this.log('bower.json created.')
-  }
-});
-
-module.exports = AspnetItemGenerator;
