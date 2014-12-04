@@ -1,6 +1,6 @@
 # generator-aspnet
 
-[![Build Status](https://travis-ci.org/ligershark/generator-aspnet.svg?branch=master)](https://travis-ci.org/ligershark/generator-aspnet)
+[![Build Status](https://travis-ci.org/OmniSharp/generator-aspnet.svg?branch=master)](https://travis-ci.org/OmniSharp/generator-aspnet)
 
 Yeoman generator for ASP.NET vNext projects
 
@@ -19,7 +19,7 @@ Yeoman generator for ASP.NET vNext projects
 
 ## License
 
-Copyright 2014 Sourabh Shirhatti
+Copyright 2014 OmniSharp
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
