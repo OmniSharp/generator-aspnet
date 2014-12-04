@@ -3,12 +3,10 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 
-
-
 var AspnetGenerator = yeoman.generators.Base.extend({
 
     init: function () {
-        this.log(yosay('Welcome to the marvellous ASP.NET generator!'));
+        this.log(yosay('Welcome to the marvellous ASP.NET 5 generator!'));
     },
 
     askFor: function () {
