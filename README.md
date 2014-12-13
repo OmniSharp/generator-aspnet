@@ -17,6 +17,164 @@ Yeoman generator for ASP.NET vNext projects
 
 * `yo aspnet --help` shows flags and other configurable options
 
+## Generators
+
+Available generators:
+
+* [aspnet:MvcController](#MvcController)
+* [aspnet:MvcView](#MvcView)
+* [aspnet:WebApiContoller](#WebApiController)
+* [aspnet:Class](#Class)
+* aspnet:StartupClass 
+* aspnet:BowerJson
+* aspnet:CoffeeScript
+* aspnet:Config
+* aspnet:GruntFile
+* aspnet:HTMLPage
+* aspnet:JScript
+* aspnet:JSON
+* aspnet:PackageJson
+* aspnet:TextFile
+
+** Note: files generated are created in the working directory, no conventions are forced **
+
+### MvcController
+
+Creates a new ASP.NET 5 MvcController class 
+
+Example:
+
+```
+yo aspnet:MvcController ContactController
+```
+
+Produces `/ContactController.cs`
+
+```
+using Microsoft.AspNet.Mvc;
+
+// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace MyNamespace
+{
+    public class ContactController : Controller
+    {
+        // GET: /<controller>/
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+```
+
+### MvcView
+
+Creates a new ASP.NET 5 MvcView page file 
+
+Example:
+
+```
+yo aspnet:MvcView ContactView
+```
+
+Produces `/ContactView.cshtml`
+
+```
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    // ViewBag.Title = "ContactView Page";
+}
+
+```
+### WebApiController
+
+Creates a new ASP.NET 5 WebApiController class 
+
+Example:
+
+```
+yo aspnet:WebApiController ValuesController
+```
+
+Produces `/ValuesController.cs`
+
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNet.Mvc;
+
+// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace MyNamespace.Controllers
+{
+    [Route("api/[controller]")]
+    public class ValuesController : Controller
+    {
+        // GET: api/values
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            return "value";
+        }
+
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]string value)
+        {
+        }
+
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+        }
+
+        // DELETE api/values/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+    }
+}
+
+```
+
+### Class
+
+Creates a new ASP.NET 5 Class 
+
+Example:
+
+```
+yo aspnet:Class Contact
+```
+
+Produces `/Contact.cs`
+
+```
+using System;
+
+namespace MyNamespace
+{
+    public class Contact
+    {
+
+    }
+}
+```
+
+
 ## License
 
 Copyright 2014 OmniSharp
