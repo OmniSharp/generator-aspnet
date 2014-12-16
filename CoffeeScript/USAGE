@@ -1,0 +1,8 @@
+Description:
+	Creates a new CoffeeScript file
+
+Example:
+	yo aspnet:CoffeeScript filename
+
+	This will create:
+		filename.coffee

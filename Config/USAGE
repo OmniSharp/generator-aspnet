@@ -1,0 +1,8 @@
+Description:
+	Creates a new config.json file
+
+Example:
+	yo aspnet:Config
+
+	This will create:
+		config.json

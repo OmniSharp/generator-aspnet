@@ -1,0 +1,8 @@
+Description:
+	Creates a new HTML file
+
+Example:
+	yo aspnet:HTMLPage filename
+
+	This will create:
+		filename.html

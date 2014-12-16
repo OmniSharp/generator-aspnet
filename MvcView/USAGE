@@ -1,0 +1,8 @@
+Description:
+	Creates a new MvcView
+
+Example:
+	yo aspnet:MvcView filename
+
+	This will create:
+		filename.cshtml

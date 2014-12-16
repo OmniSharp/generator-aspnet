@@ -1,0 +1,8 @@
+Description:
+	Creates a new package.json file
+
+Example:
+	yo aspnet:PackageJson
+
+	This will create:
+		package.json

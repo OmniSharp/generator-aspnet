@@ -1,0 +1,8 @@
+Description:
+	Creates a new Bower file
+
+Example:
+	yo aspnet:BowerJson
+
+	This will create:
+		bower.json
