@@ -112,8 +112,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     end: function () {
         console.log(this.cacheRoot());
         if (!this.options['skip-install']) {
-            this.config.set('skip-install', true)
-            
             console.log('\r\nYour project is now created, you can use the following commands to get going');
             console.log(chalk.green('    kpm restore'));
             console.log(chalk.green('    kpm build'));
