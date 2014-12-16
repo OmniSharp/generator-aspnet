@@ -21,10 +21,10 @@ Yeoman generator for ASP.NET vNext projects
 
 Available generators:
 
-* [aspnet:MvcController](#MvcController)
-* [aspnet:MvcView](#MvcView)
-* [aspnet:WebApiContoller](#WebApiController)
-* [aspnet:Class](#Class)
+* [aspnet:MvcController](#mvccontroller)
+* [aspnet:MvcView](#mvcview)
+* [aspnet:WebApiContoller](#webapicontroller)
+* [aspnet:Class](#class)
 * aspnet:StartupClass 
 * aspnet:BowerJson
 * aspnet:CoffeeScript
