@@ -105,18 +105,20 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/master/samples/classlib', this.applicationName);
             break;
         default:
-            console.log('Unknown project type');
+            this.log('Unknown project type');
         }
     },
 
     end: function () {
-        console.log(this.cacheRoot());
+        this.log(this.cacheRoot());
         if (!this.options['skip-install']) {
-            console.log('\r\nYour project is now created, you can use the following commands to get going');
-            console.log(chalk.green('    kpm restore'));
-            console.log(chalk.green('    kpm build'));
-            console.log(chalk.green('    k run'),' for console projects');
-            console.log(chalk.green('    k kestrel'),'or',chalk.green('k web'), 'for web projects\r\n');
+            this.log('\r\n');
+            this.log('Your project is now created, you can use the following commands to get going');
+            this.log(chalk.green('    kpm restore'));
+            this.log(chalk.green('    kpm build'));
+            this.log(chalk.green('    k run') + ' for console projects');
+            this.log(chalk.green('    k kestrel') + 'or' + chalk.green('k web') + 'for web projects');
+            this.log('\r\n');
         }
     }
 });
