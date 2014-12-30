@@ -22,6 +22,11 @@
     {
       "name": "Jonathan Channon",
       "email": "jonathan@jonathanchannon.com"
+    },
+    {
+      "name": "Peter Blazejewicz",
+      "email": "peter.blazejewicz@gmail.com",
+      "url": "https://github.com/peterblazejewicz"
     }
   ],
   "engines": {
