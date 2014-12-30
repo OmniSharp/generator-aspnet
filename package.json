@@ -28,7 +28,12 @@
     "node": ">=0.10.0"
   },
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "ASP.NET",
+    "aspnet",
+    "ASP",
+    "net",
+    "vNext"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
