@@ -11,7 +11,7 @@ util.inherits(NamedGenerator, ScriptBase);
 
 NamedGenerator.prototype.createNamedItem = function(){
 	this.generateTemplateFile(
-		'javascript.cs',
+		'javascript.js',
 		this.name + '.js'
 	);
 };
