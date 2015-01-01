@@ -1,5 +1,5 @@
 {
-    "webroot" : "wwwroot",
+    "webroot": "wwwroot",
     "exclude": "wwwroot/**/*.*",
     "dependencies": {
         "Microsoft.AspNet.Server.IIS":"1.0.0-beta1",
@@ -15,6 +15,6 @@
         "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
     },
     "frameworks": {
-        "aspnet50" : { }
+        "aspnet50": { }
     }
 }
