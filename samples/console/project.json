@@ -3,11 +3,11 @@
     "dependencies": {
     },
     "commands": { 
-        "run" : "run"
+        "run": "run"
     },
-    "frameworks" : {
-        "aspnet50" : { },
-        "aspnetcore50" : { 
+    "frameworks": {
+        "aspnet50": { },
+        "aspnetcore50": { 
             "dependencies": {
                 "System.Console": "4.0.0-beta-*"
             }
