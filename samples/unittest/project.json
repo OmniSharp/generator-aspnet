@@ -1,9 +1,8 @@
 {
     "dependencies": {
-        "WebApplication2": "",
-        "Xunit.KRunner": "1.0.0-beta1-*"
+        "xunit.runner.kre": "1.0.0-beta1-*"
     },
-    "commands": { "test": "Xunit.KRunner" },
+    "commands": { "test": "xunit.runner.kre" },
     "frameworks": {
         "aspnet50": {
             "dependencies": {
