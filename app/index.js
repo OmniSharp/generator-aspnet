@@ -127,7 +127,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.log(chalk.green('    kpm restore'));
             this.log(chalk.green('    kpm build'));
             this.log(chalk.green('    k run') + ' for console projects');
-            this.log(chalk.green('    k kestrel') + 'or' + chalk.green('k web') + 'for web projects');
+            this.log(chalk.green('    k kestrel') + ' or ' + chalk.green('k web') + 'for web projects');
             this.log('\r\n');
         }
     }
