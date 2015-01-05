@@ -29,7 +29,7 @@ Available generators:
 * aspnet:BowerJson
 * aspnet:CoffeeScript
 * aspnet:Config
-* aspnet:GruntFile
+* aspnet:Gruntfile
 * aspnet:HTMLPage
 * aspnet:JScript
 * aspnet:JSON
