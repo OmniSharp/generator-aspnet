@@ -1,6 +1,6 @@
 {
   "name": "generator-aspnet",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Yeoman generator for ASP.NET 5 apps",
   "license": "Apache License 2.0",
   "main": "app/index.js",
@@ -25,13 +25,13 @@
       "email": "jonathan@jonathanchannon.com"
     },
     {
-        "name": "Peter Blazejewicz",
-        "email": "peter.blazejewicz@gmail.com",
-        "url": "https://github.com/peterblazejewicz"
+      "name": "Peter Blazejewicz",
+      "email": "peter.blazejewicz@gmail.com",
+      "url": "https://github.com/peterblazejewicz"
     },
     {
-        "name": "Suhas Joshi",
-        "email": "suhasbjoshi@hotmail.com"
+      "name": "Suhas Joshi",
+      "email": "suhasbjoshi@hotmail.com"
     }
   ],
   "engines": {
