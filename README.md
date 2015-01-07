@@ -29,12 +29,14 @@ Available generators:
 * aspnet:BowerJson
 * aspnet:CoffeeScript
 * aspnet:Config
-* aspnet:GruntFile
+* aspnet:Gulpfile
 * aspnet:HTMLPage
+* aspnet:JavaScript
 * aspnet:JScript
 * aspnet:JSON
 * aspnet:PackageJson
 * aspnet:TextFile
+* aspnet:TypeScript
 
 ** Note: files generated are created in the working directory, no conventions are forced **
 
