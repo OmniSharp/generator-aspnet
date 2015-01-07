@@ -29,7 +29,6 @@ Available generators:
 * aspnet:BowerJson
 * aspnet:CoffeeScript
 * aspnet:Config
-* aspnet:GruntFile
 * aspnet:Gulpfile
 * aspnet:HTMLPage
 * aspnet:JavaScript
