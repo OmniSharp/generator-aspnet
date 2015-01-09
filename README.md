@@ -25,18 +25,18 @@ Available generators:
 * [aspnet:MvcView](#mvcview)
 * [aspnet:WebApiContoller](#webapicontroller)
 * [aspnet:Class](#class)
-* aspnet:StartupClass 
-* aspnet:BowerJson
-* aspnet:CoffeeScript
-* aspnet:Config
-* aspnet:Gulpfile
-* aspnet:HTMLPage
-* aspnet:JavaScript
-* aspnet:JScript
-* aspnet:JSON
-* aspnet:PackageJson
-* aspnet:TextFile
-* aspnet:TypeScript
+* [aspnet:StartupClass](#startupclass) 
+* [aspnet:BowerJson](#bowerjson)
+* [aspnet:CoffeeScript](#coffeescript)
+* [aspnet:Config](#config)
+* [aspnet:Gulpfile](#gulpfile)
+* [aspnet:HTMLPage](#htmlpage)
+* [aspnet:JavaScript](#javascript)
+* [aspnet:JScript](#jscript)
+* [aspnet:JSON](#json)
+* [aspnet:PackageJson](#packagejson)
+* [aspnet:TextFile](#textfile)
+* [aspnet:TypeScript](#typescript)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
 
@@ -175,6 +175,151 @@ namespace MyNamespace
     }
 }
 ```
+
+### StartupClass
+
+Creates a new Startup Class file
+
+Example:
+
+```
+yo aspnet:StartupClass
+```
+
+Produces `Startup.cs`
+
+### BowerJson
+
+Creates a new Bower file
+
+Example:
+
+```
+yo aspnet:BowerJson
+```
+
+Produces `bower.json`
+
+### CoffeeScript
+
+Creates a new CoffeeScript file
+
+Example:
+
+```
+yo aspnet:CoffeeScript filename
+```
+
+Produces `filename.coffee`
+
+### Config
+
+Creates a new config.json file
+
+Example:
+
+```
+yo aspnet:Config
+```
+
+Produces `config.json`
+
+### Gulpfile
+
+Creates a new Gulp file
+
+Example:
+
+```
+yo aspnet:Gulpfile
+```
+
+Produces `gulpfile.js`
+
+### HTMLPage
+
+Creates a new HTML file
+
+Example:
+
+```
+yo aspnet:HTMLPage filename
+```
+
+Produces `filename.html`
+
+### JavaScript
+
+Creates a new JavaScript file
+
+Example:
+
+```
+yo aspnet:JavaScript filename
+```
+
+Produces `filename.js`
+
+### JScript
+
+Creates a new JavaScript file
+
+Example:
+
+```
+yo aspnet:JScript filename
+```
+
+Produces `filename.js`
+
+### JSON
+
+Creates a new JSON file
+
+Example:
+
+```
+yo aspnet:JSON filename
+```
+
+Produces `filename.json`
+
+### PackageJson
+
+Creates a new package.json file
+
+Example:
+
+```
+yo aspnet:PackageJson
+```
+
+Produces `package.json`
+
+### TextFile
+
+Creates a new Text file
+
+Example:
+
+```
+yo aspnet:TextFile filename
+```
+
+Produces `filename.txt`
+
+### TypeScript
+
+Creates a new TypeScript file
+
+Example:
+
+```
+yo aspnet:TypeScript filename
+```
+
+Produces `filename.ts`
+
 
 
 ## License
