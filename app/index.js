@@ -88,9 +88,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
     retrieveContent: function () {
         var done = this.async();
+        var self = this;
         this.remote('OmniSharp', 'generator-aspnet', 'release', function (err, remote) {
-                done();
-            }, true);
+            if(err) {
+                self.log.error(err);
+                process.exit(1);
+            }
+            done();
+        }, true);
     },
 
     writing: function () {
