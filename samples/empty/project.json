@@ -1,0 +1,21 @@
+{
+    "webroot": "wwwroot",
+    "version": "1.0.0-*",
+    "exclude": [
+        "wwwroot"
+    ],
+    "packExclude": [
+        "node_modules",
+        "bower_components",
+        "**.kproj",
+        "**.user",
+        "**.vspscc"
+    ],
+    "dependencies": {
+        "Microsoft.AspNet.Server.IIS": "1.0.0-beta2"
+    },
+    "frameworks": {
+        "aspnet50": {},
+        "aspnetcore50": {}
+    }
+}
