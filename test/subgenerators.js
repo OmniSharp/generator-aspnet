@@ -11,7 +11,7 @@ describe('Subgenerators without arguments tests', function () {
     });
 
     describe('aspnet:Gulpfile', function () {
-        util.goCreate('GulpFile');
+        util.goCreate('Gulpfile');
         util.fileCheck('should create gulp file', 'gulpfile.js');
     });
 
