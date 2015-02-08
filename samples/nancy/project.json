@@ -1,15 +1,14 @@
 {
     "dependencies": {
-        "Kestrel": "1.0.0-alpha4",
-        "Microsoft.AspNet.Owin": "1.0.0-alpha4",
-        "Nancy": "0.23.2"
+        "Kestrel": "1.0.0-beta1",
+        "Microsoft.AspNet.Owin": "1.0.0-beta4-10885",
+        "Nancy": "1.0.0"
     },
     "commands": {
         "kestrel": "Microsoft.AspNet.Hosting --server Kestrel"
     },
     "frameworks": {
-        "aspnet50": {
-            "System.Runtime": ""
-        }
+        "aspnet50": {},
+        "aspnetcore50": {}
     }
 }
