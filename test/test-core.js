@@ -18,25 +18,25 @@
   /*
    * yo aspnet Empty Application
    */
-  describe('aspnet - Empty Application', function () {
+  // describe('aspnet - Empty Application', function () {
 
-      util.goCreateApplication('empty', 'emptyTest');
-
-      describe('Checking directories', function () {
-          it('Application directory created', function () {
-              assert.file('emptyTest/');
-          });
-      });
-
-      var files = ['emptyTest/project.json', 'emptyTest/Startup.cs'];
-      describe('Checking files', function () {
-          for (i = 0; i < files.length; i++) {
-              util.filesCheck(files[i]);
-          }
-      });
-
-
-  });
+  //      util.goCreateApplication('empty', 'emptyTest');
+  //
+  //      describe('Checking directories', function () {
+  //          it('Application directory created', function () {
+  //              assert.file('emptyTest/');
+  //          });
+  //      });
+  //
+  //      var files = ['emptyTest/project.json', 'emptyTest/Startup.cs'];
+  //      describe('Checking files', function () {
+  //          for (i = 0; i < files.length; i++) {
+  //              util.filesCheck(files[i]);
+  //          }
+  //      });
+  //
+  //
+  //  });
 
   /*
    * yo aspnet Class Library
