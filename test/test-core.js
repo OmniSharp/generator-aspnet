@@ -123,7 +123,7 @@
       });
 
 
-      var files = ['webtest/project.json', 'webtest/Startup.cs'];
+      var files = ['webTest/project.json', 'webTest/Startup.cs'];
       describe('Checking files', function () {
           for (i = 0; i < files.length; i++) {
               util.filesCheck(files[i]);
