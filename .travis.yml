@@ -4,5 +4,6 @@ deploy:
     secure: aYfHC2cxnvtMKfe3K6ys2nAatEHHA2JG2wIU5WteURwM5kULt+rqZ9cjGFhBep2F/oq4ttJDmnkdn0UC/OzPZ47SEeSfelFAjpiSv7RECULIN2rnZ/y41SivX0H2PxilIWyj7RAd7A43+YNzvRoOy1i4vfNCAiu3tC+HX7TfgO4=
   email: sayed.hashimi@gmail.com
   provider: npm
+        - "2.1.16"
   on:
     branch: release
