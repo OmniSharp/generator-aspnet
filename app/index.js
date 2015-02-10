@@ -122,7 +122,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        //this.log(this.cacheRoot());
         if (!this.options['skip-install']) {
             this.log('\r\n');
             this.log('Your project is now created, you can use the following commands to get going');
