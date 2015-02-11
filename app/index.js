@@ -2,7 +2,7 @@
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
-
+var path = require('path');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
     init: function () {
@@ -17,6 +17,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             name: 'type',
             message: 'What type of application do you want to create?',
             choices: [
+                {
+                    name: 'Empty Application',
+                    value: 'empty'
+                },
                 {
                     name: 'Console Application',
                     value: 'console'
@@ -37,7 +41,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                     name: 'Class Library',
                     value: 'classlib'
                 },
-		{
+                {
                     name: 'Unit test project',
                     value: 'unittest'
                 }
@@ -55,6 +59,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         var done = this.async();
         var app = '';
         switch (this.type) {
+        case 'empty':
+            app = 'EmptyApplication';
+            break;
         case 'console':
             app = 'ConsoleApplication';
             break;
@@ -70,7 +77,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'classlib':
             app = 'ClassLibrary'
             break;
-	case 'unittest':
+        case 'unittest':
             app = 'UnitTest'
             break;
         }
@@ -78,7 +85,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             name: 'applicationName',
             message: 'What\'s the name of your ASP.NET application?',
             default: app
-        } ];
+        }];
         this.prompt(prompts, function (props) {
             this.applicationName = props.applicationName;
 
@@ -86,33 +93,28 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         }.bind(this));
     },
 
-    retrieveContent: function () {
-        var done = this.async();
-        this.remote('OmniSharp', 'generator-aspnet', 'release', function (err, remote) {
-                done();
-            }, true);
-    },
-
     writing: function () {
+        this.sourceRoot(path.join(__dirname, '../samples/'));
+
         this.mkdir(this.applicationName);
         switch (this.type) {
+
+        case 'empty':
+            this.template(this.type + '/startup.cs', this.applicationName + '/Startup.cs', {
+                namespace: this.applicationName
+            });
+
+            this.copy(this.type + '/project.json', this.applicationName + '/project.json');
+
+            break;
+
         case 'console':
-            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/release/samples/console', this.applicationName);
-            break;
         case 'web':
-            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/release/samples/web', this.applicationName);
-            break;
         case 'mvc':
-            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/release/samples/mvc', this.applicationName);
-            break;
         case 'nancy':
-            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/release/samples/nancy', this.applicationName);
-            break;
         case 'classlib':
-            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/release/samples/classlib', this.applicationName);
-            break;
-	case 'unittest':
-            this.directory(this.cacheRoot() + '/OmniSharp/generator-aspnet/release/samples/unittest', this.applicationName);
+        case 'unittest':
+            this.directory(this.type, this.applicationName);
             break;
         default:
             this.log('Unknown project type');
@@ -120,7 +122,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        this.log(this.cacheRoot());
         if (!this.options['skip-install']) {
             this.log('\r\n');
             this.log('Your project is now created, you can use the following commands to get going');
@@ -131,6 +132,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.log('\r\n');
         }
     }
+
+
 });
 
 module.exports = AspnetGenerator;
