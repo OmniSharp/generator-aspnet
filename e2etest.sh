@@ -15,6 +15,7 @@ source kvm.sh
 
 echo 'installing kvm beta2'
 kvm install 1.0.0-beta2 -p
+kvm list
 
 if [ -d $TESTDIR ]
 then
@@ -93,40 +94,4 @@ pushd MvcApplication
 kpm restore
 kpm build
 popd
-
-<<COMMENT1
-pushd $TESTDIR/samples/console
-echo '>>> Running restore/build/run for [$TESTDIR/samples/console]'
-kpm restore
-kpm build
-
-echo '>>> Running k run, press ENTER to quit' 
-k run
-popd
-
-pushd $TESTDIR/samples/empty
-echo '>>> Running restore/build for [$TESTDIR/samples/empty]'
-kpm restore
-kpm build
-popd
-
-pushd $TESTDIR/mvc
-echo '>>> Running restore/build/kestrel for [$TESTDIR/samples/mvc]'
-kpm restore
-kpm build
-
-echo '>>> Running k kestrel, press Q then ENTER to quit' 
-k kestrel
-popd
-COMMENT1
-
-#pushd
-
-
-
-#cd ~
-#ls -l -a
-
-#popd
-
 
