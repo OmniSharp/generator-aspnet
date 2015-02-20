@@ -1,6 +1,8 @@
 # generator-aspnet
 
 [![Build Status](https://travis-ci.org/OmniSharp/generator-aspnet.svg?branch=master)](https://travis-ci.org/OmniSharp/generator-aspnet)
+![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
+![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
 
 Yeoman generator for ASP.NET vNext projects
 
