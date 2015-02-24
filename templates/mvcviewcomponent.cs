@@ -4,9 +4,9 @@ namespace <%= namespace %>
 {
     public class <%= classname %> : ViewComponent
     {
-		public IViewComponentResult Invoke()
-		{
-			return View();
-		}
+        public IViewComponentResult Invoke()
+        {
+            return View();
+        }
     }
 }
