@@ -8,7 +8,6 @@
         "kestrel": "Microsoft.AspNet.Hosting --server Kestrel"
     },
     "frameworks": {
-        "aspnet50": {},
-        "aspnetcore50": {}
+        "aspnet50": {}
     }
 }
