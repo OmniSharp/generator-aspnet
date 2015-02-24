@@ -1,8 +1,0 @@
-Description:
-	Creates a new MvcViewComponent
-
-Example:
-	yo aspnet:MvcViewComponent filename
-
-	This will create:
-		filename.cs
