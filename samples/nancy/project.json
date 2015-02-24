@@ -1,8 +1,8 @@
 {
     "dependencies": {
-        "Kestrel": "1.0.0-alpha4",
-        "Microsoft.AspNet.Owin": "1.0.0-alpha4",
-        "Nancy": "1.0.0"
+        "Kestrel": "1.0.0-beta3",
+        "Microsoft.AspNet.Owin": "1.0.0-beta3",
+        "Nancy": "1.1.0"
     },
     "commands": {
         "kestrel": "Microsoft.AspNet.Hosting --server Kestrel"
