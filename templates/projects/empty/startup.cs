@@ -14,6 +14,8 @@ namespace <%= namespace %>
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseStaticFiles();
+            app.UseWelcomePage();
         }
     }
 }

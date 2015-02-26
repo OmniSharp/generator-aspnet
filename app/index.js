@@ -110,6 +110,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
             this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
+            /// wwwroot
+            this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
+
             break;
 
         case 'webapi':
@@ -130,6 +133,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             });
 
             this.template(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml');
+
+            /// wwwroot
+            this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
 
             break;
 

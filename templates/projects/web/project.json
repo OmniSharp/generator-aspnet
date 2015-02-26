@@ -18,8 +18,8 @@
         "Microsoft.Framework.CodeGenerators.Mvc": "1.0.0-beta3",
         "Microsoft.Framework.Logging": "1.0.0-beta3",
         "Microsoft.Framework.Logging.Console": "1.0.0-beta3",
-        /* Modifications for Mono Support*/
         "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3",
+        /* Modifications for Mono Support*/
         "EntityFramework.InMemory": "7.0.0-beta3",
         "Kestrel": "1.0.0-beta3"
     },
