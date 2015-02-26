@@ -30,9 +30,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                     value: 'web'
                 },
                 {
-                    name: 'MVC Application',
-                    value: 'mvc'
+                    name: 'Web API Application',
+                    value: 'webapi'
                 },
+
                 {
                     name: 'Nancy ASP.NET Application',
                     value: 'nancy'
@@ -68,8 +69,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'web':
             app = 'WebApplication';
             break;
-        case 'mvc':
-            app = 'MvcApplication';
+        case 'webapi':
+            app = 'WebAPIApplication';
             break;
         case 'nancy':
             app = 'NancyApplication'
@@ -100,17 +101,142 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         switch (this.type) {
 
         case 'empty':
-            this.template(this.type + '/startup.cs', this.applicationName + '/Startup.cs', {
+
+            this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+
+            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', {
                 namespace: this.applicationName
             });
 
-            this.copy(this.type + '/project.json', this.applicationName + '/project.json');
+            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
             break;
 
-        case 'console':
+        case 'webapi':
+            this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+
+            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', {
+                namespace: this.applicationName
+            });
+
+            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+
+            this.template(this.sourceRoot() + '/controllers_home.cs', this.applicationName + '/Controllers/HomeController.cs', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/controllers_values.cs', this.applicationName + '/Controllers/ValuesController.cs', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml');
+
+            break;
+
         case 'web':
-        case 'mvc':
+            this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+
+            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', {
+                namespace: this.applicationName
+            });
+
+            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+
+            this.template(this.sourceRoot() + '/package.json', this.applicationName + '/package.json', {
+                applicationname: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/bower.json', this.applicationName + '/bower.json', {
+                applicationname: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/config.json', this.applicationName + '/config.json', {
+                namespace: this.applicationName
+            });
+
+            this.copy(this.sourceRoot() + '/gruntfile.js', this.applicationName + '/gruntfile.js');
+
+            // models
+            this.template(this.sourceRoot() + '/models_accountview.cs', this.applicationName + '/Models/AccountViewModels.cs', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/models_identity.cs', this.applicationName + '/Models/IdentityModels.cs', {
+                namespace: this.applicationName
+            });
+
+            // controllers
+            this.template(this.sourceRoot() + '/controllers_account.cs', this.applicationName + '/Controllers/AccountController.cs', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/controllers_home.cs', this.applicationName + '/Controllers/HomeController.cs', {
+                namespace: this.applicationName
+            });
+
+            // compiler
+            this.template(this.sourceRoot() + '/compiler_preprocess_razorprecompilation.cs', this.applicationName + '/Compiler/Preprocess/RazorPreCompilation.cs', {
+                namespace: this.applicationName
+            });
+
+            //migrations
+            this.template(this.sourceRoot() + '/migrations_000000000000000_createidentityschema.cs', this.applicationName + '/Migrations/000000000000000_CreateIdentitySchema.cs', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/migrations_applicationdbcontextmodelsnapshot.cs', this.applicationName + '/Migrations/ApplicationDbContextModelSnapshot.cs', {
+                namespace: this.applicationName
+            });
+
+            // views
+            this.template(this.sourceRoot() + '/views_home_contact.cshtml', this.applicationName + '/Views/Home/Contact.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_home_about.cshtml', this.applicationName + '/Views/Home/About.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_account_login.cshtml', this.applicationName + '/Views/Account/Login.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_account_manage.cshtml', this.applicationName + '/Views/Account/Manage.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_account_register.cshtml', this.applicationName + '/Views/Account/Register.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_account_changepasswordpartial.cshtml', this.applicationName + '/Views/Account/_ChangePasswordPartial.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_shared_error.cshtml', this.applicationName + '/Views/Shared/Error.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_shared_layout.cshtml', this.applicationName + '/Views/Shared/_Layout.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_shared_loginpartial.cshtml', this.applicationName + '/Views/Shared/_LoginPartial.cshtml', {
+                namespace: this.applicationName
+            });
+
+            this.template(this.sourceRoot() + '/views_viewstart.cshtml', this.applicationName + '/Views/_ViewStart.cshtml', {
+                namespace: this.applicationName
+            });
+
+            /// wwwroot
+            this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
+
+        case 'console':
         case 'nancy':
         case 'classlib':
         case 'unittest':

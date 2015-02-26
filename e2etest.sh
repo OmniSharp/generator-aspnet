@@ -70,6 +70,17 @@ kpm build
 # k kestrel
 popd
 
+echo '>>> Create a default Web API app'
+yo aspnet
+pushd WebAPIApplication
+kpm restore
+kpm build
+
+# TODO: When running kestrel users cannot enter input so kestrel cannot be stopped
+# echo '>>> Running k run, press Q then ENTER to quit'
+# k kestrel
+popd
+
 echo '>>> Create a default Nancy app'
 yo aspnet
 pushd NancyApplication
