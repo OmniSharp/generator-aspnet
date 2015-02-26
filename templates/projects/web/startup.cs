@@ -65,8 +65,7 @@ namespace <%= namespace %>
             // Add the following to the request pipeline only in development environment.
             if (string.Equals(env.EnvironmentName, "Development", StringComparison.OrdinalIgnoreCase))
             {
-                // removed for no Visual Studio IDE, use 'kmon' nuget package for similar functionality
-                //app.UseBrowserLink();
+                app.UseBrowserLink();
                 app.UseErrorPage(ErrorPageOptions.ShowAll);
                 app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
             }
