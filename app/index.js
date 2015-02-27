@@ -245,7 +245,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'unittest':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-            this.template(this.sourceRoot() + '/SampleTest.cs', this.applicationName + '/SampleTest.cs', {
+            this.template(this.sourceRoot() + '/sampletest.cs', this.applicationName + '/SampleTest.cs', {
                 namespace: this.applicationName
             });
 
