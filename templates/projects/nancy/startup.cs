@@ -1,4 +1,4 @@
-namespace WebApplication1
+namespace <%= namespace %>
 {
     using Microsoft.AspNet.Builder;
     using Nancy.Owin;
