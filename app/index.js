@@ -33,11 +33,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                     name: 'Web API Application',
                     value: 'webapi'
                 },
-
-//                {
-//                    name: 'Nancy ASP.NET Application',
-//                    value: 'nancy'
-//                },
+                {
+                    name: 'Nancy ASP.NET Application',
+                    value: 'nancy'
+                },
                 {
                     name: 'Class Library',
                     value: 'classlib'
@@ -241,9 +240,21 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
             /// wwwroot
             this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
-
-        case 'console':
+            break;
         case 'nancy':
+            this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+
+            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', {
+                namespace: this.applicationName
+            });
+
+            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+
+            this.template(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs', {
+            	namespace: this.applicationName
+            });
+            break;
+        case 'console':
         case 'classlib':
         case 'unittest':
             this.directory(this.type, this.applicationName);
