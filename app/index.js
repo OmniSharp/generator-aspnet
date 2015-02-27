@@ -34,18 +34,18 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                     value: 'webapi'
                 },
 
-                {
-                    name: 'Nancy ASP.NET Application',
-                    value: 'nancy'
-                },
+//                {
+//                    name: 'Nancy ASP.NET Application',
+//                    value: 'nancy'
+//                },
                 {
                     name: 'Class Library',
                     value: 'classlib'
                 },
-                {
-                    name: 'Unit test project',
-                    value: 'unittest'
-                }
+//                {
+//                    name: 'Unit test project',
+//                    value: 'unittest'
+//                }
             ]
         }];
 

@@ -13,8 +13,8 @@ echo 'Deleting packages folder at ~/.kpm/packages/'
 rm -r -f ~/.kpm/packages/
 source kvm.sh
 
-echo 'installing kvm beta2'
-kvm install 1.0.0-beta2 -p
+echo 'installing kvm beta3'
+kvm install 1.0.0-beta3 -p
 kvm list
 
 if [ -d $TESTDIR ]
@@ -59,16 +59,17 @@ kpm build
 # k kestrel
 popd
 
-echo '>>> Create a default MVC app'
-yo aspnet
-pushd MvcApplication
-kpm restore
-kpm build
+# TODO: Replace with Web API Test
+#echo '>>> Create a default MVC app'
+#yo aspnet
+#pushd MvcApplication
+#kpm restore
+#kpm build
 
 # TODO: When running kestrel users cannot enter input so kestrel cannot be stopped
 # echo '>>> Running k run, press Q then ENTER to quit'
 # k kestrel
-popd
+#popd
 
 echo '>>> Create a default Web API app'
 yo aspnet
@@ -81,16 +82,16 @@ kpm build
 # k kestrel
 popd
 
-echo '>>> Create a default Nancy app'
-yo aspnet
-pushd NancyApplication
-kpm restore
-kpm build
+#echo '>>> Create a default Nancy app'
+#yo aspnet
+#pushd NancyApplication
+#kpm restore
+#kpm build
 
 # TODO: When running kestrel users cannot enter input so kestrel cannot be stopped
 # echo '>>> Running k run, press Q then ENTER to quit'
 # k kestrel
-popd
+#popd
 
 echo '>>> Create a default Class library project'
 yo aspnet
@@ -99,10 +100,10 @@ kpm restore
 kpm build
 popd
 
-echo '>>> Create a default Unit test project'
-yo aspnet
-pushd MvcApplication
-kpm restore
-kpm build
-popd
+#echo '>>> Create a default Unit test project'
+#yo aspnet
+#pushd UnitTest
+#kpm restore
+#kpm build
+#popd
 
