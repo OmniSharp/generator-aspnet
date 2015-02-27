@@ -1,0 +1,33 @@
+{
+    /* Click to learn more about project.json  http://go.microsoft.com/fwlink/?LinkID=517074 */
+    "webroot": "wwwroot",
+    "version": "1.0.0-*",
+    "dependencies": {
+	    "Microsoft.AspNet.Server.IIS": "1.0.0-beta3",
+	    "Microsoft.AspNet.Mvc": "6.0.0-beta3",
+        "Microsoft.AspNet.StaticFiles": "1.0.0-beta3",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta3",
+        "Kestrel": "1.0.0-beta3"
+    },
+    "commands": {
+        /* Change the port number when you are self hosting this application */
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001",
+        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
+    },
+    "frameworks": {
+        "aspnet50": { },
+        "aspnetcore50": { }
+    },
+    "exclude": [
+        "wwwroot",
+        "node_modules",
+        "bower_components"
+    ],
+    "bundleExclude": [
+        "node_modules",
+        "bower_components",
+        "**.kproj",
+        "**.user",
+        "**.vspscc"
+    ]
+}
