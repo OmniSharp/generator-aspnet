@@ -1,12 +1,10 @@
 {
-    /* Click to learn more about project.json  http://go.microsoft.com/fwlink/?LinkID=517074 */
     "webroot": "wwwroot",
     "version": "1.0.0-*",
     "dependencies": {
         "EntityFramework.SqlServer": "7.0.0-beta3",
         "EntityFramework.Commands": "7.0.0-beta3",
         "Microsoft.AspNet.Mvc": "6.0.0-beta3",
-        /* "Microsoft.AspNet.Mvc.WebApiCompatShim": "6.0.0-beta3", */
         "Microsoft.AspNet.Diagnostics": "1.0.0-beta3",
         "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta3",
         "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-beta3",
@@ -19,12 +17,10 @@
         "Microsoft.Framework.Logging": "1.0.0-beta3",
         "Microsoft.Framework.Logging.Console": "1.0.0-beta3",
         "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3",
-        /* Modifications for Mono Support*/
         "EntityFramework.InMemory": "7.0.0-beta3",
         "Kestrel": "1.0.0-beta3"
     },
     "commands": {
-        /* Change the port number when you are self hosting this application */
         "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001",
         "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004",
         "gen": "Microsoft.Framework.CodeGeneration",
