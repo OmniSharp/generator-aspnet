@@ -105,6 +105,52 @@
   });
 
   /*
+   * yo aspnet Web Application - Gulp option
+   */
+  describe('aspnet - Web Application w/gulp', function () {
+
+      util.goCreateApplicationWithOptions('web', 'gulpTest', {
+          gulp: 'gulp'
+      });
+
+      describe('Checking directories', function () {
+          it('Application directory created', function () {
+              assert.file('gulpTest/');
+          });
+
+          it('gulp file created', function () {
+              assert.file('gulpTest/gulpfile.js');
+          });
+
+          it('gruntfile does NOT exist', function () {
+              assert.noFile('gulpTest/gruntFile.js');
+          });
+      });
+  });
+
+  /*
+   * yo aspnet Web Application - No Gulp option
+   */
+  describe('aspnet - Web Application w/o gulp', function () {
+
+      util.goCreateApplication('web', 'gruntTest');
+
+      describe('Checking directories', function () {
+          it('Application directory created', function () {
+              assert.file('gruntTest/');
+          });
+
+          it('grunt file created', function () {
+              assert.file('gruntTest/gruntfile.js');
+          });
+
+          it('gulp file does NOT exist', function () {
+              assert.noFile('gruntTest/gulpFile.js');
+          });
+      });
+  });
+
+  /*
    * yo aspnet Web Application
    */
   describe('aspnet - Web Application', function () {
