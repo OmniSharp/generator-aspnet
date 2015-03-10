@@ -5,6 +5,13 @@ var chalk = require('chalk');
 var path = require('path');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
+    constructor: function () {
+        yeoman.generators.Base.apply(this, arguments);
+        // only implemented for web template
+        this.option('gulp');
+    },
+
+
     init: function () {
         this.log(yosay('Welcome to the marvellous ASP.NET 5 generator!'));
     },
@@ -145,12 +152,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 namespace: this.applicationName
             });
 
-            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
-
-            this.template(this.sourceRoot() + '/package.json', this.applicationName + '/package.json', {
-                applicationname: this.applicationName
-            });
-
             this.template(this.sourceRoot() + '/bower.json', this.applicationName + '/bower.json', {
                 applicationname: this.applicationName
             });
@@ -159,7 +160,25 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 namespace: this.applicationName
             });
 
-            this.copy(this.sourceRoot() + '/gruntfile.js', this.applicationName + '/gruntfile.js');
+            if (this.options.gulp) {
+                this.copy(this.sourceRoot() + '/_gulp_project.json', this.applicationName + '/project.json');
+
+                this.template(this.sourceRoot() + '/_gulp_package.json', this.applicationName + '/package.json', {
+                    applicationname: this.applicationName
+                });
+
+                this.copy(this.sourceRoot() + '/_gulpfile.js', this.applicationName + '/gulpfile.js');
+
+            } else {
+
+                this.copy(this.sourceRoot() + '/_grunt_project.json', this.applicationName + '/project.json');
+
+                this.template(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json', {
+                    applicationname: this.applicationName
+                });
+
+                this.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
+            }
 
             // models
             this.template(this.sourceRoot() + '/models_accountview.cs', this.applicationName + '/Models/AccountViewModels.cs', {
@@ -251,7 +270,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
             this.template(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs', {
-            	namespace: this.applicationName
+                namespace: this.applicationName
             });
             break;
         case 'console':

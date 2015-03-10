@@ -29,6 +29,8 @@ var util = (function () {
         });
     };
 
+
+
     function goCreateApplication(type, applicationName) {
         before(function (done) {
 
@@ -44,6 +46,27 @@ var util = (function () {
 
             .inDir(path.join(__dirname, './.tmp'))
                 .withPrompt(mockPrompt)
+                .on('end', done);
+        });
+
+    };
+
+    function goCreateApplicationWithOptions(type, applicationName, options) {
+        before(function (done) {
+
+            assert = yeoman.assert;
+            mockGen = yeoman.test;
+
+            var mockPrompt = {
+                type: type,
+                applicationName: applicationName
+            };
+
+            mockGen.run(path.join(__dirname, '../app'))
+
+            .inDir(path.join(__dirname, './.tmp'))
+                .withPrompt(mockPrompt)
+                .withOptions(options)
                 .on('end', done);
         });
 
@@ -96,6 +119,7 @@ var util = (function () {
 
     var methods = {
         goCreateApplication: goCreateApplication,
+        goCreateApplicationWithOptions: goCreateApplicationWithOptions,
         goCreate: goCreate,
         goCreateWithArgs: goCreateWithArgs,
         fileCheck: fileCheck,

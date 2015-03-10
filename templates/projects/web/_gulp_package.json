@@ -1,0 +1,13 @@
+{
+    "version": "0.0.0",
+    "name": "<%= applicationname %>",
+    "scripts": {
+        "init": "npm install",
+        "install": "gulp bower:install"
+    },
+    "devDependencies": {
+        "del": "^1.1.1",
+        "gulp": "^3.8.10",
+        "gulp-bower": "0.0.10"
+    }
+}
