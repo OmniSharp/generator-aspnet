@@ -6,7 +6,7 @@
 
 Yeoman generator for ASP.NET vNext projects
 
-![](http://giant.gfycat.com/CreepyCandidBichonfrise.gif)
+![](https://cloud.githubusercontent.com/assets/14539/6697962/a57211ac-ccf4-11e4-97d9-7ed16bb16d37.gif)
 
 ## Getting Started
 
@@ -17,7 +17,10 @@ Yeoman generator for ASP.NET vNext projects
 
 * `yo aspnet` shows a wizard for generating a new ASP.NET app
 
+* `yo aspnet --gulp` generates gulp.js files for **web** template instead of grunt.js
+
 * `yo aspnet --help` shows flags and other configurable options
+
 
 ## Generators
 
