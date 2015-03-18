@@ -284,15 +284,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        if (!this.options['skip-install']) {
-            this.log('\r\n');
-            this.log('Your project is now created, you can use the following commands to get going');
-            this.log(chalk.green('    kpm restore'));
-            this.log(chalk.green('    kpm build'));
-            this.log(chalk.green('    k run') + ' for console projects');
-            this.log(chalk.green('    k kestrel') + ' or ' + chalk.green('k web') + ' for web projects');
-            this.log('\r\n');
-        }
+        this.log('\r\n');
+        this.log('Your project is now created, you can use the following commands to get going');
+        this.log(chalk.green('    kpm restore'));
+        this.log(chalk.green('    kpm build'));
+        this.log(chalk.green('    k run') + ' for console projects');
+        this.log(chalk.green('    k kestrel') + ' or ' + chalk.green('k web') + ' for web projects');
+        this.log('\r\n');
+
     }
 
 
