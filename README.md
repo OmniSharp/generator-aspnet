@@ -4,7 +4,7 @@
 
 Yeoman generator for ASP.NET vNext projects
 
-![](http://giant.gfycat.com/CreepyCandidBichonfrise.gif)
+![](https://cloud.githubusercontent.com/assets/14539/6697962/a57211ac-ccf4-11e4-97d9-7ed16bb16d37.gif)
 
 ## Getting Started
 
