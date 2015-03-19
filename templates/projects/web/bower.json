@@ -1,32 +1,21 @@
 {
-    "name": "<%= applicationname %>",
-    "private": true,
-    "dependencies": {
-        "bootstrap": "3.0.0",
-        "jquery": "1.10.2",
-        "jquery-validation": "1.11.1",
-        "jquery-validation-unobtrusive": "3.2.2",
-        "hammer.js": "2.0.4",
-        "bootstrap-touch-carousel": "0.8.0"
-    },
+  "name": "zf5_project",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation"<% if (fontAwesome) { %>,
+    "font-awesome": "~4.3.0" <% } %>, 
+    "hammer.js": "2.0.4"
+  },
     "exportsOverride": {
-        "bootstrap": {
-            "js": "dist/js/*.*",
-            "css": "dist/css/*.*",
-            "fonts": "dist/fonts/*.*"
-        },
-        "bootstrap-touch-carousel": {
-            "js": "dist/js/*.*",
-            "css": "dist/css/*.*"
+        "foundation": {
+            "css": "css/*.*",
+            "js-foundation": "js/foundation/*.*",
+            "js-vendor": "js/vendor/*.*"
         },
         "jquery": {
-            "": "jquery.{js,min.js,min.map}"
+            "dist": "dist/jquery.js"
         },
-        "jquery-validation": {
-            "": "jquery.validate.js"
-        },
-        "jquery-validation-unobtrusive": {
-            "": "jquery.validate.unobtrusive.{js,min.js}"
+        "fastclick": {
+            "lib":  "lib/*.*"
         },
         "hammer": {
             "": "hammer.{js,min.js}"
