@@ -349,10 +349,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         }.bind(this));
     },
 
-    template: function () {
+    app: function () {
         this.mkdir('dist');
         this.mkdir('app');
-        this.template('bower.json', 'bower.json');
+        this.template('bower.json', '../../bower.json');
         this.template('package.json', 'package.json');
         this.template('Gruntfile.js', 'Gruntfile.js');
         this.copy('.jshintrc', '.jshintrc');
