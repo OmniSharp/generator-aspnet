@@ -1,0 +1,5 @@
+/* all app scss styles here */
+<% if (compass) { %>
+@import "compass/css3";
+@import "compass/utilities";
+<% } %>

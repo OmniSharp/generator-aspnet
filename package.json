@@ -1,5 +1,5 @@
 {
-  "name": "generator-aspnet",
+  "name": "generator-aspnet-f5",
   "version": "0.0.31",
   "description": "Yeoman generator for ASP.NET 5 apps",
   "license": "Apache License 2.0",
