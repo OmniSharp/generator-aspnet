@@ -375,7 +375,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.mkdir('app/scss');
         this.copy('../../templates/projects/web/scss/app.scss', 'app/scss/app.scss');
         this.copy('../../templates/projects/web/scss/_settings.scss', 'app/scss/_settings.scss');
-        this.template('scss/_appstyles.scss', 'app/scss/_appstyles.scss');
+        this.template('../../templates/projects/web/scss/_appstyles.scss', 'app/scss/_appstyles.scss');
         this.copy('../../templates/projects/web/js/app.js', 'app/js/app.js');
         this.copy('../../templates/projects/web/css/template_override.css', 'app/css/app_override.css');
     },
