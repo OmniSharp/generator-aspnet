@@ -357,8 +357,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.template('../../templates/projects/web/_gruntfile.js', 'Gruntfile.js');
         this.copy('../../templates/projects/web/.jshintrc', '.jshintrc');
         this.copy('../../templates/projects/web/.bowerrc', '.bowerrc');
-        this.copy('../../templates/projects/web/gitignore', '.gitignore');
-        this.copy('../../templates/projects/web/README.md', 'README.md');
+        //this.copy('../../templates/projects/web/gitignore', '.gitignore');
+        //this.copy('../../templates/projects/web/README.md', 'README.md');
         if (this.jade) {
             this.template('../../templates/projects/web/jade/index.jade', 'app/index.jade');
             this.template('../../templates/projects/web/jade/header.jade', 'app/header.jade');
