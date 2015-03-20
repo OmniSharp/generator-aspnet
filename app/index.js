@@ -352,21 +352,21 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     app: function () {
         this.mkdir('dist');
         this.mkdir('app');
-        this.template('templates/projects/web/bower.json', 'bower.json');
-        this.template('package.json', 'package.json');
-        this.template('Gruntfile.js', 'Gruntfile.js');
-        this.copy('.jshintrc', '.jshintrc');
-        this.copy('.bowerrc', '.bowerrc');
-        this.copy('gitignore', '.gitignore');
-        this.copy('README.md', 'README.md');
+        this.template('../../templates/projects/web/bower.json', 'bower.json');
+        this.template('../../templates/projects/web/package.json', 'package.json');
+        this.template('../../templates/projects/web/Gruntfile.js', 'Gruntfile.js');
+        this.copy('../../templates/projects/web/.jshintrc', '.jshintrc');
+        this.copy('../../templates/projects/web/.bowerrc', '.bowerrc');
+        this.copy('../../templates/projects/web/gitignore', '.gitignore');
+        this.copy('../../templates/projects/web/README.md', 'README.md');
         if (this.jade) {
-            this.template('jade/index.jade', 'app/index.jade');
-            this.template('jade/header.jade', 'app/header.jade');
-            this.copy('jade/footer.jade', 'app/footer.jade');
+            this.template('../../templates/projects/web/jade/index.jade', 'app/index.jade');
+            this.template('../../templates/projects/web/jade/header.jade', 'app/header.jade');
+            this.copy('../../templates/projects/web/jade/footer.jade', 'app/footer.jade');
         } else {
-            this.template('index.html', 'app/index.html');
-            this.template('index.cshtml', 'app/index.cshtml');
-            this.template('_layout.cshtml', 'app/_Layout.cshtml');
+            this.template('../../templates/projects/web/index.html', 'app/index.html');
+            this.template('../../templates/projects/web/index.cshtml', 'app/index.cshtml');
+            this.template('../../templates/projects/web/_layout.cshtml', 'app/_Layout.cshtml');
         }
         this.mkdir('app/fonts');
         this.mkdir('app/images');
