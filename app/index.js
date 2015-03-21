@@ -309,7 +309,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.template('../../templates/projects/web/jade/header.jade', 'app/header.jade', this.templatedata);
             this.copy('../../templates/projects/web/jade/footer.jade', 'app/footer.jade', this.templatedata);
         } else {
-            this.template('../../templates/projects/web/index.html', '../../templates/projects/web/index.html', this.templatedata);
+            this.template('../../templates/projects/web/index.html', '/app/index.html', this.templatedata);
             this.template('../../templates/projects/web/index.cshtml', 'app/index.cshtml', this.templatedata);
             this.template('../../templates/projects/web/_Layout.cshtml', 'app/_Layout.cshtml', this.templatedata);
         }
@@ -318,7 +318,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.mkdir(this.applicationName + '/app/js');
         this.mkdir(this.applicationName + '/app/css');
         this.mkdir(this.applicationName + '/app/scss');
-        this.copy('../../templates/projects/web/scss/app.scss', '../../templates/projects/web/scss/app.scss');
+        this.copy('../../templates/projects/web/scss/app.scss', 'app/scss/app.scss');
         this.copy('../../templates/projects/web/scss/_settings.scss', 'app/scss/_settings.scss');
         this.template('../../templates/projects/web/scss/_appstyles.scss', 'app/scss/_appstyles.scss', this.templatedata);
         this.copy('../../templates/projects/web/js/app.js', 'app/js/app.js');
