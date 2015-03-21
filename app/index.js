@@ -300,8 +300,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         //this.template('../../templates/projects/web/bower.json', 'bower.json');
         //this.template('../../templates/projects/web/_grunt_package.json', 'package.json');
         //this.template('../../templates/projects/web/_gruntfile.js', 'Gruntfile.js');
-        //this.copy('../../templates/projects/web/.jshintrc', '.jshintrc');
-        //this.copy('../../templates/projects/web/.bowerrc', '.bowerrc');
+        this.copy('../../templates/projects/web/.jshintrc', '.jshintrc');
+        this.copy('../../templates/projects/web/.bowerrc', '.bowerrc');
         //this.copy('../../templates/projects/web/gitignore', '.gitignore');
         //this.copy('../../templates/projects/web/README.md', 'README.md');
         if (this.templatedata.jade) {
