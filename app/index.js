@@ -300,8 +300,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         //this.template('../../templates/projects/web/bower.json', 'bower.json');
         //this.template('../../templates/projects/web/_grunt_package.json', 'package.json');
         //this.template('../../templates/projects/web/_gruntfile.js', 'Gruntfile.js');
-        this.copy('../../templates/projects/web/.jshintrc', '.jshintrc');
-        this.copy('../../templates/projects/web/.bowerrc', '.bowerrc');
+        this.copy('../../templates/projects/web/.jshintrc', this.applicationName + '/.jshintrc');
+        this.copy('../../templates/projects/web/.bowerrc', this.applicationName + '/.bowerrc');
         //this.copy('../../templates/projects/web/gitignore', '.gitignore');
         //this.copy('../../templates/projects/web/README.md', 'README.md');
         if (this.templatedata.jade) {
@@ -318,11 +318,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.mkdir(this.applicationName + '/app/js');
         this.mkdir(this.applicationName + '/app/css');
         this.mkdir(this.applicationName + '/app/scss');
-        this.copy('../../templates/projects/web/scss/app.scss', 'app/scss/app.scss');
-        this.copy('../../templates/projects/web/scss/_settings.scss', 'app/scss/_settings.scss');
+        this.copy('../../templates/projects/web/scss/app.scss', this.applicationName + '/app/scss/app.scss');
+        this.copy('../../templates/projects/web/scss/_settings.scss', this.applicationName + '/app/scss/_settings.scss');
         this.template('../../templates/projects/web/scss/_appstyles.scss', 'app/scss/_appstyles.scss', this.templatedata);
-        this.copy('../../templates/projects/web/js/app.js', 'app/js/app.js');
-        this.copy('../../templates/projects/web/css/template_override.css', 'app/css/app_override.css');
+        this.copy('../../templates/projects/web/js/app.js', this.applicationName + '/app/js/app.js');
+        this.copy('../../templates/projects/web/css/template_override.css', this.applicationName + '/app/css/app_override.css');
     },
 
     end: function () {
