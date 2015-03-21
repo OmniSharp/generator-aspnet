@@ -305,13 +305,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         //this.copy('../../templates/projects/web/gitignore', '.gitignore');
         //this.copy('../../templates/projects/web/README.md', 'README.md');
         if (this.templatedata.jade) {
-            this.template('../../templates/projects/web/jade/index.jade', 'app/index.jade', this.templatedata);
-            this.template('../../templates/projects/web/jade/header.jade', 'app/header.jade', this.templatedata);
-            this.copy('../../templates/projects/web/jade/footer.jade', 'app/footer.jade', this.templatedata);
+            this.template('../../templates/projects/web/jade/index.jade', this.applicationName + '/app/index.jade', this.templatedata);
+            this.template('../../templates/projects/web/jade/header.jade', this.applicationName + '/app/header.jade', this.templatedata);
+            this.copy('../../templates/projects/web/jade/footer.jade', this.applicationName + '/app/footer.jade', this.templatedata);
         } else {
-            this.template('../../templates/projects/web/index.html', '/app/index.html', this.templatedata);
-            this.template('../../templates/projects/web/index.cshtml', 'app/index.cshtml', this.templatedata);
-            this.template('../../templates/projects/web/_Layout.cshtml', 'app/_Layout.cshtml', this.templatedata);
+            this.template('../../templates/projects/web/index.html', this.applicationName + '/app/index.html', this.templatedata);
+            this.template('../../templates/projects/web/index.cshtml', this.applicationName + '/app/index.cshtml', this.templatedata);
+            this.template('../../templates/projects/web/_Layout.cshtml', this.applicationName + '/app/_Layout.cshtml', this.templatedata);
         }
         this.mkdir(this.applicationName + '/app/fonts');
         this.mkdir(this.applicationName + '/app/images');
@@ -320,7 +320,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.mkdir(this.applicationName + '/app/scss');
         this.copy('../../templates/projects/web/scss/app.scss', this.applicationName + '/app/scss/app.scss');
         this.copy('../../templates/projects/web/scss/_settings.scss', this.applicationName + '/app/scss/_settings.scss');
-        this.template('../../templates/projects/web/scss/_appstyles.scss', 'app/scss/_appstyles.scss', this.templatedata);
+        this.template('../../templates/projects/web/scss/_appstyles.scss', this.applicationName + '/app/scss/_appstyles.scss', this.templatedata);
         this.copy('../../templates/projects/web/js/app.js', this.applicationName + '/app/js/app.js');
         this.copy('../../templates/projects/web/css/template_override.css', this.applicationName + '/app/css/app_override.css');
     },
