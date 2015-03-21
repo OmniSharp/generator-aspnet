@@ -104,7 +104,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             default: app
         }];
         this.prompt(prompts, function (props) {
-            this.templatedata.namespace= props.applicationName;
+            this.templatedata.namespace = props.applicationName;
+            this.templatedata.applicationname = props.applicationName;
             this.applicationName = props.applicationName;
 
             done();
