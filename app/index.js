@@ -366,7 +366,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         } else {
             this.template('../../templates/projects/web/index.html', 'app/index.html');
             this.template('../../templates/projects/web/index.cshtml', 'app/index.cshtml');
-            this.template('../../templates/projects/web/_layout.cshtml', 'app/_Layout.cshtml');
+            this.template('../../templates/projects/web/_Layout.cshtml', 'app/_Layout.cshtml');
         }
         this.mkdir(this.applicationName + '/app/fonts');
         this.mkdir(this.applicationName + '/app/images');
