@@ -104,124 +104,110 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     writing: function () {
-        this.sourceRoot(path.join(__dirname, '../samples/'));
 
         this.mkdir(this.applicationName);
+        var tpl = function(src, dest) {
+                this.template(
+                    src,
+                    path.join(this.applicationName, dest),
+                    this.templatedata
+                )
+            }.bind(this),
+            cpy = function(src, dest) {
+                this.copy(
+                    src,
+                    path.join(this.applicationName, dest)
+                )
+            }.bind(this),
+            dir = function(src, dest) {
+                this.directory(
+                    src,
+                    path.join(this.applicationName, dest)
+                )
+            }.bind(this);
+
         switch (this.type) {
-
         case 'empty':
-
-            this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-
-            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs',  this.templatedata);
-
-            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
-
-            /// wwwroot
-            this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
-
-            break;
-
         case 'webapi':
-            this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-
-            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs',  this.templatedata);
-
-            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
-
-            this.template(this.sourceRoot() + '/controllers_home.cs', this.applicationName + '/Controllers/HomeController.cs',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/controllers_values.cs', this.applicationName + '/Controllers/ValuesController.cs',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml', this.templatedata);
-
-            /// wwwroot
-            this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
-
-            break;
-
         case 'web':
-            this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-
-            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/bower.json', this.applicationName + '/bower.json',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/config.json', this.applicationName + '/config.json',  this.templatedata);
-
-            if (this.options.gulp) {
-                this.copy(this.sourceRoot() + '/_gulp_project.json', this.applicationName + '/project.json');
-
-                this.template(this.sourceRoot() + '/_gulp_package.json', this.applicationName + '/package.json',  this.templatedata);
-
-                this.copy(this.sourceRoot() + '/_gulpfile.js', this.applicationName + '/gulpfile.js');
-
-            } else {
-
-                this.copy(this.sourceRoot() + '/_grunt_project.json', this.applicationName + '/project.json');
-
-                this.template(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json',  this.templatedata);
-
-                this.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
-            }
-
-            // models
-            this.template(this.sourceRoot() + '/models_accountview.cs', this.applicationName + '/Models/AccountViewModels.cs',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/models_identity.cs', this.applicationName + '/Models/IdentityModels.cs',  this.templatedata);
-
-            // controllers
-            this.template(this.sourceRoot() + '/controllers_account.cs', this.applicationName + '/Controllers/AccountController.cs',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/controllers_home.cs', this.applicationName + '/Controllers/HomeController.cs',  this.templatedata);
-
-            // compiler
-            this.template(this.sourceRoot() + '/compiler_preprocess_razorprecompilation.cs', this.applicationName + '/Compiler/Preprocess/RazorPreCompilation.cs',  this.templatedata);
-
-            //migrations
-            this.template(this.sourceRoot() + '/migrations_000000000000000_createidentityschema.cs', this.applicationName + '/Migrations/000000000000000_CreateIdentitySchema.cs',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/migrations_applicationdbcontextmodelsnapshot.cs', this.applicationName + '/Migrations/ApplicationDbContextModelSnapshot.cs',  this.templatedata);
-
-            // views
-            this.template(this.sourceRoot() + '/views_home_contact.cshtml', this.applicationName + '/Views/Home/Contact.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_home_about.cshtml', this.applicationName + '/Views/Home/About.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_account_login.cshtml', this.applicationName + '/Views/Account/Login.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_account_manage.cshtml', this.applicationName + '/Views/Account/Manage.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_account_register.cshtml', this.applicationName + '/Views/Account/Register.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_account_changepasswordpartial.cshtml', this.applicationName + '/Views/Account/_ChangePasswordPartial.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_shared_error.cshtml', this.applicationName + '/Views/Shared/Error.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_shared_layout.cshtml', this.applicationName + '/Views/Shared/_Layout.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_shared_loginpartial.cshtml', this.applicationName + '/Views/Shared/_LoginPartial.cshtml',  this.templatedata);
-
-            this.template(this.sourceRoot() + '/views_viewstart.cshtml', this.applicationName + '/Views/_ViewStart.cshtml',  this.templatedata);
-
-            /// wwwroot
-            this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
-            break;
         case 'nancy':
-            this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-
-            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs',  this.templatedata);
-
-            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
-
-            this.template(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs',  this.templatedata);
+            this.sourceRoot(path.join(__dirname, '..', 'templates', 'projects', this.type));
             break;
         case 'console':
         case 'classlib':
         case 'unittest':
-            this.directory(this.type, this.applicationName);
+            this.sourceRoot(path.join(__dirname, '..', 'samples'));
+        }
+
+        switch (this.type) {
+
+        case 'empty':
+            tpl('startup.cs', 'Startup.cs');
+            cpy('project.json', 'project.json');
+            /// wwwroot
+            dir('wwwroot', 'wwwroot');
+            break;
+
+        case 'webapi':
+            tpl('startup.cs', 'Startup.cs');
+            cpy('project.json', 'project.json');
+            tpl('controllers_home.cs', 'Controllers/HomeController.cs');
+            tpl('controllers_values.cs', 'Controllers/ValuesController.cs');
+            tpl('views_home_index.cshtml', 'Views/Home/Index.cshtml');
+
+            /// wwwroot
+            dir('wwwroot', 'wwwroot');
+            break;
+
+        case 'web':
+            tpl('startup.cs', 'Startup.cs');
+            tpl('bower.json', 'bower.json');
+            tpl('config.json', 'config.json');
+
+            if (this.options.gulp) {
+                cpy('_gulp_project.json', 'project.json');
+                tpl('_gulp_package.json', 'package.json');
+                cpy('_gulpfile.js', 'gulpfile.js');
+            } else {
+                cpy('_grunt_project.json', 'project.json');
+                tpl('_grunt_package.json', 'package.json');
+                cpy('_gruntfile.js', 'gruntfile.js');
+            }
+            // models
+            tpl('models_accountview.cs', 'Models/AccountViewModels.cs');
+            tpl('models_identity.cs', 'Models/IdentityModels.cs');
+            // controllers
+            tpl('controllers_account.cs', 'Controllers/AccountController.cs');
+            tpl('controllers_home.cs', 'Controllers/HomeController.cs');
+            // compiler
+            tpl('compiler_preprocess_razorprecompilation.cs', 'Compiler/Preprocess/RazorPreCompilation.cs');
+            //migrations
+            tpl('migrations_000000000000000_createidentityschema.cs', 'Migrations/000000000000000_CreateIdentitySchema.cs');
+            tpl('migrations_applicationdbcontextmodelsnapshot.cs', 'Migrations/ApplicationDbContextModelSnapshot.cs');
+            // views
+            tpl('views_home_contact.cshtml', 'Views/Home/Contact.cshtml');
+            tpl('views_home_about.cshtml', 'Views/Home/About.cshtml');
+            tpl('views_home_index.cshtml', 'Views/Home/Index.cshtml');
+            tpl('views_account_login.cshtml', 'Views/Account/Login.cshtml');
+            tpl('views_account_manage.cshtml', 'Views/Account/Manage.cshtml');
+            tpl('views_account_register.cshtml', 'Views/Account/Register.cshtml');
+            tpl('views_account_changepasswordpartial.cshtml', 'Views/Account/_ChangePasswordPartial.cshtml');
+            tpl('views_shared_error.cshtml', 'Views/Shared/Error.cshtml');
+            tpl('views_shared_layout.cshtml', 'Views/Shared/_Layout.cshtml');
+            tpl('views_shared_loginpartial.cshtml', 'Views/Shared/_LoginPartial.cshtml');
+            tpl('views_viewstart.cshtml', 'Views/_ViewStart.cshtml');
+            /// wwwroot
+            dir('wwwroot', 'wwwroot');
+            break;
+        case 'nancy':
+            tpl('startup.cs', 'Startup.cs');
+            cpy('project.json', 'project.json');
+            tpl('homemodule.cs', 'HomeModule.cs');
+            break;
+        case 'console':
+        case 'classlib':
+        case 'unittest':
+            dir(this.type, '');
             break;
         default:
             this.log('Unknown project type');
