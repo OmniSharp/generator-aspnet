@@ -1,9 +1,9 @@
 {
-  "name": "zf5_project-vs",
+  "name": "ASPNET-f5",
   "description": "The most amazing Foundation template for Visual Studio Vnext",
-  "version": "0.0.1",
-  "repository": "xtianus79/generator-zf5",
-  "homepage": "https://github.com/xtianus79/generator-zf5",
+  "version": "0.0.10",
+  "repository": "xtianus79/generator-aspnet",
+  "homepage": "https://github.com/xtianus79/generator-aspnet",
   "author": {
     "name": "Christian",
     "email": "xtianus@live.com"
