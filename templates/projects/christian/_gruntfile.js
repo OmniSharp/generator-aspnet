@@ -243,8 +243,8 @@ module.exports = function(grunt) {
     grunt.registerTask('compile-sass', ['sass']);
     grunt.registerTask('bower-install', ['wiredep', 'clean:bower', 'copy:bower']);
     <% if (jade) { %>
-    grunt.registerTask('default', ['bower:install'], ['bower-install', 'compile-jade', 'compile-sass', 'copy:app_files', 'connect:app', 'watch']);<% } else { %>
-    grunt.registerTask('default', ['bower:install'], ['bower-install', 'compile-sass', 'copy:app_files', 'connect:app', 'watch']);<% } %>
+    grunt.registerTask('default', ['bower:install', 'bower-install', 'compile-jade', 'compile-sass', 'copy:app_files', 'connect:app', 'watch']);<% } else { %>
+    grunt.registerTask('default', ['bower:install', 'bower-install', 'compile-sass', 'copy:app_files', 'connect:app', 'watch']);<% } %>
     grunt.registerTask('validate-js', ['jshint']);
     grunt.registerTask('server-dist', ['connect:dist']);
     grunt.registerTask('bower-copy', ['copy:bower']);
