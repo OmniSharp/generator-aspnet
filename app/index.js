@@ -22,25 +22,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         if (this.templatedata.grunt) {
             this.on('end', function () {
                 this.spawnCommand('grunt', ['bower-install']);
-                //    if (!this.options['skip-install']) {
-                //        this.installDependencies({
-                //            callback: function () {
-                //                this.log('Everything is ready!');
-                //            }
-                //        });
-                //    }
             });
-
-            // this.installDependencies({
-            //  bower: true,
-            //  npm: true,
-            //  skipInstall: false,
-            //  callback: function () {
-            //        console.log('Everything is ready!');
-            //      }
-            //});
         }
-
     },
 
     askFor: function () {
@@ -124,8 +107,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         }
         var prompts = [{
             name: 'applicationName',
-            message: 'What\'s the name of your ASP.NET application? Default =', //+ process.cwd().split(path.sep).pop(),
-            //default: process.cwd().split(path.sep).pop()
+            message: 'What\'s the name of your ASP.NET application? Default =',
             default: '' + process.cwd().split(path.sep).pop() + ''
         }];
         this.prompt(prompts, function (props) {
@@ -200,8 +182,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
                     this.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
 
-                    //this.template(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js', this.templatedata);
-
                 }
 
                 // models
@@ -272,7 +252,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
                     this.template(this.sourceRoot() + '/_gruntfile.js', /*this.applicationName +*/ '/gruntfile.js', this.templatedata);
 
-                    //this.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
                 }
 
                 // models
@@ -366,9 +345,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             var cb = this.async();
 
             this.log(chalk.bold.red('==================================================================================='));
-            //this.log(chalk.bold.blue('=================='));
-            //this.log(chalk.bold.red(' Yo Foundation 5! for Visual Studio'));
-            //this.log(chalk.bold.blue('=================='));
 
             var prompts = {
                 type: 'confirm',
@@ -432,13 +408,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.mkdir(/*this.applicationName +*/ 'app');
             this.mkdir(/*this.applicationName +*/ 'app/bower_components');
             this.mkdir(/*this.applicationName +*/ 'dist');
-            //this.template(this.sourceRoot() + '/bower.json', 'bower.json');
-            //this.template(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json', this.templatedata);
-            //this.template(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js', this.templatedata);
             this.copy(this.sourceRoot() + '/.jshintrc', /*this.applicationName +*/ '/.jshintrc');
             this.copy(this.sourceRoot() + '/.bowerrc', /*this.applicationName +*/ '/.bowerrc');
             //this.copy(this.sourceRoot() + '/gitignore', '.gitignore');
-            //this.copy(this.sourceRoot() + '/README.md', 'README.md');
             if (this.templatedata.jade) {
                 this.template(this.sourceRoot() + '/jade/index.jade', /*this.applicationName +*/ '/app/index.jade', this.templatedata);
                 this.template(this.sourceRoot() + '/jade/header.jade', /*this.applicationName +*/ '/app/header.jade', this.templatedata);
@@ -477,13 +449,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                     console.log(chalk.green('    k run') + ' for console projects');
                     console.log(chalk.green('    k kestrel') + ' or ' + chalk.green('k web') + ' for web projects');
                     console.log('\r\n');
-                    console.log(chalk.bold.yellow('    end message'));
+                    console.log(chalk.bold.yellow('    grunt = default command'));
                 }
             });
         } else {
             this.log('\r\n');
-            this.log(chalk.bold.red('    Run this command -> [npm install] and then [bower install] + to enable the projects dependencies'));
-            this.log(chalk.bold.red('    Run this command -> [cd ' + this.applicationName + '] to enable the commands below'));
+            this.log(chalk.bold.yellow('    Run this command -> [cd ' + this.applicationName + '] to enable the commands below'));
             this.log('\r\n');
             this.log('  Your project is now created, you can use the following commands to get going');
             this.log(chalk.green('    kpm restore'));
