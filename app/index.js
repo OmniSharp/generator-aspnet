@@ -124,9 +124,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         }
         var prompts = [{
             name: 'applicationName',
-            message: 'What\'s the name of your ASP.NET application? ' + process.cwd().split(path.sep).pop(),
+            message: 'What\'s the name of your ASP.NET application? Default =', //+ process.cwd().split(path.sep).pop(),
             //default: process.cwd().split(path.sep).pop()
-            default: app
+            default: '' + process.cwd().split(path.sep).pop() + ''
         }];
         this.prompt(prompts, function (props) {
             this.templatedata.namespace = props.applicationName;
@@ -140,7 +140,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     writing: function () {
         this.sourceRoot(path.join(__dirname, '../samples/'));
 
-        //this.mkdir(this.applicationName);
+        if (!this.type == 'christian') {
+            this.mkdir(this.applicationName);
+        }
         switch (this.type) {
 
             case 'empty':
@@ -196,9 +198,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
                     this.template(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json', this.templatedata);
 
-                    this.template(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js', this.templatedata);
+                    this.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
 
-                    //this.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
+                    //this.template(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js', this.templatedata);
+
                 }
 
                 // models
@@ -334,115 +337,128 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 this.log('Unknown project type');
         }
     },
+
+    askForGruntBuild: function () {
+        if (this.type == 'christian') {
+            var cb = this.async();
+
+            this.log(chalk.bold.red('==================================================================================='));
+            this.log(chalk.bold.yellow('    Welcome to Christian\'s OminiSharp ASP.NET Plus - Foundation 5 - Generator!'));
+            this.log(chalk.bold.red('==================================================================================='));
+
+            var prompts = {
+                type: 'confirm',
+                name: 'grunt',
+                message: chalk.yellow('  Would you like us to complete your NPM and Bower dependency installation?'),
+                default: true
+            };
+
+            this.prompt(prompts, function (props) {
+                this.templatedata.grunt = props.grunt;
+
+                cb();
+            }.bind(this));
+        }
+    },
+
     askForFontAwesome: function () {
-        var cb = this.async();
+        if (this.type == 'christian') {
+            var cb = this.async();
 
-        // have Yeoman greet the user.
-        this.log(this.yeoman);
+            this.log(chalk.bold.red('==================================================================================='));
+            //this.log(chalk.bold.blue('=================='));
+            //this.log(chalk.bold.red(' Yo Foundation 5! for Visual Studio'));
+            //this.log(chalk.bold.blue('=================='));
 
-        this.log(chalk.bold.blue('=================='));
-        this.log(chalk.bold.red(' Yo Foundation 5! for Visual Studio'));
-        this.log(chalk.bold.blue('=================='));
+            var prompts = {
+                type: 'confirm',
+                name: 'fontAwesome',
+                message: chalk.yellow('  Would you like to include Font Awesome? (FA gives you scalable vector icons..)'),
+                default: true
+            };
 
-        var prompts = {
-            type: 'confirm',
-            name: 'fontAwesome',
-            message: 'Would you like to include Font Awesome? (Font Awesome gives you scalable vector icons..)',
-            default: true
-        };
+            this.prompt(prompts, function (props) {
+                this.templatedata.fontAwesome = props.fontAwesome;
 
-        this.prompt(prompts, function (props) {
-            this.templatedata.fontAwesome = props.fontAwesome;
-
-            cb();
-        }.bind(this));
+                cb();
+            }.bind(this));
+        }
     },
 
     askForCompass: function () {
-        var cb = this.async();
+        if (this.type == 'christian') {
+            var cb = this.async();
 
-        var prompts = {
-            type: 'confirm',
-            name: 'compass',
-            message: 'Would you like to use Scss with Compass? (default: Scss with Libsass)',
-            default: false
-        };
+            this.log(chalk.bold.red('==================================================================================='));
+            var prompts = {
+                type: 'confirm',
+                name: 'compass',
+                message: chalk.yellow('  Would you like to use Scss with Compass? (default: Scss with Libsass)'),
+                default: false
+            };
 
-        this.prompt(prompts, function (props) {
-            this.templatedata.compass = props.compass;
+            this.prompt(prompts, function (props) {
+                this.templatedata.compass = props.compass;
 
-            cb();
-        }.bind(this));
+                cb();
+            }.bind(this));
+        }
     },
 
     askForJade: function () {
-        var cb = this.async();
+        if (this.type == 'christian') {
+            var cb = this.async();
 
-        var prompts = {
-            type: 'confirm',
-            name: 'jade',
-            message: 'Would you like to use Jade? (templating engine) [experimental]',
-            default: false
-        };
+            this.log(chalk.bold.red('==================================================================================='));
+            var prompts = {
+                type: 'confirm',
+                name: 'jade',
+                message: chalk.yellow('  Would you like to use Jade? (templating engine) [experimental]'),
+                default: false
+            };
 
-        this.prompt(prompts, function (props) {
-            this.templatedata.jade = props.jade;
+            this.prompt(prompts, function (props) {
+                this.templatedata.jade = props.jade;
 
-            cb();
-        }.bind(this));
-    },
-
-    askForGruntBuild: function () {
-        this.log(chalk.bold.red('    =========================================================='));
-        this.log(chalk.bold.red('    npm install & bower install will run after installation'));
-        var cb = this.async();
-
-        var prompts = {
-            type: 'confirm',
-            name: 'grunt',
-            message: 'Would you like to complete your NPM and Bower dependency installation?',
-            default: true
-        };
-
-        this.prompt(prompts, function (props) {
-            this.templatedata.grunt = props.grunt;
-
-            cb();
-        }.bind(this));
+                cb();
+            }.bind(this));
+        }
     },
 
     app: function () {
-        this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+        if (this.type == 'christian') {
+            this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-        this.mkdir(/*this.applicationName +*/ 'app');
-        this.mkdir(/*this.applicationName +*/ 'app/bower_components');
-        this.mkdir(/*this.applicationName +*/ 'dist');
-        //this.template(this.sourceRoot() + '/bower.json', 'bower.json');
-        //this.template(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json', this.templatedata);
-        //this.template(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js', this.templatedata);
-        this.copy(this.sourceRoot() + '/.jshintrc', /*this.applicationName +*/ '/.jshintrc');
-        this.copy(this.sourceRoot() + '/.bowerrc', /*this.applicationName +*/ '/.bowerrc');
-        //this.copy(this.sourceRoot() + '/gitignore', '.gitignore');
-        //this.copy(this.sourceRoot() + '/README.md', 'README.md');
-        if (this.templatedata.jade) {
-            this.template(this.sourceRoot() + '/jade/index.jade', /*this.applicationName +*/ '/app/index.jade', this.templatedata);
-            this.template(this.sourceRoot() + '/jade/header.jade', /*this.applicationName +*/ '/app/header.jade', this.templatedata);
-            this.copy(this.sourceRoot() + '/jade/footer.jade', /*this.applicationName +*/ '/app/footer.jade', this.templatedata);
-        } else {
-            this.template(this.sourceRoot() + '/index.html', /*this.applicationName +*/ '/app/index.html', this.templatedata);
-            this.template(this.sourceRoot() + '/index.cshtml', /*this.applicationName +*/ '/app/index.cshtml', this.templatedata);
-            this.template(this.sourceRoot() + '/_Layout.cshtml', /*this.applicationName +*/ '/app/_Layout.cshtml', this.templatedata);
+            this.mkdir(/*this.applicationName +*/ 'app');
+            this.mkdir(/*this.applicationName +*/ 'app/bower_components');
+            this.mkdir(/*this.applicationName +*/ 'dist');
+            //this.template(this.sourceRoot() + '/bower.json', 'bower.json');
+            //this.template(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json', this.templatedata);
+            //this.template(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js', this.templatedata);
+            this.copy(this.sourceRoot() + '/.jshintrc', /*this.applicationName +*/ '/.jshintrc');
+            this.copy(this.sourceRoot() + '/.bowerrc', /*this.applicationName +*/ '/.bowerrc');
+            //this.copy(this.sourceRoot() + '/gitignore', '.gitignore');
+            //this.copy(this.sourceRoot() + '/README.md', 'README.md');
+            if (this.templatedata.jade) {
+                this.template(this.sourceRoot() + '/jade/index.jade', /*this.applicationName +*/ '/app/index.jade', this.templatedata);
+                this.template(this.sourceRoot() + '/jade/header.jade', /*this.applicationName +*/ '/app/header.jade', this.templatedata);
+                this.copy(this.sourceRoot() + '/jade/footer.jade', /*this.applicationName +*/ '/app/footer.jade', this.templatedata);
+            } else {
+                this.template(this.sourceRoot() + '/index.html', /*this.applicationName +*/ '/app/index.html', this.templatedata);
+                this.template(this.sourceRoot() + '/index.cshtml', /*this.applicationName +*/ '/app/index.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/_Layout.cshtml', /*this.applicationName +*/ '/app/_Layout.cshtml', this.templatedata);
+            }
+            this.mkdir(/*this.applicationName +*/ 'app/fonts');
+            this.mkdir(/*this.applicationName +*/ 'app/images');
+            this.mkdir(/*this.applicationName +*/ 'app/js');
+            this.mkdir(/*this.applicationName +*/ 'app/css');
+            this.mkdir(/*this.applicationName +*/ 'app/scss');
+            this.copy(this.sourceRoot() + '/scss/app.scss', /*this.applicationName +*/ '/app/scss/app.scss');
+            this.copy(this.sourceRoot() + '/scss/_settings.scss', /*this.applicationName +*/ '/app/scss/_settings.scss');
+            this.template(this.sourceRoot() + '/scss/_appstyles.scss', /*this.applicationName +*/ '/app/scss/_appstyles.scss', this.templatedata);
+            this.copy(this.sourceRoot() + '/js/app.js', /*this.applicationName +*/ '/app/js/app.js');
+            this.copy(this.sourceRoot() + '/css/template_override.css', /*this.applicationName +*/ '/app/css/app_override.css');
         }
-        this.mkdir(/*this.applicationName +*/ 'app/fonts');
-        this.mkdir(/*this.applicationName +*/ 'app/images');
-        this.mkdir(/*this.applicationName +*/ 'app/js');
-        this.mkdir(/*this.applicationName +*/ 'app/css');
-        this.mkdir(/*this.applicationName +*/ 'app/scss');
-        this.copy(this.sourceRoot() + '/scss/app.scss', /*this.applicationName +*/ '/app/scss/app.scss');
-        this.copy(this.sourceRoot() + '/scss/_settings.scss', /*this.applicationName +*/ '/app/scss/_settings.scss');
-        this.template(this.sourceRoot() + '/scss/_appstyles.scss', /*this.applicationName +*/ '/app/scss/_appstyles.scss', this.templatedata);
-        this.copy(this.sourceRoot() + '/js/app.js', /*this.applicationName +*/ '/app/js/app.js');
-        this.copy(this.sourceRoot() + '/css/template_override.css', /*this.applicationName +*/ '/app/css/app_override.css');
     },
 
     end: function () {
