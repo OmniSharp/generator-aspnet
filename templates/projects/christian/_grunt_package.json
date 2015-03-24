@@ -1,5 +1,5 @@
 {
-  "name": "ASPNET-f5",
+  "name": "ASPNET_Project-<%= applicationname %>",
   "description": "The most amazing Foundation template for Visual Studio Vnext",
   "version": "0.0.10",
   "repository": "xtianus79/generator-aspnet",
