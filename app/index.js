@@ -442,9 +442,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 skipInstall: false,
                 callback: function () {
                     console.log('\r\n');
-                    this.log(chalk.bold.red('==================================================================================='));
+                    console.log(chalk.bold.red('==================================================================================='));
                     console.log(chalk.bold.yellow('  Everything is ready!'));
-                    this.log(chalk.bold.red('==================================================================================='));
+                    console.log(chalk.bold.red('==================================================================================='));
                     console.log('\r\n');
                     console.log('  Your project is now created, you can use the following commands to get going');
                     console.log(chalk.green('    kpm restore'));
