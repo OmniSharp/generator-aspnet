@@ -411,6 +411,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.copy(this.sourceRoot() + '/.jshintrc', /*this.applicationName +*/ '/.jshintrc');
             this.copy(this.sourceRoot() + '/.bowerrc', /*this.applicationName +*/ '/.bowerrc');
             this.copy(this.sourceRoot() + '/.editorconfig', /*this.applicationName +*/ '/.editorconfig');
+            this.copy(this.sourceRoot() + '/README.md', /*this.applicationName +*/ '/README.md');
             //this.copy(this.sourceRoot() + '/gitignore', '.gitignore');
             if (this.templatedata.jade) {
                 this.template(this.sourceRoot() + '/jade/index.jade', /*this.applicationName +*/ '/app/index.jade', this.templatedata);

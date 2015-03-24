@@ -1,4 +1,4 @@
-# generator-aspnet Starter Web - Foundation 5 Edition
+# generator-aspnet-f5 Starter Web - Foundation 5 Edition
 
 [![Build Status](https://travis-ci.org/OmniSharp/generator-aspnet.svg?branch=master)](https://travis-ci.org/OmniSharp/generator-aspnet)
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
