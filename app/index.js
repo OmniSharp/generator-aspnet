@@ -453,7 +453,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                     console.log(chalk.green('    k run') + ' for console projects');
                     console.log(chalk.green('    k kestrel') + ' or ' + chalk.green('k web') + ' for web projects');
                     console.log('\r\n');
+                    console.log(chalk.bold.red('==================================================================================='));
                     console.log(chalk.bold.yellow('    Type [grunt] = default task command'));
+                    console.log(chalk.bold.red('==================================================================================='));
                 }
             });
         } else {
