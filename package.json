@@ -48,8 +48,6 @@
   "dependencies": {
     "chai": "^1.10.0",
     "chalk": "~0.4.0",
-    "fs-extra": "^0.16.3",
-    "gulp": "^3.8.10",
     "mocha": "^2.1.0",
     "yeoman-generator": "~0.18.5",
     "yosay": "^0.1.0"
