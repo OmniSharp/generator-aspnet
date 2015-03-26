@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
 
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap-touch-carousel/css/bootstrap-touch-carousel.css" />
+    @Html.Partial("~/includes/_header.cshtml")
 </head>
 
 <body>
@@ -40,10 +38,7 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-    <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-    <script src="~/lib/hammer.js/hammer.js"></script>
-    <script src="~/lib/bootstrap-touch-carousel/js/bootstrap-touch-carousel.js"></script>
+    @Html.Partial("~/includes/_footer.cshtml")
     @RenderSection("scripts", required: false)
 </body>
 

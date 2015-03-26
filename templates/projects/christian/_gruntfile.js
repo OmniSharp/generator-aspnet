@@ -11,6 +11,8 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         app: 'app',
         dist: 'dist',
+        wwwroot: 'wwwroot',
+        includes: 'includes',
 
         sass: {<% if (!compass) { %>
             options: {
@@ -58,8 +60,8 @@ module.exports = function(grunt) {
         bower: {
             install: {
                 options: {
-                    targetDir: "wwwroot/lib",
-                    layout: "byComponent",
+                    targetDir: 'wwwroot/lib',
+                    layout: 'byComponent',
                     cleanTargetDir: true
                 }
             }
@@ -70,7 +72,7 @@ module.exports = function(grunt) {
                     jshintrc: '.jshintrc'
                 },
             all: [
-                'Gruntfile.js',
+                'gruntfile.js',
                 '<%%= app %>/js/**/*.js'
             ]
         },
@@ -90,13 +92,42 @@ module.exports = function(grunt) {
                     cwd:'<%%= app %>/',
                     src: ['fonts/**', '**/*.html', '**/*.cshtml', '!**/*.scss', '!bower_components/**'],
                     dest: '<%%= dist %>/'
-                }<% if (fontAwesome) { %> , {
+                },{
+                    expand: true,
+                    cwd: '<%%= app %>/',
+                    src: ['fonts/**', '!**/*.scss', '!bower_components/**'],
+                    dest: '<%%= wwwroot %>/'
+                }<% if (fontAwesome) { %>,{
+					expand: true,
+					flatten: true,
+					src: ['<%%= app %>/bower_components/font-awesome/fonts/**'],
+					dest: '<%%= dist %>/fonts/',
+					filter: 'isFile'
+				},{
                     expand: true,
                     flatten: true,
                     src: ['<%%= app %>/bower_components/font-awesome/fonts/**'],
-                    dest: '<%%= dist %>/fonts/',
+                    dest: '<%%= wwwroot %>/fonts/',
                     filter: 'isFile'
-                } <% } %>]
+                }<% } %>]
+            },
+            wwwroot: {
+                files: [{
+                    expand: true,
+                    cwd: '<%%= dist %>/',
+                    src: ['css/**'],
+                    dest: '<%%= wwwroot %>/dist/'
+                },{
+                    expand: true,
+                    cwd: '<%%= dist %>/',
+                    src: ['js/**'],
+                    dest: '<%%= wwwroot %>/dist/'
+                },{
+                    expand: true,
+                    cwd: '<%%= dist %>/',
+                    src: ['**/*.cshtml', '!**/*.scss', '!bower_components/**'],
+                    dest: '<%%= includes %>/'
+                }]
             },
             app_files: {
                 files: [{
@@ -109,6 +140,22 @@ module.exports = function(grunt) {
                     cwd: '<%%= app %>/js',
                     src: ['app.js'],
                     dest: 'wwwroot/js'
+                },{
+                    expand: true,
+                    cwd: '<%%= app %>/',
+                    src: ['fonts/**', '!**/*.scss', '!bower_components/**'],
+                    dest: '<%%= wwwroot %>/'
+                },{
+                    expand: true,
+                    cwd: '<%%= app %>/',
+                    src: ['**/*.cshtml', '!**/*.scss', '!bower_components/**'],
+                    dest: '<%%= includes %>/'
+                },{
+                    expand: true,
+                    flatten: true,
+                    src: ['<%%= app %>/bower_components/font-awesome/fonts/**'],
+                    dest: '<%%= wwwroot %>/fonts/',
+                    filter: 'isFile'
                 }]	
             },
             bower: {
@@ -139,19 +186,21 @@ module.exports = function(grunt) {
         },
 
         useminPrepare: {
-            html: ['<%%= app %>/index.html', '<%%= app %>/index.cshtml', '<%%= app %>/_Layout.cshtml'],
-            options: {
-                dest: '<%%= dist %>'
-            }
-        },
+		    html: ['<%%= app %>/index.html'],
+            cshtml: ['<%%= app %>/index.cshtml', '<%%= app %>/_header.cshtml', '<%%= app %>/_footer.cshtml'],
+			options: {
+				dest: '<%%= dist %>'
+			}
+		},
 
         usemin: {
-            html: ['<%%= dist %>/**/*.html', '<%%= dist %>/**/*.cshtml', '!<%%= app %>/bower_components/**'],
-            css: ['<%%= dist %>/css/**/*.css'],
-            options: {
-                dirs: ['<%%= dist %>']
-            }
-        },
+		    html: ['<%%= dist %>/**/*.html', '!<%%= app %>/bower_components/**'],
+            cshtml: ['<%%= dist %>/**/*.cshtml', '!<%%= app %>/bower_components/**'],
+			css: ['<%%= dist %>/css/**/*.css'],
+			options: {
+				dirs: ['<%%= dist %>']
+			}
+		},
 
         watch: {
             grunt: {
@@ -250,11 +299,11 @@ module.exports = function(grunt) {
     grunt.registerTask('bower-copy', ['copy:bower']);
     grunt.registerTask('copy-app-files', ['copy:app_files']);
     <% if (jade) { %>
-    //grunt.registerTask('publish', ['compile-jade', 'compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);<% } else { %>
-    //grunt.registerTask('publish', ['compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);<% } %>
+    //grunt.registerTask('publish', ['compile-jade', 'compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin', 'copy:wwwroot']);<% } else { %>
+    //grunt.registerTask('publish', ['compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin', 'copy:wwwroot']);<% } %>
 
     // The following line loads the grunt plugins.
     // This line needs to be at the end of this this file.
-    grunt.loadNpmTasks("grunt-bower-task");
+    grunt.loadNpmTasks('grunt-bower-task');
 
 };

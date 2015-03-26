@@ -408,6 +408,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.mkdir(/*this.applicationName +*/ 'app');
             this.mkdir(/*this.applicationName +*/ 'app/bower_components');
             this.mkdir(/*this.applicationName +*/ 'dist');
+            this.mkdir(/*this.applicationName +*/ 'includes');
+            this.mkdir(/*this.applicationName +*/ 'wwwroot/dist');
             this.copy(this.sourceRoot() + '/.jshintrc', /*this.applicationName +*/ '/.jshintrc');
             this.copy(this.sourceRoot() + '/.bowerrc', /*this.applicationName +*/ '/.bowerrc');
             this.copy(this.sourceRoot() + '/.editorconfig', /*this.applicationName +*/ '/.editorconfig');
@@ -420,6 +422,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             } else {
                 this.template(this.sourceRoot() + '/index.html', /*this.applicationName +*/ '/app/index.html', this.templatedata);
                 this.template(this.sourceRoot() + '/index.cshtml', /*this.applicationName +*/ '/app/index.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/_header.cshtml', /*this.applicationName +*/ '/app/_header.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/_footer.cshtml', /*this.applicationName +*/ '/app/_footer.cshtml', this.templatedata);
                 this.template(this.sourceRoot() + '/_Layout.cshtml', /*this.applicationName +*/ '/app/_Layout.cshtml', this.templatedata);
             }
             this.mkdir(/*this.applicationName +*/ 'app/fonts');
