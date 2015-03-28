@@ -57,16 +57,6 @@ module.exports = function(grunt) {
 		    }
         },<% } %>
 
-        bower: {
-            install: {
-                options: {
-                    targetDir: 'wwwroot/lib',
-                    layout: 'byComponent',
-                    cleanTargetDir: true
-                }
-            }
-        },
-
         jshint: {
                 options: {
                     jshintrc: '.jshintrc'
@@ -82,7 +72,7 @@ module.exports = function(grunt) {
                 src: ['<%%= dist %>/*']
             },
             bower: {
-                    src: ['app/bower_components/*']
+                src: ['<%%= app %>/bower_components/*', '<%%= wwwroot %>/lib/*']
             },
 		},
         copy: {
@@ -161,8 +151,14 @@ module.exports = function(grunt) {
             bower: {
                 files: [{
                     expand: true,
-                    src: ['bower_components/**'],
-                    dest: 'app/'
+                    cwd: 'bower_components/',
+                    src: ['**/**/*.css', '**/**/*.js', '**/**/*.map', '**/**/*.scss', '**/fonts/**', '!**/**/*.min.css', '!**/**/*.min.js', '!**/**/*runtfile.js', '!**/**/package.js', '!**/src/**'],
+                    dest: '<%%= app %>/bower_components'
+                },{
+                    expand: true,
+                    cwd: 'bower_components/',
+                    src: ['**/**/*.css', '**/**/*.js', '**/**/*.map', '**/**/*.scss', '**/fonts/**', '!**/**/*.min.css', '!**/**/*.min.js', '!**/**/*runtfile.js', '!**/**/package.js', '!**/src/**'],
+                    dest: '<%%= wwwroot %>/lib/'
                 }]
             },
         },
@@ -247,10 +243,8 @@ module.exports = function(grunt) {
 
         wiredep: {
             html: {
-                src: [<% if (jade) { %>
-                    '<%%= app %>/**/*.jade'<% } else { %>
-                    '<%%= app %>/**/*.html'<% } %>
-                    ],
+                src: [<% if (jade) { %>'<%%= app %>/**/*.jade'<% } else { %>'<%%= app %>/**/*.html'<% } %>],
+                ignorePath: '../',
                 exclude: [
 				    'modernizr',<% if (fontAwesome) { %>
 				    'font-awesome',<% } %>
@@ -259,9 +253,7 @@ module.exports = function(grunt) {
                 ]
             },
             cshtml: {
-                src: [
-                    '<%%= app %>/**/*.cshtml'
-                ],
+                src: ['<%%= app %>/**/*.cshtml'],
                 fileTypes: {
                     html: {
                         block: /(([\s\t]*)<!--\s*bower:*(\S*)\s*-->)(\n|\r|.)*?(<!--\s*endbower\s*-->)/gi,
@@ -292,8 +284,8 @@ module.exports = function(grunt) {
     grunt.registerTask('compile-sass', ['sass']);
     grunt.registerTask('bower-install', ['wiredep', 'clean:bower', 'copy:bower']);
     <% if (jade) { %>
-    grunt.registerTask('default', ['bower:install', 'bower-install', 'compile-jade', 'compile-sass', 'copy:app_files', 'connect:app', 'watch']);<% } else { %>
-    grunt.registerTask('default', ['bower:install', 'bower-install', 'compile-sass', 'copy:app_files', 'connect:app', 'watch']);<% } %>
+    grunt.registerTask('default', ['bower-install', 'compile-jade', 'compile-sass', 'copy:app_files', 'connect:app', 'watch']);<% } else { %>
+    grunt.registerTask('default', ['bower-install', 'compile-sass', 'copy:app_files', 'connect:app', 'watch']);<% } %>
     grunt.registerTask('validate-js', ['jshint']);
     grunt.registerTask('server-dist', ['connect:dist']);
     grunt.registerTask('bower-copy', ['copy:bower']);
