@@ -19,7 +19,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.templatedata = {};
         this.config.save();
 
-        if (this.templatedata.grunt) {
+        if (this.templatedata.grunt && !this.options['skip-install']) {
             this.on('end', function () {
                 this.spawnCommand('grunt', ['bower-install']);
             });
@@ -105,11 +105,19 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 app = 'UnitTest'
                 break;
         }
-        var prompts = [{
-            name: 'applicationName',
-            message: 'What\'s the name of your ASP.NET application? Default =',
-            default: '' + process.cwd().split(path.sep).pop() + ''
-        }];
+        if (this.type == 'christian') {
+            var prompts = [{
+                name: 'applicationName',
+                message: 'Set the default ASPNET C# namespace? Default =',
+                default: '' + process.cwd().split(path.sep).pop() + ''
+            }];
+        } else {
+            var prompts = [{
+                name: 'applicationName',
+                message: 'What\'s the name of your ASP.NET application and directory?',
+                default: app
+            }];
+        }
         this.prompt(prompts, function (props) {
             this.templatedata.namespace = props.applicationName;
             this.templatedata.applicationname = props.applicationName;
@@ -440,7 +448,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        if (this.templatedata.grunt) {
+        if (this.templatedata.grunt && !this.options['skip-install']) {
             this.installDependencies({
                 bower: true,
                 npm: true,
