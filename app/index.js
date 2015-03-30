@@ -18,12 +18,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.pkg = require('../package.json');
         this.templatedata = {};
         this.config.save();
-
-        if (this.templatedata.grunt && !this.options['skip-install']) {
-            this.on('end', function () {
-                this.spawnCommand('grunt', ['bower-install']);
-            });
-        }
     },
 
     askFor: function () {
@@ -448,27 +442,33 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        if (this.templatedata.grunt && !this.options['skip-install']) {
+        if (this.templatedata.grunt) {
             this.installDependencies({
                 bower: true,
                 npm: true,
                 skipInstall: false,
                 callback: function () {
-                    console.log('\r\n');
                     console.log(chalk.bold.red('==================================================================================='));
-                    console.log(chalk.bold.yellow('  Everything is ready!'));
+                    console.log('\r');
+                    console.log(chalk.bold.yellow('    Almost finished... || Below are the kpm instructions'));
+                    console.log('\r');
                     console.log(chalk.bold.red('==================================================================================='));
-                    console.log('\r\n');
-                    console.log('  Your project is now created, you can use the following commands to get going');
+                    console.log('\r');
                     console.log(chalk.green('    kpm restore'));
                     console.log(chalk.green('    kpm build'));
                     console.log(chalk.green('    k run') + ' for console projects');
                     console.log(chalk.green('    k kestrel') + ' or ' + chalk.green('k web') + ' for web projects');
-                    console.log('\r\n');
+                    console.log('\r');
                     console.log(chalk.bold.red('==================================================================================='));
-                    console.log(chalk.bold.yellow('    Type [grunt] = default task command'));
+                    console.log('\r');
+                    console.log('    Running ' + chalk.styles.cyan.open + '[ ' + chalk.styles.cyan.close + chalk.styles.green.open + 'grunt bower-install' + chalk.styles.green.close + chalk.styles.cyan.open + ' ]' + chalk.styles.cyan.close + ' || Enter ' + chalk.styles.cyan.open + '[ ' + chalk.styles.cyan.close + chalk.styles.green.open + 'grunt' + chalk.styles.green.close + chalk.styles.cyan.open + ' ]' + chalk.styles.cyan.close + ' = default task command');
+                    console.log('\r');
                     console.log(chalk.bold.red('==================================================================================='));
+                    console.log('\r');
                 }
+            });
+            this.on('end', function () {
+                this.spawnCommand('grunt', ['bower-install']);
             });
         } else {
             this.log('\r\n');
