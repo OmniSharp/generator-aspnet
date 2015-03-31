@@ -233,72 +233,72 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             case 'christian':
                 this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-                this.template(this.sourceRoot() + '/startup.cs', /*this.applicationName +*/ '/Startup.cs', this.templatedata);
+                this.template(this.sourceRoot() + '/startup.cs', 'Startup.cs', this.templatedata);
 
-                this.template(this.sourceRoot() + '/bower.json', /*this.applicationName +*/ '/bower.json', this.templatedata);
+                this.template(this.sourceRoot() + '/bower.json', 'bower.json', this.templatedata);
 
-                this.template(this.sourceRoot() + '/config.json', /*this.applicationName +*/ '/config.json', this.templatedata);
+                this.template(this.sourceRoot() + '/config.json', 'config.json', this.templatedata);
 
                 if (this.options.gulp) {
-                    this.copy(this.sourceRoot() + '/_gulp_project.json', /*this.applicationName +*/ '/project.json');
+                    this.copy(this.sourceRoot() + '/_gulp_project.json', 'project.json');
 
-                    this.template(this.sourceRoot() + '/_gulp_package.json', /*this.applicationName +*/ '/package.json', this.templatedata);
+                    this.template(this.sourceRoot() + '/_gulp_package.json', 'package.json', this.templatedata);
 
-                    this.copy(this.sourceRoot() + '/_gulpfile.js', /*this.applicationName +*/ '/gulpfile.js');
+                    this.copy(this.sourceRoot() + '/_gulpfile.js', 'gulpfile.js');
 
                 } else {
 
-                    this.copy(this.sourceRoot() + '/_grunt_project.json', /*this.applicationName +*/ '/project.json');
+                    this.copy(this.sourceRoot() + '/_grunt_project.json', 'project.json');
 
-                    this.template(this.sourceRoot() + '/_grunt_package.json', /*this.applicationName +*/ '/package.json', this.templatedata);
+                    this.template(this.sourceRoot() + '/_grunt_package.json', 'package.json', this.templatedata);
 
-                    this.template(this.sourceRoot() + '/_gruntfile.js', /*this.applicationName +*/ '/gruntfile.js', this.templatedata);
+                    this.template(this.sourceRoot() + '/_gruntfile.js', 'gruntfile.js', this.templatedata);
 
                 }
 
                 // models
-                this.template(this.sourceRoot() + '/models_accountview.cs', /*this.applicationName +*/ '/Models/AccountViewModels.cs', this.templatedata);
+                this.template(this.sourceRoot() + '/models_accountview.cs', 'Models/AccountViewModels.cs', this.templatedata);
 
-                this.template(this.sourceRoot() + '/models_identity.cs', /*this.applicationName +*/ '/Models/IdentityModels.cs', this.templatedata);
+                this.template(this.sourceRoot() + '/models_identity.cs', 'Models/IdentityModels.cs', this.templatedata);
 
                 // controllers
-                this.template(this.sourceRoot() + '/controllers_account.cs', /*this.applicationName +*/ '/Controllers/AccountController.cs', this.templatedata);
+                this.template(this.sourceRoot() + '/controllers_account.cs', 'Controllers/AccountController.cs', this.templatedata);
 
-                this.template(this.sourceRoot() + '/controllers_home.cs', /*this.applicationName +*/ '/Controllers/HomeController.cs', this.templatedata);
+                this.template(this.sourceRoot() + '/controllers_home.cs', 'Controllers/HomeController.cs', this.templatedata);
 
                 // compiler
-                this.template(this.sourceRoot() + '/compiler_preprocess_razorprecompilation.cs', /*this.applicationName +*/ '/Compiler/Preprocess/RazorPreCompilation.cs', this.templatedata);
+                this.template(this.sourceRoot() + '/compiler_preprocess_razorprecompilation.cs', 'Compiler/Preprocess/RazorPreCompilation.cs', this.templatedata);
 
                 //migrations
-                this.template(this.sourceRoot() + '/migrations_000000000000000_createidentityschema.cs', /*this.applicationName +*/ '/Migrations/000000000000000_CreateIdentitySchema.cs', this.templatedata);
+                this.template(this.sourceRoot() + '/migrations_000000000000000_createidentityschema.cs', 'Migrations/000000000000000_CreateIdentitySchema.cs', this.templatedata);
 
-                this.template(this.sourceRoot() + '/migrations_applicationdbcontextmodelsnapshot.cs', /*this.applicationName +*/ '/Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
+                this.template(this.sourceRoot() + '/migrations_applicationdbcontextmodelsnapshot.cs', 'Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
 
                 // views
-                this.template(this.sourceRoot() + '/views_home_contact.cshtml', /*this.applicationName +*/ '/Views/Home/Contact.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_home_contact.cshtml', 'Views/Home/Contact.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_home_about.cshtml', /*this.applicationName +*/ '/Views/Home/About.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_home_about.cshtml', 'Views/Home/About.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_home_index.cshtml', /*this.applicationName +*/ '/Views/Home/Index.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_home_index.cshtml', 'Views/Home/Index.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_account_login.cshtml', /*this.applicationName +*/ '/Views/Account/Login.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_account_login.cshtml', 'Views/Account/Login.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_account_manage.cshtml', /*this.applicationName +*/ '/Views/Account/Manage.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_account_manage.cshtml', 'Views/Account/Manage.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_account_register.cshtml', /*this.applicationName +*/ '/Views/Account/Register.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_account_register.cshtml', 'Views/Account/Register.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_account_changepasswordpartial.cshtml', /*this.applicationName +*/ '/Views/Account/_ChangePasswordPartial.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_account_changepasswordpartial.cshtml', 'Views/Account/_ChangePasswordPartial.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_shared_error.cshtml', /*this.applicationName +*/ '/Views/Shared/Error.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_shared_error.cshtml', 'Views/Shared/Error.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_shared_layout.cshtml', /*this.applicationName +*/ '/Views/Shared/_Layout.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_shared_layout.cshtml', 'Views/Shared/_Layout.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_shared_loginpartial.cshtml', /*this.applicationName +*/ '/Views/Shared/_LoginPartial.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_shared_loginpartial.cshtml', 'Views/Shared/_LoginPartial.cshtml', this.templatedata);
 
-                this.template(this.sourceRoot() + '/views_viewstart.cshtml', /*this.applicationName +*/ '/Views/_ViewStart.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/views_viewstart.cshtml', 'Views/_ViewStart.cshtml', this.templatedata);
 
                 /// wwwroot
-                this.directory(this.sourceRoot() + '/wwwroot', /*this.applicationName +*/ '/wwwroot');
+                this.directory(this.sourceRoot() + '/wwwroot', 'wwwroot');
                 break;
             case 'nancy':
                 this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
@@ -407,37 +407,37 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         if (this.type == 'christian') {
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-            this.mkdir(/*this.applicationName +*/ 'app');
-            this.mkdir(/*this.applicationName +*/ 'app/bower_components');
-            this.mkdir(/*this.applicationName +*/ 'dist');
-            this.mkdir(/*this.applicationName +*/ 'includes');
-            this.mkdir(/*this.applicationName +*/ 'wwwroot/dist');
-            this.copy(this.sourceRoot() + '/.jshintrc', /*this.applicationName +*/ '/.jshintrc');
-            this.copy(this.sourceRoot() + '/.bowerrc', /*this.applicationName +*/ '/.bowerrc');
-            this.copy(this.sourceRoot() + '/.editorconfig', /*this.applicationName +*/ '/.editorconfig');
-            this.copy(this.sourceRoot() + '/README.md', /*this.applicationName +*/ '/README.md');
+            this.mkdir('app');
+            this.mkdir('app/bower_components');
+            this.mkdir('dist');
+            this.mkdir('includes');
+            this.mkdir('wwwroot/dist');
+            this.copy(this.sourceRoot() + '/.jshintrc', '.jshintrc');
+            this.copy(this.sourceRoot() + '/.bowerrc', '.bowerrc');
+            this.copy(this.sourceRoot() + '/.editorconfig', '.editorconfig');
+            this.copy(this.sourceRoot() + '/README.md', 'README.md');
             //this.copy(this.sourceRoot() + '/gitignore', '.gitignore');
             if (this.templatedata.jade) {
-                this.template(this.sourceRoot() + '/jade/index.jade', /*this.applicationName +*/ '/app/index.jade', this.templatedata);
-                this.template(this.sourceRoot() + '/jade/header.jade', /*this.applicationName +*/ '/app/header.jade', this.templatedata);
-                this.copy(this.sourceRoot() + '/jade/footer.jade', /*this.applicationName +*/ '/app/footer.jade', this.templatedata);
+                this.template(this.sourceRoot() + '/jade/index.jade', 'app/index.jade', this.templatedata);
+                this.template(this.sourceRoot() + '/jade/header.jade', 'app/header.jade', this.templatedata);
+                this.copy(this.sourceRoot() + '/jade/footer.jade', 'app/footer.jade', this.templatedata);
             } else {
-                this.template(this.sourceRoot() + '/index.html', /*this.applicationName +*/ '/app/index.html', this.templatedata);
-                this.template(this.sourceRoot() + '/index.cshtml', /*this.applicationName +*/ '/app/index.cshtml', this.templatedata);
-                this.template(this.sourceRoot() + '/_header.cshtml', /*this.applicationName +*/ '/app/_header.cshtml', this.templatedata);
-                this.template(this.sourceRoot() + '/_footer.cshtml', /*this.applicationName +*/ '/app/_footer.cshtml', this.templatedata);
-                this.template(this.sourceRoot() + '/_Layout.cshtml', /*this.applicationName +*/ '/app/_Layout.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/index.html', 'app/index.html', this.templatedata);
+                this.template(this.sourceRoot() + '/index.cshtml', 'app/index.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/_header.cshtml', 'app/_header.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/_footer.cshtml', 'app/_footer.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/_Layout.cshtml', 'app/_Layout.cshtml', this.templatedata);
             }
-            this.mkdir(/*this.applicationName +*/ 'app/fonts');
-            this.mkdir(/*this.applicationName +*/ 'app/images');
-            this.mkdir(/*this.applicationName +*/ 'app/js');
-            this.mkdir(/*this.applicationName +*/ 'app/css');
-            this.mkdir(/*this.applicationName +*/ 'app/scss');
-            this.copy(this.sourceRoot() + '/scss/app.scss', /*this.applicationName +*/ '/app/scss/app.scss');
-            this.copy(this.sourceRoot() + '/scss/_settings.scss', /*this.applicationName +*/ '/app/scss/_settings.scss');
-            this.template(this.sourceRoot() + '/scss/_appstyles.scss', /*this.applicationName +*/ '/app/scss/_appstyles.scss', this.templatedata);
-            this.copy(this.sourceRoot() + '/js/app.js', /*this.applicationName +*/ '/app/js/app.js');
-            this.copy(this.sourceRoot() + '/css/template_override.css', /*this.applicationName +*/ '/app/css/app_override.css');
+            this.mkdir('app/fonts');
+            this.mkdir('app/images');
+            this.mkdir('app/js');
+            this.mkdir('app/css');
+            this.mkdir('app/scss');
+            this.copy(this.sourceRoot() + '/scss/app.scss', 'app/scss/app.scss');
+            this.copy(this.sourceRoot() + '/scss/_settings.scss', 'app/scss/_settings.scss');
+            this.template(this.sourceRoot() + '/scss/_appstyles.scss', 'app/scss/_appstyles.scss', this.templatedata);
+            this.copy(this.sourceRoot() + '/js/app.js', 'app/js/app.js');
+            this.copy(this.sourceRoot() + '/css/template_override.css', 'app/css/app_override.css');
         }
     },
 
