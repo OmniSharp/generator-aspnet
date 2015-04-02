@@ -6,7 +6,7 @@
 
 Yeoman generator for ASP.NET vNext projects
 
-![](https://cloud.githubusercontent.com/assets/14539/6697962/a57211ac-ccf4-11e4-97d9-7ed16bb16d37.gif)
+[![](https://cloud.githubusercontent.com/assets/14539/6697962/a57211ac-ccf4-11e4-97d9-7ed16bb16d37.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
 
 ## Getting Started
 
@@ -20,6 +20,23 @@ Yeoman generator for ASP.NET vNext projects
 * `yo aspnet --gulp` generates gulp.js files for **web** template instead of grunt.js
 
 * `yo aspnet --help` shows flags and other configurable options
+
+## Template projects
+
+Full, template based projects available in generator:
+
+- Empty Application
+- Console Application
+- Web Application
+- Web API Application
+- Nancy ASP.NET Application
+- Class Library
+
+The Empty Application, Web Application, Web API Application are based on the new templates recently introduced with Visual Studio CTP 6 release, and you can read about this new templates on blog post accompanying CTP 6 release:  
+[ASP.NET 5 Updates and other improvements for Web Developers in Visual Studio 2015 CTP 6](http://blogs.msdn.com/b/webdev/archive/2015/02/23/aspnet-5-updates-for-feb-2015.aspx)
+
+The Nancy project is based on framework's "Hello World" template:  
+[Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
 
 
 ## Generators
@@ -329,7 +346,7 @@ Produces `filename.ts`
 
 ## License
 
-Copyright 2014 OmniSharp
+Copyright 2014-2015 OmniSharp
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

@@ -11,13 +11,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.option('gulp');
     },
 
-
     init: function () {
         this.log(yosay('Welcome to the marvellous ASP.NET 5 generator!'));
-
-        this.pkg = require('../package.json');
         this.templatedata = {};
-        this.config.save();
     },
 
     askFor: function () {
@@ -183,7 +179,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                     this.template(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json', this.templatedata);
 
                     this.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
-
                 }
 
                 // models
