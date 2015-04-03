@@ -19,31 +19,135 @@
 </head>
 <body>
 
+    <div class="fixed">
+        <nav class="top-bar" data-topbar role="navigation">
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="#"><%= applicationname %></a></h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+                <!-- Left Nav Section -->
+                <ul class="left">
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </section>
+        </nav>
+    </div>
+
     <div class="row">
-        <div class="small-12 small-centered medium-10 medium-centered columns panel radius">
-            <h1>Yo Foundation 5!</h1>
+        <ul data-orbit>
+            <li>
+                <img src="https://raw.githubusercontent.com/xtianus79/generator-aspnet/master/templates/projects/christian/wwwroot/images/ASP-NET-Banners-01.png" alt="slide 1" />
+                <div class="orbit-caption">
+                    Learn how to build ASP.NET apps that can run anywhere. <a href="http://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">Learn More ></a>
+                </div>
+            </li>
+            <li class="active">
+                <img src="https://raw.githubusercontent.com/xtianus79/generator-aspnet/master/templates/projects/christian/wwwroot/images/ASP-NET-Banners-02.png" alt="slide 2" />
+                <div class="orbit-caption">
+                    There are powerful new features in Visual Studio for building modern web apps. <a href="http://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">Learn More ></a>
+                </div>
+            </li>
+            <li>
+                <img src="https://raw.githubusercontent.com/xtianus79/generator-aspnet/master/templates/projects/christian/wwwroot/images/Banner-01-Azure.png" alt="slide 3" />
+                <div class="orbit-caption">
+                    Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp. <a href="http://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">Learn More ></a>
+                </div>
+            </li>
+            <li>
+                <img src="https://raw.githubusercontent.com/xtianus79/generator-aspnet/master/templates/projects/christian/wwwroot/images/Banner-02-VS.png" alt="slide 4" />
+                <div class="orbit-caption">
+                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps. <a href="http://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">Learn More ></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="medium-4 left">
+            <h4>This application consists of:</h4>
             <ul>
-                <li>Sass compiling (Ruby or Node/Libsass)</li>
-                <li>Jade templating engine (option)</li>
-                <li>Publishing to dist directory</li>
-                <li>Server with LiveReload</li>
-                <li>JSHint</li>
-                <li>Grunt Bower install</li>
-                <li>Imagemin</li>
-                <li>Font Awesome (option)</li>
+                <li>Sample pages showing basic nav</li>
+                <li>Theming using <a href="http://zurb.foundation.com">Foundation</a></li>
             </ul>
-            <h1>Grunt tasks:</h1>
+        </div>
+        <div class="medium-4 left">
+            <h4>Customize app</h4>
             <ul>
-                <li>'grunt' - watching (Sass, Server on 127.0.0.1:9000 with LiveReload)</li>
-                <li>'grunt compile-sass' - Sass</li>
-                <li>'grunt compile-jade' - Jade</li>
-                <li>'grunt validate-js' - JSHint</li>
-                <li>'grunt bower-install' - injecting bower libraries</li>
-                <li>'grunt publish' - dist directory</li>
-                <li>'grunt server-dist' - server on 127.0.0.1:9001 - dist directory (preview only)</li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=398600">Add Controllers and Views</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=398602">Add Data using EntityFramework</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=398603">Add Authentication using Identity</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=398606">Add real time support using SignalR</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=398604">Add Class library</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=517848">Add client packages using Bower</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=517849">Manage client packages using Grunt</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=517850">Develop on different platforms</a></li>
             </ul>
+        </div>
+        <div class="medium-4 left">
+            <h4>Run & Deploy</h4>
+            <ul>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=517851">Run your app locally</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=517852">Run your app on ASP.NET Core 5</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=517853">Run commands defined in your project.json</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Sites</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <h1>ASP.NET - Foundation 5 Framework!</h1>
+    </div>
+
+    <div class="row">
+        <div class="columns panel callout">
+            <div class="large-4 columns">
+                <h3>Yo ASPNET-F5 build:</h3>
+                <ul>
+                    <li>SASS/SCSS compiling (Ruby or Node/Libsass)</li>
+                    <li>Build html templates in app folder</li>
+                    <li>Copy files to wwwroot, includes & app directories</li>
+                    <li>Includes directory for header.cshtml & footer.cshtml</li>
+                    <li>Publishing to dist directory & includes directory</li>
+                    <li>Server with LiveReload</li>
+                    <li>JSHint</li>
+                    <li>Grunt Bower install</li>
+                    <li>Imagemin</li>
+                    <li>Font Awesome (option)</li>
+                    <li>Jade templating engine (option)</li>
+                </ul>
+            </div>
+            <div class="large-4 columns">
+                <h3>Grunt tasks:</h3>
+                <ul>
+                    <li>'grunt' - watching (Sass, Server on 127.0.0.1:9000 with LiveReload)</li>
+                    <li>'grunt compile-sass' - Sass</li>
+                    <li>'grunt compile-jade' - Jade</li>
+                    <li>'grunt validate-js' - JSHint</li>
+                    <li>'grunt bower-install' - injecting bower libraries</li>
+                    <li>'grunt copy-bower' -  copy files to app/bower_components</li>
+                    <li>'grunt copy-app-files' - copy files to wwwroot & includes</li>
+                    <li>'grunt publish' - dist directory</li>
+                    <li>'grunt server-dist' - server on 127.0.0.1:9001 - dist directory (preview only)</li>
+                </ul>
+            </div>
+            <div class="large-4 columns">
+                <h3>KPM tasks:</h3>
+                <ul>
+                    <li>'kpm restore' - run install nuget and npm & bower packages</li>
+                    <li>'kpm build' - Build project files</li>
+                    <li>'k web' - Run kpm server on localhost:5001</li>
+                    <li>'k kestrel' - Run kpm server on localhost:5004</li>
+                    <li>'k gen' - Code generation</li>
+                    <li>'k ef' - Entity framework commands</li>
+                </ul>
+            </div>
             <h2 class="text-right">
-                <a href="https://github.com/juliancwirko/generator-zf5"><% if (fontAwesome) { %><i class="fa fa-github"></i><% } else { %>github<% } %></a>
+                <a href="https://github.com/xtianus79/generator-aspnet"><% if (fontAwesome) { %><i class="fa fa-github"></i><% } else { %>github<% } %></a>
             </h2>
         </div>
     </div>

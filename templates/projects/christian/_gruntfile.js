@@ -288,7 +288,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['bower-install', 'connect:app', 'watch']);<% } %>
     grunt.registerTask('validate-js', ['jshint']);
     grunt.registerTask('server-dist', ['connect:dist']);
-    grunt.registerTask('bower-copy', ['copy:bower']);
+    grunt.registerTask('copy-bower', ['copy:bower']);
     grunt.registerTask('copy-app-files', ['copy:app_files']);
     <% if (jade) { %>
     //grunt.registerTask('publish', ['compile-jade', 'compile-sass', 'clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin', 'copy:wwwroot']);<% } else { %>

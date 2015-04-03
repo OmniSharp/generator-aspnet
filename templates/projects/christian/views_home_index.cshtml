@@ -2,79 +2,45 @@
     ViewBag.Title = "Home Page";
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/ASP-NET-Banners-01.png" alt="ASP.NET" class="img-responsive">
-            <div class="container">
-                <div class="carousel-caption">
-                    <p>
-                        Learn how to build ASP.NET apps that can run anywhere.
-                        <a class="btn btn-default btn-default" href="http://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>
-                </div>
+<div class="row">
+    <ul data-orbit>
+        <li>
+            <img src="~/images/ASP-NET-Banners-01.png" alt="slide 1" />
+            <div class="orbit-caption">
+                Learn how to build ASP.NET apps that can run anywhere. <a href="http://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">Learn More ></a>
             </div>
-        </div>
-        <div class="item">
-            <img src="~/images/Banner-02-VS.png" alt="Visual Studio" class="img-responsive">
-            <div class="container">
-                <div class="carousel-caption">
-                    <p>
-                        There are powerful new features in Visual Studio for building modern web apps.
-                        <a class="btn btn-default btn-default" href="http://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>
-                </div>
+        </li>
+        <li class="active">
+            <img src="~/images/ASP-NET-Banners-02.png" alt="slide 2" />
+            <div class="orbit-caption">
+                There are powerful new features in Visual Studio for building modern web apps. <a href="http://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">Learn More ></a>
             </div>
-        </div>
-        <div class="item">
-            <img src="~/images/ASP-NET-Banners-02.png" alt="Package Management" class="img-responsive">
-            <div class="container">
-                <div class="carousel-caption">
-                    <p>
-                        Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
-                        <a class="btn btn-default btn-default" href="http://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>
-                </div>
+        </li>
+        <li>
+            <img src="~/images/Banner-02-VS.png" alt="slide 3" />
+            <div class="orbit-caption">
+                Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp. <a href="http://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">Learn More ></a>
             </div>
-        </div>
-        <div class="item">
-            <img src="~/images/Banner-01-Azure.png" alt="Microsoft Azure" class="img-responsive">
-            <div class="container">
-                <div class="carousel-caption">
-                    <p>
-                        Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                        <a class="btn btn-default btn-default" href="http://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>
-                </div>
+        </li>
+        <li>
+            <img src="~/images/Banner-01-Azure.png" alt="slide 4" />
+            <div class="orbit-caption">
+                Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps. <a href="http://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">Learn More ></a>
             </div>
-        </div>
-    </div>
+        </li>
+    </ul>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>This application consists of:</h2>
+    <div class="medium-4 left">
+        <h4>This application consists of:</h4>
         <ul>
             <li>Sample pages showing basic nav</li>
-            <li>Theming using <a href="http://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+            <li>Theming using <a href="http://zurb.foundation.com">Foundation</a></li>
         </ul>
     </div>
-    <div class="col-md-4">
-        <h2>Customize app</h2>
+    <div class="medium-4 left">
+        <h4>Customize app</h4>
         <ul>
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=398600">Add Controllers and Views</a></li>
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=398602">Add Data using EntityFramework</a></li>
@@ -86,13 +52,66 @@
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=517850">Develop on different platforms</a></li>
         </ul>
     </div>
-    <div class="col-md-4">
-        <h2>Run & Deploy</h2>
+    <div class="medium-4 left">
+        <h4>Run & Deploy</h4>
         <ul>
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=517851">Run your app locally</a></li>
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=517852">Run your app on ASP.NET Core 5</a></li>
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=517853">Run commands defined in your project.json</a></li>
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Sites</a></li>
         </ul>
+    </div>
+</div>
+
+<div class="row text-center">
+    <h1>ASP.NET - Foundation 5 Framework!</h1>
+</div>
+
+<div class="row">
+    <div class="columns panel callout">
+        <div class="large-4 columns">
+            <h3>Yo ASPNET-F5 build:</h3>
+            <ul>
+                <li>SASS/SCSS compiling (Ruby or Node/Libsass)</li>
+                <li>Build html templates in app folder</li>
+                <li>Copy files to wwwroot, includes & app directories</li>
+                <li>Includes directory for header.cshtml & footer.cshtml</li>
+                <li>Publishing to dist directory & includes directory</li>
+                <li>Server with LiveReload</li>
+                <li>JSHint</li>
+                <li>Grunt Bower install</li>
+                <li>Imagemin</li>
+                <li>Font Awesome (option)</li>
+                <li>Jade templating engine (option)</li>
+            </ul>
+        </div>
+        <div class="large-4 columns">
+            <h3>Grunt tasks:</h3>
+            <ul>
+                <li>'grunt' - watching (Sass, Server on 127.0.0.1:9000 with LiveReload)</li>
+                <li>'grunt compile-sass' - Sass</li>
+                <li>'grunt compile-jade' - Jade</li>
+                <li>'grunt validate-js' - JSHint</li>
+                <li>'grunt bower-install' - injecting bower libraries</li>
+                <li>'grunt copy-bower' -  copy files to app/bower_components</li>
+                <li>'grunt copy-app-files' - copy files to wwwroot & includes</li>
+                <li>'grunt publish' - dist directory</li>
+                <li>'grunt server-dist' - server on 127.0.0.1:9001 - dist directory (preview only)</li>
+            </ul>
+        </div>
+        <div class="large-4 columns">
+            <h3>KPM tasks:</h3>
+            <ul>
+                <li>'kpm restore' - run install nuget and npm & bower packages</li>
+                <li>'kpm build' - Build project files</li>
+                <li>'k web' - Run kpm server on localhost:5001</li>
+                <li>'k kestrel' - Run kpm server on localhost:5004</li>
+                <li>'k gen' - Code generation</li>
+                <li>'k ef' - Entity framework commands</li>
+            </ul>
+        </div>
+        <h2 class="text-right">
+            <a href="https://github.com/xtianus79/generator-aspnet"><% if (fontAwesome) { %><i class="fa fa-github"></i><% } else { %>github<% } %></a>
+        </h2>
     </div>
 </div>
