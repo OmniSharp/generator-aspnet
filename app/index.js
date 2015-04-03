@@ -416,12 +416,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 this.template(this.sourceRoot() + '/jade/index.jade', 'app/index.jade', this.templatedata);
                 this.template(this.sourceRoot() + '/jade/header.jade', 'app/header.jade', this.templatedata);
                 this.copy(this.sourceRoot() + '/jade/footer.jade', 'app/footer.jade', this.templatedata);
-            } else {
-                this.template(this.sourceRoot() + '/index.html', 'app/index.html', this.templatedata);
-                this.template(this.sourceRoot() + '/index.cshtml', 'app/index.cshtml', this.templatedata);
                 this.template(this.sourceRoot() + '/_header.cshtml', 'app/_header.cshtml', this.templatedata);
                 this.template(this.sourceRoot() + '/_footer.cshtml', 'app/_footer.cshtml', this.templatedata);
-                this.template(this.sourceRoot() + '/_Layout.cshtml', 'app/_Layout.cshtml', this.templatedata);
+            } else {
+                this.template(this.sourceRoot() + '/index.html', 'app/index.html', this.templatedata);
+                this.template(this.sourceRoot() + '/_header.cshtml', 'app/_header.cshtml', this.templatedata);
+                this.template(this.sourceRoot() + '/_footer.cshtml', 'app/_footer.cshtml', this.templatedata);
             }
             this.mkdir('app/fonts');
             this.mkdir('app/images');
