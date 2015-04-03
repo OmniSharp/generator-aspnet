@@ -86,7 +86,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%%= app %>/',
                     src: ['fonts/**', '!**/*.scss', '!bower_components/**'],
-                    dest: '<%%= wwwroot %>/'
+                    dest: '<%%= wwwroot %>/dist/'
                 }<% if (fontAwesome) { %>,{
 					expand: true,
 					flatten: true,
