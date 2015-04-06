@@ -1,6 +1,6 @@
 {
   "name": "generator-aspnet-xtianus",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yeoman generator for ASP.NET 5 apps",
   "license": "Apache License 2.0",
   "main": "app/index.js",
@@ -13,7 +13,7 @@
       "email": "xtianus@live.com",
       "url": "https://github.com/xtianus79"
     },
-      {
+    {
       "name": "Sourabh Shirhatti",
       "email": "shirhatti@outlook.com",
       "url": "https://github.com/shirhatti"
