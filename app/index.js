@@ -12,7 +12,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     init: function () {
-        this.log(yosay('Welcome to the marvellous ASP.NET 5 generator!'));
+        this.log(yosay('Welcome to Xtianus\'s Extended ASP.NET 5 generator!'));
         this.templatedata = {};
     },
 
@@ -37,8 +37,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                     value: 'web'
                 },
                 {
-                    name: 'Christian\'s Starter Web Application - Foundation 5 / Sass',
-                    value: 'christian'
+                    name: 'Starter Web Application - Foundation 5',
+                    value: 'foundation5'
                 },
                 {
                     name: 'Web API Application',
@@ -79,8 +79,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             case 'web':
                 app = 'WebApplication';
                 break;
-            case 'christian':
-                app = 'ChristianApplication';
+            case 'foundation5':
+                app = 'Foundation5Application';
                 break;
             case 'webapi':
                 app = 'WebAPIApplication';
@@ -95,7 +95,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 app = 'UnitTest'
                 break;
         }
-        if (this.type == 'christian') {
+        if (this.type == 'foundation5') {
             var prompts = [{
                 name: 'applicationName',
                 message: 'Set the default ASPNET C# namespace? Default =',
@@ -120,7 +120,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     writing: function () {
         this.sourceRoot(path.join(__dirname, '../samples/'));
 
-        if (!this.type == 'christian') {
+        if (!this.type == 'foundation5') {
             this.mkdir(this.applicationName);
         }
         switch (this.type) {
@@ -225,7 +225,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 /// wwwroot
                 this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
                 break;
-            case 'christian':
+            case 'foundation5':
                 this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
                 this.template(this.sourceRoot() + '/startup.cs', 'Startup.cs', this.templatedata);
@@ -315,11 +315,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     askForGruntBuild: function () {
-        if (this.type == 'christian') {
+        if (this.type == 'foundation5') {
             var cb = this.async();
 
             this.log(chalk.bold.red('==================================================================================='));
-            this.log(chalk.bold.yellow('    Welcome to Christian\'s OminiSharp ASP.NET Plus - Foundation 5 - Generator!'));
+            this.log(chalk.bold.yellow('    Welcome to ASP.NET Extended Starter Web - Foundation 5 - Generator!'));
             this.log(chalk.bold.red('==================================================================================='));
 
             var prompts = {
@@ -338,7 +338,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     askForFontAwesome: function () {
-        if (this.type == 'christian') {
+        if (this.type == 'foundation5') {
             var cb = this.async();
 
             this.log(chalk.bold.red('==================================================================================='));
@@ -359,7 +359,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     askForCompass: function () {
-        if (this.type == 'christian') {
+        if (this.type == 'foundation5') {
             var cb = this.async();
 
             this.log(chalk.bold.red('==================================================================================='));
@@ -379,7 +379,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     askForJade: function () {
-        if (this.type == 'christian') {
+        if (this.type == 'foundation5') {
             var cb = this.async();
 
             this.log(chalk.bold.red('==================================================================================='));
@@ -399,7 +399,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     },
 
     app: function () {
-        if (this.type == 'christian') {
+        if (this.type == 'foundation5') {
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
             this.mkdir('app');

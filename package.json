@@ -1,12 +1,19 @@
 {
-  "name": "generator-aspnet-f5",
-  "version": "0.0.31",
+  "name": "generator-aspnet-xtianus",
+  "version": "0.0.1",
   "description": "Yeoman generator for ASP.NET 5 apps",
   "license": "Apache License 2.0",
   "main": "app/index.js",
-  "repository": "OmniSharp/generator-aspnet",
+  "repository": "xtianus79/generator-aspnet",
+  "homepage": "https://github.com/xtianus79/generator-aspnet",
+  "bugs": "https://github.com/xtianus79/generator-aspnet/issues",
   "contributors": [
     {
+      "name": "Christian Matthias",
+      "email": "xtianus@live.com",
+      "url": "https://github.com/xtianus79"
+    },
+      {
       "name": "Sourabh Shirhatti",
       "email": "shirhatti@outlook.com",
       "url": "https://github.com/shirhatti"
@@ -43,7 +50,10 @@
     "aspnet",
     "ASP",
     "net",
-    "vNext"
+    "vNext",
+    "foundation",
+    "foundation5",
+    "zurb"
   ],
   "dependencies": {
     "chai": "^1.10.0",
