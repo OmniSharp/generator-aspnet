@@ -242,9 +242,9 @@
   });
 
   /*
-  * yo aspnet Christian's Starter Web Application - Foundation 5
+  * yo aspnet Starter Web Application - Foundation 5
   */
-  describe('Christian\'s aspnet - Starter Web App', function () {
+  describe('aspnet - Starter Web App - Foundation 5', function () {
 
       util.goCreateApplication('web', 'webTest');
 

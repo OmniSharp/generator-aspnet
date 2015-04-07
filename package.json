@@ -7,6 +7,11 @@
   "repository": "xtianus79/generator-aspnet",
   "homepage": "https://github.com/xtianus79/generator-aspnet",
   "bugs": "https://github.com/xtianus79/generator-aspnet/issues",
+  "author": {
+    "name": "Christian Matthias",
+    "email": "xtianus@live.com",
+    "url": "https://github.com/xtianus79"
+  },
   "contributors": [
     {
       "name": "Christian Matthias",
@@ -56,11 +61,11 @@
     "zurb"
   ],
   "dependencies": {
-    "chai": "^1.10.0",
-    "chalk": "~0.4.0",
-    "mocha": "^2.1.0",
-    "yeoman-generator": "~0.18.5",
-    "yosay": "^0.1.0"
+    "chai": "~2.2.0",
+    "chalk": "~1.0.0",
+    "mocha": "^2.2.1",
+    "yeoman-generator": "~0.19.1",
+    "yosay": "~1.0.3"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
