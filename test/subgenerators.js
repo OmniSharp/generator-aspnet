@@ -5,27 +5,27 @@ var util = require('./test-utility');
  */
 describe('Subgenerators without arguments tests', function () {
 
-    describe('aspnet:PackageJson', function () {
+    describe('aspnet-xtianus:PackageJson', function () {
         util.goCreate('PackageJson');
         util.fileCheck('should create package json file', 'package.json');
     });
 
-    describe('aspnet:Gulpfile', function () {
+    describe('aspnet-xtianus:Gulpfile', function () {
         util.goCreate('Gulpfile');
         util.fileCheck('should create gulp file', 'gulpfile.js');
     });
 
-    describe('aspnet:BowerJson', function () {
+    describe('aspnet-xtianus:BowerJson', function () {
         util.goCreate('BowerJson');
         util.fileCheck('should create bower file', 'bower.json');
     });
 
-    describe('aspnet:Config', function () {
+    describe('aspnet-xtianus:Config', function () {
         util.goCreate('Config');
         util.fileCheck('should create config json file', 'config.json');
     });
 
-    describe('aspnet:StartupClass', function () {
+    describe('aspnet-xtianus:StartupClass', function () {
         util.goCreate('StartupClass');
         util.fileCheck('should create Startup.cs file', 'Startup.cs');
     });
@@ -36,7 +36,7 @@ describe('Subgenerators without arguments tests', function () {
  */
 describe('Subgenerators with named arguments tests', function () {
 
-    describe('aspnet:Class', function () {
+    describe('aspnet-xtianus:Class', function () {
         var arg = 'MyClass';
         var filename = 'MyClass.cs';
 
@@ -46,7 +46,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:CoffeeScript', function () {
+    describe('aspnet-xtianus:CoffeeScript', function () {
         var arg = 'file';
         var filename = 'file.coffee';
 
@@ -55,7 +55,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:Gruntfile', function () {
+    describe('aspnet-xtianus:Gruntfile', function () {
         var arg = 'gruntfile';
         var filename = 'gruntfile.js';
 
@@ -64,7 +64,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:HTMLPage', function () {
+    describe('aspnet-xtianus:HTMLPage', function () {
         var arg = 'mypage';
         var filename = 'mypage.html';
 
@@ -73,7 +73,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:JavaScript', function () {
+    describe('aspnet-xtianus:JavaScript', function () {
         var arg = 'file';
         var filename = 'file.js';
 
@@ -82,7 +82,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:JSON', function () {
+    describe('aspnet-xtianus:JSON', function () {
         var arg = 'file';
         var filename = 'file.json';
 
@@ -91,7 +91,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:MvcController', function () {
+    describe('aspnet-xtianus:MvcController', function () {
         var arg = 'file';
         var filename = 'file.cs';
 
@@ -100,7 +100,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:MvcView', function () {
+    describe('aspnet-xtianus:MvcView', function () {
         var arg = 'file';
         var filename = 'file.cshtml';
 
@@ -109,7 +109,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:TextFile', function () {
+    describe('aspnet-xtianus:TextFile', function () {
         var arg = 'file';
         var filename = 'file.txt';
 
@@ -118,7 +118,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:TypeScript', function () {
+    describe('aspnet-xtianus:TypeScript', function () {
         var arg = 'file';
         var filename = 'file.ts';
 
@@ -127,7 +127,7 @@ describe('Subgenerators with named arguments tests', function () {
 
     });
 
-    describe('aspnet:WebApiController', function () {
+    describe('aspnet-xtianus:WebApiController', function () {
         var arg = 'file';
         var filename = 'file.cs';
 
