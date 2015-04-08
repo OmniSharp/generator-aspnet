@@ -5,18 +5,21 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 
 var Generator = module.exports = function Generator() {
-  yeoman.generators.Base.apply(this, arguments);
+  	yeoman.generators.Base.apply(this, arguments);
 
-  var sourceRoot = '/templates/';
-  this.sourceRoot(path.join(__dirname, sourceRoot));
+  	var sourceRoot = '/templates/';
+  	this.sourceRoot(path.join(__dirname, sourceRoot));
 }; 
 
 util.inherits(Generator, yeoman.generators.Base);
 
 Generator.prototype.generateStandardFile = function(sourceFile, targetFile){
-   this.log('You called the aspnet subgenerator with the arg ' + sourceFile);
+   	this.log('You called the aspnet subgenerator with the arg ' + sourceFile);
 
-  this.src.copy(sourceFile, targetFile);
+  	this.fs.copy(
+   		this.templatePath(sourceFile),
+   		this.destinationPath(targetFile)
+   	)
 
   this.log(targetFile + ' created.')
 }

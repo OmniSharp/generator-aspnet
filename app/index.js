@@ -3,6 +3,7 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 var path = require('path');
+var mkdirp = require('mkdirp');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
     constructor: function () {
@@ -121,7 +122,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.sourceRoot(path.join(__dirname, '../samples/'));
 
         if (!this.type == 'foundation5') {
-            this.mkdir(this.applicationName);
+            mkdirp(this.applicationName);
         }
         switch (this.type) {
 
@@ -402,11 +403,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         if (this.type == 'foundation5') {
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-            this.mkdir('app');
-            this.mkdir('app/bower_components');
-            this.mkdir('dist');
-            this.mkdir('includes');
-            this.mkdir('wwwroot/dist');
+            mkdirp('app');
+            mkdirp('app/bower_components');
+            mkdirp('dist');
+            mkdirp('includes');
+            mkdirp('wwwroot/dist');
             this.copy(this.sourceRoot() + '/.jshintrc', '.jshintrc');
             this.copy(this.sourceRoot() + '/.bowerrc', '.bowerrc');
             this.copy(this.sourceRoot() + '/.editorconfig', '.editorconfig');
@@ -423,11 +424,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 this.template(this.sourceRoot() + '/_header.cshtml', 'app/_header.cshtml', this.templatedata);
                 this.template(this.sourceRoot() + '/_footer.cshtml', 'app/_footer.cshtml', this.templatedata);
             }
-            this.mkdir('app/fonts');
-            this.mkdir('app/images');
-            this.mkdir('app/js');
-            this.mkdir('app/css');
-            this.mkdir('app/scss');
+            mkdirp('app/fonts');
+            mkdirp('app/images');
+            mkdirp('app/js');
+            mkdirp('app/css');
+            mkdirp('app/scss');
             this.copy(this.sourceRoot() + '/scss/app.scss', 'app/scss/app.scss');
             this.copy(this.sourceRoot() + '/scss/_settings.scss', 'app/scss/_settings.scss');
             this.template(this.sourceRoot() + '/scss/_appstyles.scss', 'app/scss/_appstyles.scss', this.templatedata);
