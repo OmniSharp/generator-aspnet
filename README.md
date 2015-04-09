@@ -38,10 +38,20 @@ The Empty Application, Web Application, Web API Application are based on the new
 The Nancy project is based on framework's "Hello World" template:  
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
 
+## Related yo generators
 
-## Generators
+The goal of ```generator-aspnet``` is to provide an experience consistent with creating new ASP.NET 5 (_DNX_) projects
+and files in Visual Studio 2015. Below are some other related generators that you may be interested in.
 
-Available generators:
+### ```generator-csharp```
+
+[```generator-csharp```](https://github.com/OmniSharp/generator-csharp) is a work in progress but is available for you to try out today. The goal of [```generator-csharp```](https://github.com/OmniSharp/generator-csharp) is to provide an experience consistent with creating C# projects (_MSBuild based, not DNX_) and files in Visual Studio 2015.
+
+If you are working on a related generator please [open an issue](https://github.com/OmniSharp/generator-aspnet/issues/new) to let us know about it so that we can add it to the list.
+
+## Sub Generators
+
+Available sub generators (_to create files after the project has been created_):
 
 * [aspnet:MvcController](#mvccontroller)
 * [aspnet:MvcView](#mvcview)
