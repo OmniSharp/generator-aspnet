@@ -6,21 +6,17 @@ var chalk = require('chalk');
 
 var NamedGenerator = module.exports = function NamedGenerator() {
     yeoman.generators.NamedBase.apply(this, arguments);
-
-    var sourceRoot = '/templates/';
-    this.sourceRoot(path.join(__dirname, sourceRoot));
+    this.sourceRoot(path.join(__dirname, './templates/'));
 };
 
 util.inherits(NamedGenerator, yeoman.generators.NamedBase);
 
 NamedGenerator.prototype.generateTemplateFile = function (templateFile, targetFile, templateData) {
     this.log('You called the aspnet subgenerator with the arg ' + this.name);
-
     if (templateData !== null) {
-        this.template(templateFile, targetFile, templateData);
+        this.fs.copyTpl(this.templatePath(templateFile), this.destinationPath(targetFile), templateData);
     } else {
-        this.template(templateFile, targetFile);
+        this.fs.copyTpl(this.templatePath(templateFile), this.destinationPath(targetFile));
     }
-
     this.log(targetFile + ' created.')
 }
