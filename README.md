@@ -38,7 +38,7 @@ The Empty Application, Web Application, Web API Application are based on the new
 The Nancy project is based on framework's "Hello World" template:  
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
 
-## Related yo generators
+## Related yeoman generators
 
 The goal of ```generator-aspnet``` is to provide an experience consistent with creating new ASP.NET 5 (_DNX_) projects
 and files in Visual Studio 2015. Below are some other related generators that you may be interested in.
