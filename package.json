@@ -48,9 +48,11 @@
   "dependencies": {
     "chai": "^1.10.0",
     "chalk": "~0.4.0",
-    "mocha": "^2.1.0",
     "yeoman-generator": "~0.18.5",
     "yosay": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.1"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
