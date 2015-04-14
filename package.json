@@ -54,9 +54,6 @@
   "devDependencies": {
     "mocha": "^2.2.1"
   },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
-  },
   "scripts": {
     "test": "mocha"
   }
