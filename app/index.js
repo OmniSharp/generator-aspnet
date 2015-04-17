@@ -114,6 +114,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
+
             this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
             this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
@@ -125,6 +127,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         case 'webapi':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
 
             this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
@@ -142,6 +146,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         case 'web':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
 
             this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
@@ -212,6 +218,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             break;
         case 'nancy':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
 
             this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
