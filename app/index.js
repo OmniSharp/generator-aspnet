@@ -3,6 +3,7 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 var path = require('path');
+var guid = require('uuid');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
     constructor: function () {
@@ -98,15 +99,15 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.templatedata.namespace = props.applicationName;
             this.templatedata.applicationname = props.applicationName;
             this.applicationName = props.applicationName;
+            this.templatedata.guid = guid.v4();
 
             done();
         }.bind(this));
     },
 
     writing: function () {
-        this.sourceRoot(path.join(__dirname, '../samples/'));
+        this.sourceRoot(path.join(__dirname, './templates/projects'));
 
-        this.mkdir(this.applicationName);
         switch (this.type) {
 
         case 'empty':
@@ -119,9 +120,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
             this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
-            /// wwwroot
-            this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
 
+            /// wwwroot
+            this.fs.copy(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
             break;
 
         case 'webapi':
@@ -140,8 +141,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.template(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml', this.templatedata);
 
             /// wwwroot
-            this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
-
+            this.fs.copy(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
             break;
 
         case 'web':
@@ -169,9 +169,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                 this.template(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json', this.templatedata);
 
                 this.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
-            }
 
+            }
             // models
+
             this.template(this.sourceRoot() + '/models_accountview.cs', this.applicationName + '/Models/AccountViewModels.cs', this.templatedata);
 
             this.template(this.sourceRoot() + '/models_identity.cs', this.applicationName + '/Models/IdentityModels.cs', this.templatedata);
@@ -213,7 +214,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.template(this.sourceRoot() + '/views_viewstart.cshtml', this.applicationName + '/Views/_ViewStart.cshtml', this.templatedata);
 
             /// wwwroot
-            this.directory(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
+            this.directory(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
             break;
         case 'nancy':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
@@ -225,11 +226,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
             this.template(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
+
             break;
         case 'console':
         case 'classlib':
         case 'unittest':
-            this.directory(this.type, this.applicationName);
+            this.sourceRoot(path.join(__dirname, '../samples'));
+            this.fs.copy(this.templatePath(this.type), this.destinationPath(this.applicationName));
             break;
         default:
             this.log('Unknown project type');
