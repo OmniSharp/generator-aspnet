@@ -12,7 +12,6 @@ var util = (function () {
             mockGen = yeoman.test;
 
             mockGen.run(path.join(__dirname, '../' + subgenerator))
-                .inDir(path.join(__dirname, './.tmp'))
                 .on('end', done);
         });
     };
@@ -23,7 +22,6 @@ var util = (function () {
             mockGen = yeoman.test;
 
             mockGen.run(path.join(__dirname, '../' + subgenerator))
-                .inDir(path.join(__dirname, './.tmp'))
                 .withArguments(args)
                 .on('end', done);
         });
@@ -43,10 +41,8 @@ var util = (function () {
             };
 
             mockGen.run(path.join(__dirname, '../app'))
-
-            .inDir(path.join(__dirname, './.tmp'))
-                .withPrompt(mockPrompt)
-                .on('end', done);
+              .withPrompts(mockPrompt)
+              .on('end', done);
         });
 
     };
@@ -63,11 +59,9 @@ var util = (function () {
             };
 
             mockGen.run(path.join(__dirname, '../app'))
-
-            .inDir(path.join(__dirname, './.tmp'))
-                .withPrompt(mockPrompt)
-                .withOptions(options)
-                .on('end', done);
+              .withPrompts(mockPrompt)
+              .withOptions(options)
+              .on('end', done);
         });
 
     };
