@@ -99,7 +99,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.templatedata.namespace = props.applicationName;
             this.templatedata.applicationname = props.applicationName;
             this.applicationName = props.applicationName;
-            this.templatedata.guid = uuid.v4();
+            this.templatedata.guid = guid.v4();
 
             done();
         }.bind(this));
