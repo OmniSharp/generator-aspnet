@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 var path = require('path');
-var guid = require('guid');
+var guid = require('uuid');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
     constructor: function () {
@@ -99,7 +99,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.templatedata.namespace = props.applicationName;
             this.templatedata.applicationname = props.applicationName;
             this.applicationName = props.applicationName;
-            this.templatedata.guid = guid.raw();
+            this.templatedata.guid = uuid.v4();
 
             done();
         }.bind(this));
