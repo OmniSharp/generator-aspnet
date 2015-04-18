@@ -48,6 +48,7 @@
   "dependencies": {
     "chai": "^1.10.0",
     "chalk": "^1.0.0",
+    "uuid": "^2.0.1",
     "yeoman-generator": "^0.19.0",
     "yosay": "^1.0.0"
   },
