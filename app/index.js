@@ -114,7 +114,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
 
             this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
@@ -128,7 +128,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'webapi':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
 
             this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
@@ -219,7 +219,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'nancy':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
 
             this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
