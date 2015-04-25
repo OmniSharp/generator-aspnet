@@ -29,6 +29,11 @@ describe('Subgenerators without arguments tests', function () {
         util.goCreate('StartupClass');
         util.fileCheck('should create Startup.cs file', 'Startup.cs');
     });
+
+    describe('aspnet:gitignore', function () {
+        util.goCreate('gitignore');
+        util.fileCheck('should create .gitignore file', '.gitignore');
+    });
 });
 
 /*
