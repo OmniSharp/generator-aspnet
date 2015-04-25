@@ -112,9 +112,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         case 'empty':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-            this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
-            this.fs.copyTpl(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-            this.fs.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+
+            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+
+            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
             /// wwwroot
             this.fs.copy(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
@@ -122,12 +125,18 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         case 'webapi':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-            this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
-            this.fs.copyTpl(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-            this.fs.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
-            this.fs.copyTpl(this.sourceRoot() + '/controllers_home.cs', this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
-            this.fs.copyTpl(this.sourceRoot() + '/controllers_values.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
-            this.fs.copyTpl(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml', this.templatedata);
+
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+
+            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+
+            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+
+            this.template(this.sourceRoot() + '/controllers_home.cs', this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
+
+            this.template(this.sourceRoot() + '/controllers_values.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
+
+            this.template(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml', this.templatedata);
 
             /// wwwroot
             this.fs.copy(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
@@ -177,10 +186,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             break;
         case 'nancy':
             this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-            this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitgnore');
-            this.fs.copyTpl(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-            this.fs.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
-            this.fs.copyTpl(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
+
+            this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+
+            this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+
+            this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+
+            this.template(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
 
             break;
         case 'console':
