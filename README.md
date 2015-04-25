@@ -32,10 +32,10 @@ Full, template based projects available in generator:
 - Nancy ASP.NET Application
 - Class Library
 
-The Empty Application, Web Application, Web API Application are based on the new templates recently introduced with Visual Studio CTP 6 release, and you can read about this new templates on blog post accompanying CTP 6 release:  
+The Empty Application, Web Application, Web API Application are based on the new templates recently introduced with Visual Studio CTP 6 release, and you can read about this new templates on blog post accompanying CTP 6 release:
 [ASP.NET 5 Updates and other improvements for Web Developers in Visual Studio 2015 CTP 6](http://blogs.msdn.com/b/webdev/archive/2015/02/23/aspnet-5-updates-for-feb-2015.aspx)
 
-The Nancy project is based on framework's "Hello World" template:  
+The Nancy project is based on framework's "Hello World" template:
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
 
 ## Related yeoman generators
@@ -61,11 +61,12 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:MvcView](#mvcview)
 * [aspnet:WebApiContoller](#webapicontroller)
 * [aspnet:Class](#class)
-* [aspnet:StartupClass](#startupclass) 
+* [aspnet:StartupClass](#startupclass)
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:CoffeeScript](#coffeescript)
 * [aspnet:Config](#config)
 * [aspnet:Gulpfile](#gulpfile)
+* [aspnet:gitignore](#gitignore)
 * [aspnet:HTMLPage](#htmlpage)
 * [aspnet:JavaScript](#javascript)
 * [aspnet:JScript](#jscript)
@@ -78,7 +79,7 @@ Available sub generators (_to create files after the project has been created_):
 
 ### MvcController
 
-Creates a new ASP.NET 5 MvcController class 
+Creates a new ASP.NET 5 MvcController class
 
 Example:
 
@@ -108,7 +109,7 @@ namespace MyNamespace
 
 ### MvcView
 
-Creates a new ASP.NET 5 MvcView page file 
+Creates a new ASP.NET 5 MvcView page file
 
 Example:
 
@@ -129,7 +130,7 @@ Produces `/ContactView.cshtml`
 ```
 ### WebApiController
 
-Creates a new ASP.NET 5 WebApiController class 
+Creates a new ASP.NET 5 WebApiController class
 
 Example:
 
@@ -190,7 +191,7 @@ namespace MyNamespace.Controllers
 
 ### Class
 
-Creates a new ASP.NET 5 Class 
+Creates a new ASP.NET 5 Class
 
 Example:
 
@@ -271,6 +272,18 @@ yo aspnet:Gulpfile
 ```
 
 Produces `gulpfile.js`
+
+### gitignore
+
+Creates a new .gitignore file
+
+Example:
+
+```
+yo aspnet:gitignore
+```
+
+Produces `.gitignore`
 
 ### HTMLPage
 
