@@ -92,7 +92,7 @@ yo aspnet:MvcController ContactController
 
 Produces `/ContactController.cs`
 
-```
+```cs
 using Microsoft.AspNet.Mvc;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -143,7 +143,7 @@ yo aspnet:WebApiController ValuesController
 
 Produces `/ValuesController.cs`
 
-```
+```cs
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -204,7 +204,7 @@ yo aspnet:Class Contact
 
 Produces `/Contact.cs`
 
-```
+```cs
 using System;
 
 namespace MyNamespace
