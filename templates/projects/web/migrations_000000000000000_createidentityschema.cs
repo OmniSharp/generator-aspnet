@@ -1,237 +1,301 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
+using Microsoft.Data.Entity.Metadata.Builders;
 using Microsoft.Data.Entity.Relational.Migrations;
 using Microsoft.Data.Entity.Relational.Migrations.Builders;
 using Microsoft.Data.Entity.Relational.Migrations.Infrastructure;
+using Microsoft.Data.Entity.Relational.Migrations.Operations;
+using <%= namespace %>.Models;
 
 namespace <%= namespace %>.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
-        public override void Up(MigrationBuilder migrationBuilder)
+        public override void Up(MigrationBuilder migration)
         {
-            migrationBuilder.CreateTable("AspNetRoles",
-                c => new
-                    {
-                        Id = c.String(),
-                        Name = c.String()
-                    })
-                .PrimaryKey("PK_AspNetRoles", t => t.Id);
-            
-            migrationBuilder.CreateTable("AspNetRoleClaims",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        ClaimType = c.String(),
-                        ClaimValue = c.String(),
-                        RoleId = c.String()
-                    })
-                .PrimaryKey("PK_AspNetRoleClaims", t => t.Id);
-            
-            migrationBuilder.CreateTable("AspNetUserClaims",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        ClaimType = c.String(),
-                        ClaimValue = c.String(),
-                        UserId = c.String()
-                    })
-                .PrimaryKey("PK_AspNetUserClaims", t => t.Id);
-            
-            migrationBuilder.CreateTable("AspNetUserLogins",
-                c => new
-                    {
-                        LoginProvider = c.String(),
-                        ProviderKey = c.String(),
-                        ProviderDisplayName = c.String(),
-                        UserId = c.String()
-                    })
-                .PrimaryKey("PK_AspNetUserLogins", t => new { t.LoginProvider, t.ProviderKey });
-            
-            migrationBuilder.CreateTable("AspNetUserRoles",
-                c => new
-                    {
-                        UserId = c.String(),
-                        RoleId = c.String()
-                    })
-                .PrimaryKey("PK_AspNetUserRoles", t => new { t.UserId, t.RoleId });
-            
-            migrationBuilder.CreateTable("AspNetUsers",
-                c => new
-                    {
-                        Id = c.String(),
-                        AccessFailedCount = c.Int(nullable: false),
-                        ConcurrencyStamp = c.String(),
-                        Email = c.String(),
-                        EmailConfirmed = c.Boolean(nullable: false),
-                        LockoutEnabled = c.Boolean(nullable: false),
-                        LockoutEnd = c.DateTimeOffset(),
-                        NormalizedEmail = c.String(),
-                        NormalizedUserName = c.String(),
-                        PasswordHash = c.String(),
-                        PhoneNumber = c.String(),
-                        PhoneNumberConfirmed = c.Boolean(nullable: false),
-                        SecurityStamp = c.String(),
-                        TwoFactorEnabled = c.Boolean(nullable: false),
-                        UserName = c.String()
-                    })
-                .PrimaryKey("PK_AspNetUsers", t => t.Id);
-            
-            migrationBuilder.AddForeignKey(
-                "AspNetRoleClaims",
-                "FK_AspNetRoleClaims_AspNetRoles_RoleId",
-                 new[] { "RoleId" },
-                 "AspNetRoles",
-                 new[] { "Id" },
-                 cascadeDelete: false);
-            
-            migrationBuilder.AddForeignKey(
-                "AspNetUserClaims",
-                "FK_AspNetUserClaims_AspNetUsers_UserId",
-                 new[] { "UserId" }, "AspNetUsers",
-                 new[] { "Id" },
-                 cascadeDelete: false);
-            
-            migrationBuilder.AddForeignKey(
-                "AspNetUserLogins",
-                "FK_AspNetUserLogins_AspNetUsers_UserId",
-                 new[] { "UserId" },
-                 "AspNetUsers",
-                 new[] { "Id" },
-                 cascadeDelete: false);
+            migration.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    AccessFailedCount = table.Column(type: "int", nullable: false),
+                    ConcurrencyStamp = table.Column(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column(type: "nvarchar(max)", nullable: true),
+                    EmailConfirmed = table.Column(type: "bit", nullable: false),
+                    Id = table.Column(type: "nvarchar(450)", nullable: true),
+                    LockoutEnabled = table.Column(type: "bit", nullable: false),
+                    LockoutEnd = table.Column(type: "datetimeoffset", nullable: true),
+                    NormalizedEmail = table.Column(type: "nvarchar(max)", nullable: true),
+                    NormalizedUserName = table.Column(type: "nvarchar(max)", nullable: true),
+                    PasswordHash = table.Column(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column(type: "bit", nullable: false),
+                    SecurityStamp = table.Column(type: "nvarchar(max)", nullable: true),
+                    TwoFactorEnabled = table.Column(type: "bit", nullable: false),
+                    UserName = table.Column(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+            migration.CreateTable(
+                name: "AspNetRoles",
+                columns: table => new
+                {
+                    ConcurrencyStamp = table.Column(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column(type: "nvarchar(450)", nullable: true),
+                    Name = table.Column(type: "nvarchar(max)", nullable: true),
+                    NormalizedName = table.Column(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+            migration.CreateTable(
+                name: "AspNetUserClaims",
+                columns: table => new
+                {
+                    ClaimType = table.Column(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGeneration", "Identity"),
+                    UserId = table.Column(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        columns: x => x.UserId,
+                        referencedTable: "AspNetUsers",
+                        referencedColumn: "Id");
+                });
+            migration.CreateTable(
+                name: "AspNetUserLogins",
+                columns: table => new
+                {
+                    LoginProvider = table.Column(type: "nvarchar(450)", nullable: true),
+                    ProviderDisplayName = table.Column(type: "nvarchar(max)", nullable: true),
+                    ProviderKey = table.Column(type: "nvarchar(450)", nullable: true),
+                    UserId = table.Column(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        columns: x => x.UserId,
+                        referencedTable: "AspNetUsers",
+                        referencedColumn: "Id");
+                });
+            migration.CreateTable(
+                name: "AspNetRoleClaims",
+                columns: table => new
+                {
+                    ClaimType = table.Column(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGeneration", "Identity"),
+                    RoleId = table.Column(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        columns: x => x.RoleId,
+                        referencedTable: "AspNetRoles",
+                        referencedColumn: "Id");
+                });
+            migration.CreateTable(
+                name: "AspNetUserRoles",
+                columns: table => new
+                {
+                    RoleId = table.Column(type: "nvarchar(450)", nullable: true),
+                    UserId = table.Column(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        columns: x => x.RoleId,
+                        referencedTable: "AspNetRoles",
+                        referencedColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        columns: x => x.UserId,
+                        referencedTable: "AspNetUsers",
+                        referencedColumn: "Id");
+                });
         }
-        
-        public override void Down(MigrationBuilder migrationBuilder)
+
+        public override void Down(MigrationBuilder migration)
         {
-            migrationBuilder.DropForeignKey("AspNetRoleClaims", "FK_AspNetRoleClaims_AspNetRoles_RoleId");
-            
-            migrationBuilder.DropForeignKey("AspNetUserClaims", "FK_AspNetUserClaims_AspNetUsers_UserId");
-            
-            migrationBuilder.DropForeignKey("AspNetUserLogins", "FK_AspNetUserLogins_AspNetUsers_UserId");
-            
-            migrationBuilder.DropTable("AspNetRoles");
-            
-            migrationBuilder.DropTable("AspNetRoleClaims");
-            
-            migrationBuilder.DropTable("AspNetUserClaims");
-            
-            migrationBuilder.DropTable("AspNetUserLogins");
-            
-            migrationBuilder.DropTable("AspNetUserRoles");
-            
-            migrationBuilder.DropTable("AspNetUsers");
+            migration.DropTable("AspNetUserRoles");
+            migration.DropTable("AspNetRoleClaims");
+            migration.DropTable("AspNetUserLogins");
+            migration.DropTable("AspNetUserClaims");
+            migration.DropTable("AspNetRoles");
+            migration.DropTable("AspNetUsers");
         }
     }
 
-    [ContextType(typeof(Models.ApplicationDbContext))]
-    public partial class CreateIdentitySchema : IMigrationMetadata
+    [ContextType(typeof(ApplicationDbContext))]
+    partial class CreateIdentitySchema
     {
-        string IMigrationMetadata.MigrationId
+        public override string Id
         {
-            get
-            {
-                return "000000000000000_CreateIdentitySchema";
-            }
+            get { return "00000000000000_CreateIdentitySchema"; }
         }
 
-        string IMigrationMetadata.ProductVersion
+        public override string ProductVersion
         {
-            get
-            {
-                return "7.0.0-beta2";
-            }
+            get { return "7.0.0-beta4"; }
         }
 
-        IModel IMigrationMetadata.TargetModel
+        public override IModel Target
         {
             get
             {
-                var builder = new BasicModelBuilder();
-
-                builder.Entity("Microsoft.AspNet.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id");
-                    b.Property<string>("Name");
-                    b.Key("Id");
-                    b.ForRelational().Table("AspNetRoles");
-                });
-
-                builder.Entity("Microsoft.AspNet.Identity.IdentityRoleClaim`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", b =>
-                {
-                    b.Property<string>("ClaimType");
-                    b.Property<string>("ClaimValue");
-                    b.Property<int>("Id")
-                        .GenerateValueOnAdd();
-                    b.Property<string>("RoleId");
-                    b.Key("Id");
-                    b.ForRelational().Table("AspNetRoleClaims");
-                });
-
-                builder.Entity("Microsoft.AspNet.Identity.IdentityUserClaim`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", b =>
-                {
-                    b.Property<string>("ClaimType");
-                    b.Property<string>("ClaimValue");
-                    b.Property<int>("Id")
-                        .GenerateValueOnAdd();
-                    b.Property<string>("UserId");
-                    b.Key("Id");
-                    b.ForRelational().Table("AspNetUserClaims");
-                });
-
-                builder.Entity("Microsoft.AspNet.Identity.IdentityUserLogin`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", b =>
-                {
-                    b.Property<string>("LoginProvider");
-                    b.Property<string>("ProviderDisplayName");
-                    b.Property<string>("ProviderKey");
-                    b.Property<string>("UserId");
-                    b.Key("LoginProvider", "ProviderKey");
-                    b.ForRelational().Table("AspNetUserLogins");
-                });
-
-                builder.Entity("Microsoft.AspNet.Identity.IdentityUserRole`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", b =>
-                {
-                    b.Property<string>("RoleId");
-                    b.Property<string>("UserId");
-                    b.Key("UserId", "RoleId");
-                    b.ForRelational().Table("AspNetUserRoles");
-                });
+                var builder = new BasicModelBuilder()
+                    .Annotation("SqlServer:ValueGeneration", "Identity");
 
                 builder.Entity("<%= namespace %>.Models.ApplicationUser", b =>
-                {
-                    b.Property<int>("AccessFailedCount");
-                    b.Property<string>("ConcurrencyStamp");
-                    b.Property<string>("Email");
-                    b.Property<bool>("EmailConfirmed");
-                    b.Property<string>("Id");
-                    b.Property<bool>("LockoutEnabled");
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-                    b.Property<string>("NormalizedEmail");
-                    b.Property<string>("NormalizedUserName");
-                    b.Property<string>("PasswordHash");
-                    b.Property<string>("PhoneNumber");
-                    b.Property<bool>("PhoneNumberConfirmed");
-                    b.Property<string>("SecurityStamp");
-                    b.Property<bool>("TwoFactorEnabled");
-                    b.Property<string>("UserName");
-                    b.Key("Id");
-                    b.ForRelational().Table("AspNetUsers");
-                });
+                    {
+                        b.Property<int>("AccessFailedCount")
+                            .Annotation("OriginalValueIndex", 0);
+                        b.Property<string>("ConcurrencyStamp")
+                            .ConcurrencyToken()
+                            .Annotation("OriginalValueIndex", 1);
+                        b.Property<string>("Email")
+                            .Annotation("OriginalValueIndex", 2);
+                        b.Property<bool>("EmailConfirmed")
+                            .Annotation("OriginalValueIndex", 3);
+                        b.Property<string>("Id")
+                            .GenerateValueOnAdd()
+                            .Annotation("OriginalValueIndex", 4);
+                        b.Property<bool>("LockoutEnabled")
+                            .Annotation("OriginalValueIndex", 5);
+                        b.Property<DateTimeOffset?>("LockoutEnd")
+                            .Annotation("OriginalValueIndex", 6);
+                        b.Property<string>("NormalizedEmail")
+                            .Annotation("OriginalValueIndex", 7);
+                        b.Property<string>("NormalizedUserName")
+                            .Annotation("OriginalValueIndex", 8);
+                        b.Property<string>("PasswordHash")
+                            .Annotation("OriginalValueIndex", 9);
+                        b.Property<string>("PhoneNumber")
+                            .Annotation("OriginalValueIndex", 10);
+                        b.Property<bool>("PhoneNumberConfirmed")
+                            .Annotation("OriginalValueIndex", 11);
+                        b.Property<string>("SecurityStamp")
+                            .Annotation("OriginalValueIndex", 12);
+                        b.Property<bool>("TwoFactorEnabled")
+                            .Annotation("OriginalValueIndex", 13);
+                        b.Property<string>("UserName")
+                            .Annotation("OriginalValueIndex", 14);
+                        b.Key("Id");
+                        b.Annotation("Relational:TableName", "AspNetUsers");
+                    });
 
-                builder.Entity("Microsoft.AspNet.Identity.IdentityRoleClaim`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", b =>
-                {
-                    b.ForeignKey("Microsoft.AspNet.Identity.IdentityRole", "RoleId");
-                });
+                builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRole", b =>
+                    {
+                        b.Property<string>("ConcurrencyStamp")
+                            .ConcurrencyToken()
+                            .Annotation("OriginalValueIndex", 0);
+                        b.Property<string>("Id")
+                            .GenerateValueOnAdd()
+                            .Annotation("OriginalValueIndex", 1);
+                        b.Property<string>("Name")
+                            .Annotation("OriginalValueIndex", 2);
+                        b.Property<string>("NormalizedName")
+                            .Annotation("OriginalValueIndex", 3);
+                        b.Key("Id");
+                        b.Annotation("Relational:TableName", "AspNetRoles");
+                    });
 
-                builder.Entity("Microsoft.AspNet.Identity.IdentityUserClaim`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", b =>
-                {
-                    b.ForeignKey("<%= namespace %>.Models.ApplicationUser", "UserId");
-                });
+                builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]", b =>
+                    {
+                        b.Property<string>("ClaimType")
+                            .Annotation("OriginalValueIndex", 0);
+                        b.Property<string>("ClaimValue")
+                            .Annotation("OriginalValueIndex", 1);
+                        b.Property<int>("Id")
+                            .GenerateValueOnAdd()
+                            .Annotation("OriginalValueIndex", 2)
+                            .Annotation("SqlServer:ValueGeneration", "Default");
+                        b.Property<string>("RoleId")
+                            .Annotation("OriginalValueIndex", 3);
+                        b.Key("Id");
+                        b.Annotation("Relational:TableName", "AspNetRoleClaims");
+                    });
 
-                builder.Entity("Microsoft.AspNet.Identity.IdentityUserLogin`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", b =>
-                {
-                    b.ForeignKey("<%= namespace %>.Models.ApplicationUser", "UserId");
-                });
+                builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]", b =>
+                    {
+                        b.Property<string>("ClaimType")
+                            .Annotation("OriginalValueIndex", 0);
+                        b.Property<string>("ClaimValue")
+                            .Annotation("OriginalValueIndex", 1);
+                        b.Property<int>("Id")
+                            .GenerateValueOnAdd()
+                            .Annotation("OriginalValueIndex", 2)
+                            .Annotation("SqlServer:ValueGeneration", "Default");
+                        b.Property<string>("UserId")
+                            .Annotation("OriginalValueIndex", 3);
+                        b.Key("Id");
+                        b.Annotation("Relational:TableName", "AspNetUserClaims");
+                    });
+
+                builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]", b =>
+                    {
+                        b.Property<string>("LoginProvider")
+                            .GenerateValueOnAdd()
+                            .Annotation("OriginalValueIndex", 0);
+                        b.Property<string>("ProviderDisplayName")
+                            .Annotation("OriginalValueIndex", 1);
+                        b.Property<string>("ProviderKey")
+                            .GenerateValueOnAdd()
+                            .Annotation("OriginalValueIndex", 2);
+                        b.Property<string>("UserId")
+                            .Annotation("OriginalValueIndex", 3);
+                        b.Key("LoginProvider", "ProviderKey");
+                        b.Annotation("Relational:TableName", "AspNetUserLogins");
+                    });
+
+                builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]", b =>
+                    {
+                        b.Property<string>("RoleId")
+                            .Annotation("OriginalValueIndex", 0);
+                        b.Property<string>("UserId")
+                            .Annotation("OriginalValueIndex", 1);
+                        b.Key("UserId", "RoleId");
+                        b.Annotation("Relational:TableName", "AspNetUserRoles");
+                    });
+
+                builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]", b =>
+                    {
+                        b.ForeignKey("Microsoft.AspNet.Identity.EntityFramework.IdentityRole", "RoleId");
+                    });
+
+                builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]", b =>
+                    {
+                        b.ForeignKey("<%= namespace %>.Models.ApplicationUser", "UserId");
+                    });
+
+                builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]", b =>
+                    {
+                        b.ForeignKey("<%= namespace %>.Models.ApplicationUser", "UserId");
+                    });
+
+                builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]", b =>
+                    {
+                        b.ForeignKey("Microsoft.AspNet.Identity.EntityFramework.IdentityRole", "RoleId");
+                        b.ForeignKey("<%= namespace %>.Models.ApplicationUser", "UserId");
+                    });
 
                 return builder.Model;
             }
