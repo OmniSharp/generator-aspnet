@@ -8,10 +8,12 @@ Yeoman generator for ASP.NET vNext projects
 
 [![](https://cloud.githubusercontent.com/assets/14539/6697962/a57211ac-ccf4-11e4-97d9-7ed16bb16d37.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
 
+##BETA4 BRANCH
+
 ## Getting Started
 
-- Dependencies: 
-    - node.js: `brew install node` for OSX, `choco install node` for Windows   
+- Dependencies:
+    - node.js: `brew install node` for OSX, `choco install node` for Windows
     - Yeoman: `npm install -g yo`
 - Install: `npm install -g generator-aspnet`
 - Run: `yo aspnet`
