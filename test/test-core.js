@@ -73,7 +73,7 @@
           });
       });
 
-      var files = ['consoleTest/project.json', 'consoleTest/Program.cs'];
+      var files = ['consoleTest/project.json', 'consoleTest/Program.cs', 'consoleTest/.gitignore'];
       describe('Checking files', function () {
           for (i = 0; i < files.length; i++) {
               util.filesCheck(files[i]);
