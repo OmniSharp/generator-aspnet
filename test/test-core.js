@@ -50,7 +50,7 @@
           });
       });
 
-      var files = ['classTest/project.json', 'classTest/Class1.cs'];
+      var files = ['classTest/project.json', 'classTest/Class1.cs', 'classTest/.gitignore'];
       describe('Checking files', function () {
           for (i = 0; i < files.length; i++) {
               util.filesCheck(files[i]);
