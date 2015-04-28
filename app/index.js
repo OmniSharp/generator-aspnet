@@ -42,10 +42,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
                     name: 'Web API Application',
                     value: 'webapi'
                 },
-                {
-                    name: 'Nancy ASP.NET Application',
-                    value: 'nancy'
-                },
+//                {
+//                    name: 'Nancy ASP.NET Application',
+//                    value: 'nancy'
+//                },
                 {
                     name: 'Class Library',
                     value: 'classlib'
@@ -174,31 +174,31 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.fs.copyTpl(this.sourceRoot() + '/views_account_externalloginconfirmation.cshtml', this.applicationName + '/Views/Account/ExternalLoginConfirmation.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_account_externalloginfailure.cshtml', this.applicationName + '/Views/Account/ExternalLoginFailure.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_account_forgotpassword.cshtml', this.applicationName + '/Views/Account/ForgotPassword.cshtml', this.templatedata);
-            this.fs.copyTpl(this.sourceRoot() + '/views_account_forgotpasswordconfirmation.cshtml', this.applicationName + '/Views/Account/ForgotPasswordConfirmation.cshtml', this.templatedata);         
+            this.fs.copyTpl(this.sourceRoot() + '/views_account_forgotpasswordconfirmation.cshtml', this.applicationName + '/Views/Account/ForgotPasswordConfirmation.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_account_login.cshtml', this.applicationName + '/Views/Account/Login.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_account_register.cshtml', this.applicationName + '/Views/Account/Register.cshtml', this.templatedata);
-            this.fs.copyTpl(this.sourceRoot() + '/views_account_resetpassword.cshtml', this.applicationName + '/Views/Account/ResetPassword.cshtml', this.templatedata);            
+            this.fs.copyTpl(this.sourceRoot() + '/views_account_resetpassword.cshtml', this.applicationName + '/Views/Account/ResetPassword.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_account_resetpasswordconfirmation.cshtml', this.applicationName + '/Views/Account/ResetPasswordConfirmation.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_account_sendcode.cshtml', this.applicationName + '/Views/Account/SendCode.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_account_verifycode.cshtml', this.applicationName + '/Views/Account/VerifyCode.cshtml', this.templatedata);
-            
+
             this.fs.copyTpl(this.sourceRoot() + '/views_home_contact.cshtml', this.applicationName + '/Views/Home/Contact.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_home_about.cshtml', this.applicationName + '/Views/Home/About.cshtml', this.templatedata);
-            this.fs.copyTpl(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml', this.templatedata);               
-            
+            this.fs.copyTpl(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml', this.templatedata);
+
             this.fs.copyTpl(this.sourceRoot() + '/views_manage_addphonenumber.cshtml', this.applicationName + '/Views/Manage/AddPhoneNumber.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_manage_changepassword.cshtml', this.applicationName + '/Views/Manage/ChangePassword.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_manage_index.cshtml', this.applicationName + '/Views/Manage/Index.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_manage_managelogins.cshtml', this.applicationName + '/Views/Manage/ManageLogins.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_manage_removelogin.cshtml', this.applicationName + '/Views/Manage/RemoveLogin.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_manage_setpassword.cshtml', this.applicationName + '/Views/Manage/SetPassword.cshtml', this.templatedata);
-            this.fs.copyTpl(this.sourceRoot() + '/views_manage_verifyphonenumber.cshtml', this.applicationName + '/Views/Manage/VerifyPhoneNumber.cshtml', this.templatedata);  
-            
+            this.fs.copyTpl(this.sourceRoot() + '/views_manage_verifyphonenumber.cshtml', this.applicationName + '/Views/Manage/VerifyPhoneNumber.cshtml', this.templatedata);
+
             this.fs.copyTpl(this.sourceRoot() + '/views_shared_error.cshtml', this.applicationName + '/Views/Shared/Error.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_shared_layout.cshtml', this.applicationName + '/Views/Shared/_Layout.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_shared_loginpartial.cshtml', this.applicationName + '/Views/Shared/_LoginPartial.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_shared_validationscriptspartial.cshtml', this.applicationName + '/Views/Shared/_ValidationScriptsPartial.cshtml', this.templatedata);
-            
+
             this.fs.copyTpl(this.sourceRoot() + '/views_globalimport.cshtml', this.applicationName + '/Views/_GlobalImport.cshtml', this.templatedata);
             this.fs.copyTpl(this.sourceRoot() + '/views_viewstart.cshtml', this.applicationName + '/Views/_ViewStart.cshtml', this.templatedata);
 
