@@ -1,12 +1,10 @@
 {
+    "AppSettings": {
+        "SiteTitle": "<%= namespace %>"
+    },
     "Data": {
         "DefaultConnection": {
             "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-<%= namespace %>-<%= guid %>;Trusted_Connection=True;MultipleActiveResultSets=true"
-        }
-    },
-    "EntityFramework": {
-        "ApplicationDbContext": {
-            "ConnectionString": "Data:DefaultConnection:ConnectionString"
         }
     }
 }

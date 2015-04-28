@@ -3,7 +3,6 @@
     padding-bottom: 20px;
 }
 
-
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -18,10 +17,7 @@ textarea {
     max-width: 280px;
 }
 
-
-/* CAROUSEL
--------------------------------------------------- */
-
+/* Carousel */
 .carousel-caption {
     z-index: 10 !important;
 }
@@ -32,7 +28,6 @@ textarea {
     }
 
 @media (min-width: 768px) {
-
     .carousel-caption {
         z-index: 10 !important;
     }
