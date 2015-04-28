@@ -205,6 +205,10 @@
           it('Views/Shared directory created', function () {
               assert.file('webTest/Views/Shared');
           });
+
+          it('Views/Manage directory created', function () {
+              assert.file('webTest/Views/Manage');
+          });          
       });
 
 
@@ -214,19 +218,35 @@
           'webTest/gruntfile.js',
           'webTest/package.json',
           'webTest/project.json',
+          'webTest/MessageService.cs',          
           'webTest/Startup.cs',
           'webTest/Compiler/Preprocess/RazorPreCompilation.cs',
           'webTest/Controllers/AccountController.cs',
           'webTest/Controllers/HomeController.cs',
           'webTest/Models/AccountViewModels.cs',
           'webTest/Models/IdentityModels.cs',
-          'webTest/Views/Account/_ChangePasswordPartial.cshtml',
+          'webTest/Models/ManageViewModels.cs',          
+          'webTest/Views/Account/ConfirmEmail.cshtml',
+          'webTest/Views/Account/ExternalLoginConfirmation.cshtml',
+          'webTest/Views/Account/ExternalLoginFailure.cshtml',
+          'webTest/Views/Account/ForgotPassword.cshtml',
+          'webTest/Views/Account/ForgotPasswordConfirmation.cshtml',
           'webTest/Views/Account/Login.cshtml',
-          'webTest/Views/Account/Manage.cshtml',
           'webTest/Views/Account/Register.cshtml',
+          'webTest/Views/Account/ResetPassword.cshtml',
+          'webTest/Views/Account/ResetPasswordConfirmation.cshtml',
+          'webTest/Views/Account/SendCode.cshtml',
+          'webTest/Views/Account/VerifyCode.cshtml',
           'webTest/Views/Home/Index.cshtml',
           'webTest/Views/Home/About.cshtml',
           'webTest/Views/Home/Contact.cshtml',
+          'webTest/Views/Manage/AddPhoneNumber.cshtml',
+          'webTest/Views/Manage/ChangePassword.cshtml',
+          'webTest/Views/Manage/Index.cshtml',
+          'webTest/Views/Manage/ManageLogins.cshtml',
+          'webTest/Views/Manage/RemoveLogin.cshtml',
+          'webTest/Views/Manage/SetPassword.cshtml',
+          'webTest/Views/Manage/VerifyPhoneNumber.cshtml',
           'webTest/Views/Shared/Error.cshtml',
           'webTest/Views/Shared/_Layout.cshtml',
           'webTest/Views/Shared/_LoginPartial.cshtml',
@@ -257,17 +277,10 @@
               assert.file('webAPITest/Controllers');
           });
 
-          it('Views directory created', function () {
-              assert.file('webAPITest/Views');
-          });
-
-          it('Views/Home directory created', function () {
-              assert.file('webAPITest/Views/Home');
-          });
       });
 
 
-      var files = ['webAPITest/project.json', 'webAPITest/Startup.cs', 'webAPITest/Views/Home/Index.cshtml', 'webAPITest/Controllers/HomeController.cs', 'webAPITest/Controllers/ValuesController.cs'];
+      var files = ['webAPITest/project.json', 'webAPITest/Startup.cs', 'webAPITest/Controllers/ValuesController.cs'];
       describe('Checking files', function () {
           for (i = 0; i < files.length; i++) {
               util.filesCheck(files[i]);
