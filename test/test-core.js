@@ -293,24 +293,22 @@
   /*
    * yo aspnet Nancy Application
    */
-  /* removed for beta 4
-    describe('aspnet - Nancy Application', function () {
+  describe('aspnet - Nancy Application', function () {
 
-        util.goCreateApplication('nancy', 'nancyTest');
+      util.goCreateApplication('nancy', 'nancyTest');
 
-        describe('Checking directories', function () {
-            it('Application directory created', function () {
-                assert.file('nancyTest/');
-            });
-        });
+      describe('Checking directories', function () {
+          it('Application directory created', function () {
+              assert.file('nancyTest/');
+          });
+      });
 
 
-        var files = ['nancyTest/project.json', 'nancyTest/Startup.cs', 'nancyTest/HomeModule.cs'];
-        describe('Checking files', function () {
-            for (i = 0; i < files.length; i++) {
-                util.filesCheck(files[i]);
-            }
-        });
+      var files = ['nancyTest/project.json', 'nancyTest/Startup.cs', 'nancyTest/HomeModule.cs'];
+      describe('Checking files', function () {
+          for (i = 0; i < files.length; i++) {
+              util.filesCheck(files[i]);
+          }
+      });
 
-    });
-  */
+  });
