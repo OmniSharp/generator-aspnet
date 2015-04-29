@@ -208,7 +208,7 @@
 
           it('Views/Manage directory created', function () {
               assert.file('webTest/Views/Manage');
-          });
+          });          
       });
 
 
@@ -218,14 +218,14 @@
           'webTest/gruntfile.js',
           'webTest/package.json',
           'webTest/project.json',
-          'webTest/MessageService.cs',
+          'webTest/MessageService.cs',          
           'webTest/Startup.cs',
           'webTest/Compiler/Preprocess/RazorPreCompilation.cs',
           'webTest/Controllers/AccountController.cs',
           'webTest/Controllers/HomeController.cs',
           'webTest/Models/AccountViewModels.cs',
           'webTest/Models/IdentityModels.cs',
-          'webTest/Models/ManageViewModels.cs',
+          'webTest/Models/ManageViewModels.cs',          
           'webTest/Views/Account/ConfirmEmail.cshtml',
           'webTest/Views/Account/ExternalLoginConfirmation.cshtml',
           'webTest/Views/Account/ExternalLoginFailure.cshtml',

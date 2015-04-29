@@ -2,9 +2,8 @@
 
 var gulp = require("gulp"),
   rimraf = require("rimraf"),
-  fs = require("fs");
-
-eval("var project = " + fs.readFileSync("./project.json"));
+  fs = require("fs"),
+  project = require("./project.json");
 
 var paths = {
   bower: "./bower_components/",
@@ -23,7 +22,7 @@ gulp.task("copy", ["clean"], function () {
     "jquery": "jquery/jquery*.{js,map}",
     "jquery-validation": "jquery-validation/jquery.validate.js",
     "jquery-validation-unobtrusive": "jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
-  }
+  };
 
   for (var destinationDir in bower) {
     gulp.src(paths.bower + bower[destinationDir])
