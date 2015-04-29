@@ -1,14 +1,13 @@
 {
-    "dependencies": {
-        "Kestrel": "1.0.0-beta3",
-        "Microsoft.AspNet.Owin": "1.0.0-beta3",
-        "Nancy": "1.1.0"
-    },
-    "commands": {
-        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
-    },
-    "frameworks": {
-        "dnx451": {},
-        "dnxcore50": {}
-    },
+  "dependencies": {
+    "Kestrel": "1.0.0-beta4-*",
+    "Microsoft.AspNet.Owin": "1.0.0-beta4-*",
+    "Nancy": "1.1.0"
+  },
+  "commands": {
+    "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
+  },
+  "frameworks": {
+      "dnx451": { },
+  }
 }
