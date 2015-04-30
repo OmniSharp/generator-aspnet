@@ -213,6 +213,7 @@
 
 
       var files = [
+          'webTest/.gitignore',
           'webTest/bower.json',
           'webTest/config.json',
           'webTest/gruntfile.js',
