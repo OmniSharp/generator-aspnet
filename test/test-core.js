@@ -1,3 +1,4 @@
+'use strict';
 var yeoman = require('yeoman-generator');
 var path = require('path');
 var mockGen;
@@ -30,7 +31,7 @@ describe('aspnet - Empty Application', function() {
 
   var files = ['emptyTest/project.json', 'emptyTest/Startup.cs'];
   describe('Checking files', function() {
-    for (i = 0; i < files.length; i++) {
+    for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
   });
@@ -52,7 +53,7 @@ describe('aspnet - Class Library', function() {
 
   var files = ['classTest/project.json', 'classTest/Class1.cs', 'classTest/.gitignore'];
   describe('Checking files', function() {
-    for (i = 0; i < files.length; i++) {
+    for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
   });
@@ -75,7 +76,7 @@ describe('aspnet - Console Application', function() {
 
   var files = ['consoleTest/project.json', 'consoleTest/Program.cs', 'consoleTest/.gitignore'];
   describe('Checking files', function() {
-    for (i = 0; i < files.length; i++) {
+    for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
   });
@@ -97,7 +98,7 @@ describe('aspnet - Unit Test Application', function() {
 
   var files = ['unittestTest/project.json', 'unittestTest/SampleTest.cs'];
   describe('Checking files', function() {
-    for (i = 0; i < files.length; i++) {
+    for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
   });
@@ -255,7 +256,7 @@ describe('aspnet - Web Application', function() {
     'webTest/Migrations/ApplicationDbContextModelSnapshot.cs'
   ];
   describe('Checking files', function() {
-    for (i = 0; i < files.length; i++) {
+    for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
   });
@@ -283,7 +284,7 @@ describe('aspnet - Web API Application', function() {
 
   var files = ['webAPITest/project.json', 'webAPITest/Startup.cs', 'webAPITest/Controllers/ValuesController.cs'];
   describe('Checking files', function() {
-    for (i = 0; i < files.length; i++) {
+    for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
   });
@@ -307,7 +308,7 @@ describe('aspnet - Nancy Application', function() {
 
   var files = ['nancyTest/project.json', 'nancyTest/Startup.cs', 'nancyTest/HomeModule.cs'];
   describe('Checking files', function() {
-    for (i = 0; i < files.length; i++) {
+    for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
   });

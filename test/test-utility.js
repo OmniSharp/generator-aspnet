@@ -1,3 +1,4 @@
+'use strict';
 var util = (function() {
 
   var yeoman = require('yeoman-generator');
@@ -69,7 +70,7 @@ var util = (function() {
   function dirsCheck(dirs) {
     describe('Directories Creation', function() {
 
-      for (i = 0; i < dirs.length; i++) {
+      for (var i = 0; i < dirs.length; i++) {
         it(dirs[i] + ' created.', function() {
           assert.file(dirs[i]);
         });
