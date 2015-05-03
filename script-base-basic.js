@@ -14,5 +14,5 @@ util.inherits(Generator, yeoman.generators.Base);
 Generator.prototype.generateStandardFile = function(sourceFile, targetFile) {
   this.log('You called the aspnet subgenerator with the arg ' + sourceFile);
   this.fs.copy(this.templatePath(sourceFile), this.destinationPath(targetFile));
-  this.log(targetFile + ' created.')
-}
+  this.log(targetFile + ' created.');
+};

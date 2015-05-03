@@ -14,7 +14,7 @@ var util = (function() {
       mockGen.run(path.join(__dirname, '../' + subgenerator))
         .on('end', done);
     });
-  };
+  }
 
   function goCreateWithArgs(subgenerator, args) {
     before(function(done) {
@@ -25,7 +25,7 @@ var util = (function() {
         .withArguments(args)
         .on('end', done);
     });
-  };
+  }
 
 
 
@@ -45,7 +45,7 @@ var util = (function() {
         .on('end', done);
     });
 
-  };
+  }
 
   function goCreateApplicationWithOptions(type, applicationName, options) {
     before(function(done) {
@@ -64,7 +64,7 @@ var util = (function() {
         .on('end', done);
     });
 
-  };
+  }
 
   function dirsCheck(dirs) {
     describe('Directories Creation', function() {
@@ -77,7 +77,7 @@ var util = (function() {
 
     });
 
-  };
+  }
 
   function filesCheck(file) {
 
@@ -94,7 +94,7 @@ var util = (function() {
         assert.file(dir);
       });
     });
-  };
+  }
 
   function fileCheck(message, file) {
     describe('File Creation', function() {
@@ -102,13 +102,13 @@ var util = (function() {
         assert.file(file);
       });
     });
-  };
+  }
 
   function fileContentCheck(file, message, content) {
     it(message, function() {
       assert.fileContent(file, content);
     });
-  };
+  }
 
 
   var methods = {
@@ -121,7 +121,7 @@ var util = (function() {
     dirCheck: dirCheck,
     dirsCheck: dirsCheck,
     fileContentCheck: fileContentCheck
-  }
+  };
 
   return methods;
 })();
