@@ -18,5 +18,5 @@ NamedGenerator.prototype.generateTemplateFile = function(templateFile, targetFil
   } else {
     this.fs.copyTpl(this.templatePath(templateFile), this.destinationPath(targetFile));
   }
-  this.log(targetFile + ' created.')
-}
+  this.log(targetFile + ' created.');
+};
