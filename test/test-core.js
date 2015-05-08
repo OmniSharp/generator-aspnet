@@ -1,7 +1,5 @@
 'use strict';
 var yeoman = require('yeoman-generator');
-var path = require('path');
-var mockGen;
 var assert = yeoman.assert;
 var util = require('./test-utility');
 

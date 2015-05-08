@@ -2,7 +2,6 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
 
 var NamedGenerator = module.exports = function NamedGenerator() {
   yeoman.generators.NamedBase.apply(this, arguments);
