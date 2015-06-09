@@ -43,11 +43,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         }, {
           name: 'Class Library',
           value: 'classlib'
-        },
-        {
-           name: 'Unit test project',
-           value: 'unittest'
-        }
+        }//,
+        // {
+        //    name: 'Unit test project',
+        //    value: 'unittest'
+        // }
       ]
     }];
 
