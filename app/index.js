@@ -9,7 +9,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
   constructor: function() {
     yeoman.generators.Base.apply(this, arguments);
     // only implemented for web template
-    this.option('gulp');
+    this.option('grunt');
   },
 
 
@@ -139,14 +139,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.sourceRoot() + '/bower.json', this.applicationName + '/bower.json', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/config.json', this.applicationName + '/config.json', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/messageservice.cs', this.applicationName + '/MessageService.cs', this.templatedata);
-        if (this.options.gulp) {
-          this.fs.copyTpl(this.sourceRoot() + '/_gulp_project.json', this.applicationName + '/project.json', this.templatedata);
-          this.fs.copyTpl(this.sourceRoot() + '/_gulp_package.json', this.applicationName + '/package.json', this.templatedata);
-          this.fs.copy(this.sourceRoot() + '/_gulpfile.js', this.applicationName + '/gulpfile.js');
-        } else {
+        if (this.options.grunt) {
           this.fs.copyTpl(this.sourceRoot() + '/_grunt_project.json', this.applicationName + '/project.json', this.templatedata);
           this.fs.copyTpl(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json', this.templatedata);
           this.fs.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
+        } else {
+          this.fs.copyTpl(this.sourceRoot() + '/_gulp_project.json', this.applicationName + '/project.json', this.templatedata);
+          this.fs.copyTpl(this.sourceRoot() + '/_gulp_package.json', this.applicationName + '/package.json', this.templatedata);
+          this.fs.copy(this.sourceRoot() + '/_gulpfile.js', this.applicationName + '/gulpfile.js');
         }
         // models
         this.fs.copyTpl(this.sourceRoot() + '/models_accountview.cs', this.applicationName + '/Models/AccountViewModels.cs', this.templatedata);
