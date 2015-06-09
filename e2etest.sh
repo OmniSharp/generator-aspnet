@@ -5,7 +5,6 @@
 
 # upgrade to the latest released kvm
 KRE_FEED=https://www.nuget.org/api/v2
-PROJECTSDIR=./samples
 TESTDIR=~/tmp-yotest
 
 export KRE_FEED="$KRE_FEED"
@@ -106,4 +105,3 @@ popd
 #kpm restore
 #kpm build
 #popd
-
