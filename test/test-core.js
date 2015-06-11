@@ -104,35 +104,13 @@ describe('aspnet - Unit Test Application', function() {
 });
 
 /*
- * yo aspnet Web Application - Gulp option
+ * yo aspnet Web Application - Grunt option
  */
-describe('aspnet - Web Application w/gulp', function() {
+describe('aspnet - Web Application w/grunt', function() {
 
-  util.goCreateApplicationWithOptions('web', 'gulpTest', {
-    gulp: 'gulp'
+  util.goCreateApplicationWithOptions('web', 'gruntTest', {
+    grunt: 'grunt'
   });
-
-  describe('Checking directories', function() {
-    it('Application directory created', function() {
-      assert.file('gulpTest/');
-    });
-
-    it('gulp file created', function() {
-      assert.file('gulpTest/gulpfile.js');
-    });
-
-    it('gruntfile does NOT exist', function() {
-      assert.noFile('gulpTest/gruntFile.js');
-    });
-  });
-});
-
-/*
- * yo aspnet Web Application - No Gulp option
- */
-describe('aspnet - Web Application w/o gulp', function() {
-
-  util.goCreateApplication('web', 'gruntTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
@@ -143,8 +121,30 @@ describe('aspnet - Web Application w/o gulp', function() {
       assert.file('gruntTest/gruntfile.js');
     });
 
-    it('gulp file does NOT exist', function() {
-      assert.noFile('gruntTest/gulpFile.js');
+    it('gulpfile does NOT exist', function() {
+      assert.noFile('gruntTest/gulpfile.js');
+    });
+  });
+});
+
+/*
+ * yo aspnet Web Application - No Grunt option
+ */
+describe('aspnet - Web Application w/o grunt', function() {
+
+  util.goCreateApplication('web', 'gulpTest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('gulpTest/');
+    });
+
+    it('gulp file created', function() {
+      assert.file('gulpTest/gulpfile.js');
+    });
+
+    it('grunt file does NOT exist', function() {
+      assert.noFile('gulpTest/gruntfile.js');
     });
   });
 });
@@ -215,7 +215,7 @@ describe('aspnet - Web Application', function() {
     'webTest/.gitignore',
     'webTest/bower.json',
     'webTest/config.json',
-    'webTest/gruntfile.js',
+    'webTest/gulpfile.js',
     'webTest/package.json',
     'webTest/project.json',
     'webTest/MessageService.cs',
