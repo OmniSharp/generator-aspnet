@@ -1,15 +1,26 @@
 {
-    "version": "1.0.0-*",
-    "dependencies": {},
-    "commands": {
-        "run": "run"
-    },
-    "frameworks": {
-        "dnx451": {},
-        "dnxcore50": {
-            "dependencies": {
-                "System.Console": "4.0.0-beta-*"
-            }
-        }
+  "version": "1.0.0-*",
+  "description": "<%= namespace %> Console Application",
+  "tags": [""],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "dependencies": {},
+
+  "commands": {
+    "run": "run"
+  },
+
+  "frameworks": {
+    "dnx451": {},
+    "dnxcore50": {
+      "dependencies": {
+        "System.Collections": "4.0.10-beta-23015",
+        "System.Linq": "4.0.0-beta-23015",
+        "System.Threading": "4.0.10-beta-23015",
+        "Microsoft.CSharp": "4.0.0-beta-23015",
+        "System.Console": "4.0.0-beta-23015"
+      }
     }
+  }
 }
