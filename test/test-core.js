@@ -22,12 +22,23 @@ describe('aspnet - Empty Application', function() {
   util.goCreateApplication('empty', 'emptyTest');
 
   describe('Checking directories', function() {
+
     it('Application directory created', function() {
       assert.file('emptyTest/');
     });
+
+    it('wwwroot directory created', function() {
+      assert.file('emptyTest/wwwroot');
+    });
+
   });
 
-  var files = ['emptyTest/project.json', 'emptyTest/Startup.cs'];
+  var files = [
+    'emptyTest/hosting.ini',
+    'emptyTest/project.json',
+    'emptyTest/Startup.cs',
+    'emptyTest/wwwroot/README.md'
+  ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
