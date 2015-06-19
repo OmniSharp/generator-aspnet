@@ -4,3 +4,4 @@ npm-debug.log
 .npmignore
 .tmp
 typings
+**/project.lock.json
