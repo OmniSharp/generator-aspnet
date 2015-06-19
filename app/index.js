@@ -218,7 +218,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.template(this.sourceRoot() + '/program.cs', this.applicationName + '/Program.cs', this.templatedata);
 
-        this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+        this.template(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
 
         break;
       case 'classlib':
