@@ -1,31 +1,31 @@
 {
-    "webroot": "wwwroot",
-    "version": "1.0.0-*",
+  "webroot": "wwwroot",
+  "version": "1.0.0-*",
 
-    "dependencies": {
-        "Microsoft.AspNet.Mvc": "6.0.0-beta4",
-        "Microsoft.AspNet.Server.IIS": "1.0.0-beta4",
-        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta4",
-        "Microsoft.AspNet.StaticFiles": "1.0.0-beta4",
-        "Kestrel": "1.0.0-beta4"
-    },
+  "dependencies": {
+    "Microsoft.AspNet.Mvc": "6.0.0-beta5-14115",
+    "Microsoft.AspNet.Server.IIS": "1.0.0-beta5-11926",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta5-11861",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta5-12309",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta5-12062"
+  },
 
-    "commands": {
-        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000",
-        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001"
-    },
+  "commands": {
+    "kestrel": "Microsoft.AspNet.Hosting --config hosting.ini",
+    "web": "Microsoft.AspNet.Hosting --config hosting.ini"
+  },
 
-    "frameworks": {
-        "dnx451": {},
-        "dnxcore50": {}
-    },
+  "frameworks": {
+    "dnx451": {},
+    "dnxcore50": {}
+  },
 
-    "exclude": [
+  "exclude": [
     "wwwroot",
     "node_modules",
     "bower_components"
   ],
-    "publishExclude": [
+  "publishExclude": [
     "node_modules",
     "bower_components",
     "**.xproj",

@@ -122,11 +122,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
 
+        this.copy(this.sourceRoot() + '/hosting.ini', this.applicationName + '/hosting.ini');
+
         this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
         this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
-        this.template(this.sourceRoot() + '/controllers_values.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
+        this.template(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
 
         /// wwwroot
         this.fs.copy(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
