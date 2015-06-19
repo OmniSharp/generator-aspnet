@@ -7,7 +7,7 @@ using Microsoft.AspNet.Mvc;
 namespace <%= namespace %>.Controllers
 {
     [Route("api/[controller]")]
-    public class <%= classname %> : Controller
+    public class ValuesController : Controller
     {
         // GET: api/values
         [HttpGet]

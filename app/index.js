@@ -119,17 +119,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
       case 'webapi':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-
-        this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-
-        this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
-
-        this.template(this.sourceRoot() + '/controllers_values.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
-
-        /// wwwroot
-        this.fs.copy(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
+        this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '.gitignore');
+        this.fs.copy(this.sourceRoot() + '/hosting.ini', this.applicationName + '/hosting.ini');
+        this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+        this.fs.copy(this.sourceRoot() + '/Properties', this.applicationName + '/Properties');
+        this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
         break;
 
       case 'web':
