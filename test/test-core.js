@@ -72,7 +72,11 @@ describe('aspnet - Console Application', function() {
     });
   });
 
-  var files = ['consoleTest/project.json', 'consoleTest/Program.cs', 'consoleTest/.gitignore'];
+  var files = [
+    'consoleTest/.gitignore',
+    'consoleTest/Program.cs',
+    'consoleTest/project.json'
+  ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
