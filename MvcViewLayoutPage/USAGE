@@ -1,0 +1,8 @@
+Description:
+	Creates a new Mvc View Layout Page
+
+Example:
+	yo aspnet:MvcViewLayoutPage _Layout
+
+	This will create:
+		_Layout.cshtml
