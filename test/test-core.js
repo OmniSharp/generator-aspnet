@@ -273,6 +273,7 @@ describe('aspnet - Web API Application', function() {
   util.goCreateApplication('webapi', 'webAPITest');
 
   describe('Checking directories', function() {
+
     it('Application directory created', function() {
       assert.file('webAPITest/');
     });
@@ -281,10 +282,24 @@ describe('aspnet - Web API Application', function() {
       assert.file('webAPITest/Controllers');
     });
 
+    it('Properties directory created', function() {
+      assert.file('webAPITest/Properties');
+    });
+
+    it('wwwroot directory created', function() {
+      assert.file('webAPITest/wwwroot');
+    });
   });
 
 
-  var files = ['webAPITest/project.json', 'webAPITest/Startup.cs', 'webAPITest/Controllers/ValuesController.cs'];
+  var files = [
+    'webAPITest/Controllers/ValuesController.cs',
+    'webAPITest/hosting.ini',
+    'webAPITest/project.json',
+    'webAPITest/Properties/launchSettings.json',
+    'webAPITest/Startup.cs',
+    'webAPITest/wwwroot/README.md'
+  ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
