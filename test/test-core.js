@@ -36,7 +36,7 @@ describe('aspnet - Empty Application', function() {
   var files = [
     'emptyTest/hosting.ini',
     'emptyTest/project.json',
-    'emptyTest/startup.cs',
+    'emptyTest/Startup.cs',
     'emptyTest/wwwroot/README.md'
   ];
   describe('Checking files', function() {
@@ -308,7 +308,7 @@ describe('aspnet - Web API Application', function() {
     'webAPITest/hosting.ini',
     'webAPITest/project.json',
     'webAPITest/Properties/launchSettings.json',
-    'webAPITest/startup.cs',
+    'webAPITest/Startup.cs',
     'webAPITest/wwwroot/README.md'
   ];
   describe('Checking files', function() {
