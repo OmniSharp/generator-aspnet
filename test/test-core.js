@@ -36,7 +36,7 @@ describe('aspnet - Empty Application', function() {
   var files = [
     'emptyTest/hosting.ini',
     'emptyTest/project.json',
-    'emptyTest/Startup.cs',
+    'emptyTest/startup.cs',
     'emptyTest/wwwroot/README.md'
   ];
   describe('Checking files', function() {
