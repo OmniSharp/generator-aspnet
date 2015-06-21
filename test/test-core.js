@@ -172,8 +172,42 @@ describe('aspnet - Web Application', function() {
   util.goCreateApplication('web', 'webTest');
 
   describe('Checking directories', function() {
+
     it('Application directory created', function() {
       assert.file('webTest/');
+    });
+
+    it('Controllers directory created', function() {
+      assert.file('webTest/Controllers');
+    });
+
+    it('Migrations directory created', function() {
+      assert.file('webTest/Migrations');
+    });
+
+
+    it('Models directory created', function() {
+      assert.file('webTest/Models');
+    });
+
+    it('Services directory created', function() {
+      assert.file('webTest/Services');
+    });
+
+    it('Views directory created', function() {
+      assert.file('webTest/Views');
+    });
+
+    it('Views/Home directory created', function() {
+      assert.file('webTest/Views/Home');
+    });
+
+    it('Views/Manage directory created', function() {
+      assert.file('webTest/Views/Manage');
+    });
+
+    it('Views/Shared directory created', function() {
+      assert.file('webTest/Views/Shared');
     });
 
     it('wwwroot directory created', function() {
@@ -188,73 +222,49 @@ describe('aspnet - Web Application', function() {
       assert.file('webTest/wwwroot/images');
     });
 
-    it('wwwroot/lib directory created', function() {
-      assert.file('webTest/wwwroot/lib');
+    it('wwwroot/js directory created', function() {
+      assert.file('webTest/wwwroot/js');
     });
 
-    it('Controllers directory created', function() {
-      assert.file('webTest/Controllers');
-    });
-
-    it('Migrations directory created', function() {
-      assert.file('webTest/Migrations');
-    });
-
-    it('Models directory created', function() {
-      assert.file('webTest/Models');
-    });
-
-    it('Views directory created', function() {
-      assert.file('webTest/Views');
-    });
-
-    it('Views/Account directory created', function() {
-      assert.file('webTest/Views/Account');
-    });
-
-    it('Views/Home directory created', function() {
-      assert.file('webTest/Views/Home');
-    });
-
-    it('Views/Shared directory created', function() {
-      assert.file('webTest/Views/Shared');
-    });
-
-    it('Views/Manage directory created', function() {
-      assert.file('webTest/Views/Manage');
-    });
   });
 
 
   var files = [
+    'webTest/.bowerrc',
     'webTest/.gitignore',
     'webTest/bower.json',
     'webTest/config.json',
     'webTest/gulpfile.js',
+    'webTest/hosting.ini',
     'webTest/package.json',
     'webTest/project.json',
-    'webTest/MessageService.cs',
+    'webTest/README.md',
     'webTest/Startup.cs',
-    'webTest/Compiler/Preprocess/RazorPreCompilation.cs',
-    'webTest/Controllers/AccountController.cs',
-    'webTest/Controllers/HomeController.cs',
+    "webTest/Controllers/AccountController.cs",
+    "webTest/Controllers/HomeController.cs",
+    "webTest/Controllers/ManageController.cs",
+    'webTest/Migrations/00000000000000_CreateIdentitySchema.cs',
+    'webTest/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
+    'webTest/Migrations/ApplicationDbContextModelSnapshot.cs',
     'webTest/Models/AccountViewModels.cs',
     'webTest/Models/IdentityModels.cs',
     'webTest/Models/ManageViewModels.cs',
+    'webTest/Services/MessageServices.cs',
     'webTest/Views/Account/ConfirmEmail.cshtml',
     'webTest/Views/Account/ExternalLoginConfirmation.cshtml',
     'webTest/Views/Account/ExternalLoginFailure.cshtml',
     'webTest/Views/Account/ForgotPassword.cshtml',
     'webTest/Views/Account/ForgotPasswordConfirmation.cshtml',
+    'webTest/Views/Account/Lockout.cshtml',
     'webTest/Views/Account/Login.cshtml',
     'webTest/Views/Account/Register.cshtml',
     'webTest/Views/Account/ResetPassword.cshtml',
     'webTest/Views/Account/ResetPasswordConfirmation.cshtml',
     'webTest/Views/Account/SendCode.cshtml',
     'webTest/Views/Account/VerifyCode.cshtml',
-    'webTest/Views/Home/Index.cshtml',
     'webTest/Views/Home/About.cshtml',
     'webTest/Views/Home/Contact.cshtml',
+    'webTest/Views/Home/Index.cshtml',
     'webTest/Views/Manage/AddPhoneNumber.cshtml',
     'webTest/Views/Manage/ChangePassword.cshtml',
     'webTest/Views/Manage/Index.cshtml',
@@ -265,8 +275,16 @@ describe('aspnet - Web Application', function() {
     'webTest/Views/Shared/Error.cshtml',
     'webTest/Views/Shared/_Layout.cshtml',
     'webTest/Views/Shared/_LoginPartial.cshtml',
-    'webTest/Migrations/000000000000000_CreateIdentitySchema.cs',
-    'webTest/Migrations/ApplicationDbContextModelSnapshot.cs'
+    'webTest/Views/Shared/_ValidationScriptsPartial.cshtml',
+    'webTest/Views/_ViewImports.cshtml',
+    'webTest/Views/_ViewStart.cshtml',
+    'webTest/wwwroot/css/site.css',
+    'webTest/wwwroot/favicon.ico',
+    'webTest/wwwroot/images/ASP-NET-Banners-01.png',
+    'webTest/wwwroot/images/ASP-NET-Banners-02.png',
+    'webTest/wwwroot/images/Banner-01-Azure.png',
+    'webTest/wwwroot/images/Banner-02-VS.png',
+    'webTest/wwwroot/js/site.js'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
