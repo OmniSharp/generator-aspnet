@@ -297,7 +297,7 @@ describe('aspnet - Web API Application', function() {
     'webAPITest/hosting.ini',
     'webAPITest/project.json',
     'webAPITest/Properties/launchSettings.json',
-    'webAPITest/Startup.cs',
+    'webAPITest/startup.cs',
     'webAPITest/wwwroot/README.md'
   ];
   describe('Checking files', function() {
