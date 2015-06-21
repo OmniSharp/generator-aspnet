@@ -212,13 +212,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         break;
       case 'console':
-        this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-
-        this.template(this.sourceRoot() + '/program.cs', this.applicationName + '/Program.cs', this.templatedata);
-
-        this.template(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
+        this.sourceRoot(path.join(__dirname, '../templates/projects/console'));
+        this.fs.copy(path.join(__dirname, '../templates/gitignore.txt'), this.applicationName + '/.gitignore');
+        this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
 
         break;
       case 'classlib':
