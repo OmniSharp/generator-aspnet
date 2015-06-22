@@ -79,6 +79,16 @@ describe('Subgenerators with named arguments tests', function() {
 
   });
 
+  describe('aspnet:Middleware', function() {
+    var arg = 'MyMiddleware';
+    var filename = 'MyMiddleware.cs';
+
+    util.goCreateWithArgs('Middleware', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
+
+  });
+
   describe('aspnet:JavaScript', function() {
     var arg = 'file';
     var filename = 'file.js';
