@@ -79,6 +79,14 @@ describe('Subgenerators with named arguments tests', function() {
 
   });
 
+  describe('aspnet:Interface', function() {
+    var arg = 'IContact';
+    var filename = 'IContact.cs';
+    util.goCreateWithArgs('Interface', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
+  });
+
   describe('aspnet:JavaScript', function() {
     var arg = 'file';
     var filename = 'file.js';
