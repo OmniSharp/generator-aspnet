@@ -75,6 +75,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:JScript](#jscript)
 * [aspnet:JSON](#json)
 * [aspnet:PackageJson](#packagejson)
+* [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:TypeScript](#typescript)
 
@@ -347,6 +348,18 @@ yo aspnet:PackageJson
 ```
 
 Produces `package.json`
+
+### TagHelper
+
+Creates a new TagHelper class file
+
+Example:
+
+```
+yo aspnet:TagHelper filename
+```
+
+Produces `filename.cs`
 
 ### TextFile
 

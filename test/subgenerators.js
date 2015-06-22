@@ -115,6 +115,14 @@ describe('Subgenerators with named arguments tests', function() {
 
   });
 
+  describe('aspnet:Class', function() {
+    var arg = 'CartTagHelper';
+    var filename = 'CartTagHelper.cs';
+    util.goCreateWithArgs('TagHelper', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
+  });
+
   describe('aspnet:TextFile', function() {
     var arg = 'file';
     var filename = 'file.txt';
