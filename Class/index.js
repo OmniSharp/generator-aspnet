@@ -10,9 +10,8 @@ util.inherits(NamedGenerator, ScriptBase);
 
 NamedGenerator.prototype.createNamedItem = function(){
 	this.generateTemplateFile(
-		'class.cs',
+		'Class.cs',
 		this.name + '.cs',
-		{ namespace: 'MyNamespace', classname: this.name }	
+		{ namespace: 'MyNamespace', classname: this.name }
 	);
 };
-

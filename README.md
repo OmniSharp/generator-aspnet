@@ -62,6 +62,9 @@ Available sub generators (_to create files after the project has been created_):
 
 * [aspnet:MvcController](#mvccontroller)
 * [aspnet:MvcView](#mvcview)
+* [aspnet:MvcViewLayoutPage](#mvcviewlayoutpage)
+* [aspnet:MvcViewImportsPage](#mvcviewimportspage)
+* [aspnet:MvcViewStartPage](#mvcviewstartpage)
 * [aspnet:WebApiContoller](#webapicontroller)
 * [aspnet:Class](#class)
 * [aspnet:StartupClass](#startupclass)
@@ -131,6 +134,43 @@ Produces `/ContactView.cshtml`
 }
 
 ```
+
+### MvcViewLayoutPage
+
+Creates a new ASP.NET 5 MVC View Layout Page
+
+Example:
+
+```
+yo aspnet:MvcViewLayoutPage _Layout
+```
+
+Produces `/_Layout.cshtml`
+
+### MvcViewImportsPage
+
+Creates a new ASP.NET 5 MVC View Imports Page
+
+Example:
+
+```
+yo aspnet:MvcViewImportsPage _ViewImports
+```
+
+Produces `/_ViewImports.cshtml`
+
+### MvcViewStartPage
+
+Creates a new ASP.NET 5 MVC View Start Page
+
+Example:
+
+```
+yo aspnet:MvcViewStartPage _ViewStart
+```
+
+Produces `/_ViewStart.cshtml`
+
 ### WebApiController
 
 Creates a new ASP.NET 5 WebApiController class

@@ -1,0 +1,8 @@
+Description:
+	Creates a new Mvc View Imports Page
+
+Example:
+	yo aspnet:MvcViewImportsPage _ViewImports
+
+	This will create:
+		_ViewImports.cshtml
