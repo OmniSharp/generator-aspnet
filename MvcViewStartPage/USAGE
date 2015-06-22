@@ -1,0 +1,8 @@
+Description:
+	Creates a new Mvc View Start Page
+
+Example:
+	yo aspnet:MvcViewStartPage _ViewStart
+
+	This will create:
+		_ViewStart.cshtml

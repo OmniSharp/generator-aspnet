@@ -129,6 +129,13 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
+  describe('aspnet:MvcViewStartPage', function() {
+    var arg = '_ViewStart';
+    var filename = '_ViewStart.cshtml';
+    util.goCreateWithArgs('MvcViewStartPage', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
   describe('aspnet:TextFile', function() {
     var arg = 'file';
     var filename = 'file.txt';
