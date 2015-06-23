@@ -80,6 +80,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:TypeScript](#typescript)
+* [aspnet:TypeScriptConfig](#typescriptconfig)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
 
@@ -411,6 +412,17 @@ yo aspnet:TypeScript filename
 
 Produces `filename.ts`
 
+### TypeScriptConfig
+
+Creates a new TypeScript configuration file
+
+Example:
+
+```
+yo aspnet:TypeScriptConfig
+```
+
+Produces `tsconfig.json`
 
 
 ## License
