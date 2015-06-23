@@ -1,0 +1,8 @@
+Description:
+	Creates a new C# TagHelper file
+
+Example:
+	yo aspnet:TagHelper filename
+
+	This will create:
+		filename.cs
