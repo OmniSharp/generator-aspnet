@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 
-namespace <%= namespace %>.Controllers
+// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace <%= namespace %>
 {
     [Route("api/[controller]")]
     public class <%= classname %> : Controller
