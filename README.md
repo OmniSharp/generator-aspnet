@@ -75,6 +75,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:JavaScript](#javascript)
 * [aspnet:JScript](#jscript)
 * [aspnet:JSON](#json)
+* [aspnet:Middleware](#middleware)
 * [aspnet:PackageJson](#packagejson)
 * [aspnet:TextFile](#textfile)
 * [aspnet:TypeScript](#typescript)
@@ -348,6 +349,18 @@ yo aspnet:JSON filename
 ```
 
 Produces `filename.json`
+
+### Middleware
+
+Creates a new C# Middleware class file
+
+Example:
+
+```
+yo aspnet:Middleware filename
+```
+
+Produces `filename.cs`
 
 ### PackageJson
 
