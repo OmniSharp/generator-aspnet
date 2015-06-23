@@ -35,6 +35,12 @@ describe('Subgenerators without arguments tests', function() {
     util.goCreate('gitignore');
     util.fileCheck('should create .gitignore file', '.gitignore');
   });
+
+  describe('aspnet:TypeScriptConfig', function() {
+    util.goCreate('TypeScriptConfig');
+    util.fileCheck('should create tsconfig.json file', 'tsconfig.json');
+  });
+
 });
 
 /*
