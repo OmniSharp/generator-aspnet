@@ -22,7 +22,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 
-# Visual Studo 2015 cache/options directory
+# Visual Studio 2015 cache/options directory
 .vs/
 
 # MSTest test Results
@@ -38,7 +38,7 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
-# ASP.NET 5
+# DNX
 project.lock.json
 artifacts/
 
@@ -94,7 +94,7 @@ _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
-# JustCode is a .NET coding addin-in
+# JustCode is a .NET coding add-in
 .JustCode
 
 # TeamCity is a build add-in
@@ -154,8 +154,13 @@ csx/
 # Windows Store app package directory
 AppPackages/
 
-# Others
+# Visual Studio cache files
+# files ending in .cache can be ignored
 *.[Cc]ache
+# but keep track of directories ending in .cache
+!*.[Cc]ache/
+
+# Others
 ClientBin/
 [Ss]tyle[Cc]op.*
 ~$*
@@ -165,7 +170,7 @@ ClientBin/
 *.pfx
 *.publishsettings
 node_modules/
-bower_components/
+orleans.codegen.cs
 
 # RIA/Silverlight projects
 Generated_Code/
