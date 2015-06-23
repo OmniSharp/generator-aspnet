@@ -245,7 +245,7 @@ Produces `Startup.cs`
 
 ### BowerJson
 
-Creates a new Bower file
+Creates a new `bower.json` and configuration file.
 
 Example:
 
@@ -253,7 +253,7 @@ Example:
 yo aspnet:BowerJson
 ```
 
-Produces `bower.json`
+Produces `bower.json` and `.bowerrc`
 
 ### CoffeeScript
 

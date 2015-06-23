@@ -18,6 +18,7 @@ describe('Subgenerators without arguments tests', function() {
 
   describe('aspnet:BowerJson', function() {
     util.goCreate('BowerJson');
+    util.fileCheck('should create bower configuration file', '.bowerrc');
     util.fileCheck('should create bower file', 'bower.json');
   });
 
