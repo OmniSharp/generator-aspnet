@@ -64,6 +64,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:MvcView](#mvcview)
 * [aspnet:WebApiContoller](#webapicontroller)
 * [aspnet:Class](#class)
+* [aspnet:Interface](#interface)
 * [aspnet:StartupClass](#startupclass)
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:CoffeeScript](#coffeescript)
@@ -215,6 +216,18 @@ namespace MyNamespace
     }
 }
 ```
+
+### Interface
+
+Creates a new ASP.NET 5 Interface
+
+Example:
+
+```
+yo aspnet:Interface IContact
+```
+
+Produces `/IContact.cs`
 
 ### StartupClass
 
