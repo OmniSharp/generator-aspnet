@@ -1,0 +1,8 @@
+Description:
+	Creates a new C# Middleware class file
+
+Example:
+	yo aspnet:Middleware filename
+
+	This will create:
+		filename.cs
