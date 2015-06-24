@@ -106,10 +106,8 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:JavaScript', function() {
     var arg = 'file';
     var filename = 'file.js';
-
     util.goCreateWithArgs('JavaScript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
-
   });
 
   describe('aspnet:JSON', function() {
