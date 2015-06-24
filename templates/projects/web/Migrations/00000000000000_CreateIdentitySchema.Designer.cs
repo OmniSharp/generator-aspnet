@@ -124,7 +124,7 @@ namespace <%= namespace %>.Migrations
                     b.Annotation("Relational:TableName", "AspNetUserRoles");
                 });
 
-            builder.Entity("WebApplication_IndividualAuth.Models.ApplicationUser", b =>
+            builder.Entity("<%= namespace %>.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .GenerateValueOnAdd()
@@ -187,14 +187,14 @@ namespace <%= namespace %>.Migrations
 
             builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim<string>", b =>
                 {
-                    b.Reference("WebApplication_IndividualAuth.Models.ApplicationUser")
+                    b.Reference("<%= namespace %>.Models.ApplicationUser")
                         .InverseCollection()
                         .ForeignKey("UserId");
                 });
 
             builder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin<string>", b =>
                 {
-                    b.Reference("WebApplication_IndividualAuth.Models.ApplicationUser")
+                    b.Reference("<%= namespace %>.Models.ApplicationUser")
                         .InverseCollection()
                         .ForeignKey("UserId");
                 });
@@ -205,7 +205,7 @@ namespace <%= namespace %>.Migrations
                         .InverseCollection()
                         .ForeignKey("RoleId");
 
-                    b.Reference("WebApplication_IndividualAuth.Models.ApplicationUser")
+                    b.Reference("<%= namespace %>.Models.ApplicationUser")
                         .InverseCollection()
                         .ForeignKey("UserId");
                 });

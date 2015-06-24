@@ -162,9 +162,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('Models/ManageViewModels.cs'), this.applicationName + '/Models/ManageViewModels.cs', this.templatedata);
         // Services
         this.fs.copyTpl(this.templatePath('Services/MessageServices.cs'), this.applicationName + '/Services/MessageServices.cs', this.templatedata);
-        // Views - the views does not include any direct imports, so we can just copy content 1-to-1
-        // but tests cover all individual files, templates and partials
-        this.fs.copy(this.templatePath('Views/**/*'), this.applicationName + '/Views');
+        // Views
+        this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
         // wwwroot - the content in the wwwroot does not include any direct references or imports
         // So again it is copied 1-to-1 - but tests cover list of all files
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');

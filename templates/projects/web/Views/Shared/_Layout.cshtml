@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - WebApplication_IndividualAuth</title>
+        <title>@ViewData["Title"] - <%= namespace %></title>
 
         <environment names="Development">
             <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a asp-controller="Home" asp-action="Index" class="navbar-brand">WebApplication_IndividualAuth</a>
+                    <a asp-controller="Home" asp-action="Index" class="navbar-brand"><%= namespace %></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -46,7 +46,7 @@
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; 2015 - WebApplication_IndividualAuth</p>
+                <p>&copy; 2015 - <%= namespace %></p>
             </footer>
         </div>
 
