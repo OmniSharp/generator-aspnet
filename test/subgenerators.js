@@ -94,6 +94,14 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
   });
 
+  describe('aspnet:JSONSchema', function() {
+    var arg = 'MySchema';
+    var filename = 'MySchema.json';
+    util.goCreateWithArgs('JSONSchema', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /my MySchema JSON format/);
+  });
+
   describe('aspnet:Middleware', function() {
     var arg = 'MyMiddleware';
     var filename = 'MyMiddleware.cs';
