@@ -77,6 +77,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:JSON](#json)
 * [aspnet:Middleware](#middleware)
 * [aspnet:PackageJson](#packagejson)
+* [aspnet:StyleSheetLess](#stylesheetless)
 * [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:TypeScript](#typescript)
@@ -375,6 +376,18 @@ yo aspnet:PackageJson
 ```
 
 Produces `package.json`
+
+### StyleSheetLess
+
+Creates a new Less class file
+
+Example:
+
+```
+yo aspnet:StyleSheetLess filename
+```
+
+Produces `filename.less`
 
 ### TagHelper
 
