@@ -3,14 +3,14 @@ var util = require('util');
 var ScriptBase = require('../script-base.js');
 
 var NamedGenerator = module.exports = function NamedGenerator() {
-	ScriptBase.apply(this, arguments);
+  ScriptBase.apply(this, arguments);
 };
 
 util.inherits(NamedGenerator, ScriptBase);
 
-NamedGenerator.prototype.createNamedItem = function(){
-	this.generateTemplateFile(
-		'coffeescript.coffee',
-		this.name + '.coffee'
-	);
+NamedGenerator.prototype.createNamedItem = function() {
+  this.generateTemplateFile(
+    'CoffeeScript.coffee',
+    this.name + '.coffee'
+  );
 };

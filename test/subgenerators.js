@@ -62,10 +62,8 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:CoffeeScript', function() {
     var arg = 'file';
     var filename = 'file.coffee';
-
     util.goCreateWithArgs('CoffeeScript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
-
   });
 
   describe('aspnet:Gruntfile', function() {
