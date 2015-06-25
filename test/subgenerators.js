@@ -80,10 +80,8 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:HTMLPage', function() {
     var arg = 'mypage';
     var filename = 'mypage.html';
-
     util.goCreateWithArgs('HTMLPage', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
-
   });
 
   describe('aspnet:Interface', function() {
