@@ -18,6 +18,7 @@ describe('Subgenerators without arguments tests', function() {
 
   describe('aspnet:BowerJson', function() {
     util.goCreate('BowerJson');
+    util.fileCheck('should create bower configuration file', '.bowerrc');
     util.fileCheck('should create bower file', 'bower.json');
   });
 
@@ -35,6 +36,12 @@ describe('Subgenerators without arguments tests', function() {
     util.goCreate('gitignore');
     util.fileCheck('should create .gitignore file', '.gitignore');
   });
+
+  describe('aspnet:TypeScriptConfig', function() {
+    util.goCreate('TypeScriptConfig');
+    util.fileCheck('should create tsconfig.json file', 'tsconfig.json');
+  });
+
 });
 
 /*
@@ -79,6 +86,23 @@ describe('Subgenerators with named arguments tests', function() {
 
   });
 
+  describe('aspnet:Interface', function() {
+    var arg = 'IContact';
+    var filename = 'IContact.cs';
+    util.goCreateWithArgs('Interface', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
+  });
+
+  describe('aspnet:Middleware', function() {
+    var arg = 'MyMiddleware';
+    var filename = 'MyMiddleware.cs';
+
+    util.goCreateWithArgs('Middleware', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
+  });
+
   describe('aspnet:JavaScript', function() {
     var arg = 'file';
     var filename = 'file.js';
@@ -115,6 +139,21 @@ describe('Subgenerators with named arguments tests', function() {
 
   });
 
+  describe('aspnet:Class', function() {
+    var arg = 'CartTagHelper';
+    var filename = 'CartTagHelper.cs';
+    util.goCreateWithArgs('TagHelper', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
+  });
+
+  describe('aspnet:StyleSheet', function() {
+    var arg = 'style';
+    var filename = 'style.css';
+    util.goCreateWithArgs('StyleSheet', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
   describe('aspnet:TextFile', function() {
     var arg = 'file';
     var filename = 'file.txt';
@@ -127,10 +166,8 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:TypeScript', function() {
     var arg = 'file';
     var filename = 'file.ts';
-
     util.goCreateWithArgs('TypeScript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
-
   });
 
   describe('aspnet:WebApiController', function() {

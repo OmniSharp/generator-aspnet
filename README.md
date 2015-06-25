@@ -64,6 +64,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:MvcView](#mvcview)
 * [aspnet:WebApiContoller](#webapicontroller)
 * [aspnet:Class](#class)
+* [aspnet:Interface](#interface)
 * [aspnet:StartupClass](#startupclass)
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:CoffeeScript](#coffeescript)
@@ -74,9 +75,13 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:JavaScript](#javascript)
 * [aspnet:JScript](#jscript)
 * [aspnet:JSON](#json)
+* [aspnet:Middleware](#middleware)
 * [aspnet:PackageJson](#packagejson)
+* [aspnet:StyleSheet](#stylesheet)
+* [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:TypeScript](#typescript)
+* [aspnet:TypeScriptConfig](#typescriptconfig)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
 
@@ -216,6 +221,18 @@ namespace MyNamespace
 }
 ```
 
+### Interface
+
+Creates a new ASP.NET 5 Interface
+
+Example:
+
+```
+yo aspnet:Interface IContact
+```
+
+Produces `/IContact.cs`
+
 ### StartupClass
 
 Creates a new Startup Class file
@@ -230,7 +247,7 @@ Produces `Startup.cs`
 
 ### BowerJson
 
-Creates a new Bower file
+Creates a new `bower.json` and configuration file.
 
 Example:
 
@@ -238,7 +255,7 @@ Example:
 yo aspnet:BowerJson
 ```
 
-Produces `bower.json`
+Produces `bower.json` and `.bowerrc`
 
 ### CoffeeScript
 
@@ -336,6 +353,18 @@ yo aspnet:JSON filename
 
 Produces `filename.json`
 
+### Middleware
+
+Creates a new C# Middleware class file
+
+Example:
+
+```
+yo aspnet:Middleware filename
+```
+
+Produces `filename.cs`
+
 ### PackageJson
 
 Creates a new package.json file
@@ -347,6 +376,30 @@ yo aspnet:PackageJson
 ```
 
 Produces `package.json`
+
+### StyleSheet
+
+Creates a new CSS file
+
+Example:
+
+```
+yo aspnet:StyleSheet style
+```
+
+Produces `style.css`
+
+### TagHelper
+
+Creates a new TagHelper class file
+
+Example:
+
+```
+yo aspnet:TagHelper filename
+```
+
+Produces `filename.cs`
 
 ### TextFile
 
@@ -372,6 +425,17 @@ yo aspnet:TypeScript filename
 
 Produces `filename.ts`
 
+### TypeScriptConfig
+
+Creates a new TypeScript configuration file
+
+Example:
+
+```
+yo aspnet:TypeScriptConfig
+```
+
+Produces `tsconfig.json`
 
 
 ## License

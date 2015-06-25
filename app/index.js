@@ -43,7 +43,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         }, {
           name: 'Class Library',
           value: 'classlib'
-        }//,
+        } //,
         // {
         //    name: 'Unit test project',
         //    value: 'unittest'
@@ -94,7 +94,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       this.templatedata.applicationname = props.applicationName;
       this.applicationName = props.applicationName;
       this.templatedata.guid = guid.v4();
-
+      this.templatedata.grunt = this.options.grunt || false;
       done();
     }.bind(this));
   },
@@ -109,7 +109,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
 
-        this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+        this.copy(this.sourceRoot() + '/hosting.ini', this.applicationName + '/hosting.ini');
+
+        this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
         this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
@@ -119,92 +121,59 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
       case 'webapi':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-
-        this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-
-        this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
-
-        this.template(this.sourceRoot() + '/controllers_values.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
-
-        /// wwwroot
-        this.fs.copy(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
+        this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '.gitignore');
+        this.fs.copy(this.sourceRoot() + '/hosting.ini', this.applicationName + '/hosting.ini');
+        this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+        this.fs.copy(this.sourceRoot() + '/Properties', this.applicationName + '/Properties');
+        this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/wwwroot', this.applicationName + '/wwwroot');
         break;
 
       case 'web':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-        this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-        this.fs.copyTpl(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/bower.json', this.applicationName + '/bower.json', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/config.json', this.applicationName + '/config.json', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/messageservice.cs', this.applicationName + '/MessageService.cs', this.templatedata);
+        // Grunt or Gulp
         if (this.options.grunt) {
-          this.fs.copyTpl(this.sourceRoot() + '/_grunt_project.json', this.applicationName + '/project.json', this.templatedata);
-          this.fs.copyTpl(this.sourceRoot() + '/_grunt_package.json', this.applicationName + '/package.json', this.templatedata);
-          this.fs.copy(this.sourceRoot() + '/_gruntfile.js', this.applicationName + '/gruntfile.js');
+          this.fs.copyTpl(this.templatePath('gruntfile.js'), this.applicationName + '/gruntfile.js', this.templatedata);
         } else {
-          this.fs.copyTpl(this.sourceRoot() + '/_gulp_project.json', this.applicationName + '/project.json', this.templatedata);
-          this.fs.copyTpl(this.sourceRoot() + '/_gulp_package.json', this.applicationName + '/package.json', this.templatedata);
-          this.fs.copy(this.sourceRoot() + '/_gulpfile.js', this.applicationName + '/gulpfile.js');
+          this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
         }
-        // models
-        this.fs.copyTpl(this.sourceRoot() + '/models_accountview.cs', this.applicationName + '/Models/AccountViewModels.cs', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/models_identity.cs', this.applicationName + '/Models/IdentityModels.cs', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/models_manageview.cs', this.applicationName + '/Models/ManageViewModels.cs', this.templatedata);
-        // controllers
-        this.fs.copyTpl(this.sourceRoot() + '/controllers_account.cs', this.applicationName + '/Controllers/AccountController.cs', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/controllers_home.cs', this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/controllers_manage.cs', this.applicationName + '/Controllers/ManageController.cs', this.templatedata);
-        // compiler
-        this.fs.copyTpl(this.sourceRoot() + '/compiler_preprocess_razorprecompilation.cs', this.applicationName + '/Compiler/Preprocess/RazorPreCompilation.cs', this.templatedata);
-        //migrations
-        this.fs.copyTpl(this.sourceRoot() + '/migrations_000000000000000_createidentityschema.cs', this.applicationName + '/Migrations/000000000000000_CreateIdentitySchema.cs', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/migrations_applicationdbcontextmodelsnapshot.cs', this.applicationName + '/Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
-        // properties
-        this.fs.copyTpl(this.sourceRoot() + '/properties_appsettings.cs', this.applicationName + '/Properties/AppSettings.cs', this.templatedata);
-        // views
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_confirmemail.cshtml', this.applicationName + '/Views/Account/ConfirmEmail.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_externalloginconfirmation.cshtml', this.applicationName + '/Views/Account/ExternalLoginConfirmation.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_externalloginfailure.cshtml', this.applicationName + '/Views/Account/ExternalLoginFailure.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_forgotpassword.cshtml', this.applicationName + '/Views/Account/ForgotPassword.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_forgotpasswordconfirmation.cshtml', this.applicationName + '/Views/Account/ForgotPasswordConfirmation.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_login.cshtml', this.applicationName + '/Views/Account/Login.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_register.cshtml', this.applicationName + '/Views/Account/Register.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_resetpassword.cshtml', this.applicationName + '/Views/Account/ResetPassword.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_resetpasswordconfirmation.cshtml', this.applicationName + '/Views/Account/ResetPasswordConfirmation.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_sendcode.cshtml', this.applicationName + '/Views/Account/SendCode.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_account_verifycode.cshtml', this.applicationName + '/Views/Account/VerifyCode.cshtml', this.templatedata);
-
-        this.fs.copyTpl(this.sourceRoot() + '/views_home_contact.cshtml', this.applicationName + '/Views/Home/Contact.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_home_about.cshtml', this.applicationName + '/Views/Home/About.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_home_index.cshtml', this.applicationName + '/Views/Home/Index.cshtml', this.templatedata);
-
-        this.fs.copyTpl(this.sourceRoot() + '/views_manage_addphonenumber.cshtml', this.applicationName + '/Views/Manage/AddPhoneNumber.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_manage_changepassword.cshtml', this.applicationName + '/Views/Manage/ChangePassword.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_manage_index.cshtml', this.applicationName + '/Views/Manage/Index.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_manage_managelogins.cshtml', this.applicationName + '/Views/Manage/ManageLogins.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_manage_removelogin.cshtml', this.applicationName + '/Views/Manage/RemoveLogin.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_manage_setpassword.cshtml', this.applicationName + '/Views/Manage/SetPassword.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_manage_verifyphonenumber.cshtml', this.applicationName + '/Views/Manage/VerifyPhoneNumber.cshtml', this.templatedata);
-
-        this.fs.copyTpl(this.sourceRoot() + '/views_shared_error.cshtml', this.applicationName + '/Views/Shared/Error.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_shared_layout.cshtml', this.applicationName + '/Views/Shared/_Layout.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_shared_loginpartial.cshtml', this.applicationName + '/Views/Shared/_LoginPartial.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_shared_validationscriptspartial.cshtml', this.applicationName + '/Views/Shared/_ValidationScriptsPartial.cshtml', this.templatedata);
-
-        this.fs.copyTpl(this.sourceRoot() + '/views_globalimport.cshtml', this.applicationName + '/Views/_GlobalImport.cshtml', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/views_viewstart.cshtml', this.applicationName + '/Views/_ViewStart.cshtml', this.templatedata);
-
-        /// wwwroot
-        this.directory(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
+        // individual files (configs, etc)
+        this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
+        this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('config.json'), this.applicationName + '/config.json', this.templatedata);
+        this.fs.copy(this.templatePath('hosting.ini'), this.applicationName + '/hosting.ini');
+        this.fs.copyTpl(this.templatePath('package.json'), this.applicationName + '/package.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
+        this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
+        this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationName + '/Startup.cs', this.templatedata);
+        // Controllers
+        this.fs.copyTpl(this.templatePath('Controllers/AccountController.cs'), this.applicationName + '/Controllers/AccountController.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Controllers/ManageController.cs'), this.applicationName + '/Controllers/ManageController.cs', this.templatedata);
+        // Migrations
+        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_CreateIdentitySchema.Designer.cs'), this.applicationName + '/Migrations/00000000000000_CreateIdentitySchema.Designer.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_CreateIdentitySchema.cs'), this.applicationName + '/Migrations/00000000000000_CreateIdentitySchema.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Migrations/ApplicationDbContextModelSnapshot.cs'), this.applicationName + '/Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
+        // Models
+        this.fs.copyTpl(this.templatePath('Models/AccountViewModels.cs'), this.applicationName + '/Models/AccountViewModels.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Models/IdentityModels.cs'), this.applicationName + '/Models/IdentityModels.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Models/ManageViewModels.cs'), this.applicationName + '/Models/ManageViewModels.cs', this.templatedata);
+        // Services
+        this.fs.copyTpl(this.templatePath('Services/MessageServices.cs'), this.applicationName + '/Services/MessageServices.cs', this.templatedata);
+        // Views
+        this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
+        // wwwroot - the content in the wwwroot does not include any direct references or imports
+        // So again it is copied 1-to-1 - but tests cover list of all files
+        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
         break;
       case 'nancy':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
 
-        this.template(this.sourceRoot() + '/startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+        this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
         this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
@@ -212,13 +181,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         break;
       case 'console':
-        this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-
-        this.template(this.sourceRoot() + '/program.cs', this.applicationName + '/Program.cs', this.templatedata);
-
-        this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+        this.sourceRoot(path.join(__dirname, '../templates/projects/console'));
+        this.fs.copy(path.join(__dirname, '../templates/gitignore.txt'), this.applicationName + '/.gitignore');
+        this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
 
         break;
       case 'classlib':
@@ -228,7 +194,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.template(this.sourceRoot() + '/class.cs', this.applicationName + '/Class1.cs', this.templatedata);
 
-        this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+        this.template(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
 
         break;
       case 'unittest':
