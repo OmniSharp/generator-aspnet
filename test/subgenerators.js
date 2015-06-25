@@ -147,6 +147,13 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
   });
 
+  describe('aspnet:StyleSheet', function() {
+    var arg = 'style';
+    var filename = 'style.css';
+    util.goCreateWithArgs('StyleSheet', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
   describe('aspnet:TextFile', function() {
     var arg = 'file';
     var filename = 'file.txt';
