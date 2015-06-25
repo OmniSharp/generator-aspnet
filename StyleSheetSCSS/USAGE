@@ -1,0 +1,8 @@
+Description:
+	Creates a new Sass SCSS style sheet file
+
+Example:
+	yo aspnet:StyleSheetSCSS filename
+
+	This will create:
+    filename.scss
