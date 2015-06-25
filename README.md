@@ -20,7 +20,7 @@ Yeoman generator for ASP.NET vNext projects
 
 * `yo aspnet` shows a wizard for generating a new ASP.NET app
 
-* `yo aspnet --grunt` generates gruntfile.js files for **web** template instead of gulp.js
+* `yo aspnet --grunt` generates Gruntfile.js files for **web** template instead of gulp.js
 
 * `yo aspnet --help` shows flags and other configurable options
 
@@ -70,6 +70,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:CoffeeScript](#coffeescript)
 * [aspnet:Config](#config)
 * [aspnet:Gulpfile](#gulpfile)
+* [aspnet:Gruntfile](#gruntfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:HTMLPage](#htmlpage)
 * [aspnet:JavaScript](#javascript)
@@ -291,6 +292,19 @@ yo aspnet:Gulpfile
 ```
 
 Produces `gulpfile.js`
+
+### Gruntfile
+
+Creates a new `Grunt` file
+
+Example:
+
+```
+yo aspnet:Gruntfile
+```
+
+Produces `Gruntfile.js`
+
 
 ### gitignore
 

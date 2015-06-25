@@ -2,7 +2,7 @@ Description:
 	Creates a new Grunt file
 
 Example:
-	yo aspnet:Gruntfile filename
+	yo aspnet:Gruntfile
 
 	This will create:
-		filename.js
+		Gruntfile.js

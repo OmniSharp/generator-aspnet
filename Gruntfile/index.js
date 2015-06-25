@@ -1,16 +1,13 @@
 'use strict';
 var util = require('util');
-var ScriptBase = require('../script-base.js');
+var ScriptBase = require('../script-base-basic.js');
 
-var NamedGenerator = module.exports = function NamedGenerator() {
-	ScriptBase.apply(this, arguments);
+var Generator = module.exports = function Generator() {
+  ScriptBase.apply(this, arguments);
 };
 
-util.inherits(NamedGenerator, ScriptBase);
+util.inherits(Generator, ScriptBase);
 
-NamedGenerator.prototype.createNamedItem = function(){
-	this.generateTemplateFile(
-		'gruntfile.js',
-		this.name + '.js'
-	);
+Generator.prototype.createItem = function() {
+  this.generateStandardFile('Gruntfile.js', 'Gruntfile.js');
 };
