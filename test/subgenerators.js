@@ -150,6 +150,13 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
+  describe('aspnet:StyleSheet', function() {
+    var arg = 'style';
+    var filename = 'style.css';
+    util.goCreateWithArgs('StyleSheet', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
   describe('aspnet:TextFile', function() {
     var arg = 'file';
     var filename = 'file.txt';
