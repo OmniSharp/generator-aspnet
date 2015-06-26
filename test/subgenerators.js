@@ -16,6 +16,11 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create gulp file', 'gulpfile.js');
   });
 
+  describe('aspnet:Gruntfile', function() {
+    util.goCreate('Gruntfile');
+    util.fileCheck('should create Grunt file', 'Gruntfile.js');
+  });
+
   describe('aspnet:BowerJson', function() {
     util.goCreate('BowerJson');
     util.fileCheck('should create bower configuration file', '.bowerrc');
@@ -64,15 +69,6 @@ describe('Subgenerators with named arguments tests', function() {
     var filename = 'file.coffee';
     util.goCreateWithArgs('CoffeeScript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
-  describe('aspnet:Gruntfile', function() {
-    var arg = 'gruntfile';
-    var filename = 'gruntfile.js';
-
-    util.goCreateWithArgs('Gruntfile', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-
   });
 
   describe('aspnet:HTMLPage', function() {
