@@ -79,8 +79,9 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:JSONSchema](#jsonschema)
 * [aspnet:Middleware](#middleware)
 * [aspnet:PackageJson](#packagejson)
-* [aspnet:StyleSheetScss](#stylesheetscss)
 * [aspnet:StyleSheet](#stylesheet)
+* [aspnet:StyleSheetScss](#stylesheetscss)
+* [aspnet:StyleSheetLess](#stylesheetless)
 * [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:TypeScript](#typescript)
@@ -417,6 +418,18 @@ yo aspnet:StyleSheet style
 ```
 
 Produces `style.css`
+
+### StyleSheetLess
+
+Creates a new Less class file
+
+Example:
+
+```
+yo aspnet:StyleSheetLess filename
+```
+
+Produces `filename.less`
 
 ### StyleSheetSCSS
 
