@@ -77,6 +77,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:JScript](#jscript)
 * [aspnet:JSON](#json)
 * [aspnet:JSONSchema](#jsonschema)
+* [aspnet:JSX](#jsx)
 * [aspnet:Middleware](#middleware)
 * [aspnet:PackageJson](#packagejson)
 * [aspnet:StyleSheet](#stylesheet)
@@ -382,6 +383,17 @@ yo aspnet:JSONSchema filename
 
 Produces `filename.json`
 
+### JSX
+
+Creates a new React JSX file
+
+Example:
+
+```
+yo aspnet:JSX filename
+```
+
+Produces `filename.jsx`
 
 ### Middleware
 
