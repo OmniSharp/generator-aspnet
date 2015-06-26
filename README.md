@@ -75,6 +75,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:JavaScript](#javascript)
 * [aspnet:JScript](#jscript)
 * [aspnet:JSON](#json)
+* [aspnet:JSONSchema](#jsonschema)
 * [aspnet:Middleware](#middleware)
 * [aspnet:PackageJson](#packagejson)
 * [aspnet:StyleSheetScss](#stylesheetscss)
@@ -352,6 +353,19 @@ yo aspnet:JSON filename
 ```
 
 Produces `filename.json`
+
+### JSONSchema
+
+Creates a new JSON schema file
+
+Example:
+
+```
+yo aspnet:JSONSchema filename
+```
+
+Produces `filename.json`
+
 
 ### Middleware
 
