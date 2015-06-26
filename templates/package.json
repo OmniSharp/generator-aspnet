@@ -1,6 +1,7 @@
-﻿{
-    "version": "0.0.0",
-    "name": "",
-    "devDependencies": {
-    }
+{
+  "version": "1.0.0",
+  "name": "MyNamespace",
+  "private": true,
+  "devDependencies": {
+  }
 }

@@ -9,6 +9,7 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:PackageJson', function() {
     util.goCreate('PackageJson');
     util.fileCheck('should create package json file', 'package.json');
+    util.fileContentCheck('package.json', 'Check file content', /MyNamespace/);
   });
 
   describe('aspnet:Gulpfile', function() {
