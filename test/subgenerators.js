@@ -54,6 +54,46 @@ describe('Subgenerators without arguments tests', function() {
  */
 describe('Subgenerators with named arguments tests', function() {
 
+  describe('aspnet:AngularController', function() {
+    var arg = 'HomeController';
+    var filename = 'HomeController.js';
+    util.goCreateWithArgs('AngularController', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
+  });
+
+  describe('aspnet:AngularControllerAs', function() {
+    var arg = 'HomeController';
+    var filename = 'HomeController.js';
+    util.goCreateWithArgs('AngularControllerAs', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /vm.title/);
+  });
+
+  describe('aspnet:AngularDirective', function() {
+    var arg = 'HomeComponentDirective';
+    var filename = 'HomeComponentDirective.js';
+    util.goCreateWithArgs('AngularDirective', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
+  });
+
+  describe('aspnet:AngularFactory', function() {
+    var arg = 'MyService';
+    var filename = 'MyService.js';
+    util.goCreateWithArgs('AngularFactory', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
+  });
+
+  describe('aspnet:AngularModule', function() {
+    var arg = 'MyApplication';
+    var filename = 'MyApplication.js';
+    util.goCreateWithArgs('AngularModule', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /angular.module/);
+  });
+
   describe('aspnet:Class', function() {
     var arg = 'MyClass';
     var filename = 'MyClass.cs';

@@ -63,6 +63,11 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:MvcController](#mvccontroller)
 * [aspnet:MvcView](#mvcview)
 * [aspnet:WebApiContoller](#webapicontroller)
+* [aspnet:AngularModule](#angularmodule)
+* [aspnet:AngularController](#angularcontroller)
+* [aspnet:AngularControllerAs](#angularcontrolleras)
+* [aspnet:AngularDirective](#angulardirective)
+* [aspnet:AngularFactory](#angularfactory)
 * [aspnet:Class](#class)
 * [aspnet:Interface](#interface)
 * [aspnet:StartupClass](#startupclass)
@@ -198,8 +203,63 @@ namespace MyNamespace.Controllers
         }
     }
 }
-
 ```
+
+### AngularModule
+
+Creates AngularJS module file
+
+Example:
+```
+yo aspnet:AngularModule filename
+```
+
+Produces `filename.js`
+
+### AngularController
+
+Creates AngularJS controller file using $scope
+
+Example:
+```
+yo aspnet:AngularController filename
+```
+
+Produces `filename.js`
+
+
+### AngularControllerAs
+
+Creates AngularJS controller file using `Controller As` syntax.
+
+Example:
+```
+yo aspnet:AngularControllerAs filename
+```
+
+Produces `filename.js`
+
+### AngularDirective
+
+Creates AngularJS directive file.
+
+Example:
+```
+yo aspnet:AngularDirective filename
+```
+
+Produces `filename.js`
+
+### AngularFactory
+
+Creates AngularJS factory file.
+
+Example:
+```
+yo aspnet:AngularFactory filename
+```
+
+Produces `filename.js`
 
 ### Class
 
