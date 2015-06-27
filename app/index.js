@@ -35,6 +35,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           name: 'Web Application',
           value: 'web'
         }, {
+          name: 'Web Application Simple [without Membership and Authorization]',
+          value: 'websimple'
+        }, {
           name: 'Web API Application',
           value: 'webapi'
         }, {
@@ -70,6 +73,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         break;
       case 'web':
         app = 'WebApplication';
+        break;
+      case 'websimple':
+        app = 'WebApplicationSimple';
         break;
       case 'webapi':
         app = 'WebAPIApplication';
@@ -162,6 +168,32 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('Models/ManageViewModels.cs'), this.applicationName + '/Models/ManageViewModels.cs', this.templatedata);
         // Services
         this.fs.copyTpl(this.templatePath('Services/MessageServices.cs'), this.applicationName + '/Services/MessageServices.cs', this.templatedata);
+        // Views
+        this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
+        // wwwroot - the content in the wwwroot does not include any direct references or imports
+        // So again it is copied 1-to-1 - but tests cover list of all files
+        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        break;
+      case 'websimple':
+        this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+        // Grunt or Gulp
+        if (this.options.grunt) {
+          this.fs.copyTpl(this.templatePath('gruntfile.js'), this.applicationName + '/gruntfile.js', this.templatedata);
+        } else {
+          this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
+        }
+        // individual files (configs, etc)
+        this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
+        this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('config.json'), this.applicationName + '/config.json', this.templatedata);
+        this.fs.copy(this.templatePath('hosting.ini'), this.applicationName + '/hosting.ini');
+        this.fs.copyTpl(this.templatePath('package.json'), this.applicationName + '/package.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
+        this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
+        this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationName + '/Startup.cs', this.templatedata);
+        // Controllers
+        this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
         // Views
         this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
         // wwwroot - the content in the wwwroot does not include any direct references or imports
