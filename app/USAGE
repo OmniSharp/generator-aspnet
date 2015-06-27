@@ -2,21 +2,36 @@ Description:
 
   Creates a basic ASP.NET 5 application
 
-Subgenerators: 
+Subgenerators:
 
+  yo aspnet:AngularModule [options] <name>
+  yo aspnet:AngularController [options] <name>
+  yo aspnet:AngularControllerAs [options] <name>
+  yo aspnet:AngularDirective [options] <name>
+  yo aspnet:AngularFactory [options] <name>
   yo aspnet:BowerJson [options]
   yo aspnet:Class [options] <name>
   yo aspnet:CoffeeScript [options] <name>
-  yo aspnet:Gruntfile [options] <name>
+  yo aspnet:Config [options]
+  yo aspnet:gitingore [options]
+  yo aspnet:Gruntfile [options]
   yo aspnet:Gulpfile [options] <name>
   yo aspnet:HTMLPage [options] <name>
+  yo aspnet:Interface [options] <name>
   yo aspnet:JavaScript [options] <name>
   yo aspnet:JScript [options] <name>
   yo aspnet:JSON [options] <name>
+  yo aspnet:JSONSchema [options] <name>
+  yo aspnet:Middleware [options] <name>
   yo aspnet:MvcController [options] <name>
   yo aspnet:MvcView [options] <name>
   yo aspnet:PackageJson [options]
   yo aspnet:StartupClass [options]
+  yo aspnet:StyleSheet [options] <name>
+  yo aspnet:StyleSheetLess [options] <name>
+  yo aspnet:StyleSheetScss [options] <name>
+  yo aspnet:TagHelper [options] <name>
   yo aspnet:TextFile [options] <name>
   yo aspnet:TypeScript [options] <name>
+  yo aspnet:TypeScriptConfig [options] <name>
   yo aspnet:WebApiController [options] <name>
