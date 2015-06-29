@@ -31,11 +31,12 @@ Full, template based projects available in generator:
 - Empty Application
 - Console Application
 - Web Application
+- Web Application Simple [without Membership and Authorization]
 - Web API Application
 - Nancy ASP.NET Application
 - Class Library
 
-The Empty Application, Web Application, Web API Application are based on the new templates recently introduced with Visual Studio CTP 6 release, and you can read about this new templates on blog post accompanying CTP 6 release:
+The Empty Application, Web Application, Web Application Simple (a.k.a. Web Application No Auth), Web API Application are based on the new templates recently introduced with Visual Studio CTP 6 release, and you can read about this new templates on blog post accompanying CTP 6 release:
 [ASP.NET 5 Updates and other improvements for Web Developers in Visual Studio 2015 CTP 6](http://blogs.msdn.com/b/webdev/archive/2015/02/23/aspnet-5-updates-for-feb-2015.aspx)
 
 The Nancy project is based on framework's "Hello World" template:
