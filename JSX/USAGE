@@ -1,0 +1,8 @@
+Description:
+	Creates a new React JSX file
+
+Example:
+	yo aspnet:JSX filename
+
+	This will create:
+		filename.jsx

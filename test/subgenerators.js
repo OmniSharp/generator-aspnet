@@ -118,6 +118,13 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
+  describe('aspnet:JSX', function() {
+    var arg = 'file';
+    var filename = 'file.jsx';
+    util.goCreateWithArgs('JSX', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
   describe('aspnet:MvcController', function() {
     var arg = 'file';
     var filename = 'file.cs';
