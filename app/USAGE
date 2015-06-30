@@ -1,6 +1,25 @@
 Description:
 
-  Creates a basic ASP.NET 5 application
+  Creates the ASP.NET 5 example project
+
+Project templates:
+  EmptyApplication
+  ConsoleApplication
+  WebApplication
+  WebApplicationSimple
+  WebAPIApplication
+  NancyApplication
+  ClassLibrary
+  UnitTest
+
+Example:
+
+  yo aspnet
+      ConsoleApplication
+    > WebApplication
+      WebApplicationSimple
+
+  This will create basic ASP.NET 5 example MVC web application
 
 Subgenerators:
 
