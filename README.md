@@ -20,7 +20,7 @@ Yeoman generator for ASP.NET vNext projects
 
 * `yo aspnet` shows a wizard for generating a new ASP.NET app
 
-* `yo aspnet --grunt` generates gruntfile.js files for **web** template instead of gulp.js
+* `yo aspnet --grunt` generates Gruntfile.js files for **web** template instead of gulp.js
 
 * `yo aspnet --help` shows flags and other configurable options
 
@@ -31,11 +31,12 @@ Full, template based projects available in generator:
 - Empty Application
 - Console Application
 - Web Application
+- Web Application Simple [without Membership and Authorization]
 - Web API Application
 - Nancy ASP.NET Application
 - Class Library
 
-The Empty Application, Web Application, Web API Application are based on the new templates recently introduced with Visual Studio CTP 6 release, and you can read about this new templates on blog post accompanying CTP 6 release:
+The Empty Application, Web Application, Web Application Simple (a.k.a. Web Application No Auth), Web API Application are based on the new templates recently introduced with Visual Studio CTP 6 release, and you can read about this new templates on blog post accompanying CTP 6 release:
 [ASP.NET 5 Updates and other improvements for Web Developers in Visual Studio 2015 CTP 6](http://blogs.msdn.com/b/webdev/archive/2015/02/23/aspnet-5-updates-for-feb-2015.aspx)
 
 The Nancy project is based on framework's "Hello World" template:
@@ -63,20 +64,35 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:MvcController](#mvccontroller)
 * [aspnet:MvcView](#mvcview)
 * [aspnet:WebApiContoller](#webapicontroller)
+* [aspnet:AngularModule](#angularmodule)
+* [aspnet:AngularController](#angularcontroller)
+* [aspnet:AngularControllerAs](#angularcontrolleras)
+* [aspnet:AngularDirective](#angulardirective)
+* [aspnet:AngularFactory](#angularfactory)
 * [aspnet:Class](#class)
+* [aspnet:Interface](#interface)
 * [aspnet:StartupClass](#startupclass)
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:CoffeeScript](#coffeescript)
 * [aspnet:Config](#config)
 * [aspnet:Gulpfile](#gulpfile)
+* [aspnet:Gruntfile](#gruntfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:HTMLPage](#htmlpage)
 * [aspnet:JavaScript](#javascript)
 * [aspnet:JScript](#jscript)
 * [aspnet:JSON](#json)
+* [aspnet:JSONSchema](#jsonschema)
+* [aspnet:JSX](#jsx)
+* [aspnet:Middleware](#middleware)
 * [aspnet:PackageJson](#packagejson)
+* [aspnet:StyleSheet](#stylesheet)
+* [aspnet:StyleSheetScss](#stylesheetscss)
+* [aspnet:StyleSheetLess](#stylesheetless)
+* [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:TypeScript](#typescript)
+* [aspnet:TypeScriptConfig](#typescriptconfig)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
 
@@ -189,8 +205,63 @@ namespace MyNamespace.Controllers
         }
     }
 }
-
 ```
+
+### AngularModule
+
+Creates AngularJS module file
+
+Example:
+```
+yo aspnet:AngularModule filename
+```
+
+Produces `filename.js`
+
+### AngularController
+
+Creates AngularJS controller file using $scope
+
+Example:
+```
+yo aspnet:AngularController filename
+```
+
+Produces `filename.js`
+
+
+### AngularControllerAs
+
+Creates AngularJS controller file using `Controller As` syntax.
+
+Example:
+```
+yo aspnet:AngularControllerAs filename
+```
+
+Produces `filename.js`
+
+### AngularDirective
+
+Creates AngularJS directive file.
+
+Example:
+```
+yo aspnet:AngularDirective filename
+```
+
+Produces `filename.js`
+
+### AngularFactory
+
+Creates AngularJS factory file.
+
+Example:
+```
+yo aspnet:AngularFactory filename
+```
+
+Produces `filename.js`
 
 ### Class
 
@@ -216,6 +287,18 @@ namespace MyNamespace
 }
 ```
 
+### Interface
+
+Creates a new ASP.NET 5 Interface
+
+Example:
+
+```
+yo aspnet:Interface IContact
+```
+
+Produces `/IContact.cs`
+
 ### StartupClass
 
 Creates a new Startup Class file
@@ -230,7 +313,7 @@ Produces `Startup.cs`
 
 ### BowerJson
 
-Creates a new Bower file
+Creates a new `bower.json` and configuration file.
 
 Example:
 
@@ -238,7 +321,7 @@ Example:
 yo aspnet:BowerJson
 ```
 
-Produces `bower.json`
+Produces `bower.json` and `.bowerrc`
 
 ### CoffeeScript
 
@@ -275,6 +358,19 @@ yo aspnet:Gulpfile
 ```
 
 Produces `gulpfile.js`
+
+### Gruntfile
+
+Creates a new `Grunt` file
+
+Example:
+
+```
+yo aspnet:Gruntfile
+```
+
+Produces `Gruntfile.js`
+
 
 ### gitignore
 
@@ -336,6 +432,42 @@ yo aspnet:JSON filename
 
 Produces `filename.json`
 
+### JSONSchema
+
+Creates a new JSON schema file
+
+Example:
+
+```
+yo aspnet:JSONSchema filename
+```
+
+Produces `filename.json`
+
+### JSX
+
+Creates a new React JSX file
+
+Example:
+
+```
+yo aspnet:JSX filename
+```
+
+Produces `filename.jsx`
+
+### Middleware
+
+Creates a new C# Middleware class file
+
+Example:
+
+```
+yo aspnet:Middleware filename
+```
+
+Produces `filename.cs`
+
 ### PackageJson
 
 Creates a new package.json file
@@ -347,6 +479,54 @@ yo aspnet:PackageJson
 ```
 
 Produces `package.json`
+
+### StyleSheet
+
+Creates a new CSS file
+
+Example:
+
+```
+yo aspnet:StyleSheet style
+```
+
+Produces `style.css`
+
+### StyleSheetLess
+
+Creates a new Less class file
+
+Example:
+
+```
+yo aspnet:StyleSheetLess filename
+```
+
+Produces `filename.less`
+
+### StyleSheetSCSS
+
+Creates a new Sass SCSS class file
+
+Example:
+
+```
+yo aspnet:StyleSheetSCSS filename
+```
+
+Produces `filename.scss`
+
+### TagHelper
+
+Creates a new TagHelper class file
+
+Example:
+
+```
+yo aspnet:TagHelper filename
+```
+
+Produces `filename.cs`
 
 ### TextFile
 
@@ -372,6 +552,17 @@ yo aspnet:TypeScript filename
 
 Produces `filename.ts`
 
+### TypeScriptConfig
+
+Creates a new TypeScript configuration file
+
+Example:
+
+```
+yo aspnet:TypeScriptConfig
+```
+
+Produces `tsconfig.json`
 
 
 ## License

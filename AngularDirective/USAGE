@@ -1,0 +1,8 @@
+Description:
+	Creates a new AngularJS directive file.
+
+Example:
+	yo aspnet:AngularDirective filename
+
+	This will create:
+		filename.js

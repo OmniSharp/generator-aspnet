@@ -8,10 +8,12 @@ var NamedGenerator = module.exports = function NamedGenerator() {
 
 util.inherits(NamedGenerator, ScriptBase);
 
-NamedGenerator.prototype.createNamedItem = function(){
-	this.generateTemplateFile(
-		'apicontroller.cs',
-		this.name + '.cs',
-		{ namespace: 'MyNamespace', classname: this.name }	
-	);
+NamedGenerator.prototype.createNamedItem = function() {
+  this.generateTemplateFile(
+    'WebApiController.cs',
+    this.name + '.cs', {
+      namespace: 'MyNamespace',
+      classname: this.name
+    }
+  );
 };
