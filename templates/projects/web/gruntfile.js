@@ -8,7 +8,8 @@ module.exports = function(grunt) {
         options: {
           targetDir: "wwwroot/lib",
           layout: "byComponent",
-          cleanTargetDir: false
+          cleanTargetDir: false,
+          copy: false
         }
       }
     }
