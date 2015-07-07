@@ -295,6 +295,52 @@ describe('aspnet - Web Application', function() {
 });
 
 /*
+ * yo aspnet Web Application Simple - Grunt option
+ */
+describe('aspnet - Web Application Simple w/grunt', function() {
+
+  util.goCreateApplicationWithOptions('websimple', 'gruntTest', {
+    grunt: 'grunt'
+  });
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('gruntTest/');
+    });
+
+    it('grunt file created', function() {
+      assert.file('gruntTest/gruntfile.js');
+    });
+
+    it('gulpfile does NOT exist', function() {
+      assert.noFile('gruntTest/gulpfile.js');
+    });
+  });
+});
+
+/*
+ * yo aspnet Web Application Simple - No Grunt option
+ */
+describe('aspnet - Web Application Simple w/o grunt', function() {
+
+  util.goCreateApplication('websimple', 'gulpTest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('gulpTest/');
+    });
+
+    it('gulp file created', function() {
+      assert.file('gulpTest/gulpfile.js');
+    });
+
+    it('grunt file does NOT exist', function() {
+      assert.noFile('gulpTest/gruntfile.js');
+    });
+  });
+});
+
+/*
  * yo aspnet Web Application
  */
 describe('aspnet - Web Application Simple', function() {
