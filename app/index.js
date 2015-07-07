@@ -9,7 +9,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
   constructor: function() {
     yeoman.generators.Base.apply(this, arguments);
     // only implemented for web template
-    this.option('grunt');
+    this.option('grunt', {
+      desc: 'Generates a Gruntfile.js file for web templates instead of gulp.js'
+    });
   },
 
 
