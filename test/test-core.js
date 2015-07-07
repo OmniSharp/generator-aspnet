@@ -455,6 +455,7 @@ describe('aspnet - Web API Application', function() {
     'webAPITest/project.json',
     'webAPITest/Properties/launchSettings.json',
     'webAPITest/Startup.cs',
+    'webAPITest/.gitignore',
     'webAPITest/wwwroot/README.md'
   ];
   describe('Checking files', function() {
