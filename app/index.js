@@ -144,7 +144,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // Grunt or Gulp
         if (this.options.grunt) {
-          this.fs.copyTpl(this.templatePath('gruntfile.js'), this.applicationName + '/gruntfile.js', this.templatedata);
+          this.fs.copyTpl(this.templatePath('Gruntfile.js'), this.applicationName + '/Gruntfile.js', this.templatedata);
         } else {
           this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
         }
@@ -182,7 +182,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // Grunt or Gulp
         if (this.options.grunt) {
-          this.fs.copyTpl(this.templatePath('gruntfile.js'), this.applicationName + '/gruntfile.js', this.templatedata);
+          this.fs.copyTpl(this.templatePath('Gruntfile.js'), this.applicationName + '/Gruntfile.js', this.templatedata);
         } else {
           this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
         }

@@ -133,7 +133,7 @@ describe('aspnet - Web Application w/grunt', function() {
     });
 
     it('grunt file created', function() {
-      assert.file('gruntTest/gruntfile.js');
+      assert.file('gruntTest/Gruntfile.js');
     });
 
     it('gulpfile does NOT exist', function() {
@@ -159,7 +159,7 @@ describe('aspnet - Web Application w/o grunt', function() {
     });
 
     it('grunt file does NOT exist', function() {
-      assert.noFile('gulpTest/gruntfile.js');
+      assert.noFile('gulpTest/Gruntfile.js');
     });
   });
 });
@@ -309,7 +309,7 @@ describe('aspnet - Web Application Simple w/grunt', function() {
     });
 
     it('grunt file created', function() {
-      assert.file('gruntTest/gruntfile.js');
+      assert.file('gruntTest/Gruntfile.js');
     });
 
     it('gulpfile does NOT exist', function() {
@@ -335,7 +335,7 @@ describe('aspnet - Web Application Simple w/o grunt', function() {
     });
 
     it('grunt file does NOT exist', function() {
-      assert.noFile('gulpTest/gruntfile.js');
+      assert.noFile('gulpTest/Gruntfile.js');
     });
   });
 });
