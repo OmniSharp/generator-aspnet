@@ -7,6 +7,25 @@
     "hammer.js": "2.0.4",
     "jquery": "2.1.4",
     "jquery-validation": "1.11.1",
-    "jquery-validation-unobtrusive": "3.2.2"
+    "jquery-validation-unobtrusive": "3.2.2",
+    "fontawesome": "~4.3.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": ["./dist/js/bootstrap.js", "./dist/css/bootstrap.css", "./dist/fonts/*"]
+    },
+    "normalizeMulti": {
+      "dependencies": ["bootstrap", "fontawesome"],
+      "normalize": {
+        "fonts": [
+          "*.eot",
+          "*.otf",
+          "*.svg",
+          "*.ttf",
+          "*.woff",
+          "*.woff2"
+        ]
+      }
+    }
   }
 }
