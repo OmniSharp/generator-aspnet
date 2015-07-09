@@ -43,8 +43,7 @@
     "prepublish": [
       "npm install",
       "bower install", <% if(!grunt){ %>
-      "gulp clean",
-      "gulp min"<% } %><% if(grunt){ %>
+      "gulp publish"<% } %><% if(grunt){ %>
       "grunt default"
       <% } %>
     ]

@@ -187,7 +187,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
         }
         // individual files (configs, etc)
-        this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('config.json'), this.applicationName + '/config.json', this.templatedata);
@@ -200,6 +199,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
         // Views
         this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
+        // Static file sources
+        this.fs.copyTpl(this.templatePath('Scripts/**/*'), this.applicationName + '/Scripts', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Stylesheets/**/*'), this.applicationName + '/Stylesheets', this.templatedata);
+        this.fs.copy(this.templatePath('Images/**/*'), this.applicationName + '/Images', this.templatedata);
         // wwwroot - the content in the wwwroot does not include any direct references or imports
         // So again it is copied 1-to-1 - but tests cover list of all files
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
