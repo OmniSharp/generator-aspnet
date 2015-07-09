@@ -28,8 +28,6 @@ var util = (function() {
     });
   }
 
-
-
   function goCreateApplication(type, applicationName) {
     before(function(done) {
 
