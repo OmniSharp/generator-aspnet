@@ -39,8 +39,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           name: 'Web Application',
           value: 'web'
         }, {
-          name: 'Web Application Simple [without Membership and Authorization]',
-          value: 'websimple'
+          name: 'Web Application Basic [without Membership and Authorization]',
+          value: 'webbasic'
         }, {
           name: 'Web API Application',
           value: 'webapi'
@@ -78,8 +78,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       case 'web':
         app = 'WebApplication';
         break;
-      case 'websimple':
-        app = 'WebApplicationSimple';
+      case 'webbasic':
+        app = 'WebApplicationBasic';
         break;
       case 'webapi':
         app = 'WebAPIApplication';
@@ -178,7 +178,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         // So again it is copied 1-to-1 - but tests cover list of all files
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
         break;
-      case 'websimple':
+      case 'webbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // Grunt or Gulp
         if (this.options.grunt) {

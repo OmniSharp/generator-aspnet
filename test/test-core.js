@@ -295,11 +295,11 @@ describe('aspnet - Web Application', function() {
 });
 
 /*
- * yo aspnet Web Application Simple - Grunt option
+ * yo aspnet Web Application Basic - Grunt option
  */
-describe('aspnet - Web Application Simple w/grunt', function() {
+describe('aspnet - Web Application Basic w/grunt', function() {
 
-  util.goCreateApplicationWithOptions('websimple', 'gruntTest', {
+  util.goCreateApplicationWithOptions('webbasic', 'gruntTest', {
     grunt: 'grunt'
   });
 
@@ -319,11 +319,11 @@ describe('aspnet - Web Application Simple w/grunt', function() {
 });
 
 /*
- * yo aspnet Web Application Simple - No Grunt option
+ * yo aspnet Web Application Basic - No Grunt option
  */
-describe('aspnet - Web Application Simple w/o grunt', function() {
+describe('aspnet - Web Application Basic w/o grunt', function() {
 
-  util.goCreateApplication('websimple', 'gulpTest');
+  util.goCreateApplication('webbasic', 'gulpTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
@@ -343,9 +343,9 @@ describe('aspnet - Web Application Simple w/o grunt', function() {
 /*
  * yo aspnet Web Application
  */
-describe('aspnet - Web Application Simple', function() {
+describe('aspnet - Web Application Basic', function() {
 
-  util.goCreateApplication('websimple', 'webTest');
+  util.goCreateApplication('webbasic', 'webTest');
 
   describe('Checking directories', function() {
 
