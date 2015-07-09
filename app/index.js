@@ -4,6 +4,7 @@ var yosay = require('yosay');
 var chalk = require('chalk');
 var path = require('path');
 var guid = require('uuid');
+var projectName = require('vs_projectname');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
   constructor: function() {
@@ -96,7 +97,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       default: app
     }];
     this.prompt(prompts, function(props) {
-      this.templatedata.namespace = props.applicationName;
+      this.templatedata.namespace = projectName(props.applicationName);
       this.templatedata.applicationname = props.applicationName;
       this.applicationName = props.applicationName;
       this.templatedata.guid = guid.v4();
