@@ -31,12 +31,12 @@ Full, template based projects available in generator:
 - Empty Application
 - Console Application
 - Web Application
-- Web Application Simple [without Membership and Authorization]
+- Web Application Basic [without Membership and Authorization]
 - Web API Application
 - Nancy ASP.NET Application
 - Class Library
 
-The Empty Application, Web Application, Web Application Simple (a.k.a. Web Application No Auth), Web API Application are based on the new templates recently introduced with Visual Studio 2015 RC release, with updates for `beta5`. You can read about these new templates on the blog post accompanying the `beta5` release:
+The Empty Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application are based on the new templates recently introduced with Visual Studio 2015 RC release, with updates for `beta5`. You can read about these new templates on the blog post accompanying the `beta5` release:
 [Updates to ASP.NET 5 yeoman generators for beta 5](http://blogs.msdn.com/b/webdev/archive/2015/07/04/updates-to-asp-net-5-yeoman-generators-for-beta-5.aspx)
 
 The Nancy project is based on framework's "Hello World" template:
