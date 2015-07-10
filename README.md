@@ -96,6 +96,8 @@ Available sub generators (_to create files after the project has been created_):
 
 ** Note: files generated are created in the working directory, no conventions are forced **
 
+[Return to top](#top)
+
 ### MvcController
 
 Creates a new ASP.NET 5 MvcController class
@@ -126,6 +128,8 @@ namespace MyNamespace
 }
 ```
 
+[Return to top](#top)
+
 ### MvcView
 
 Creates a new ASP.NET 5 MvcView page file
@@ -147,6 +151,9 @@ Produces `/ContactView.cshtml`
 }
 
 ```
+
+[Return to top](#top)
+
 ### WebApiController
 
 Creates a new ASP.NET 5 WebApiController class
@@ -207,6 +214,8 @@ namespace MyNamespace.Controllers
 }
 ```
 
+[Return to top](#top)
+
 ### AngularModule
 
 Creates AngularJS module file
@@ -217,6 +226,8 @@ yo aspnet:AngularModule filename
 ```
 
 Produces `filename.js`
+
+[Return to top](#top)
 
 ### AngularController
 
@@ -229,6 +240,7 @@ yo aspnet:AngularController filename
 
 Produces `filename.js`
 
+[Return to top](#top)
 
 ### AngularControllerAs
 
@@ -241,6 +253,8 @@ yo aspnet:AngularControllerAs filename
 
 Produces `filename.js`
 
+[Return to top](#top)
+
 ### AngularDirective
 
 Creates AngularJS directive file.
@@ -252,6 +266,8 @@ yo aspnet:AngularDirective filename
 
 Produces `filename.js`
 
+[Return to top](#top)
+
 ### AngularFactory
 
 Creates AngularJS factory file.
@@ -262,6 +278,8 @@ yo aspnet:AngularFactory filename
 ```
 
 Produces `filename.js`
+
+[Return to top](#top)
 
 ### Class
 
@@ -287,6 +305,8 @@ namespace MyNamespace
 }
 ```
 
+[Return to top](#top)
+
 ### Interface
 
 Creates a new ASP.NET 5 Interface
@@ -298,6 +318,8 @@ yo aspnet:Interface IContact
 ```
 
 Produces `/IContact.cs`
+
+[Return to top](#top)
 
 ### StartupClass
 
@@ -311,6 +333,8 @@ yo aspnet:StartupClass
 
 Produces `Startup.cs`
 
+[Return to top](#top)
+
 ### BowerJson
 
 Creates a new `bower.json` and configuration file.
@@ -322,6 +346,8 @@ yo aspnet:BowerJson
 ```
 
 Produces `bower.json` and `.bowerrc`
+
+[Return to top](#top)
 
 ### CoffeeScript
 
@@ -335,6 +361,8 @@ yo aspnet:CoffeeScript filename
 
 Produces `filename.coffee`
 
+[Return to top](#top)
+
 ### Config
 
 Creates a new config.json file
@@ -346,6 +374,8 @@ yo aspnet:Config
 ```
 
 Produces `config.json`
+
+[Return to top](#top)
 
 ### Gulpfile
 
@@ -359,6 +389,8 @@ yo aspnet:Gulpfile
 
 Produces `gulpfile.js`
 
+[Return to top](#top)
+
 ### Gruntfile
 
 Creates a new `Grunt` file
@@ -371,6 +403,7 @@ yo aspnet:Gruntfile
 
 Produces `Gruntfile.js`
 
+[Return to top](#top)
 
 ### gitignore
 
@@ -384,6 +417,8 @@ yo aspnet:gitignore
 
 Produces `.gitignore`
 
+[Return to top](#top)
+
 ### HTMLPage
 
 Creates a new HTML file
@@ -395,6 +430,8 @@ yo aspnet:HTMLPage filename
 ```
 
 Produces `filename.html`
+
+[Return to top](#top)
 
 ### JavaScript
 
@@ -408,6 +445,8 @@ yo aspnet:JavaScript filename
 
 Produces `filename.js`
 
+[Return to top](#top)
+
 ### JScript
 
 Creates a new JavaScript file
@@ -419,6 +458,8 @@ yo aspnet:JScript filename
 ```
 
 Produces `filename.js`
+
+[Return to top](#top)
 
 ### JSON
 
@@ -432,6 +473,8 @@ yo aspnet:JSON filename
 
 Produces `filename.json`
 
+[Return to top](#top)
+
 ### JSONSchema
 
 Creates a new JSON schema file
@@ -443,6 +486,8 @@ yo aspnet:JSONSchema filename
 ```
 
 Produces `filename.json`
+
+[Return to top](#top)
 
 ### JSX
 
@@ -456,6 +501,8 @@ yo aspnet:JSX filename
 
 Produces `filename.jsx`
 
+[Return to top](#top)
+
 ### Middleware
 
 Creates a new C# Middleware class file
@@ -467,6 +514,8 @@ yo aspnet:Middleware filename
 ```
 
 Produces `filename.cs`
+
+[Return to top](#top)
 
 ### PackageJson
 
@@ -480,6 +529,8 @@ yo aspnet:PackageJson
 
 Produces `package.json`
 
+[Return to top](#top)
+
 ### StyleSheet
 
 Creates a new CSS file
@@ -491,6 +542,8 @@ yo aspnet:StyleSheet style
 ```
 
 Produces `style.css`
+
+[Return to top](#top)
 
 ### StyleSheetLess
 
@@ -504,6 +557,8 @@ yo aspnet:StyleSheetLess filename
 
 Produces `filename.less`
 
+[Return to top](#top)
+
 ### StyleSheetSCSS
 
 Creates a new Sass SCSS class file
@@ -515,6 +570,8 @@ yo aspnet:StyleSheetSCSS filename
 ```
 
 Produces `filename.scss`
+
+[Return to top](#top)
 
 ### TagHelper
 
@@ -528,6 +585,8 @@ yo aspnet:TagHelper filename
 
 Produces `filename.cs`
 
+[Return to top](#top)
+
 ### TextFile
 
 Creates a new Text file
@@ -539,6 +598,8 @@ yo aspnet:TextFile filename
 ```
 
 Produces `filename.txt`
+
+[Return to top](#top)
 
 ### TypeScript
 
@@ -552,6 +613,8 @@ yo aspnet:TypeScript filename
 
 Produces `filename.ts`
 
+[Return to top](#top)
+
 ### TypeScriptConfig
 
 Creates a new TypeScript configuration file
@@ -564,6 +627,7 @@ yo aspnet:TypeScriptConfig
 
 Produces `tsconfig.json`
 
+[Return to top](#top)
 
 ## License
 
@@ -574,3 +638,5 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+[Return to top](#top)
