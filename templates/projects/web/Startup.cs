@@ -54,8 +54,8 @@ namespace <%= namespace %>
             // In this release there is no data provider for non Windows environment so this app
             // uses the InMemory Store. This is coming in a future release of the Framework.
             services.AddEntityFramework()
-                .AddInMemoryStore()
-                .AddDbContext<ApplicationDbContext>();
+                .AddInMemoryDatabase()
+                .AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase());
 
             // Use the following code to register EntityFramework services for SqlServer to the container.
             //services.AddEntityFramework()
@@ -106,7 +106,7 @@ namespace <%= namespace %>
             // Add the following to the request pipeline only in development environment.
             if (env.IsDevelopment())
             {
-                app.UseErrorPage(ErrorPageOptions.ShowAll);
+                app.UseErrorPage();
                 app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
             }
             else
