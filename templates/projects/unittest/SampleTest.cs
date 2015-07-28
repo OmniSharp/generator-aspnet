@@ -13,4 +13,4 @@ namespace <%= namespace %>
         	Assert.True(true);
         }
     }
-}	
+}
