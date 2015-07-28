@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-    - "0.10"
+- '0.10'
 deploy:
   api_key:
-    secure: aYfHC2cxnvtMKfe3K6ys2nAatEHHA2JG2wIU5WteURwM5kULt+rqZ9cjGFhBep2F/oq4ttJDmnkdn0UC/OzPZ47SEeSfelFAjpiSv7RECULIN2rnZ/y41SivX0H2PxilIWyj7RAd7A43+YNzvRoOy1i4vfNCAiu3tC+HX7TfgO4=
+    secure: OTZRp+XRXQaKdjkMHXHhQSMYye1mL9rfT0xXUcW5K3pTupG5+THaRFk4lNkstd2GDANtsoPSPzbfS3qEt5TK6Svc8/gZVQnVc2FNJ6VlhckHfC/xoOXeu9Pw7mFiKy2R92B4vRhoLrmT62NcDngyI8MWDhfpwLzywsP2cU+vyRg=
   email: sayed.hashimi@gmail.com
   provider: npm
   on:
