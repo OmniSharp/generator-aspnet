@@ -2,9 +2,10 @@ language: node_js
 node_js:
 - '0.10'
 deploy:
-  api_key:
-    secure: OTZRp+XRXQaKdjkMHXHhQSMYye1mL9rfT0xXUcW5K3pTupG5+THaRFk4lNkstd2GDANtsoPSPzbfS3qEt5TK6Svc8/gZVQnVc2FNJ6VlhckHfC/xoOXeu9Pw7mFiKy2R92B4vRhoLrmT62NcDngyI8MWDhfpwLzywsP2cU+vyRg=
-  email: sayed.hashimi@gmail.com
   provider: npm
+  email: sayed.hashimi@gmail.com
+  api_key:
+    secure: dC+y8Rc0UoVSOJlAu0woHaHmIeLltBeNz62SPpr6GHf+1N69zT+e40Z9qhwhVWv+l2j6yGycNK6VDKrPlXbfoIiQDuEWEVE0RibZ7ettBcR8UFi8r+oiLcW7KbtJa4csitrrtKQiEKRivVm4EsUyy2bCemMWA4ju8ib92VinOTw=
   on:
+    repo: OmniSharp/generator-aspnet
     branch: release
