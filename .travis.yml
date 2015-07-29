@@ -5,7 +5,9 @@ deploy:
   provider: npm
   email: sayed.hashimi@gmail.com
   api_key:
-    secure: KlykteOZfRHXUaffS+2wAyOZlgFfbpraoH8JnsJ403e0oCeqXkNjn8XomyXxtPRzpPCu8uPhu5VxShJYEiFo/AijdxG3ltH72vsdsRKHK7H9psZxHsAuh5f8UzdVHT7qIRidIjtCb2VwU03UtCMTvoxy0daOlfR7f8NzsVdZQJk=
+    secure: E644WDUo+wV5yceKfzI76Lm9oQLmfSS8pg5I/woc7DVHxZWCV5kKy/GLIfVPeH/kmSbqXmKsVH9cYXgcHNvdJGnuw+dz7KjVYXVXeVr6l+KzppQsLTtegf8ZIPSiiO1agk4dFMxDzB447N/hsCUII5o4E+Fqg+X6VrDdrXCQF8E=
   on:
     repo: OmniSharp/generator-aspnet
     branch: release
+env:
+  secure: em+3JXxseF8ixt7z6WdLl5724NO5GpW2OSD8j8cfzP4YV3bwIpzFFE7AdQFdxEFmKDN+U4xGMg8CtEoXUpeeN5J9kejLkTWDrxFUunNpD79P1aYNxyf2aARCcNNmCo5VnbnSHy8OEFra+0CIk/OJ/m6Rvw0qoTtbLAt5zv31jEE=
