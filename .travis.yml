@@ -10,4 +10,4 @@ deploy:
     repo: OmniSharp/generator-aspnet
     branch: release
 env:
-  secure: em+3JXxseF8ixt7z6WdLl5724NO5GpW2OSD8j8cfzP4YV3bwIpzFFE7AdQFdxEFmKDN+U4xGMg8CtEoXUpeeN5J9kejLkTWDrxFUunNpD79P1aYNxyf2aARCcNNmCo5VnbnSHy8OEFra+0CIk/OJ/m6Rvw0qoTtbLAt5zv31jEE=
+  secure: "em+3JXxseF8ixt7z6WdLl5724NO5GpW2OSD8j8cfzP4YV3bwIpzFFE7AdQFdxEFmKDN+U4xGMg8CtEoXUpeeN5J9kejLkTWDrxFUunNpD79P1aYNxyf2aARCcNNmCo5VnbnSHy8OEFra+0CIk/OJ/m6Rvw0qoTtbLAt5zv31jEE="
