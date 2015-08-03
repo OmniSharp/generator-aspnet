@@ -31,31 +31,30 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       name: 'type',
       message: 'What type of application do you want to create?',
       choices: [{
-          name: 'Empty Application',
-          value: 'empty'
-        }, {
-          name: 'Console Application',
-          value: 'console'
-        }, {
-          name: 'Web Application',
-          value: 'web'
-        }, {
-          name: 'Web Application Basic [without Membership and Authorization]',
-          value: 'webbasic'
-        }, {
-          name: 'Web API Application',
-          value: 'webapi'
-        }, {
-          name: 'Nancy ASP.NET Application',
-          value: 'nancy'
-        }, {
-          name: 'Class Library',
-          value: 'classlib'
-        },
-        {
-           name: 'Unit test project',
-           value: 'unittest'
-        }
+            name: 'Empty Application',
+            value: 'empty'
+          }, {
+            name: 'Console Application',
+            value: 'console'
+          }, {
+            name: 'Web Application',
+            value: 'web'
+          }, {
+            name: 'Web Application Basic [without Membership and Authorization]',
+            value: 'webbasic'
+          }, {
+            name: 'Web API Application',
+            value: 'webapi'
+          }, {
+            name: 'Nancy ASP.NET Application',
+            value: 'nancy'
+          }, {
+            name: 'Class Library',
+            value: 'classlib'
+          }, {
+            name: 'Unit test project',
+            value: 'unittest'
+          }
       ]
     }];
 
