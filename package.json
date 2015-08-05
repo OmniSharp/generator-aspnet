@@ -43,7 +43,8 @@
     "aspnet",
     "ASP",
     "net",
-    "vNext"
+    "vNext",
+    "dnx"
   ],
   "dependencies": {
     "chai": "^1.10.0",
