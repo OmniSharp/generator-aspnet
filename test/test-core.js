@@ -194,6 +194,18 @@ describe('aspnet - Web Application', function() {
       assert.file('webTest/Services');
     });
 
+    it('ViewModels directory created', function() {
+      assert.file('webTest/ViewModels');
+    });
+
+    it('ViewModels/Account directory created', function() {
+      assert.file('webTest/ViewModels/Account');
+    });
+
+    it('ViewModels/Manage directory created', function() {
+      assert.file('webTest/ViewModels/Manage');
+    });
+
     it('Views directory created', function() {
       assert.file('webTest/Views');
     });
@@ -243,13 +255,29 @@ describe('aspnet - Web Application', function() {
     "webTest/Controllers/AccountController.cs",
     "webTest/Controllers/HomeController.cs",
     "webTest/Controllers/ManageController.cs",
-    'webTest/Migrations/00000000000000_CreateIdentitySchema.cs',
-    'webTest/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
+    'webTest/Migrations/00000000000000_Initial.cs',
+    'webTest/Migrations/00000000000000_Initial.Designer.cs',
     'webTest/Migrations/ApplicationDbContextModelSnapshot.cs',
-    'webTest/Models/AccountViewModels.cs',
-    'webTest/Models/IdentityModels.cs',
-    'webTest/Models/ManageViewModels.cs',
+    'webTest/Models/ApplicationDbContext.cs',
+    'webTest/Models/ApplicationUser.cs',
+    'webTest/Services/IEmailSender.cs',
+    'webTest/Services/ISmsSender.cs',
     'webTest/Services/MessageServices.cs',
+    'webTest/ViewModels/Account/ExternalLoginConfirmationViewModel.cs',
+    'webTest/ViewModels/Account/ForgotPasswordViewModel.cs',
+    'webTest/ViewModels/Account/LoginPasswordViewModel.cs',
+    'webTest/ViewModels/Account/RegisterViewModel.cs',
+    'webTest/ViewModels/Account/ResetPasswordViewModel.cs',
+    'webTest/ViewModels/Account/SendCodeViewModel.cs',
+    'webTest/ViewModels/Account/VerifyCodeViewModel.cs',
+    'webTest/ViewModels/Manage/AddPhoneNumberViewModel.cs',
+    'webTest/ViewModels/Manage/ChangePasswordViewModel.cs',
+    'webTest/ViewModels/Manage/ConfigureTwoFactorViewModel.cs',
+    'webTest/ViewModels/Manage/FactorViewModel.cs',
+    'webTest/ViewModels/Manage/IndexViewModel.cs',
+    'webTest/ViewModels/Manage/ManageLoginsViewModel.cs',
+    'webTest/ViewModels/Manage/SetPasswordViewModel.cs',
+    'webTest/ViewModels/Manage/VerifyPhoneNumberViewModel.cs',
     'webTest/Views/Account/ConfirmEmail.cshtml',
     'webTest/Views/Account/ExternalLoginConfirmation.cshtml',
     'webTest/Views/Account/ExternalLoginFailure.cshtml',
