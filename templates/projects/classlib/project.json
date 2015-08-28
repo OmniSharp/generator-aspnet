@@ -1,19 +1,21 @@
 {
   "version": "1.0.0-*",
   "description": "<%= namespace %> Class Library",
+  "authors": [ "Class Library template" ],
   "tags": [""],
   "projectUrl": "",
   "licenseUrl": "",
 
-  "dependencies": {
-    "System.Collections": "4.0.10-beta-23019",
-    "System.Linq": "4.0.0-beta-23019",
-    "System.Threading": "4.0.10-beta-23019",
-    "Microsoft.CSharp": "4.0.0-beta-23019",
-    "System.Runtime": "4.0.20-beta-23019"
-  },
-
   "frameworks": {
-    "dotnet": {}
+    "dnx451": { },
+    "dnxcore50": {
+      "dependencies": {
+        "Microsoft.CSharp": "4.0.1-beta-23217",
+        "System.Collections": "4.0.11-beta-23217",
+        "System.Linq": "4.0.1-beta-23217",
+        "System.Runtime": "4.0.21-beta-23217",
+        "System.Threading": "4.0.11-beta-23217"
+      }
+    }
   }
 }
