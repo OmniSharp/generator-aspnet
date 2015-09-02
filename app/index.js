@@ -163,15 +163,18 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('Controllers/ManageController.cs'), this.applicationName + '/Controllers/ManageController.cs', this.templatedata);
         // Migrations
-        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_CreateIdentitySchema.Designer.cs'), this.applicationName + '/Migrations/00000000000000_CreateIdentitySchema.Designer.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_CreateIdentitySchema.cs'), this.applicationName + '/Migrations/00000000000000_CreateIdentitySchema.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_Initial.Designer.cs'), this.applicationName + '/Migrations/00000000000000_Initial.Designer.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_Initial.cs'), this.applicationName + '/Migrations/00000000000000_Initial.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('Migrations/ApplicationDbContextModelSnapshot.cs'), this.applicationName + '/Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
         // Models
-        this.fs.copyTpl(this.templatePath('Models/AccountViewModels.cs'), this.applicationName + '/Models/AccountViewModels.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Models/IdentityModels.cs'), this.applicationName + '/Models/IdentityModels.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Models/ManageViewModels.cs'), this.applicationName + '/Models/ManageViewModels.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Models/ApplicationDbContext.cs'), this.applicationName + '/Models/ApplicationDbContext.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Models/ApplicationUser.cs'), this.applicationName + '/Models/ApplicationUser.cs', this.templatedata);
         // Services
+        this.fs.copyTpl(this.templatePath('Services/IEmailSender.cs'), this.applicationName + '/Services/IEmailSender.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Services/ISmsSender.cs'), this.applicationName + '/Services/ISmsSender.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('Services/MessageServices.cs'), this.applicationName + '/Services/MessageServices.cs', this.templatedata);
+        // ViewModels
+        this.fs.copyTpl(this.templatePath('ViewModels/**/*'), this.applicationName + '/ViewModels', this.templatedata);
         // Views
         this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
         // wwwroot - the content in the wwwroot does not include any direct references or imports

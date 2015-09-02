@@ -1,11 +1,11 @@
-﻿@model VerifyCodeViewModel
+@model VerifyCodeViewModel
 @{
     ViewData["Title"] = "Verify";
 }
 
 <h2>@ViewData["Title"].</h2>
 
-<form asp-controller="Account" asp-action="VerifyCode" asp-route-returnurl="@ViewData["ReturnUrl"] method="post" class="form-horizontal" role="form">
+<form asp-controller="Account" asp-action="VerifyCode" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal" role="form">
     <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
     <input asp-for="Provider" type="hidden" />
     <input asp-for="RememberMe" type="hidden" />
