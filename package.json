@@ -1,6 +1,6 @@
 {
   "name": "generator-aspnet",
-  "version": "0.0.70",
+  "version": "0.0.71",
   "description": "Yeoman generator for ASP.NET 5 apps",
   "license": "Apache-2.0",
   "main": "app/index.js",
