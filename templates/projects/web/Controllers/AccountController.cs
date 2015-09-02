@@ -2,17 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Security.Principal;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Authentication;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
-using <%= namespace %>;
 using <%= namespace %>.Models;
 using <%= namespace %>.Services;
+using <%= namespace %>.ViewModels.Account;
 
 namespace <%= namespace %>.Controllers
 {
@@ -62,7 +60,7 @@ namespace <%= namespace %>.Controllers
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set shouldLockout: true
+                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
@@ -442,15 +440,11 @@ namespace <%= namespace %>.Controllers
         // when publishing your application.
         private static void EnsureDatabaseCreated(ApplicationDbContext context)
         {
-            // Uncomment this code if you are using Entity Framework with a relational store such as Sql Server.
-            //if (!_databaseChecked)
-            //{
-            //    _databaseChecked = true;
-            //    if (!context.Database.AsRelational().Exists())
-            //    {
-            //        context.Database.AsRelational().ApplyMigrations();
-            //    }
-            //}
+            if (!_databaseChecked)
+            {
+                _databaseChecked = true;
+                context.Database.Migrate();
+            }
         }
 
         private void AddErrors(IdentityResult result)
