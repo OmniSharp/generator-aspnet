@@ -249,7 +249,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.log(chalk.green('    dnu restore'));
     this.log(chalk.green('    dnu build') + ' (optional, build will also happen when it\'s run)');
     this.log(chalk.green('    dnx ConsoleApplication') + ' for console projects');
-    this.log(chalk.green('    dnx . kestrel') + ' or ' + chalk.green('dnx . web') + ' for web projects');
+    this.log(chalk.green('    dnx kestrel') + ' or ' + chalk.green('dnx web') + ' for web projects');
     this.log('\r\n');
 
   }
