@@ -1,11 +1,11 @@
 {
     "dependencies": {
-        "Kestrel": "1.0.0-beta7",
+        "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta7",
         "Microsoft.AspNet.Owin": "1.0.0-beta7",
         "Nancy": "1.2.0"
     },
     "commands": {
-        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001"
+        "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --server.urls http://localhost:5001"
     },
     "frameworks": {
         "dnx451": {}
