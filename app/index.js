@@ -15,8 +15,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       defaults: false,
       desc: 'Use the Grunt JavaScript task runner instead of Gulp in web projects.'
     });
+    this.option('skip-install', {
+      type: Boolean,
+      defaults: false,
+      desc: 'Skips the restore for NPM and Bower packages in web projects.'
+    });
   },
-
 
   init: function() {
     this.log(yosay('Welcome to the marvellous ASP.NET 5 generator!'));
@@ -243,6 +247,16 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       default:
         this.log('Unknown project type');
     }
+  },
+
+  install: function() {
+    // Restore bower and npm packages for web projects.
+    if(!this.options['skip-install']) {
+      if (this.type === 'web' || this.type === 'webbasic') {
+        process.chdir(process.cwd() + '/' + this.applicationName);
+        this.installDependencies();
+      }
+    };
   },
 
   end: function() {
