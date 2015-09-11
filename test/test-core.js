@@ -109,7 +109,11 @@ describe('aspnet - Unit Test Application', function() {
     });
   });
 
-  var files = ['unittestTest/project.json', 'unittestTest/SampleTest.cs'];
+  var files = [
+    'unittestTest/.gitignore',
+    'unittestTest/project.json',
+    'unittestTest/SampleTest.cs'
+  ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
