@@ -7,8 +7,8 @@
   "licenseUrl": "",
 
   "dependencies": {
-    "xunit": "2.1.0-beta3-build3029",
-    "xunit.runner.dnx": "2.1.0-beta3-build99"
+    "xunit": "2.1.0-rc1-build3168",
+    "xunit.runner.dnx": "2.1.0-beta5-build169"
   },
   "commands": {
     "test": "xunit.runner.dnx"
@@ -18,10 +18,10 @@
     "dnx451": { },
     "dnxcore50" : {
       "dependencies": {
-        "System.Collections": "4.0.10-beta-22816",
-        "System.Linq": "4.0.0-beta-22816",
-        "System.Threading": "4.0.10-beta-22816",
-        "Microsoft.CSharp": "4.0.0-beta-22816"
+        "System.Collections": "4.0.11-beta-23225",
+        "System.Linq": "4.0.1-beta-23225",
+        "System.Threading": "4.0.11-beta-23225",
+        "Microsoft.CSharp": "4.0.1-beta-23225"
       }
     }
   }
