@@ -126,7 +126,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
         /// wwwroot
-        this.fs.copy(this.templatePath('/wwwroot'), this.destinationPath(this.applicationName + '/wwwroot'));
+        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
         break;
 
       case 'webapi':
