@@ -5,7 +5,7 @@
         "Nancy": "1.2.0"
     },
     "commands": {
-        "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --server.urls http://localhost:5001"
+        "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --server.urls http://localhost:5000"
     },
     "frameworks": {
         "dnx451": {}
