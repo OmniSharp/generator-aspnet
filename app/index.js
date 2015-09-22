@@ -252,11 +252,26 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.log(chalk.green('    cd "' + this.applicationName + '"'));
     this.log(chalk.green('    dnu restore'));
     this.log(chalk.green('    dnu build') + ' (optional, build will also happen when it\'s run)');
-    this.log(chalk.green('    dnx ConsoleApplication') + ' for console projects');
-    this.log(chalk.green('    dnx kestrel') + ' or ' + chalk.green('dnx web') + ' for web projects');
-    this.log(chalk.green('    dnx test') + ' for unit test projects');
-    this.log('\r\n');
 
+    switch (this.type) {
+      case 'console':
+        this.log(chalk.green('    dnx ConsoleApplication'));
+        break;
+      case 'empty':
+      case 'nancy':
+      case 'web':
+      case 'webapi':
+      case 'webbasic':
+        var webMsg = chalk.green('    dnx kestrel');
+        if (process.platform === 'win32') { webMsg += chalk.green(' or dnx web'); }
+        this.log(webMsg);
+        break;
+      case 'unittest':
+        this.log(chalk.green('    dnx test'));
+        break;
+    }
+
+    this.log('\r\n');
   }
 });
 
