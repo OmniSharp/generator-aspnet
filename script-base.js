@@ -6,6 +6,8 @@ var yeoman = require('yeoman-generator');
 var NamedGenerator = module.exports = function NamedGenerator() {
   yeoman.generators.NamedBase.apply(this, arguments);
   this.sourceRoot(path.join(__dirname, './templates/'));
+
+  this.config = require('./storage').getStorage(this.fs);
 };
 
 util.inherits(NamedGenerator, yeoman.generators.NamedBase);

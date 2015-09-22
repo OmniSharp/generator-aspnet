@@ -49,6 +49,7 @@
   "dependencies": {
     "chai": "^1.10.0",
     "chalk": "^1.0.0",
+    "findup-sync": "^0.3.0",
     "uuid": "^2.0.1",
     "vs_projectname": "^1.0.0",
     "yeoman-generator": "^0.19.0",
