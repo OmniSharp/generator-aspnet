@@ -12,7 +12,7 @@ NamedGenerator.prototype.createNamedItem = function() {
   this.generateTemplateFile(
     'AngularDirective.js',
     this.name + '.js', {
-      namespace: this.namespace
+      namespace: this.namespace()
     }
   );
 };
