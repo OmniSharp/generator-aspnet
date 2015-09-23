@@ -119,6 +119,26 @@ var util = (function() {
 
   }
 
+  function goCreateApplicationWithPrompts(type, applicationName, prompts) {
+    before(function(done) {
+
+      assert = yeoman.assert;
+      mockGen = yeoman.test;
+
+      var mockPrompt = {
+        type: type,
+        applicationName: applicationName
+      };
+
+      mockPrompt = _.defaults(mockPrompt, prompts || {}, { projectStructure: false });
+
+      mockGen.run(path.join(__dirname, '../app'))
+        .withPrompts(mockPrompt)
+        .on('end', done);
+    });
+
+  }
+
   function dirsCheck(dirs) {
     describe('Directories Creation', function() {
       for (var i = 0; i < dirs.length; i++) {
@@ -167,6 +187,7 @@ var util = (function() {
   var methods = {
     goCreateApplication: goCreateApplication,
     goCreateApplicationWithOptions: goCreateApplicationWithOptions,
+    goCreateApplicationWithPrompts: goCreateApplicationWithPrompts,
     goCreate: goCreate,
     goCreateWithArgs: goCreateWithArgs,
     fileCheck: fileCheck,
