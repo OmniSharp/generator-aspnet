@@ -5,6 +5,7 @@ var util = (function() {
   var path = require('path');
   var os = require('os');
   var crypto = require('crypto');
+  var _ = require('lodash');
   var assert;
   var mockGen;
 
@@ -72,7 +73,7 @@ var util = (function() {
     });
   }
 
-  function goCreateApplication(type, applicationName, tempDir) {
+  function goCreateApplication(type, applicationName, tempDir, prompts) {
     before(function(done) {
 
       assert = yeoman.assert;
@@ -82,6 +83,8 @@ var util = (function() {
         type: type,
         applicationName: applicationName
       };
+
+      mockPrompt = _.defaults(mockPrompt, prompts || {}, { projectStructure: false });
 
       var ctx = mockGen.run(path.join(__dirname, '../app'))
         .withPrompts(mockPrompt);
@@ -95,7 +98,7 @@ var util = (function() {
 
   }
 
-  function goCreateApplicationWithOptions(type, applicationName, options) {
+  function goCreateApplicationWithOptions(type, applicationName, options, prompts) {
     before(function(done) {
 
       assert = yeoman.assert;
@@ -105,6 +108,8 @@ var util = (function() {
         type: type,
         applicationName: applicationName
       };
+
+      mockPrompt = _.defaults(mockPrompt, prompts || {}, { projectStructure: false });
 
       mockGen.run(path.join(__dirname, '../app'))
         .withPrompts(mockPrompt)

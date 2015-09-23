@@ -265,8 +265,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       this.copy(this.sourceRoot() + '/../global.json', 'global.json');
     }
 
-    if (!this.fs.exists('.gitignore')) {
+    if (this.projectStructure && !this.fs.exists('.gitignore')) {
       this.fs.copy(this.sourceRoot() + '/../gitignore.txt', '.gitignore');
+    }
+    
+    if (!this.projectStructure && !this.fs.exists(this.applicationDirectory + '/.gitignore')) {
+      this.fs.copy(this.sourceRoot() + '/../gitignore.txt', this.applicationDirectory + '/.gitignore');
     }
 
     switch (this.type) {
