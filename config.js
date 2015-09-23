@@ -3,6 +3,7 @@ var path = require('path');
 //  var _ = require('lodash');
 
 var projectJsonPath, globalJsonPath;
+var abstractionsStr = '.Abstractions';
 
 function getBaseNamespace(fs) {
   "use strict";
@@ -10,18 +11,16 @@ function getBaseNamespace(fs) {
   var projectJsonPath = module.exports.getProjectJsonPath();
 
   if (!projectJsonPath) {
-    return null;
-  }
-
-  if (projectJsonPath) {
-    var json = module.exports.getProjectJson(fs);
-    if (json.namespace) {
-      return json.namespace;
-    }
+    return '';
   }
 
   var projectPath = path.resolve(path.dirname(projectJsonPath));
-  return path.basename(projectPath);
+  var namespace = path.basename(projectPath);
+  // If it ends in .Abstractions, we want the common namespace by default.
+  if (namespace.indexOf(abstractionsStr) === namespace.length - abstractionsStr.length) {
+    namespace = namespace.substr(0, namespace.length - abstractionsStr.length);
+  }
+  return namespace;
 }
 
 module.exports = {
