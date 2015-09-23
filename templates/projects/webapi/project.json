@@ -1,6 +1,7 @@
 {
   "webroot": "wwwroot",
   "version": "1.0.0-*",
+  "namespace": "<%= namespace %>",
 
   "dependencies": {
     "Microsoft.AspNet.Mvc": "6.0.0-beta7",

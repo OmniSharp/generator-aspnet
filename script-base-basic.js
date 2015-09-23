@@ -7,7 +7,9 @@ var Generator = module.exports = function Generator() {
   yeoman.generators.Base.apply(this, arguments);
   this.sourceRoot(path.join(__dirname, './templates/'));
 
-  this.config = require('./storage').getStorage(this.fs);
+  this.namespace = function() {
+    return require('./config').getNamespace(this.fs);
+  }.bind(this);
 };
 
 util.inherits(Generator, yeoman.generators.Base);

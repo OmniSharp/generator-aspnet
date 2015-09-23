@@ -2,6 +2,7 @@
   "webroot": "wwwroot",
   "userSecretsId": "aspnet5-<%= namespace %>-<%= guid %>",
   "version": "1.0.0-*",
+  "namespace": "<%= namespace %>",
 
   "dependencies": {
     "EntityFramework.SQLite": "7.0.0-beta7",

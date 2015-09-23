@@ -5,6 +5,7 @@
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
+  "namespace": "<%= namespace %>",
 
   "dependencies": {
     "xunit": "2.1.0-rc1-build3168",

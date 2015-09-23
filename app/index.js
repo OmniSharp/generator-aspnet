@@ -244,8 +244,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       default:
         this.log('Unknown project type');
     }
-
-    require('../storage').getStorage(this.fs, this.destinationPath(this.applicationName));
   },
 
   end: function() {

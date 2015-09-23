@@ -12,7 +12,7 @@ NamedGenerator.prototype.createNamedItem = function() {
   this.generateTemplateFile(
     'TagHelper.cs',
     this.name + '.cs', {
-      namespace: 'MyNamespace',
+      namespace: this.namespace(),
       classname: this.name
     }
   );
