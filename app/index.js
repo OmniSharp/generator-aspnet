@@ -33,6 +33,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       defaults: false,
       desc: 'If we are composing this unit test template.'
     });
+
+    // for letting editors give a specific directory
+    this.option('useCurrentDirectory', {
+      type: Boolean,
+      defaults: false,
+      desc: 'Use the current directory intead of creating a new one.'
+    });
   },
 
 
@@ -197,6 +204,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     var done = this.async();
 
     if (!this.projectStructure || this.options.composing) {
+      done();
+      return;
+    }
+
+    if (this.options.useCurrentDirectory) {
+      this.solutionName = path.basename(this.destinationRoot());
       done();
       return;
     }
