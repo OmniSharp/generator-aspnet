@@ -125,7 +125,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
-        this.copy(this.sourceRoot() + '/Dockerfile', this.applicationName + '/DockerFile');
+        this.copy(this.sourceRoot() + '/Dockerfile', this.applicationName + '/Dockerfile');
 
         /// wwwroot
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
