@@ -125,6 +125,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
 
+        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
+
         /// wwwroot
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
         break;
@@ -132,6 +134,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       case 'webapi':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
         this.fs.copy(this.sourceRoot() + '/hosting.ini', this.applicationName + '/hosting.ini');
         this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
@@ -149,6 +152,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
         }
         // individual files (configs, etc)
+        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
         this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
@@ -190,6 +194,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
         }
         // individual files (configs, etc)
+        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
         this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
