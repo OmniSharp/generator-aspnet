@@ -1,0 +1,8 @@
+Description:
+    Creates a new Docker configuration file
+
+Example:
+    yo aspnet:Dockerfile
+
+    This will create:
+        Dockerfile
