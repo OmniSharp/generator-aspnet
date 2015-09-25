@@ -42,6 +42,8 @@ The Empty Application, Web Application, Web Application Basic (a.k.a. Web Applic
 The Nancy project is based on framework's "Hello World" template:
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
 
+The [Docker](https://www.docker.com/) support with `Dockerfile` configuration files is based on the official [Docker image for ASP.NET 5](https://github.com/aspnet/aspnet-docker)
+
 ## Related yeoman generators
 
 The goal of ```generator-aspnet``` is to provide an experience consistent with creating new ASP.NET 5 (_DNX_) projects
@@ -75,6 +77,7 @@ Available sub generators (_to create files after the project has been created_):
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:CoffeeScript](#coffeescript)
 * [aspnet:Config](#config)
+* [aspnet:Dockerfile](#dockerfile)
 * [aspnet:Gulpfile](#gulpfile)
 * [aspnet:Gruntfile](#gruntfile)
 * [aspnet:gitignore](#gitignore)
@@ -374,6 +377,23 @@ yo aspnet:Config
 ```
 
 Produces `config.json`
+
+[Return to top](#top)
+
+### Dockerfile
+
+Creates a new Docker configuration file
+
+Example:
+```
+yo aspnet:Dockerfile
+```
+
+Creates a new `Dockerfile`
+
+Are you curious about Docker, Linux containers and ASP.NET 5 Docker image and all these buzz words?
+- [Docker image for ASP.NET 5 (Docker Hub)](https://hub.docker.com/r/microsoft/aspnet/)
+- [Running ASP.NET 5 applications in Linux Containers with Docker (MSDN)](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 
 [Return to top](#top)
 
