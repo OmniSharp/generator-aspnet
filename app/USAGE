@@ -13,6 +13,7 @@ Subgenerators:
   yo aspnet:Class [options] <name>
   yo aspnet:CoffeeScript [options] <name>
   yo aspnet:Config [options]
+  yo aspnet:Dockerfile [options]
   yo aspnet:gitignore [options]
   yo aspnet:Gruntfile [options]
   yo aspnet:Gulpfile [options] <name>
