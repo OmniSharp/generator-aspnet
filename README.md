@@ -4,7 +4,7 @@
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
 
-Yeoman generator for ASP.NET vNext projects
+Yeoman generator for ASP.NET 5 projects
 
 [![](https://cloud.githubusercontent.com/assets/14539/10110294/8a09f7b2-63cc-11e5-8d48-918a8964389a.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
 
@@ -35,6 +35,7 @@ Full, template based projects available in generator:
 - Web API Application
 - Nancy ASP.NET Application
 - Class Library
+- Unit Test project
 
 The Empty Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application are based on the new templates recently introduced with Visual Studio 2015 RC release, with updates for `beta5`. You can read about these new templates on the blog post accompanying the `beta5` release:
 [Updates to ASP.NET 5 yeoman generators for beta 5](http://blogs.msdn.com/b/webdev/archive/2015/07/04/updates-to-asp-net-5-yeoman-generators-for-beta-5.aspx)
@@ -46,189 +47,58 @@ The [Docker](https://www.docker.com/) support with `Dockerfile` configuration fi
 
 ## Related yeoman generators
 
-The goal of ```generator-aspnet``` is to provide an experience consistent with creating new ASP.NET 5 (_DNX_) projects
+The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET 5 (_DNX_) projects
 and files in Visual Studio 2015. Below are some other related generators that you may be interested in.
 
-### ```generator-csharp```
+### `generator-csharp`
 
-[```generator-csharp```](https://github.com/OmniSharp/generator-csharp) is a work in progress but is available for you to try out today. The goal of [```generator-csharp```](https://github.com/OmniSharp/generator-csharp) is to provide an experience consistent with creating C# projects (_MSBuild based, not DNX_) and files in Visual Studio 2015.
+[`generator-csharp`](https://github.com/OmniSharp/generator-csharp) is a work in progress but is available for you to try out today. The goal of [`generator-csharp`](https://github.com/OmniSharp/generator-csharp) is to provide an experience consistent with creating C# projects (_MSBuild based, not DNX_) and files in Visual Studio 2015.
 
-### ```generator-aspnet-xtianus```
+### `generator-aspnet-xtianus`
 
-[```generator-aspnet-xtianus```](https://github.com/xtianus79/generator-aspnet) is an extension of OmniSharp/generator-aspnet that comes with a special Foundation 5 SASS/SCSS framework ready out of the box with wiredep & other grunt tasks for advanced front-end development. Look for => [```Starter Web Application - Foundation 5```](https://github.com/xtianus79/generator-aspnet/blob/master/templates/projects/foundation5/README.md). The other goal of this generator is to provide alternative templates to the traditional ASP.NET Visual Studio templates. More templates will become housed under this fork in the near future.  Feel free to participate and learn more about [```generator-aspnet-xtianus```](https://github.com/xtianus79/generator-aspnet).
+[`generator-aspnet-xtianus`](https://github.com/xtianus79/generator-aspnet) is an extension of OmniSharp/generator-aspnet that comes with a special Foundation 5 SASS/SCSS framework ready out of the box with wiredep & other grunt tasks for advanced front-end development. Look for => [`Starter Web Application - Foundation 5`](https://github.com/xtianus79/generator-aspnet/blob/master/templates/projects/foundation5/README.md). The other goal of this generator is to provide alternative templates to the traditional ASP.NET Visual Studio templates. More templates will become housed under this fork in the near future.  Feel free to participate and learn more about [`generator-aspnet-xtianus](https://github.com/xtianus79/generator-aspnet).
 
 If you are working on a related generator please [open an issue](https://github.com/OmniSharp/generator-aspnet/issues/new) to let us know about it so that we can add it to the list.
 
 ## Sub Generators
 
-Available sub generators (_to create files after the project has been created_):
+The alphabetic list of available sub generators (_to create files after the project has been created_):
 
-* [aspnet:MvcController](#mvccontroller)
-* [aspnet:MvcView](#mvcview)
-* [aspnet:WebApiContoller](#webapicontroller)
-* [aspnet:AngularModule](#angularmodule)
 * [aspnet:AngularController](#angularcontroller)
 * [aspnet:AngularControllerAs](#angularcontrolleras)
 * [aspnet:AngularDirective](#angulardirective)
 * [aspnet:AngularFactory](#angularfactory)
-* [aspnet:Class](#class)
-* [aspnet:Interface](#interface)
-* [aspnet:StartupClass](#startupclass)
+* [aspnet:AngularModule](#angularmodule)
 * [aspnet:BowerJson](#bowerjson)
+* [aspnet:Class](#class)
 * [aspnet:CoffeeScript](#coffeescript)
 * [aspnet:Config](#config)
 * [aspnet:Dockerfile](#dockerfile)
-* [aspnet:Gulpfile](#gulpfile)
-* [aspnet:Gruntfile](#gruntfile)
 * [aspnet:gitignore](#gitignore)
+* [aspnet:Gruntfile](#gruntfile)
+* [aspnet:Gulpfile](#gulpfile)
 * [aspnet:HTMLPage](#htmlpage)
+* [aspnet:Interface](#interface)
 * [aspnet:JavaScript](#javascript)
 * [aspnet:JScript](#jscript)
 * [aspnet:JSON](#json)
 * [aspnet:JSONSchema](#jsonschema)
 * [aspnet:JSX](#jsx)
 * [aspnet:Middleware](#middleware)
+* [aspnet:MvcController](#mvccontroller)
+* [aspnet:MvcView](#mvcview)
 * [aspnet:PackageJson](#packagejson)
+* [aspnet:StartupClass](#startupclass)
 * [aspnet:StyleSheet](#stylesheet)
-* [aspnet:StyleSheetScss](#stylesheetscss)
 * [aspnet:StyleSheetLess](#stylesheetless)
+* [aspnet:StyleSheetScss](#stylesheetscss)
 * [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:TypeScript](#typescript)
 * [aspnet:TypeScriptConfig](#typescriptconfig)
+* [aspnet:WebApiContoller](#webapicontroller)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
-
-[Return to top](#top)
-
-### MvcController
-
-Creates a new ASP.NET 5 MvcController class
-
-Example:
-
-```
-yo aspnet:MvcController ContactController
-```
-
-Produces `/ContactController.cs`
-
-```cs
-using Microsoft.AspNet.Mvc;
-
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace MyNamespace
-{
-    public class ContactController : Controller
-    {
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
-        }
-    }
-}
-```
-
-[Return to top](#top)
-
-### MvcView
-
-Creates a new ASP.NET 5 MvcView page file
-
-Example:
-
-```
-yo aspnet:MvcView ContactView
-```
-
-Produces `/ContactView.cshtml`
-
-```
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    // ViewBag.Title = "ContactView Page";
-}
-
-```
-
-[Return to top](#top)
-
-### WebApiController
-
-Creates a new ASP.NET 5 WebApiController class
-
-Example:
-
-```
-yo aspnet:WebApiController ValuesController
-```
-
-Produces `/ValuesController.cs`
-
-```cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNet.Mvc;
-
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace MyNamespace.Controllers
-{
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
-    {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-    }
-}
-```
-
-[Return to top](#top)
-
-### AngularModule
-
-Creates AngularJS module file
-
-Example:
-```
-yo aspnet:AngularModule filename
-```
-
-Produces `filename.js`
 
 [Return to top](#top)
 
@@ -284,6 +154,33 @@ Produces `filename.js`
 
 [Return to top](#top)
 
+### AngularModule
+
+Creates AngularJS module file
+
+Example:
+```
+yo aspnet:AngularModule filename
+```
+
+Produces `filename.js`
+
+[Return to top](#top)
+
+### BowerJson
+
+Creates a new `bower.json` and configuration file.
+
+Example:
+
+```
+yo aspnet:BowerJson
+```
+
+Produces `bower.json` and `.bowerrc`
+
+[Return to top](#top)
+
 ### Class
 
 Creates a new ASP.NET 5 Class
@@ -307,48 +204,6 @@ namespace MyNamespace
     }
 }
 ```
-
-[Return to top](#top)
-
-### Interface
-
-Creates a new ASP.NET 5 Interface
-
-Example:
-
-```
-yo aspnet:Interface IContact
-```
-
-Produces `/IContact.cs`
-
-[Return to top](#top)
-
-### StartupClass
-
-Creates a new Startup Class file
-
-Example:
-
-```
-yo aspnet:StartupClass
-```
-
-Produces `Startup.cs`
-
-[Return to top](#top)
-
-### BowerJson
-
-Creates a new `bower.json` and configuration file.
-
-Example:
-
-```
-yo aspnet:BowerJson
-```
-
-Produces `bower.json` and `.bowerrc`
 
 [Return to top](#top)
 
@@ -397,6 +252,20 @@ Are you curious about Docker, Linux containers and ASP.NET 5 Docker image and al
 
 [Return to top](#top)
 
+### gitignore
+
+Creates a new .gitignore file
+
+Example:
+
+```
+yo aspnet:gitignore
+```
+
+Produces `.gitignore`
+
+[Return to top](#top)
+
 ### Gulpfile
 
 Creates a new Gulp file
@@ -425,20 +294,6 @@ Produces `Gruntfile.js`
 
 [Return to top](#top)
 
-### gitignore
-
-Creates a new .gitignore file
-
-Example:
-
-```
-yo aspnet:gitignore
-```
-
-Produces `.gitignore`
-
-[Return to top](#top)
-
 ### HTMLPage
 
 Creates a new HTML file
@@ -450,6 +305,20 @@ yo aspnet:HTMLPage filename
 ```
 
 Produces `filename.html`
+
+[Return to top](#top)
+
+### Interface
+
+Creates a new ASP.NET 5 Interface
+
+Example:
+
+```
+yo aspnet:Interface IContact
+```
+
+Produces `/IContact.cs`
 
 [Return to top](#top)
 
@@ -537,6 +406,62 @@ Produces `filename.cs`
 
 [Return to top](#top)
 
+### MvcController
+
+Creates a new ASP.NET 5 MvcController class
+
+Example:
+
+```
+yo aspnet:MvcController ContactController
+```
+
+Produces `/ContactController.cs`
+
+```cs
+using Microsoft.AspNet.Mvc;
+
+// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace MyNamespace
+{
+    public class ContactController : Controller
+    {
+        // GET: /<controller>/
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+```
+
+[Return to top](#top)
+
+### MvcView
+
+Creates a new ASP.NET 5 MvcView page file
+
+Example:
+
+```
+yo aspnet:MvcView ContactView
+```
+
+Produces `/ContactView.cshtml`
+
+```
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    // ViewBag.Title = "ContactView Page";
+}
+
+```
+
+[Return to top](#top)
+
 ### PackageJson
 
 Creates a new package.json file
@@ -548,6 +473,20 @@ yo aspnet:PackageJson
 ```
 
 Produces `package.json`
+
+[Return to top](#top)
+
+### StartupClass
+
+Creates a new Startup Class file
+
+Example:
+
+```
+yo aspnet:StartupClass
+```
+
+Produces `Startup.cs`
 
 [Return to top](#top)
 
@@ -646,6 +585,68 @@ yo aspnet:TypeScriptConfig
 ```
 
 Produces `tsconfig.json`
+
+[Return to top](#top)
+
+### WebApiController
+
+Creates a new ASP.NET 5 WebApiController class
+
+Example:
+
+```
+yo aspnet:WebApiController ValuesController
+```
+
+Produces `/ValuesController.cs`
+
+```cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNet.Mvc;
+
+// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace MyNamespace.Controllers
+{
+    [Route("api/[controller]")]
+    public class ValuesController : Controller
+    {
+        // GET: api/values
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            return "value";
+        }
+
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]string value)
+        {
+        }
+
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+        }
+
+        // DELETE api/values/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+    }
+}
+```
 
 [Return to top](#top)
 

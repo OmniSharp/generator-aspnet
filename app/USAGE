@@ -4,11 +4,11 @@ Description:
 
 Subgenerators:
 
-  yo aspnet:AngularModule [options] <name>
   yo aspnet:AngularController [options] <name>
   yo aspnet:AngularControllerAs [options] <name>
   yo aspnet:AngularDirective [options] <name>
   yo aspnet:AngularFactory [options] <name>
+  yo aspnet:AngularModule [options] <name>
   yo aspnet:BowerJson [options]
   yo aspnet:Class [options] <name>
   yo aspnet:CoffeeScript [options] <name>
