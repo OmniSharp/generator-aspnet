@@ -1,5 +1,7 @@
 {
-    "namespace": "<%= namespace %>",
+    "tooling": {
+      "defaultnamespace": "<%= namespace %>"
+    },
     "dependencies": {
         "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta7",
         "Microsoft.AspNet.Owin": "1.0.0-beta7",

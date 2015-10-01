@@ -5,7 +5,9 @@
   "tags": [""],
   "projectUrl": "",
   "licenseUrl": "",
-  "namespace": "<%= namespace %>",
+  "tooling": {
+    "defaultnamespace": "<%= namespace %>"
+  },
 
   "dependencies": {},
 

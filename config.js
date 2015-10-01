@@ -14,6 +14,11 @@ function getBaseNamespace(fs) {
     return '';
   }
 
+  var projectJson = require(projectJsonPath);
+  if (projectJson && projectJson.tooling && projectJson.tooling.defaultnamespace) {
+    return projectJson.tooling.defaultnamespace;
+  }
+
   var projectPath = path.resolve(path.dirname(projectJsonPath));
   var namespace = path.basename(projectPath);
   // If it ends in .Abstractions, we want the common namespace by default.
