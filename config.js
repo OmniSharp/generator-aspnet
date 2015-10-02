@@ -15,8 +15,8 @@ function getBaseNamespace(fs) {
   }
 
   var projectJson = require(projectJsonPath);
-  if (projectJson && projectJson.tooling && projectJson.tooling.defaultnamespace) {
-    return projectJson.tooling.defaultnamespace;
+  if (projectJson && projectJson.tooling && projectJson.tooling.defaultNamespace) {
+    return projectJson.tooling.defaultNamespace;
   }
 
   var projectPath = path.resolve(path.dirname(projectJsonPath));

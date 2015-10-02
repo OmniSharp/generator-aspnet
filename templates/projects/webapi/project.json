@@ -2,7 +2,7 @@
   "webroot": "wwwroot",
   "version": "1.0.0-*",
   "tooling": {
-    "defaultnamespace": "<%= namespace %>"
+    "defaultNamespace": "<%= namespace %>"
   },
 
   "dependencies": {

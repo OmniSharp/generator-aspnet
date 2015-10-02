@@ -6,7 +6,7 @@
   "projectUrl": "",
   "licenseUrl": "",
   "tooling": {
-    "defaultnamespace": "<%= namespace %>"
+    "defaultNamespace": "<%= namespace %>"
   },
 
   "dependencies": {},
