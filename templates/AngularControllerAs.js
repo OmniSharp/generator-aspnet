@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('app')
+    .module('<%= namespace %>')
     .controller('controller', controller);
 
   controller.$inject = ['$location'];

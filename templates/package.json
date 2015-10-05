@@ -1,6 +1,6 @@
-﻿{
+{
     "version": "0.0.0",
-    "name": "",
+    "name": "<%= namespace %>",
     "devDependencies": {
     }
 }
