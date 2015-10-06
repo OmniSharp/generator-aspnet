@@ -1,29 +1,30 @@
 {
   "version": "1.0.0-*",
   "description": "<%= namespace %> Console Application",
-  "authors": ["your name"],
-  "tags": [""],
+  "authors": [ "" ],
+  "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
   "tooling": {
     "defaultNamespace": "<%= namespace %>"
   },
 
-  "dependencies": {},
+  "dependencies": {
+  },
 
   "commands": {
     "ConsoleApplication": "ConsoleApplication"
   },
 
   "frameworks": {
-    "dnx451": {},
+    "dnx451": { },
     "dnxcore50": {
       "dependencies": {
-        "Microsoft.CSharp": "4.0.1-beta-23217",
-        "System.Collections": "4.0.11-beta-23217",
-        "System.Console": "4.0.0-beta-23217",
-        "System.Linq": "4.0.1-beta-23217",
-        "System.Threading": "4.0.11-beta-23217"
+        "Microsoft.CSharp": "4.0.1-beta-*",
+        "System.Collections": "4.0.11-beta-*",
+        "System.Console": "4.0.0-beta-*",
+        "System.Linq": "4.0.1-beta-*",
+        "System.Threading": "4.0.11-beta-*"
       }
     }
   }
