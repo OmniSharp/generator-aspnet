@@ -250,10 +250,9 @@ describe('aspnet - Web Application', function() {
     'webTest/Dockerfile',
     'webTest/.bowerrc',
     'webTest/.gitignore',
+    'webTest/appsettings.json',
     'webTest/bower.json',
-    'webTest/config.json',
     'webTest/gulpfile.js',
-    'webTest/hosting.ini',
     'webTest/package.json',
     'webTest/project.json',
     'webTest/README.md',
@@ -318,7 +317,8 @@ describe('aspnet - Web Application', function() {
     'webTest/wwwroot/images/ASP-NET-Banners-02.png',
     'webTest/wwwroot/images/Banner-01-Azure.png',
     'webTest/wwwroot/images/Banner-02-VS.png',
-    'webTest/wwwroot/js/site.js'
+    'webTest/wwwroot/js/site.js',
+    'webTest/wwwroot/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
