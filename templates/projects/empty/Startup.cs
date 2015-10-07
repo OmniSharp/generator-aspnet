@@ -17,6 +17,9 @@ namespace <%= namespace %>
 
         public void Configure(IApplicationBuilder app)
         {
+            // Add the platform handler to the request pipeline.
+            app.UseIISPlatformHandler();
+            
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
