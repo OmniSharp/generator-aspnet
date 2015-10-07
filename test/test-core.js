@@ -485,12 +485,12 @@ describe('aspnet - Web API Application', function() {
 
   var files = [
     'webAPITest/Controllers/ValuesController.cs',
-    'webAPITest/hosting.ini',
     'webAPITest/project.json',
     'webAPITest/Properties/launchSettings.json',
     'webAPITest/Startup.cs',
     'webAPITest/.gitignore',
     'webAPITest/wwwroot/README.md',
+    'webAPITest/wwwroot/web.config',
     'webAPITest/Dockerfile'
   ];
   describe('Checking files', function() {
