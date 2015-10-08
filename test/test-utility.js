@@ -12,14 +12,33 @@ var util = (function() {
     return path.join(os.tmpdir(), crypto.randomBytes(20).toString('hex'));
   }
 
-  function goCreate(subgenerator) {
+  function goCreate(subgenerator, tempDir) {
+    var testDirectory;
+    if (tempDir) {
+      // Don't clear the test directory, we need it to have previous contents.
+      before(function() {
+        testDirectory = yeoman.test.testDirectory;
+        yeoman.test.testDirectory = function(dir, cb) {
+          process.chdir(dir);
+          cb();
+        };
+      });
+      after(function() {
+        yeoman.test.testDirectory = testDirectory;
+      });
+    }
     before(function(done) {
 
       assert = yeoman.assert;
       mockGen = yeoman.test;
 
-      mockGen.run(path.join(__dirname, '../' + subgenerator))
-        .on('end', done);
+      var ctx = mockGen.run(path.join(__dirname, '../' + subgenerator));
+
+      if (tempDir) {
+        ctx.inDir(tempDir);
+      }
+
+      ctx.on('end', done);
     });
   }
 
@@ -32,7 +51,7 @@ var util = (function() {
         yeoman.test.testDirectory = function(dir, cb) {
           process.chdir(dir);
           cb();
-        }
+        };
       });
       after(function() {
         yeoman.test.testDirectory = testDirectory;

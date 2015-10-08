@@ -12,6 +12,16 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create package json file', 'package.json');
   });
 
+  describe('aspnet:PackageJson in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('empty', 'emptyTest', dir);
+
+    util.goCreate('PackageJson', path.join(dir, 'emptyTest'));
+    util.fileCheck('should create package json file', 'package.json');
+    util.fileContentCheck('package.json', 'file content check', '"name": "emptyTest"');
+  });
+
   describe('aspnet:Gulpfile', function() {
     util.goCreate('Gulpfile');
     util.fileCheck('should create gulp file', 'gulpfile.js');
@@ -29,6 +39,17 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create bower file', 'bower.json');
   });
 
+  describe('aspnet:BowerJson in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('empty', 'emptyTest', dir);
+
+    util.goCreate('BowerJson', path.join(dir, 'emptyTest'));
+    util.fileCheck('should create bower configuration file', '.bowerrc');
+    util.fileCheck('should create bower file', 'bower.json');
+    util.fileContentCheck('bower.json', 'file content check', '"name": "emptyTest"');
+  });
+
   describe('aspnet:Config', function() {
     util.goCreate('Config');
     util.fileCheck('should create config json file', 'config.json');
@@ -37,6 +58,16 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:StartupClass', function() {
     util.goCreate('StartupClass');
     util.fileCheck('should create Startup.cs file', 'Startup.cs');
+  });
+
+  describe('aspnet:StartupClass in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    util.goCreate('StartupClass', path.join(dir, 'emptyTest'));
+    util.fileCheck('should create Startup.cs file', 'Startup.cs');
+    util.fileContentCheck('Startup.cs', 'file content check', /^namespace emptyTest$/m);
   });
 
   describe('aspnet:gitignore', function() {
@@ -64,12 +95,40 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
   });
 
+  describe('aspnet:AngularController in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    var arg = 'HomeController';
+    var filename = 'HomeController.js';
+    console.log(arg, dir);
+    util.goCreateWithArgs('AngularController', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
+    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest')");
+  });
+
   describe('aspnet:AngularControllerAs', function() {
     var arg = 'HomeController';
     var filename = 'HomeController.js';
     util.goCreateWithArgs('AngularControllerAs', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /vm.title/);
+  });
+
+  describe('aspnet:AngularControllerAs in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    var arg = 'HomeController';
+    var filename = 'HomeController.js';
+    console.log(arg, dir);
+    util.goCreateWithArgs('AngularControllerAs', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /vm.title/);
+    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest')");
   });
 
   describe('aspnet:AngularDirective', function() {
@@ -80,12 +139,40 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
   });
 
+  describe('aspnet:AngularDirective in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    var arg = 'HomeComponentDirective';
+    var filename = 'HomeComponentDirective.js';
+    console.log(arg, dir);
+    util.goCreateWithArgs('AngularDirective', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
+    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest')");
+  });
+
   describe('aspnet:AngularFactory', function() {
     var arg = 'MyService';
     var filename = 'MyService.js';
     util.goCreateWithArgs('AngularFactory', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
+  });
+
+  describe('aspnet:AngularFactory in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    var arg = 'MyService';
+    var filename = 'MyService.js';
+    console.log(arg, dir);
+    util.goCreateWithArgs('AngularFactory', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
+    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest')");
   });
 
   describe('aspnet:AngularModule', function() {
@@ -96,6 +183,20 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /angular.module/);
   });
 
+  describe('aspnet:AngularModule in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    var arg = 'MyApplication';
+    var filename = 'MyApplication.js';
+    console.log(arg, dir);
+    util.goCreateWithArgs('AngularModule', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /angular.module/);
+    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest'");
+  });
+
   describe('aspnet:Class', function() {
     var arg = 'MyClass';
     var filename = 'MyClass.cs';
@@ -103,7 +204,21 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('Class', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyClass/);
+  });
 
+  describe('aspnet:Class in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    var arg = 'MyClass';
+    var filename = 'MyClass.cs';
+    console.log(arg, dir);
+
+    util.goCreateWithArgs('Class', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyClass/);
+    util.fileContentCheck(filename, 'Check file content', "namespace emptyTest");
   });
 
   describe('aspnet:CoffeeScript', function() {
@@ -128,6 +243,20 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
   });
 
+  describe('aspnet:Interface in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    var arg = 'IContact';
+    var filename = 'IContact.cs';
+    console.log(arg, dir);
+    util.goCreateWithArgs('Interface', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
+    util.fileContentCheck(filename, 'Check file content', "namespace emptyTest");
+  });
+
   describe('aspnet:JSONSchema', function() {
     var arg = 'MySchema';
     var filename = 'MySchema.json';
@@ -143,6 +272,21 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('Middleware', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
+  });
+
+  describe('aspnet:Middleware in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    var arg = 'MyMiddleware';
+    var filename = 'MyMiddleware.cs';
+    console.log(arg, dir);
+
+    util.goCreateWithArgs('Middleware', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
+    util.fileContentCheck(filename, 'Check file content', "namespace emptyTest");
   });
 
   describe('aspnet:JavaScript', function() {
@@ -258,7 +402,6 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
 
   });
-
 
   describe('aspnet:WebApiController in cwd of project.json', function() {
     var arg = 'file';
