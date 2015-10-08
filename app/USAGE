@@ -26,6 +26,7 @@ Subgenerators:
   yo aspnet:Middleware [options] <name>
   yo aspnet:MvcController [options] <name>
   yo aspnet:MvcView [options] <name>
+  yo aspnet:nuget [options]
   yo aspnet:PackageJson [options]
   yo aspnet:StartupClass [options]
   yo aspnet:StyleSheet [options] <name>

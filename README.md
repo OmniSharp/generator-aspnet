@@ -87,6 +87,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:Middleware](#middleware)
 * [aspnet:MvcController](#mvccontroller)
 * [aspnet:MvcView](#mvcview)
+* [aspnet:nuget](#nuget)
 * [aspnet:PackageJson](#packagejson)
 * [aspnet:StartupClass](#startupclass)
 * [aspnet:StyleSheet](#stylesheet)
@@ -459,6 +460,20 @@ Produces `/ContactView.cshtml`
 }
 
 ```
+
+[Return to top](#top)
+
+### nuget
+
+Creates a new `nuget.config` file
+
+Example:
+
+```
+yo aspnet:nuget
+```
+
+Produces `nuget.config`
 
 [Return to top](#top)
 
