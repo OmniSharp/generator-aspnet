@@ -90,6 +90,13 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create Dockerfile', 'Dockerfile');
   });
 
+  describe('aspnet:nuget', function() {
+    util.goCreate('nuget');
+    var filename = 'nuget.config';
+    util.fileCheck('should create NuGet configuration file', filename);
+    util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
+  });
+
 });
 
 /*
