@@ -1,5 +1,5 @@
 {
-  "name": "MyNamespace",
+  "name": "<%= namespace %>",
   "private": true,
   "dependencies": {},
   "exportsOverride": {}

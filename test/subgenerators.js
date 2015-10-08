@@ -1,5 +1,6 @@
 'use strict';
 var util = require('./test-utility');
+var path = require('path');
 
 /*
  * Test for all subgenerators NOT requiring a name argument
@@ -179,6 +180,17 @@ describe('Subgenerators with named arguments tests', function() {
 
   });
 
+  describe('aspnet:MvcController in cwd of project.json', function() {
+    var arg = 'file';
+    var filename = 'file.cs';
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('web', 'webTest', dir);
+    util.goCreateWithArgs('MvcController', [arg], path.join(dir, 'webTest'));
+
+    util.fileCheck('should create Controllers/' + filename + ' file', filename);
+  });
+
   describe('aspnet:MvcView', function() {
     var arg = 'file';
     var filename = 'file.cshtml';
@@ -186,6 +198,16 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('MvcView', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
 
+  });
+
+  describe('aspnet:MvcView in cwd of project.json', function() {
+    var arg = 'file';
+    var filename = 'file.cshtml';
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('web', 'webTest', dir);
+    util.goCreateWithArgs('MvcView', [arg], path.join(dir, 'webTest'));
+    util.fileCheck('should create Views/' + filename + ' file', filename);
   });
 
   describe('aspnet:Class', function() {
@@ -240,5 +262,17 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('WebApiController', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
 
+  });
+
+
+  describe('aspnet:WebApiController in cwd of project.json', function() {
+    var arg = 'file';
+    var filename = 'file.cs';
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('web', 'webTest', dir);
+    util.goCreateWithArgs('WebApiController', [arg], path.join(dir, 'webTest'));
+
+    util.fileCheck('should create Controllers/' + filename + ' file', filename);
   });
 });

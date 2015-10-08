@@ -3,8 +3,14 @@ var util = (function() {
 
   var yeoman = require('yeoman-generator');
   var path = require('path');
+  var os = require('os');
+  var crypto = require('crypto');
   var assert;
   var mockGen;
+
+  function makeTempDir() {
+    return path.join(os.tmpdir(), crypto.randomBytes(20).toString('hex'));
+  }
 
   function goCreate(subgenerator) {
     before(function(done) {
@@ -17,18 +23,37 @@ var util = (function() {
     });
   }
 
-  function goCreateWithArgs(subgenerator, args) {
+  function goCreateWithArgs(subgenerator, args, tempDir) {
+    var testDirectory;
+    if (tempDir) {
+      // Don't clear the test directory, we need it to have previous contents.
+      before(function() {
+        testDirectory = yeoman.test.testDirectory;
+        yeoman.test.testDirectory = function(dir, cb) {
+          process.chdir(dir);
+          cb();
+        }
+      });
+      after(function() {
+        yeoman.test.testDirectory = testDirectory;
+      });
+    }
     before(function(done) {
       assert = yeoman.assert;
       mockGen = yeoman.test;
 
-      mockGen.run(path.join(__dirname, '../' + subgenerator))
-        .withArguments(args)
-        .on('end', done);
+      var ctx = mockGen.run(path.join(__dirname, '../' + subgenerator))
+        .withArguments(args);
+
+      if (tempDir) {
+        ctx.inDir(tempDir);
+      }
+
+      ctx.on('end', done);
     });
   }
 
-  function goCreateApplication(type, applicationName) {
+  function goCreateApplication(type, applicationName, tempDir) {
     before(function(done) {
 
       assert = yeoman.assert;
@@ -39,9 +64,14 @@ var util = (function() {
         applicationName: applicationName
       };
 
-      mockGen.run(path.join(__dirname, '../app'))
-        .withPrompts(mockPrompt)
-        .on('end', done);
+      var ctx = mockGen.run(path.join(__dirname, '../app'))
+        .withPrompts(mockPrompt);
+
+      if (tempDir) {
+        ctx.inDir(tempDir);
+      }
+
+      ctx.on('end', done);
     });
 
   }
@@ -119,7 +149,8 @@ var util = (function() {
     filesCheck: filesCheck,
     dirCheck: dirCheck,
     dirsCheck: dirsCheck,
-    fileContentCheck: fileContentCheck
+    fileContentCheck: fileContentCheck,
+    makeTempDir: makeTempDir
   };
 
   return methods;

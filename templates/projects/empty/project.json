@@ -1,6 +1,9 @@
 {
   "webroot": "wwwroot",
   "version": "1.0.0-*",
+  "tooling": {
+    "defaultNamespace": "<%= namespace %>"
+  },
 
   "dependencies": {
     "Microsoft.AspNet.Server.IIS": "1.0.0-beta7",

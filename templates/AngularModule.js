@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('app', [
+  angular.module('<%= namespace %>', [
     // Angular modules
     'ngRoute'
 

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app')
+    .module('<%= namespace %>')
     .controller('controller1', controller1);
 
   controller1.$inject = ['$scope'];

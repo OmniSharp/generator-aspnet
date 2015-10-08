@@ -7,6 +7,10 @@ var chalk = require('chalk');
 var Generator = module.exports = function Generator() {
   yeoman.generators.Base.apply(this, arguments);
   this.sourceRoot(path.join(__dirname, './templates/'));
+
+  this.namespace = function() {
+    return require('./config').getNamespace(this.fs);
+  }.bind(this);
 };
 
 util.inherits(Generator, yeoman.generators.Base);
