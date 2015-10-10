@@ -446,7 +446,8 @@ describe('aspnet - Web Application Basic', function() {
     'webTest/wwwroot/images/ASP-NET-Banners-02.png',
     'webTest/wwwroot/images/Banner-01-Azure.png',
     'webTest/wwwroot/images/Banner-02-VS.png',
-    'webTest/wwwroot/js/site.js'
+    'webTest/wwwroot/js/site.js',
+    'webTest/wwwroot/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
