@@ -52,7 +52,7 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:Dockerfile', function () {
     util.goCreate('Dockerfile');
     util.fileCheck('should create Dockerfile', 'Dockerfile');
-  })
+  });
 
 });
 
