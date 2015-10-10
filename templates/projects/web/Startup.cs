@@ -26,9 +26,10 @@ namespace <%= namespace %>
         {
             // Setup configuration sources.
 
-            var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
-                .AddJsonFile("config.json")
-                .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(appEnv.ApplicationBasePath)
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
             if (env.IsDevelopment())
             {
@@ -57,21 +58,6 @@ namespace <%= namespace %>
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Configure the options for the authentication middleware.
-            // You can add options for Google, Twitter and other middleware as shown below.
-            // For more information see http://go.microsoft.com/fwlink/?LinkID=532715
-            services.Configure<FacebookAuthenticationOptions>(options =>
-            {
-                options.AppId = Configuration["Authentication:Facebook:AppId"];
-                options.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-            });
-
-            services.Configure<MicrosoftAccountAuthenticationOptions>(options =>
-            {
-                options.ClientId = Configuration["Authentication:MicrosoftAccount:ClientId"];
-                options.ClientSecret = Configuration["Authentication:MicrosoftAccount:ClientSecret"];
-            });
-
             // Add MVC services to the services container.
             services.AddMvc();
 
@@ -93,17 +79,20 @@ namespace <%= namespace %>
 
             // Configure the HTTP request pipeline.
 
+            // Add the platform handler to the request pipeline.
+            app.UseIISPlatformHandler();
+
             // Add the following to the request pipeline only in development environment.
             if (env.IsDevelopment())
             {
-                app.UseErrorPage();
+                app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
             }
             else
             {
                 // Add Error handling middleware which catches all application specific errors and
                 // sends the request to the following path or controller action.
-                app.UseErrorHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/Error");
             }
 
             // Add static files to the request pipeline.
@@ -112,12 +101,29 @@ namespace <%= namespace %>
             // Add cookie-based authentication to the request pipeline.
             app.UseIdentity();
 
-            // Add authentication middleware to the request pipeline. You can configure options such as Id and Secret in the ConfigureServices method.
+            // Add and configure the options for authentication middleware to the request pipeline.
+            // You can add options for middleware as shown below.
             // For more information see http://go.microsoft.com/fwlink/?LinkID=532715
-            // app.UseFacebookAuthentication();
-            // app.UseGoogleAuthentication();
-            // app.UseMicrosoftAccountAuthentication();
-            // app.UseTwitterAuthentication();
+            //app.UseFacebookAuthentication(options =>
+            //{
+            //    options.AppId = Configuration["Authentication:Facebook:AppId"];
+            //    options.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            //});
+            //app.UseGoogleAuthentication(options =>
+            //{
+            //    options.ClientId = Configuration["Authentication:Google:ClientId"];
+            //    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            //});
+            //app.UseMicrosoftAccountAuthentication(options =>
+            //{
+            //    options.ClientId = Configuration["Authentication:MicrosoftAccount:ClientId"];
+            //    options.ClientSecret = Configuration["Authentication:MicrosoftAccount:ClientSecret"];
+            //});
+            //app.UseTwitterAuthentication(options =>
+            //{
+            //    options.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
+            //    options.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+            //});
 
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>
