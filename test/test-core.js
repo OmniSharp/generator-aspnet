@@ -34,10 +34,10 @@ describe('aspnet - Empty Application', function() {
   });
 
   var files = [
-    'emptyTest/hosting.ini',
     'emptyTest/project.json',
     'emptyTest/Startup.cs',
     'emptyTest/wwwroot/README.md',
+    'emptyTest/wwwroot/web.config',
     'emptyTest/Dockerfile'
   ];
   describe('Checking files', function() {
