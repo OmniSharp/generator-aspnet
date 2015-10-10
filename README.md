@@ -11,7 +11,7 @@ Yeoman generator for ASP.NET 5 projects
 ## Getting Started
 
 - Dependencies:
-    - node.js: `brew install node` for OSX, `choco install node` for Windows
+    - node.js: `brew install node` for OSX, `choco install nodejs` for Windows
     - Yeoman: `npm install -g yo`
 - Install: `npm install -g generator-aspnet`
 - Run: `yo aspnet`
