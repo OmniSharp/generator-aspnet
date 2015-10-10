@@ -10,5 +10,5 @@ util.inherits(Generator, ScriptBase);
 
 Generator.prototype.createItem = function() {
   this.generateStandardFile('.bowerrc', '.bowerrc');
-  this.generateStandardFile('bower.json', 'bower.json');
+  this.generateTemplateFile('bower.json', 'bower.json', { namespace: this.namespace() });
 };

@@ -20,3 +20,13 @@ Generator.prototype.generateStandardFile = function(sourceFile, targetFile) {
   this.fs.copy(this.templatePath(sourceFile), this.destinationPath(targetFile));
   this.log(chalk.green(targetFile) + ' created.');
 };
+
+Generator.prototype.generateTemplateFile = function(templateFile, targetFile, templateData) {
+  this.log('You called the aspnet subgenerator with the arg ' + templateFile);
+  if (templateData !== null) {
+    this.fs.copyTpl(this.templatePath(templateFile), this.destinationPath(targetFile), templateData);
+  } else {
+    this.fs.copyTpl(this.templatePath(templateFile), this.destinationPath(targetFile));
+  }
+  this.log(targetFile + ' created.');
+};

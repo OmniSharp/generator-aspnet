@@ -1,8 +1,5 @@
 var findup = require('findup-sync');
 var path = require('path');
-//  var _ = require('lodash');
-
-var projectJsonPath, globalJsonPath;
 var abstractionsStr = '.Abstractions';
 
 function getBaseNamespace(fs) {
@@ -11,7 +8,7 @@ function getBaseNamespace(fs) {
   var projectJsonPath = module.exports.getProjectJsonPath();
 
   if (!projectJsonPath) {
-    return '';
+    return 'MyNamespace';
   }
 
   var projectJson = require(projectJsonPath);
@@ -35,7 +32,7 @@ module.exports = {
 
     var baseNamespace = getBaseNamespace(fs);
     var cwd = process.cwd();
-    var baseDirectory = path.resolve(path.dirname(projectJsonPath));
+    var baseDirectory = path.resolve(path.dirname(this.getProjectJsonPath()));
     var relativePath = path.relative(baseDirectory, cwd);
     if (relativePath) {
       return [baseNamespace].concat(relativePath.split(path.sep)).join('.');
@@ -46,10 +43,7 @@ module.exports = {
   getProjectJsonPath: function() {
     "use strict";
 
-    if (!projectJsonPath) {
-      projectJsonPath = findup('project.json');
-    }
-    return projectJsonPath;
+    return findup('project.json');
   },
   getProjectJson: function(fs) {
     "use strict";
@@ -64,10 +58,7 @@ module.exports = {
   getGlobalJsonPath: function() {
     "use strict";
 
-    if (!globalJsonPath) {
-      globalJsonPath = findup('global.json');
-    }
-    return globalJsonPath;
+    return findup('global.json');
   },
   getGlobalJson: function(fs) {
     "use strict";
