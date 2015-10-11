@@ -491,6 +491,7 @@ describe('aspnet - Web API Application', function() {
     'webAPITest/Startup.cs',
     'webAPITest/.gitignore',
     'webAPITest/wwwroot/README.md',
+    'webAPITest/wwwroot/web.config',
     'webAPITest/Dockerfile'
   ];
   describe('Checking files', function() {
