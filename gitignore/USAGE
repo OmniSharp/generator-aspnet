@@ -1,0 +1,8 @@
+Description:
+	Creates a new .gitignore file
+
+Example:
+	yo aspnet:gitignore
+
+	This will create:
+		.gitignore
