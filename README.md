@@ -6,7 +6,7 @@
 
 Yeoman generator for ASP.NET 5 projects
 
-[![](https://cloud.githubusercontent.com/assets/14539/10110294/8a09f7b2-63cc-11e5-8d48-918a8964389a.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
+[![](https://cloud.githubusercontent.com/assets/14539/10418056/b72ae284-7050-11e5-99db-5a0cda8f0ac1.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
 
 ## Getting Started
 
