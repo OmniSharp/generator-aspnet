@@ -3,12 +3,12 @@
       "defaultNamespace": "<%= namespace %>"
     },
     "dependencies": {
-        "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta7",
-        "Microsoft.AspNet.Owin": "1.0.0-beta7",
-        "Nancy": "1.2.0"
+        "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta8",
+        "Microsoft.AspNet.Owin": "1.0.0-beta8",
+        "Nancy": "1.3.0"
     },
     "commands": {
-        "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --server.urls http://localhost:5000"
+        "web": "Microsoft.AspNet.Server.Kestrel"
     },
     "frameworks": {
         "dnx451": {}
