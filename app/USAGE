@@ -33,6 +33,7 @@ Subgenerators:
   yo aspnet:StyleSheetScss [options] <name>
   yo aspnet:TagHelper [options] <name>
   yo aspnet:TextFile [options] <name>
+  yo aspnet:tfignore [options]
   yo aspnet:TypeScript [options] <name>
   yo aspnet:TypeScriptConfig [options] <name>
   yo aspnet:WebApiController [options] <name>
