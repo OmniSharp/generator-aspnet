@@ -46,6 +46,13 @@ describe('aspnet - Empty Application', function() {
     }
   });
 
+  describe('Checking file content', function() {
+    describe('Check project.json for userSecretsId', function() {
+      var propString = '"userSecretsId": "aspnet5-';
+      util.fileContentCheck('emptyTest/project.json', 'Should have userSecretsId', propString);
+    });
+  });
+
 });
 
 /*
@@ -326,6 +333,13 @@ describe('aspnet - Web Application', function() {
     }
   });
 
+  describe('Checking file content', function() {
+    describe('Check project.json for userSecretsId', function() {
+      var propString = '"userSecretsId": "aspnet5-';
+      util.fileContentCheck('webTest/project.json', 'Should have userSecretsId', propString);
+    });
+  });
+
 });
 
 /*
@@ -455,6 +469,13 @@ describe('aspnet - Web Application Basic', function() {
     }
   });
 
+  describe('Checking file content', function() {
+    describe('Check project.json for userSecretsId', function() {
+      var propString = '"userSecretsId": "aspnet5-';
+      util.fileContentCheck('webTest/project.json', 'Should have userSecretsId', propString);
+    });
+  });
+
 });
 
 /*
@@ -498,6 +519,13 @@ describe('aspnet - Web API Application', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+  });
+
+  describe('Checking file content', function() {
+    describe('Check project.json for userSecretsId', function() {
+      var propString = '"userSecretsId": "aspnet5-';
+      util.fileContentCheck('webAPITest/project.json', 'Should have userSecretsId', propString);
+    });
   });
 
 });
