@@ -94,6 +94,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:StyleSheetScss](#stylesheetscss)
 * [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
+* [aspnet:tfignore](#tfignore)
 * [aspnet:TypeScript](#typescript)
 * [aspnet:TypeScriptConfig](#typescriptconfig)
 * [aspnet:WebApiContoller](#webapicontroller)
@@ -557,6 +558,20 @@ yo aspnet:TextFile filename
 ```
 
 Produces `filename.txt`
+
+[Return to top](#top)
+
+### tfignore
+
+Creates a new .tfignore file
+
+Example:
+
+```
+yo aspnet:tfignore
+```
+
+Produces `.tfignore`
 
 [Return to top](#top)
 
