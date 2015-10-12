@@ -1,0 +1,8 @@
+Description:
+  Creates AngularJS module file
+
+Example:
+  yo aspnet:AngularModule filename
+
+  This will produce:
+    filename.js
