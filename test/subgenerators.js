@@ -74,22 +74,22 @@ describe('Subgenerators without arguments tests', function() {
     util.goCreate('gitignore');
     util.fileCheck('should create .gitignore file', '.gitignore');
   });
-  
+
   describe('aspnet:tfignore', function() {
     util.goCreate('tfignore');
     util.fileCheck('should create .tfignore file', '.tfignore');
-  });  
+  });
 
   describe('aspnet:TypeScriptConfig', function() {
     util.goCreate('TypeScriptConfig');
     util.fileCheck('should create tsconfig.json file', 'tsconfig.json');
   });
 
-  describe('aspnet:Dockerfile', function () {
+  describe('aspnet:Dockerfile', function() {
     util.goCreate('Dockerfile');
     util.fileCheck('should create Dockerfile', 'Dockerfile');
   });
-  
+
 });
 
 /*
