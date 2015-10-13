@@ -116,7 +116,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('AngularController', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
-    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest')");
+    util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
   describe('aspnet:AngularControllerAs', function() {
@@ -138,7 +138,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('AngularControllerAs', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /vm.title/);
-    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest')");
+    util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
   describe('aspnet:AngularDirective', function() {
@@ -160,7 +160,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('AngularDirective', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
-    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest')");
+    util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
   describe('aspnet:AngularFactory', function() {
@@ -182,7 +182,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('AngularFactory', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
-    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest')");
+    util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
   describe('aspnet:AngularModule', function() {
@@ -204,7 +204,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('AngularModule', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /angular.module/);
-    util.fileContentCheck(filename, 'Check file content', ".module('emptyTest'");
+    util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\'');
   });
 
   describe('aspnet:Class', function() {
@@ -228,7 +228,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('Class', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyClass/);
-    util.fileContentCheck(filename, 'Check file content', "namespace emptyTest");
+    util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
   describe('aspnet:CoffeeScript', function() {
@@ -264,7 +264,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('Interface', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
-    util.fileContentCheck(filename, 'Check file content', "namespace emptyTest");
+    util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
   describe('aspnet:JSONSchema', function() {
@@ -296,7 +296,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('Middleware', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
-    util.fileContentCheck(filename, 'Check file content', "namespace emptyTest");
+    util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
   describe('aspnet:JavaScript', function() {
