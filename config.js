@@ -3,7 +3,7 @@ var path = require('path');
 var abstractionsStr = '.Abstractions';
 
 function getBaseNamespace(fs) {
-  "use strict";
+  'use strict';
 
   var projectJsonPath = module.exports.getProjectJsonPath();
 
@@ -28,7 +28,7 @@ function getBaseNamespace(fs) {
 module.exports = {
   // Get the namespace relative to the cwd
   getNamespace: function(fs) {
-    "use strict";
+    'use strict';
 
     var baseNamespace = getBaseNamespace(fs);
     var cwd = process.cwd();
@@ -41,12 +41,12 @@ module.exports = {
     return baseNamespace;
   },
   getProjectJsonPath: function() {
-    "use strict";
+    'use strict';
 
     return findup('project.json');
   },
   getProjectJson: function(fs) {
-    "use strict";
+    'use strict';
 
     var path = module.exports.getProjectJsonPath();
     if (!path) {
@@ -56,12 +56,12 @@ module.exports = {
     return fs.readJSON(path, {});
   },
   getGlobalJsonPath: function() {
-    "use strict";
+    'use strict';
 
     return findup('global.json');
   },
   getGlobalJson: function(fs) {
-    "use strict";
+    'use strict';
 
     var path = module.exports.getGlobalJsonPath(path);
     if (!path) {
