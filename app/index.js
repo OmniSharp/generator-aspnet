@@ -185,7 +185,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     var prompts = [{
       type: 'confirm',
       name: 'projectStructure',
-      message: 'Would you like to use the standard solution structure for your solution?',
+      message: 'Create a solution file?',
       default: true
     }];
 
@@ -193,37 +193,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       this.projectStructure = props.projectStructure;
       if (props.projectStructure) {
         setApplicationDirectory();
+        this.solutionName = this.applicationName;
+        this.destinationRoot(this.destinationRoot() + '/' + this.solutionName);
       } else {
         this.applicationDirectory = this.applicationName;
       }
-      done();
-    }.bind(this));
-  },
-
-  askForSolutionFolder: function() {
-    var done = this.async();
-
-    if (!this.projectStructure || this.options.composing) {
-      done();
-      return;
-    }
-
-    if (this.options.useCurrentDirectory) {
-      this.solutionName = path.basename(this.destinationRoot());
-      done();
-      return;
-    }
-
-    var prompts = [{
-      type: 'input',
-      name: 'solutionName',
-      message: 'What folder name would like to use for your solution?',
-      default: this.applicationName
-    }];
-
-    this.prompt(prompts, function(props) {
-      this.destinationRoot(this.destinationRoot() + '/' + props.solutionName);
-      this.solutionName = props.solutionName;
       done();
     }.bind(this));
   },
@@ -261,14 +235,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
   writing: function() {
     this.sourceRoot(path.join(__dirname, '../templates/projects'));
 
-    if (this.projectStructure && !this.fs.exists('.gitignore')) {
+    if (this.projectStructure && !this.fs.exists('global.json')) {
       this.copy(this.sourceRoot() + '/../global.json', 'global.json');
     }
 
     if (this.projectStructure && !this.fs.exists('.gitignore')) {
       this.fs.copy(this.sourceRoot() + '/../gitignore.txt', '.gitignore');
     }
-    
+
     if (!this.projectStructure && !this.fs.exists(this.applicationDirectory + '/.gitignore')) {
       this.fs.copy(this.sourceRoot() + '/../gitignore.txt', this.applicationDirectory + '/.gitignore');
     }
@@ -399,12 +373,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
   },
 
   end: function() {
-    if (this.options.composing) {
-      return;
-    }
-    if (this.projectStructure) {
-      this.log('\r\n');
-      this.log('Your project is now created, you can use the following commands to get going');
+    this.log('\r\n');
+    this.log('Your project is now created, you can use the following commands to get going');
+    if (this.projectStructure && !this.options.composing) {
       this.log(chalk.green('    cd "' + this.solutionName + '/' + this.applicationDirectory + '"'));
       this.log(chalk.green('    dnu restore'));
       this.log(chalk.green('    dnu build') + ' (optional, build will also happen when it\'s run)');
