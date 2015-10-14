@@ -34,18 +34,27 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       desc: 'If we are composing this unit test template.'
     });
 
-    // for letting editors give a specific directory
-    this.option('useCurrentDirectory', {
+    // for letting editors or users specfiy a destination directory
+    this.option('dest', {
+      type: String,
+      defaults: '',
+      desc: 'Set destination to the specific directory'
+    });
+
+    this.option('createInDirectory', {
       type: Boolean,
-      defaults: false,
-      desc: 'Use the current directory intead of creating a new one.'
+      default: false,
+      desc: 'Create the new solution inside the specific directory'
     });
   },
-
 
   init: function() {
     this.log(yosay('Welcome to the marvellous ASP.NET 5 generator!'));
     this.templatedata = {};
+
+    if (this.options.dest) {
+      this.destinationRoot(this.options.dest);
+    }
   },
 
   askFor: function() {
@@ -193,8 +202,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       this.projectStructure = props.projectStructure;
       if (props.projectStructure) {
         setApplicationDirectory();
-        this.solutionName = this.applicationName;
-        this.destinationRoot(this.destinationRoot() + '/' + this.solutionName);
+
+        if (this.options.createInDirectory) {
+          this.solutionName = path.basename(this.options.dest || this.destinationRoot());
+        } else {
+          this.solutionName = this.applicationName;
+          this.destinationRoot(this.destinationRoot() + '/' + this.solutionName);
+        }
       } else {
         this.applicationDirectory = this.applicationName;
       }
