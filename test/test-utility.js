@@ -96,6 +96,10 @@ var util = (function() {
       ctx.on('end', done);
     });
 
+    // Force the test to take on the solution directory
+    if (prompts && prompts.projectStructure) {
+      moveToSolutionDirectory();
+    }
   }
 
   function goCreateApplicationWithOptions(type, applicationName, options, prompts) {
@@ -112,11 +116,15 @@ var util = (function() {
       mockPrompt = _.defaults(mockPrompt, prompts || {}, { projectStructure: false });
 
       mockGen.run(path.join(__dirname, '../app'))
-        .withPrompts(mockPrompt)
         .withOptions(options)
+        .withPrompts(mockPrompt)
         .on('end', done);
     });
 
+    // Force the test to take on the solution directory
+    if (prompts && prompts.projectStructure) {
+      moveToSolutionDirectory();
+    }
   }
 
   function goCreateApplicationWithPrompts(type, applicationName, prompts) {
@@ -131,12 +139,17 @@ var util = (function() {
       };
 
       mockPrompt = _.defaults(mockPrompt, prompts || {}, { projectStructure: false });
+      console.log(mockPrompt);
 
       mockGen.run(path.join(__dirname, '../app'))
         .withPrompts(mockPrompt)
         .on('end', done);
     });
 
+    // Force the test to take on the solution directory
+    if (prompts && prompts.projectStructure) {
+      moveToSolutionDirectory();
+    }
   }
 
   function dirsCheck(dirs) {
@@ -147,18 +160,13 @@ var util = (function() {
           assert.file(dirs[i]);
         });
       }
-
     });
-
   }
 
   function filesCheck(file) {
-
-
     it(file + ' created.', function() {
       assert.file(file);
     });
-
   }
 
   function dirCheck(message, dir) {
@@ -183,6 +191,18 @@ var util = (function() {
     });
   }
 
+  function moveToSolutionDirectory(callback) {
+    var directory;
+    before(function() {
+      directory = process.cwd();
+      console.log('directory', directory);
+      process.chdir(path.resolve(directory, '..'));
+    });
+    after(function() {
+      process.chdir(directory);
+    });
+  }
+
 
   var methods = {
     goCreateApplication: goCreateApplication,
@@ -195,7 +215,8 @@ var util = (function() {
     dirCheck: dirCheck,
     dirsCheck: dirsCheck,
     fileContentCheck: fileContentCheck,
-    makeTempDir: makeTempDir
+    makeTempDir: makeTempDir,
+    moveToSolutionDirectory: moveToSolutionDirectory
   };
 
   return methods;
