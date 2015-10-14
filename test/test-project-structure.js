@@ -135,6 +135,52 @@ describe('aspnet - solution - Unit Test Application', function() {
 });
 
 /*
+ * yo aspnet Console Application
+ */
+describe('aspnet - solution - Console Application w/Tests project', function() {
+
+  util.goCreateApplicationWithPrompts('console', 'consoleTest', {
+    projectStructure: true,
+    testProject: true
+  });
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('consoleTest/src/consoleTest/');
+    });
+  });
+
+  var files = [
+    'consoleTest/.gitignore',
+    'consoleTest/global.json',
+    'consoleTest/src/consoleTest/Program.cs',
+    'consoleTest/src/consoleTest/project.json'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+
+  describe('Checking test directories', function() {
+    it('Application directory created', function() {
+      assert.file('consoleTest/tests/consoleTest.Tests/');
+    });
+  });
+
+  var files = [
+    'consoleTest/tests/consoleTest.Tests/project.json',
+    'consoleTest/tests/consoleTest.Tests/SampleTest.cs'
+  ];
+  describe('Checking test files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+
+});
+
+/*
  * yo aspnet Web Application - Grunt option
  */
 describe('aspnet - solution - Web Application w/grunt', function() {
@@ -545,6 +591,37 @@ describe('aspnet - solution - Nancy Application', function() {
 
 
   var files = ['nancyTest/src/nancyTest/project.json', 'nancyTest/src/nancyTest/Startup.cs', 'nancyTest/src/nancyTest/HomeModule.cs'];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+
+});
+
+
+/*
+ * yo aspnet Unit Test Application
+ */
+describe('aspnet - generates application using name configuration', function() {
+
+  util.goCreateApplicationWithOptions('unittest', 'unittestTest', {
+    name: "unittestTestOverride"
+  }, {
+    projectStructure: true
+  });
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('unittestTestOverride/tests/unittestTestOverride/');
+    });
+  });
+
+  var files = [
+    'unittestTestOverride/.gitignore',
+    'unittestTestOverride/tests/unittestTestOverride/project.json',
+    'unittestTestOverride/tests/unittestTestOverride/SampleTest.cs'
+  ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);

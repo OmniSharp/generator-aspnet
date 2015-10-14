@@ -23,7 +23,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       defaults: '',
       desc: 'The type of template to create.'
     });
-    this.option('applicationName', {
+    this.option('name', {
       type: String,
       defaults: '',
       desc: 'The name of the template to create.'
@@ -31,7 +31,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.option('composing', {
       type: Boolean,
       defaults: false,
-      desc: 'If we are composing this unit test template.'
+      desc: 'If we are composing and additional template, this is used to generate unit test projects.'
     });
 
     // for letting editors or users specfiy a destination directory
@@ -108,7 +108,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     var done = this.async();
 
     var cb = function cb(props) {
-      this.templatedata.namespace = projectName(props.applicationName);
+      this.templatedata.namespace = projectName(props.name);
       this.templatedata.applicationname = props.applicationName;
       this.applicationName = props.applicationName;
       this.templatedata.guid = guid.v4();
@@ -116,9 +116,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       done();
     }.bind(this);
 
-    if (this.options.applicationName) {
+    if (this.options.name) {
       cb({
-        applicationName: this.options.applicationName
+        applicationName: this.options.name
       });
       return;
     }
@@ -236,7 +236,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.composeWith('aspnet:app', {
           options: {
             type: 'unittest',
-            applicationName: this.applicationName + '.Tests',
+            name: this.applicationName + '.Tests',
             composing: true
           }
         });
