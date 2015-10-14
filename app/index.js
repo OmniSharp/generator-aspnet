@@ -37,7 +37,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     // for letting editors or users specfiy a destination directory
     this.option('dest', {
       type: String,
-      defaults: '',
+      defaults: null,
       desc: 'Set destination to the specific directory'
     });
 
@@ -108,7 +108,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     var done = this.async();
 
     var cb = function cb(props) {
-      this.templatedata.namespace = projectName(props.name);
+      this.templatedata.namespace = projectName(props.applicationName);
       this.templatedata.applicationname = props.applicationName;
       this.applicationName = props.applicationName;
       this.templatedata.guid = guid.v4();

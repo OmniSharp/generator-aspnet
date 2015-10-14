@@ -139,7 +139,6 @@ var util = (function() {
       };
 
       mockPrompt = _.defaults(mockPrompt, prompts || {}, { projectStructure: false });
-      console.log(mockPrompt);
 
       mockGen.run(path.join(__dirname, '../app'))
         .withPrompts(mockPrompt)
@@ -195,7 +194,6 @@ var util = (function() {
     var directory;
     before(function() {
       directory = process.cwd();
-      console.log('directory', directory);
       process.chdir(path.resolve(directory, '..'));
     });
     after(function() {
