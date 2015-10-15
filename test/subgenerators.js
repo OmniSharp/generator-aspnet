@@ -50,8 +50,8 @@ describe('Subgenerators without arguments tests', function() {
     util.fileContentCheck('bower.json', 'file content check', '"name": "emptyTest"');
   });
 
-  describe('aspnet:Config', function() {
-    util.goCreate('Config');
+  describe('aspnet:ConfigJson', function() {
+    util.goCreate('ConfigJson');
     util.fileCheck('should create config json file', 'config.json');
   });
 
