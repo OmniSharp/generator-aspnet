@@ -2,7 +2,7 @@ Description:
 	Creates a new config.json file
 
 Example:
-	yo aspnet:Config
+	yo aspnet:ConfigJson
 
 	This will create:
 		config.json
