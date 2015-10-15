@@ -121,7 +121,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
-        this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+        this.template(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
 
         this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
 
@@ -134,7 +134,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
         this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-        this.fs.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/Properties', this.applicationName + '/Properties');
         this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
@@ -214,7 +214,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
-        this.copy(this.sourceRoot() + '/project.json', this.applicationName + '/project.json');
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
 
         this.template(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
 
@@ -233,7 +233,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.template(this.sourceRoot() + '/class.cs', this.applicationName + '/Class1.cs', this.templatedata);
 
-        this.template(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
 
         break;
       case 'unittest':

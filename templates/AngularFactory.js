@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app')
+    .module('<%= namespace %>')
     .factory('factory', factory);
 
   factory.$inject = ['$http'];

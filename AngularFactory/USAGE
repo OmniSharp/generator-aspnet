@@ -1,0 +1,8 @@
+Description:
+  Creates AngularJS factory file.
+
+Example:
+  yo aspnet:AngularFactory filename
+
+  This will create:
+    filename.js

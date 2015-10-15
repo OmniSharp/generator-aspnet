@@ -1,0 +1,8 @@
+Description:
+	Creates a new .tfignore file
+
+Example:
+	yo aspnet:tfignore
+
+	This will create:
+		.tfignore

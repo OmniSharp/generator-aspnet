@@ -7,6 +7,10 @@ var chalk = require('chalk');
 var NamedGenerator = module.exports = function NamedGenerator() {
   yeoman.generators.NamedBase.apply(this, arguments);
   this.sourceRoot(path.join(__dirname, './templates/'));
+
+  this.namespace = function() {
+    return require('./config').getNamespace(this.fs);
+  }.bind(this);
 };
 
 util.inherits(NamedGenerator, yeoman.generators.NamedBase);

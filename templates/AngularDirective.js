@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app')
+    .module('<%= namespace %>')
     .directive('directive', directive);
 
   directive.$inject = ['$window'];
