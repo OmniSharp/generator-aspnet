@@ -266,8 +266,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       case 'empty':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-        this.copy(this.sourceRoot() + '/hosting.ini', this.applicationDirectory + '/hosting.ini');
-
         this.template(this.sourceRoot() + '/Startup.cs', this.applicationDirectory + '/Startup.cs', this.templatedata);
 
         this.copy(this.sourceRoot() + '/project.json', this.applicationDirectory + '/project.json');

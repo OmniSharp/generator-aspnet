@@ -37,7 +37,6 @@ describe('aspnet - solution - Empty Application', function() {
   });
 
   var files = [
-    'emptyTest/src/emptyTest/hosting.ini',
     'emptyTest/src/emptyTest/project.json',
     'emptyTest/src/emptyTest/Startup.cs',
     'emptyTest/src/emptyTest/wwwroot/README.md',
@@ -314,9 +313,7 @@ describe('aspnet - solution - Web Application', function() {
     'webTest/src/webTest/.bowerrc',
     'webTest/\.gitignore', 'webTest/global.json',
     'webTest/src/webTest/bower.json',
-    'webTest/src/webTest/config.json',
     'webTest/src/webTest/gulpfile.js',
-    'webTest/src/webTest/hosting.ini',
     'webTest/src/webTest/package.json',
     'webTest/src/webTest/project.json',
     'webTest/src/webTest/README.md',
@@ -495,10 +492,8 @@ describe('aspnet - solution - Web Application Basic', function() {
     'webTest/src/webTest/.bowerrc',
     'webTest/\.gitignore', 'webTest/global.json',
     'webTest/src/webTest/bower.json',
-    'webTest/src/webTest/config.json',
     'webTest/src/webTest/Controllers/HomeController.cs',
     'webTest/src/webTest/gulpfile.js',
-    'webTest/src/webTest/hosting.ini',
     'webTest/src/webTest/package.json',
     'webTest/src/webTest/project.json',
     'webTest/src/webTest/README.md',
@@ -557,7 +552,6 @@ describe('aspnet - solution - Web API Application', function() {
 
   var files = [
     'webAPITest/src/webAPITest/Controllers/ValuesController.cs',
-    'webAPITest/src/webAPITest/hosting.ini',
     'webAPITest/src/webAPITest/project.json',
     'webAPITest/src/webAPITest/Properties/launchSettings.json',
     'webAPITest/src/webAPITest/Startup.cs',
