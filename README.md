@@ -72,7 +72,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:Class](#class)
 * [aspnet:CoffeeScript](#coffeescript)
-* [aspnet:Config](#config)
+* [aspnet:ConfigJson](#configjson)
 * [aspnet:Dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:Gruntfile](#gruntfile)
@@ -223,14 +223,14 @@ Produces `filename.coffee`
 
 [Return to top](#top)
 
-### Config
+### ConfigJson
 
 Creates a new config.json file
 
 Example:
 
 ```
-yo aspnet:Config
+yo aspnet:ConfigJson
 ```
 
 Produces `config.json`
