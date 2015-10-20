@@ -9,7 +9,7 @@ var NamedGenerator = module.exports = function NamedGenerator() {
   this.sourceRoot(path.join(__dirname, './templates/'));
 
   this.namespace = function() {
-    return require('./config').getNamespace(this.fs);
+    return require('./configuration').getNamespace(this.fs);
   }.bind(this);
 };
 
