@@ -13,7 +13,7 @@
   },
 
   "commands": {
-    "ConsoleApplication": "ConsoleApplication"
+    "<%= namespace %>": "<%= namespace %>"
   },
 
   "frameworks": {
