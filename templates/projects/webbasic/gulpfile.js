@@ -1,5 +1,6 @@
 /// <binding Clean='clean' />
-'use strict';
+"use strict";
+
 var gulp = require("gulp"),
   rimraf = require("rimraf"),
   concat = require("gulp-concat"),
