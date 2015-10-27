@@ -9,5 +9,5 @@ var Generator = module.exports = function Generator() {
 util.inherits(Generator, ScriptBase);
 
 Generator.prototype.createItem = function() {
-  this.generateStandardFile('config.json', 'config.json');
+  this.generateStandardFile('appsettings.json', 'appsettings.json');
 };
