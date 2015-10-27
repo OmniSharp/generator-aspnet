@@ -20,7 +20,7 @@ Yeoman generator for ASP.NET 5 projects
 
 * `yo aspnet` shows a wizard for generating a new ASP.NET app
 
-* `yo aspnet --grunt` generates Gruntfile.js files for **web** template instead of gulp.js
+* `yo aspnet --grunt` generates `Gruntfile.js` files for **web** templates instead of `gulpfile.js`
 
 * `yo aspnet --help` shows flags and other configurable options
 
