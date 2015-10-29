@@ -69,10 +69,10 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:AngularDirective](#angulardirective)
 * [aspnet:AngularFactory](#angularfactory)
 * [aspnet:AngularModule](#angularmodule)
+* [aspnet:AppSettings](#appsettings)
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:Class](#class)
 * [aspnet:CoffeeScript](#coffeescript)
-* [aspnet:AppSettings](#appsettings)
 * [aspnet:Dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:Gruntfile](#gruntfile)
@@ -169,6 +169,20 @@ Produces `filename.js`
 
 [Return to top](#top)
 
+### AppSettings
+
+Creates a new appsettings.json file
+
+Example:
+
+```
+yo aspnet:AppSettings
+```
+
+Produces `appsettings.json`
+
+[Return to top](#top)
+
 ### BowerJson
 
 Creates a new `bower.json` and configuration file.
@@ -223,20 +237,6 @@ Produces `filename.coffee`
 
 [Return to top](#top)
 
-### AppSettings
-
-Creates a new appsettings.json file
-
-Example:
-
-```
-yo aspnet:AppSettings
-```
-
-Produces `appsettings.json`
-
-[Return to top](#top)
-
 ### Dockerfile
 
 Creates a new Docker configuration file
@@ -268,20 +268,6 @@ Produces `.gitignore`
 
 [Return to top](#top)
 
-### Gulpfile
-
-Creates a new Gulp file
-
-Example:
-
-```
-yo aspnet:Gulpfile
-```
-
-Produces `gulpfile.js`
-
-[Return to top](#top)
-
 ### Gruntfile
 
 Creates a new `Grunt` file
@@ -293,6 +279,20 @@ yo aspnet:Gruntfile
 ```
 
 Produces `Gruntfile.js`
+
+[Return to top](#top)
+
+### Gulpfile
+
+Creates a new Gulp file
+
+Example:
+
+```
+yo aspnet:Gulpfile
+```
+
+Produces `gulpfile.js`
 
 [Return to top](#top)
 
