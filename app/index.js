@@ -33,6 +33,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       defaults: false,
       desc: 'If we are composing and additional template, this is used to generate unit test projects.'
     });
+    this.option('solutionName', {
+      type: String,
+      defaults: '',
+      desc: 'If we are composing, set the solution name.'
+    });
 
     // for letting editors or users specfiy a destination directory
     this.option('dest', {
@@ -171,6 +176,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
     if (this.options.composing) {
       this.projectStructure = true;
+      this.solutionName = this.options.solutionName;
       setApplicationDirectory();
       done();
       return;
@@ -183,6 +189,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         if (this.destinationRoot() !== globalJsonDirectory) {
           this.destinationRoot(globalJsonDirectory);
         }
+        this.solutionName = path.basename(this.options.dest || this.destinationRoot());
       } else {
         this.applicationDirectory = this.applicationName;
       }
@@ -194,7 +201,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     var prompts = [{
       type: 'confirm',
       name: 'projectStructure',
-      message: 'Create a solution file?',
+      message: 'Create a global.json file?',
       default: true
     }];
 
@@ -237,7 +244,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           options: {
             type: 'unittest',
             name: this.applicationName + '.Tests',
-            composing: true
+            composing: true,
+            solutionName: this.solutionName
           }
         });
       }
@@ -387,7 +395,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
   end: function() {
     this.log('\r\n');
     this.log('Your project is now created, you can use the following commands to get going');
-    if (this.projectStructure && !this.options.composing) {
+    if (this.projectStructure) {
       this.log(chalk.green('    cd "' + this.solutionName + '/' + this.applicationDirectory + '"'));
       this.log(chalk.green('    dnu restore'));
       this.log(chalk.green('    dnu build') + ' (optional, build will also happen when it\'s run)');
