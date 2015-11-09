@@ -6,7 +6,7 @@ var path = require('path');
 var guid = require('uuid');
 var projectName = require('vs_projectname');
 var fs = require('fs');
-var config = require('../config');
+var config = require('../configuration');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
   constructor: function() {
@@ -276,7 +276,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.template(this.sourceRoot() + '/Startup.cs', this.applicationDirectory + '/Startup.cs', this.templatedata);
 
-        this.copy(this.sourceRoot() + '/project.json', this.applicationDirectory + '/project.json');
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationDirectory + '/project.json', this.templatedata);
 
         this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationDirectory + '/Dockerfile');
 
@@ -288,7 +288,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationDirectory + '/Dockerfile');
         this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationDirectory + '/Startup.cs', this.templatedata);
-        this.fs.copy(this.sourceRoot() + '/project.json', this.applicationDirectory + '/project.json');
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationDirectory + '/project.json', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/Properties', this.applicationDirectory + '/Properties');
         this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationDirectory + '/Controllers/ValuesController.cs', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/wwwroot', this.applicationDirectory + '/wwwroot');
