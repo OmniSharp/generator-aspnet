@@ -5,6 +5,8 @@ var chalk = require('chalk');
 var path = require('path');
 var guid = require('uuid');
 var projectName = require('vs_projectname');
+var fs = require('fs');
+var config = require('../configuration');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
   constructor: function() {
@@ -15,47 +17,89 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       defaults: false,
       desc: 'Use the Grunt JavaScript task runner instead of Gulp in web projects.'
     });
-  },
+    // for generating test projects.
+    this.option('type', {
+      type: String,
+      defaults: '',
+      desc: 'The type of template to create.'
+    });
+    this.option('name', {
+      type: String,
+      defaults: '',
+      desc: 'The name of the template to create.'
+    });
+    this.option('composing', {
+      type: Boolean,
+      defaults: false,
+      desc: 'If we are composing and additional template, this is used to generate unit test projects.'
+    });
+    this.option('solutionName', {
+      type: String,
+      defaults: '',
+      desc: 'If we are composing, set the solution name.'
+    });
 
+    // for letting editors or users specfiy a destination directory
+    this.option('dest', {
+      type: String,
+      defaults: null,
+      desc: 'Set destination to the specific directory'
+    });
+
+    this.option('createInDirectory', {
+      type: Boolean,
+      default: false,
+      desc: 'Create the new solution inside the specific directory'
+    });
+  },
 
   init: function() {
     this.log(yosay('Welcome to the marvellous ASP.NET 5 generator!'));
     this.templatedata = {};
+
+    if (this.options.dest) {
+      this.destinationRoot(this.options.dest);
+    }
   },
 
   askFor: function() {
     var done = this.async();
+
+    if (this.options.type) {
+      this.type = this.options.type;
+      done();
+      return;
+    }
 
     var prompts = [{
       type: 'list',
       name: 'type',
       message: 'What type of application do you want to create?',
       choices: [{
-            name: 'Empty Application',
-            value: 'empty'
-          }, {
-            name: 'Console Application',
-            value: 'console'
-          }, {
-            name: 'Web Application',
-            value: 'web'
-          }, {
-            name: 'Web Application Basic [without Membership and Authorization]',
-            value: 'webbasic'
-          }, {
-            name: 'Web API Application',
-            value: 'webapi'
-          }, {
-            name: 'Nancy ASP.NET Application',
-            value: 'nancy'
-          }, {
-            name: 'Class Library',
-            value: 'classlib'
-          }, {
-            name: 'Unit test project',
-            value: 'unittest'
-          }
-      ]
+        name: 'Empty Application',
+        value: 'empty'
+      }, {
+        name: 'Console Application',
+        value: 'console'
+      }, {
+        name: 'Web Application',
+        value: 'web'
+      }, {
+        name: 'Web Application Basic [without Membership and Authorization]',
+        value: 'webbasic'
+      }, {
+        name: 'Web API Application',
+        value: 'webapi'
+      }, {
+        name: 'Nancy ASP.NET Application',
+        value: 'nancy'
+      }, {
+        name: 'Class Library',
+        value: 'classlib'
+      }, {
+        name: 'Unit test project',
+        value: 'unittest'
+      }]
     }];
 
     this.prompt(prompts, function(props) {
@@ -67,6 +111,23 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
   askForName: function() {
     var done = this.async();
+
+    var cb = function cb(props) {
+      this.templatedata.namespace = projectName(props.applicationName);
+      this.templatedata.applicationname = props.applicationName;
+      this.applicationName = props.applicationName;
+      this.templatedata.guid = guid.v4();
+      this.templatedata.grunt = this.options.grunt || false;
+      done();
+    }.bind(this);
+
+    if (this.options.name) {
+      cb({
+        applicationName: this.options.name
+      });
+      return;
+    }
+
     var app = '';
     switch (this.type) {
       case 'empty':
@@ -99,147 +160,232 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       message: 'What\'s the name of your ASP.NET application?',
       default: app
     }];
+    this.prompt(prompts, cb);
+  },
+
+  askForProjectStructure: function() {
+    var done = this.async();
+
+    var setApplicationDirectory = function() {
+      if (this.type === 'unittest') {
+        this.applicationDirectory = 'tests/' + this.applicationName;
+      } else {
+        this.applicationDirectory = 'src/' + this.applicationName;
+      }
+    }.bind(this);
+
+    if (this.options.composing) {
+      this.projectStructure = true;
+      this.solutionName = this.options.solutionName;
+      setApplicationDirectory();
+      done();
+      return;
+    }
+
+    if (config.getGlobalJsonPath()) {
+      var globalJsonDirectory = path.resolve(path.dirname(config.getGlobalJsonPath()));
+      if (fs.existsSync(path.join(globalJsonDirectory, 'tests')) || fs.existsSync(path.join(globalJsonDirectory, 'src'))) {
+        setApplicationDirectory();
+        if (this.destinationRoot() !== globalJsonDirectory) {
+          this.destinationRoot(globalJsonDirectory);
+        }
+        this.solutionName = path.basename(this.options.dest || this.destinationRoot());
+      } else {
+        this.applicationDirectory = this.applicationName;
+      }
+
+      done();
+      return;
+    }
+
+    var prompts = [{
+      type: 'confirm',
+      name: 'projectStructure',
+      message: 'Create a global.json file?',
+      default: true
+    }];
+
     this.prompt(prompts, function(props) {
-      this.templatedata.namespace = projectName(props.applicationName);
-      this.templatedata.applicationname = props.applicationName;
-      this.applicationName = props.applicationName;
-      this.templatedata.guid = guid.v4();
-      this.templatedata.grunt = this.options.grunt || false;
+      this.projectStructure = props.projectStructure;
+      if (props.projectStructure) {
+        setApplicationDirectory();
+
+        if (this.options.createInDirectory) {
+          this.solutionName = path.basename(this.options.dest || this.destinationRoot());
+        } else {
+          this.solutionName = this.applicationName;
+          this.destinationRoot(this.destinationRoot() + '/' + this.solutionName);
+        }
+      } else {
+        this.applicationDirectory = this.applicationName;
+      }
       done();
     }.bind(this));
   },
 
+  askForTestProject: function() {
+    var done = this.async();
+
+    if (!this.projectStructure || this.options.composing || this.type === 'unittest') {
+      done();
+      return;
+    }
+
+    var prompts = [{
+      type: 'confirm',
+      name: 'testProject',
+      message: 'Would you like to create a Unit Test Project?',
+      default: true
+    }];
+
+    this.prompt(prompts, function(props) {
+      if (props.testProject) {
+        this.composeWith('aspnet:app', {
+          options: {
+            type: 'unittest',
+            name: this.applicationName + '.Tests',
+            composing: true,
+            solutionName: this.solutionName
+          }
+        });
+      }
+      done();
+    }.bind(this));
+
+  },
+
   writing: function() {
-    this.sourceRoot(path.join(__dirname, './templates/projects'));
+    this.sourceRoot(path.join(__dirname, '../templates/projects'));
+
+    if (this.projectStructure && !this.fs.exists('global.json')) {
+      this.copy(this.sourceRoot() + '/../global.json', 'global.json');
+    }
+
+    if (this.projectStructure && !this.fs.exists('.gitignore')) {
+      this.fs.copy(this.sourceRoot() + '/../gitignore.txt', '.gitignore');
+    }
+
+    if (!this.projectStructure && !this.fs.exists(this.applicationDirectory + '/.gitignore')) {
+      this.fs.copy(this.sourceRoot() + '/../gitignore.txt', this.applicationDirectory + '/.gitignore');
+    }
 
     switch (this.type) {
 
       case 'empty':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        this.template(this.sourceRoot() + '/Startup.cs', this.applicationDirectory + '/Startup.cs', this.templatedata);
 
-        this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationDirectory + '/project.json', this.templatedata);
 
-        this.template(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
-
-        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
+        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationDirectory + '/Dockerfile');
 
         /// wwwroot
-        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationDirectory + '/wwwroot');
         break;
 
       case 'webapi':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-        this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
-        this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
-        this.fs.copy(this.sourceRoot() + '/Properties', this.applicationName + '/Properties');
-        this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
-        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationDirectory + '/Dockerfile');
+        this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationDirectory + '/Startup.cs', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationDirectory + '/project.json', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/Properties', this.applicationDirectory + '/Properties');
+        this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationDirectory + '/Controllers/ValuesController.cs', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/wwwroot', this.applicationDirectory + '/wwwroot');
         break;
 
       case 'web':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // Grunt or Gulp
         if (this.options.grunt) {
-          this.fs.copyTpl(this.templatePath('Gruntfile.js'), this.applicationName + '/Gruntfile.js', this.templatedata);
+          this.fs.copyTpl(this.templatePath('Gruntfile.js'), this.applicationDirectory + '/Gruntfile.js', this.templatedata);
         } else {
-          this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
+          this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationDirectory + '/gulpfile.js', this.templatedata);
         }
         // individual files (configs, etc)
-        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
-        this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
-        this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-        this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
-        this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
-        this.fs.copyTpl(this.templatePath('package.json'), this.applicationName + '/package.json', this.templatedata);
-        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
-        this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
-        this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationName + '/Startup.cs', this.templatedata);
+        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationDirectory + '/Dockerfile');
+        this.fs.copy(this.templatePath('.bowerrc'), this.applicationDirectory + '/.bowerrc');
+        this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationDirectory + '/appsettings.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('bower.json'), this.applicationDirectory + '/bower.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('package.json'), this.applicationDirectory + '/package.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('project.json'), this.applicationDirectory + '/project.json', this.templatedata);
+        this.fs.copy(this.templatePath('README.md'), this.applicationDirectory + '/README.md');
+        this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationDirectory + '/Startup.cs', this.templatedata);
         // Controllers
-        this.fs.copyTpl(this.templatePath('Controllers/AccountController.cs'), this.applicationName + '/Controllers/AccountController.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Controllers/ManageController.cs'), this.applicationName + '/Controllers/ManageController.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Controllers/AccountController.cs'), this.applicationDirectory + '/Controllers/AccountController.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationDirectory + '/Controllers/HomeController.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Controllers/ManageController.cs'), this.applicationDirectory + '/Controllers/ManageController.cs', this.templatedata);
         // Migrations
-        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_Initial.Designer.cs'), this.applicationName + '/Migrations/00000000000000_Initial.Designer.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_Initial.cs'), this.applicationName + '/Migrations/00000000000000_Initial.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Migrations/ApplicationDbContextModelSnapshot.cs'), this.applicationName + '/Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_Initial.Designer.cs'), this.applicationDirectory + '/Migrations/00000000000000_Initial.Designer.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_Initial.cs'), this.applicationDirectory + '/Migrations/00000000000000_Initial.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Migrations/ApplicationDbContextModelSnapshot.cs'), this.applicationDirectory + '/Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
         // Models
-        this.fs.copyTpl(this.templatePath('Models/ApplicationDbContext.cs'), this.applicationName + '/Models/ApplicationDbContext.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Models/ApplicationUser.cs'), this.applicationName + '/Models/ApplicationUser.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Models/ApplicationDbContext.cs'), this.applicationDirectory + '/Models/ApplicationDbContext.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Models/ApplicationUser.cs'), this.applicationDirectory + '/Models/ApplicationUser.cs', this.templatedata);
         // Services
-        this.fs.copyTpl(this.templatePath('Services/IEmailSender.cs'), this.applicationName + '/Services/IEmailSender.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Services/ISmsSender.cs'), this.applicationName + '/Services/ISmsSender.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Services/MessageServices.cs'), this.applicationName + '/Services/MessageServices.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Services/IEmailSender.cs'), this.applicationDirectory + '/Services/IEmailSender.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Services/ISmsSender.cs'), this.applicationDirectory + '/Services/ISmsSender.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Services/MessageServices.cs'), this.applicationDirectory + '/Services/MessageServices.cs', this.templatedata);
         // ViewModels
-        this.fs.copyTpl(this.templatePath('ViewModels/**/*'), this.applicationName + '/ViewModels', this.templatedata);
+        this.fs.copyTpl(this.templatePath('ViewModels/**/*'), this.applicationDirectory + '/ViewModels', this.templatedata);
         // Views
-        this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationDirectory + '/Views', this.templatedata);
         // wwwroot - the content in the wwwroot does not include any direct references or imports
         // So again it is copied 1-to-1 - but tests cover list of all files
-        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationDirectory + '/wwwroot');
         break;
       case 'webbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // Grunt or Gulp
         if (this.options.grunt) {
-          this.fs.copyTpl(this.templatePath('Gruntfile.js'), this.applicationName + '/Gruntfile.js', this.templatedata);
+          this.fs.copyTpl(this.templatePath('Gruntfile.js'), this.applicationDirectory + '/Gruntfile.js', this.templatedata);
         } else {
-          this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
+          this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationDirectory + '/gulpfile.js', this.templatedata);
         }
         // individual files (configs, etc)
-        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
-        this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
-        this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-        this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
-        this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
-        this.fs.copyTpl(this.templatePath('package.json'), this.applicationName + '/package.json', this.templatedata);
-        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
-        this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
-        this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationName + '/Startup.cs', this.templatedata);
+        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationDirectory + '/Dockerfile');
+        this.fs.copy(this.templatePath('.bowerrc'), this.applicationDirectory + '/.bowerrc');
+        this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationDirectory + '/appsettings.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('bower.json'), this.applicationDirectory + '/bower.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('package.json'), this.applicationDirectory + '/package.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('project.json'), this.applicationDirectory + '/project.json', this.templatedata);
+        this.fs.copy(this.templatePath('README.md'), this.applicationDirectory + '/README.md');
+        this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationDirectory + '/Startup.cs', this.templatedata);
         // Controllers
-        this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationDirectory + '/Controllers/HomeController.cs', this.templatedata);
         // Views
-        this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationDirectory + '/Views', this.templatedata);
         // wwwroot - the content in the wwwroot does not include any direct references or imports
         // So again it is copied 1-to-1 - but tests cover list of all files
-        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationDirectory + '/wwwroot');
         break;
       case 'nancy':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        this.template(this.sourceRoot() + '/Startup.cs', this.applicationDirectory + '/Startup.cs', this.templatedata);
 
-        this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationDirectory + '/project.json', this.templatedata);
 
-        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
-
-        this.template(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
+        this.template(this.sourceRoot() + '/homemodule.cs', this.applicationDirectory + '/HomeModule.cs', this.templatedata);
 
         break;
       case 'console':
         this.sourceRoot(path.join(__dirname, '../templates/projects/console'));
-        this.fs.copy(path.join(__dirname, '../templates/gitignore.txt'), this.applicationName + '/.gitignore');
-        this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationDirectory + '/Program.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('project.json'), this.applicationDirectory + '/project.json', this.templatedata);
 
         break;
       case 'classlib':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        this.template(this.sourceRoot() + '/class.cs', this.applicationDirectory + '/Class1.cs', this.templatedata);
 
-        this.template(this.sourceRoot() + '/class.cs', this.applicationName + '/Class1.cs', this.templatedata);
-
-        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationDirectory + '/project.json', this.templatedata);
 
         break;
       case 'unittest':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-        this.fs.copyTpl(this.templatePath('**.*'), this.destinationPath(this.applicationName), this.templatedata);
+        this.fs.copyTpl(this.templatePath('**.*'), this.destinationPath(this.applicationDirectory), this.templatedata);
         break;
       default:
         this.log('Unknown project type');
@@ -249,9 +395,19 @@ var AspnetGenerator = yeoman.generators.Base.extend({
   end: function() {
     this.log('\r\n');
     this.log('Your project is now created, you can use the following commands to get going');
-    this.log(chalk.green('    cd "' + this.applicationName + '"'));
-    this.log(chalk.green('    dnu restore'));
-    this.log(chalk.green('    dnu build') + ' (optional, build will also happen when it\'s run)');
+    if (this.projectStructure) {
+      this.log(chalk.green('    cd "' + this.solutionName + '/' + this.applicationDirectory + '"'));
+      this.log(chalk.green('    dnu restore'));
+      this.log(chalk.green('    dnu build') + ' (optional, build will also happen when it\'s run)');
+      this.log('\r\n');
+    } else {
+      this.log('\r\n');
+      this.log('Your project is now created, you can use the following commands to get going');
+      this.log(chalk.green('    cd "' + this.applicationName + '"'));
+      this.log(chalk.green('    dnu restore'));
+      this.log(chalk.green('    dnu build') + ' (optional, build will also happen when it\'s run)');
+      this.log('\r\n');
+    }
 
     switch (this.type) {
       case 'console':

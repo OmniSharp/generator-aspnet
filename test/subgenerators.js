@@ -126,7 +126,7 @@ describe('Subgenerators with named arguments tests', function() {
 
     var arg = 'HomeController';
     var filename = 'HomeController.js';
-    console.log(arg, dir);
+    
     util.goCreateWithArgs('AngularController', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
@@ -148,7 +148,7 @@ describe('Subgenerators with named arguments tests', function() {
 
     var arg = 'HomeController';
     var filename = 'HomeController.js';
-    console.log(arg, dir);
+
     util.goCreateWithArgs('AngularControllerAs', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /vm.title/);
@@ -170,7 +170,7 @@ describe('Subgenerators with named arguments tests', function() {
 
     var arg = 'HomeComponentDirective';
     var filename = 'HomeComponentDirective.js';
-    console.log(arg, dir);
+
     util.goCreateWithArgs('AngularDirective', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
@@ -192,7 +192,7 @@ describe('Subgenerators with named arguments tests', function() {
 
     var arg = 'MyService';
     var filename = 'MyService.js';
-    console.log(arg, dir);
+
     util.goCreateWithArgs('AngularFactory', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
@@ -214,7 +214,7 @@ describe('Subgenerators with named arguments tests', function() {
 
     var arg = 'MyApplication';
     var filename = 'MyApplication.js';
-    console.log(arg, dir);
+
     util.goCreateWithArgs('AngularModule', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /angular.module/);
@@ -237,7 +237,7 @@ describe('Subgenerators with named arguments tests', function() {
 
     var arg = 'MyClass';
     var filename = 'MyClass.cs';
-    console.log(arg, dir);
+
 
     util.goCreateWithArgs('Class', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
@@ -274,7 +274,7 @@ describe('Subgenerators with named arguments tests', function() {
 
     var arg = 'IContact';
     var filename = 'IContact.cs';
-    console.log(arg, dir);
+
     util.goCreateWithArgs('Interface', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
@@ -305,7 +305,7 @@ describe('Subgenerators with named arguments tests', function() {
 
     var arg = 'MyMiddleware';
     var filename = 'MyMiddleware.cs';
-    console.log(arg, dir);
+
 
     util.goCreateWithArgs('Middleware', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);

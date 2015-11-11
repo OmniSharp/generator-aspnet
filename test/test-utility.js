@@ -5,6 +5,7 @@ var util = (function() {
   var path = require('path');
   var os = require('os');
   var crypto = require('crypto');
+  var _ = require('lodash');
   var assert;
   var mockGen;
 
@@ -72,7 +73,7 @@ var util = (function() {
     });
   }
 
-  function goCreateApplication(type, applicationName, tempDir) {
+  function goCreateApplication(type, applicationName, tempDir, prompts) {
     before(function(done) {
 
       assert = yeoman.assert;
@@ -82,6 +83,8 @@ var util = (function() {
         type: type,
         applicationName: applicationName
       };
+
+      mockPrompt = _.defaults(mockPrompt, prompts || {}, { projectStructure: false });
 
       var ctx = mockGen.run(path.join(__dirname, '../app'))
         .withPrompts(mockPrompt);
@@ -93,9 +96,13 @@ var util = (function() {
       ctx.on('end', done);
     });
 
+    // Force the test to take on the solution directory
+    if (prompts && prompts.projectStructure) {
+      moveToSolutionDirectory();
+    }
   }
 
-  function goCreateApplicationWithOptions(type, applicationName, options) {
+  function goCreateApplicationWithOptions(type, applicationName, options, prompts) {
     before(function(done) {
 
       assert = yeoman.assert;
@@ -106,12 +113,42 @@ var util = (function() {
         applicationName: applicationName
       };
 
+      mockPrompt = _.defaults(mockPrompt, prompts || {}, { projectStructure: false });
+
       mockGen.run(path.join(__dirname, '../app'))
-        .withPrompts(mockPrompt)
         .withOptions(options)
+        .withPrompts(mockPrompt)
         .on('end', done);
     });
 
+    // Force the test to take on the solution directory
+    if (prompts && prompts.projectStructure) {
+      moveToSolutionDirectory();
+    }
+  }
+
+  function goCreateApplicationWithPrompts(type, applicationName, prompts) {
+    before(function(done) {
+
+      assert = yeoman.assert;
+      mockGen = yeoman.test;
+
+      var mockPrompt = {
+        type: type,
+        applicationName: applicationName
+      };
+
+      mockPrompt = _.defaults(mockPrompt, prompts || {}, { projectStructure: false });
+
+      mockGen.run(path.join(__dirname, '../app'))
+        .withPrompts(mockPrompt)
+        .on('end', done);
+    });
+
+    // Force the test to take on the solution directory
+    if (prompts && prompts.projectStructure) {
+      moveToSolutionDirectory();
+    }
   }
 
   function dirsCheck(dirs) {
@@ -122,18 +159,13 @@ var util = (function() {
           assert.file(dirs[i]);
         });
       }
-
     });
-
   }
 
   function filesCheck(file) {
-
-
     it(file + ' created.', function() {
       assert.file(file);
     });
-
   }
 
   function dirCheck(message, dir) {
@@ -158,10 +190,22 @@ var util = (function() {
     });
   }
 
+  function moveToSolutionDirectory(callback) {
+    var directory;
+    before(function() {
+      directory = process.cwd();
+      process.chdir(path.resolve(directory, '..'));
+    });
+    after(function() {
+      process.chdir(directory);
+    });
+  }
+
 
   var methods = {
     goCreateApplication: goCreateApplication,
     goCreateApplicationWithOptions: goCreateApplicationWithOptions,
+    goCreateApplicationWithPrompts: goCreateApplicationWithPrompts,
     goCreate: goCreate,
     goCreateWithArgs: goCreateWithArgs,
     fileCheck: fileCheck,
@@ -169,7 +213,8 @@ var util = (function() {
     dirCheck: dirCheck,
     dirsCheck: dirsCheck,
     fileContentCheck: fileContentCheck,
-    makeTempDir: makeTempDir
+    makeTempDir: makeTempDir,
+    moveToSolutionDirectory: moveToSolutionDirectory
   };
 
   return methods;
