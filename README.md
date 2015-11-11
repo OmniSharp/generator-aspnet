@@ -467,7 +467,7 @@ Produces `/ContactView.cshtml`
 
 ### nuget
 
-Creates a new `NuGet.config` file
+Creates a new `nuget.config` file
 
 Example:
 
@@ -475,7 +475,7 @@ Example:
 yo aspnet:nuget
 ```
 
-Produces `NuGet.config`
+Produces `nuget.config`
 
 [Return to top](#top)
 
