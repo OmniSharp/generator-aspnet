@@ -92,14 +92,14 @@ describe('Subgenerators without arguments tests', function() {
 
   describe('aspnet:nuget', function() {
     util.goCreate('nuget');
-    var filename = 'NuGet.config';
+    var filename = 'nuget.config';
     util.fileCheck('should create NuGet configuration file', filename);
     util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
   });
 
   describe('aspnet:nuget', function() {
     util.goCreate('nuget');
-    var filename = 'NuGet.config';
+    var filename = 'nuget.config';
     util.fileCheck('should create NuGet configuration file', filename);
     util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
   });
