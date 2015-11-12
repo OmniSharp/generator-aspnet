@@ -1,6 +1,6 @@
 {
   "name": "generator-aspnet",
-  "version": "0.0.75",
+  "version": "0.0.81",
   "description": "Yeoman generator for ASP.NET 5 apps",
   "license": "Apache-2.0",
   "main": "app/index.js",
@@ -47,7 +47,7 @@
     "dnx"
   ],
   "dependencies": {
-    "chai": "^1.10.0",
+    "chai": "^3.3.0",
     "chalk": "^1.0.0",
     "findup-sync": "^0.3.0",
     "uuid": "^2.0.1",
@@ -56,7 +56,7 @@
     "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "mocha": "^2.2.1"
+    "mocha": "^2.3.3"
   },
   "scripts": {
     "test": "mocha"

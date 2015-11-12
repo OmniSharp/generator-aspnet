@@ -25,7 +25,7 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:Gulpfile', function() {
     util.goCreate('Gulpfile');
     util.fileCheck('should create gulp file', 'gulpfile.js');
-    util.fileContentCheck('gulpfile.js', 'file content check', /gulp\.task\('default'/);
+    util.fileContentCheck('gulpfile.js', 'file content check', /gulp\.task\("default"/);
   });
 
   describe('aspnet:Gruntfile', function() {
@@ -50,9 +50,9 @@ describe('Subgenerators without arguments tests', function() {
     util.fileContentCheck('bower.json', 'file content check', '"name": "emptyTest"');
   });
 
-  describe('aspnet:Config', function() {
-    util.goCreate('Config');
-    util.fileCheck('should create config json file', 'config.json');
+  describe('aspnet:AppSettings', function() {
+    util.goCreate('AppSettings');
+    util.fileCheck('should create appsettings json file', 'appsettings.json');
   });
 
   describe('aspnet:StartupClass', function() {
@@ -92,14 +92,14 @@ describe('Subgenerators without arguments tests', function() {
 
   describe('aspnet:nuget', function() {
     util.goCreate('nuget');
-    var filename = 'nuget.config';
+    var filename = 'NuGet.config';
     util.fileCheck('should create NuGet configuration file', filename);
     util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
   });
 
   describe('aspnet:nuget', function() {
     util.goCreate('nuget');
-    var filename = 'nuget.config';
+    var filename = 'NuGet.config';
     util.fileCheck('should create NuGet configuration file', filename);
     util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
   });

@@ -255,7 +255,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
     switch (this.type) {
       case 'console':
-        this.log(chalk.green('    dnx ConsoleApplication'));
+        this.log(chalk.green('    dnx ' + this.templatedata.namespace));
         break;
       case 'empty':
       case 'nancy':

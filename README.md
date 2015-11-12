@@ -20,7 +20,7 @@ Yeoman generator for ASP.NET 5 projects
 
 * `yo aspnet` shows a wizard for generating a new ASP.NET app
 
-* `yo aspnet --grunt` generates Gruntfile.js files for **web** template instead of gulp.js
+* `yo aspnet --grunt` generates `Gruntfile.js` files for **web** templates instead of `gulpfile.js`
 
 * `yo aspnet --help` shows flags and other configurable options
 
@@ -69,10 +69,10 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:AngularDirective](#angulardirective)
 * [aspnet:AngularFactory](#angularfactory)
 * [aspnet:AngularModule](#angularmodule)
+* [aspnet:AppSettings](#appsettings)
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:Class](#class)
 * [aspnet:CoffeeScript](#coffeescript)
-* [aspnet:Config](#config)
 * [aspnet:Dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:Gruntfile](#gruntfile)
@@ -169,6 +169,20 @@ Produces `filename.js`
 
 [Return to top](#top)
 
+### AppSettings
+
+Creates a new appsettings.json file
+
+Example:
+
+```
+yo aspnet:AppSettings
+```
+
+Produces `appsettings.json`
+
+[Return to top](#top)
+
 ### BowerJson
 
 Creates a new `bower.json` and configuration file.
@@ -223,20 +237,6 @@ Produces `filename.coffee`
 
 [Return to top](#top)
 
-### Config
-
-Creates a new config.json file
-
-Example:
-
-```
-yo aspnet:Config
-```
-
-Produces `config.json`
-
-[Return to top](#top)
-
 ### Dockerfile
 
 Creates a new Docker configuration file
@@ -251,6 +251,7 @@ Creates a new `Dockerfile`
 Are you curious about Docker, Linux containers and ASP.NET 5 Docker image and all these buzz words?
 - [Docker image for ASP.NET 5 (Docker Hub)](https://hub.docker.com/r/microsoft/aspnet/)
 - [Running ASP.NET 5 applications in Linux Containers with Docker (MSDN)](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
+- [ASP.NET 5 : Continuous Integration with Travis-CI, Tutum, Docker, Webhooks and Azure [Advanced]](http://tattoocoder.com/asp-net-5-continuous-integration-with-travis-ci-tutum-docker-webhooks-and-azure/)
 
 [Return to top](#top)
 
@@ -268,20 +269,6 @@ Produces `.gitignore`
 
 [Return to top](#top)
 
-### Gulpfile
-
-Creates a new Gulp file
-
-Example:
-
-```
-yo aspnet:Gulpfile
-```
-
-Produces `gulpfile.js`
-
-[Return to top](#top)
-
 ### Gruntfile
 
 Creates a new `Grunt` file
@@ -293,6 +280,20 @@ yo aspnet:Gruntfile
 ```
 
 Produces `Gruntfile.js`
+
+[Return to top](#top)
+
+### Gulpfile
+
+Creates a new Gulp file
+
+Example:
+
+```
+yo aspnet:Gulpfile
+```
+
+Produces `gulpfile.js`
 
 [Return to top](#top)
 
@@ -466,7 +467,7 @@ Produces `/ContactView.cshtml`
 
 ### nuget
 
-Creates a new `nuget.config` file
+Creates a new `NuGet.config` file
 
 Example:
 
@@ -474,7 +475,7 @@ Example:
 yo aspnet:nuget
 ```
 
-Produces `nuget.config`
+Produces `NuGet.config`
 
 [Return to top](#top)
 

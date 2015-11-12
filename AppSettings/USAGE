@@ -1,0 +1,8 @@
+Description:
+	Creates a new appsettings.json file
+
+Example:
+	yo aspnet:AppSettings
+
+	This will create:
+		appsettings.json
