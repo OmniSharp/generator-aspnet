@@ -1,5 +1,6 @@
 {
   "webroot": "wwwroot",
+  "userSecretsId": "aspnet5-<%= namespace %>-<%= guid %>",
   "version": "1.0.0-*",
   "tooling": {
     "defaultNamespace": "<%= namespace %>"
@@ -14,6 +15,7 @@
     "Microsoft.AspNet.StaticFiles": "1.0.0-beta8",
     "Microsoft.AspNet.Tooling.Razor": "1.0.0-beta8",
     "Microsoft.Framework.Configuration.Json": "1.0.0-beta8",
+    "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta8",
     "Microsoft.Framework.Logging": "1.0.0-beta8",
     "Microsoft.Framework.Logging.Console": "1.0.0-beta8",
     "Microsoft.Framework.Logging.Debug" : "1.0.0-beta8"
