@@ -1,13 +1,15 @@
 {
-  "webroot": "wwwroot",
   "version": "1.0.0-*",
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
   "tooling": {
     "defaultNamespace": "<%= namespace %>"
   },
 
   "dependencies": {
-    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-beta8",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta8"
+    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-*",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-*"
   },
 
   "commands": {
@@ -21,8 +23,7 @@
 
   "exclude": [
     "wwwroot",
-    "node_modules",
-    "bower_components"
+    "node_modules"
   ],
   "publishExclude": [
     "**.user",
