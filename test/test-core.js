@@ -486,6 +486,7 @@ describe('aspnet - Web API Application', function() {
 
   var files = [
     'webAPITest/Controllers/ValuesController.cs',
+    'webAPITest/appsettings.json',
     'webAPITest/project.json',
     'webAPITest/Properties/launchSettings.json',
     'webAPITest/Startup.cs',
