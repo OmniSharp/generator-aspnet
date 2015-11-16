@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Data.Entity.Metadata;
@@ -13,7 +16,8 @@ namespace <%= namespace %>.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .Annotation("ProductVersion", "7.0.0-beta8-15868");
+                .HasAnnotation("ProductVersion", "7.0.0-beta8")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRole", b =>
                 {
@@ -23,17 +27,17 @@ namespace <%= namespace %>.Migrations
                         .IsConcurrencyToken();
 
                     b.Property<string>("Name")
-                        .Annotation("MaxLength", 256);
+                        .HasAnnotation("MaxLength", 256);
 
                     b.Property<string>("NormalizedName")
-                        .Annotation("MaxLength", 256);
+                        .HasAnnotation("MaxLength", 256);
 
                     b.HasKey("Id");
 
-                    b.Index("NormalizedName")
-                        .Annotation("Relational:Name", "RoleNameIndex");
+                    b.HasIndex("NormalizedName")
+                        .HasAnnotation("Relational:Name", "RoleNameIndex");
 
-                    b.Annotation("Relational:TableName", "AspNetRoles");
+                    b.HasAnnotation("Relational:TableName", "AspNetRoles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
@@ -49,7 +53,7 @@ namespace <%= namespace %>.Migrations
 
                     b.HasKey("Id");
 
-                    b.Annotation("Relational:TableName", "AspNetRoleClaims");
+                    b.HasAnnotation("Relational:TableName", "AspNetRoleClaims");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim<string>", b =>
@@ -65,7 +69,7 @@ namespace <%= namespace %>.Migrations
 
                     b.HasKey("Id");
 
-                    b.Annotation("Relational:TableName", "AspNetUserClaims");
+                    b.HasAnnotation("Relational:TableName", "AspNetUserClaims");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin<string>", b =>
@@ -80,7 +84,7 @@ namespace <%= namespace %>.Migrations
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
-                    b.Annotation("Relational:TableName", "AspNetUserLogins");
+                    b.HasAnnotation("Relational:TableName", "AspNetUserLogins");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole<string>", b =>
@@ -91,7 +95,7 @@ namespace <%= namespace %>.Migrations
 
                     b.HasKey("UserId", "RoleId");
 
-                    b.Annotation("Relational:TableName", "AspNetUserRoles");
+                    b.HasAnnotation("Relational:TableName", "AspNetUserRoles");
                 });
 
             modelBuilder.Entity("<%= namespace %>.Models.ApplicationUser", b =>
@@ -104,7 +108,7 @@ namespace <%= namespace %>.Migrations
                         .IsConcurrencyToken();
 
                     b.Property<string>("Email")
-                        .Annotation("MaxLength", 256);
+                        .HasAnnotation("MaxLength", 256);
 
                     b.Property<bool>("EmailConfirmed");
 
@@ -113,10 +117,10 @@ namespace <%= namespace %>.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
                     b.Property<string>("NormalizedEmail")
-                        .Annotation("MaxLength", 256);
+                        .HasAnnotation("MaxLength", 256);
 
                     b.Property<string>("NormalizedUserName")
-                        .Annotation("MaxLength", 256);
+                        .HasAnnotation("MaxLength", 256);
 
                     b.Property<string>("PasswordHash");
 
@@ -129,49 +133,49 @@ namespace <%= namespace %>.Migrations
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
-                        .Annotation("MaxLength", 256);
+                        .HasAnnotation("MaxLength", 256);
 
                     b.HasKey("Id");
 
-                    b.Index("NormalizedEmail")
-                        .Annotation("Relational:Name", "EmailIndex");
+                    b.HasIndex("NormalizedEmail")
+                        .HasAnnotation("Relational:Name", "EmailIndex");
 
-                    b.Index("NormalizedUserName")
-                        .Annotation("Relational:Name", "UserNameIndex");
+                    b.HasIndex("NormalizedUserName")
+                        .HasAnnotation("Relational:Name", "UserNameIndex");
 
-                    b.Annotation("Relational:TableName", "AspNetUsers");
+                    b.HasAnnotation("Relational:TableName", "AspNetUsers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
                         .WithMany()
-                        .ForeignKey("RoleId");
+                        .HasForeignKey("RoleId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim<string>", b =>
                 {
                     b.HasOne("<%= namespace %>.Models.ApplicationUser")
                         .WithMany()
-                        .ForeignKey("UserId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin<string>", b =>
                 {
                     b.HasOne("<%= namespace %>.Models.ApplicationUser")
                         .WithMany()
-                        .ForeignKey("UserId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
                         .WithMany()
-                        .ForeignKey("RoleId");
+                        .HasForeignKey("RoleId");
 
                     b.HasOne("<%= namespace %>.Models.ApplicationUser")
                         .WithMany()
-                        .ForeignKey("UserId");
+                        .HasForeignKey("UserId");
                 });
         }
     }

@@ -164,8 +164,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('Controllers/ManageController.cs'), this.applicationName + '/Controllers/ManageController.cs', this.templatedata);
         // Migrations
-        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_Initial.Designer.cs'), this.applicationName + '/Migrations/00000000000000_Initial.Designer.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_Initial.cs'), this.applicationName + '/Migrations/00000000000000_Initial.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_CreateIdentitySchema.Designer.cs'), this.applicationName + '/Migrations/00000000000000_CreateIdentitySchema.Designer.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_CreateIdentitySchema.cs'), this.applicationName + '/Migrations/00000000000000_CreateIdentitySchema.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('Migrations/ApplicationDbContextModelSnapshot.cs'), this.applicationName + '/Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
         // Models
         this.fs.copyTpl(this.templatePath('Models/ApplicationDbContext.cs'), this.applicationName + '/Models/ApplicationDbContext.cs', this.templatedata);

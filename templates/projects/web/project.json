@@ -1,34 +1,34 @@
 {
-  "webroot": "wwwroot",
-  "userSecretsId": "aspnet5-<%= namespace %>-<%= guid %>",
   "version": "1.0.0-*",
+  "userSecretsId": "aspnet5-<%= namespace %>-<%= guid %>",
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
   "tooling": {
     "defaultNamespace": "<%= namespace %>"
   },
 
   "dependencies": {
-    "EntityFramework.Commands": "7.0.0-beta8",
-    "EntityFramework.SQLite": "7.0.0-beta8",
-    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-beta8",
-    "Microsoft.AspNet.Authentication.Facebook": "1.0.0-beta8",
-    "Microsoft.AspNet.Authentication.Google": "1.0.0-beta8",
-    "Microsoft.AspNet.Authentication.MicrosoftAccount": "1.0.0-beta8",
-    "Microsoft.AspNet.Authentication.Twitter": "1.0.0-beta8",
-    "Microsoft.AspNet.Diagnostics": "1.0.0-beta8",
-    "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta8",
-    "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-beta8",
-    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-beta8",
-    "Microsoft.AspNet.Mvc": "6.0.0-beta8",
-    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta8",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta8",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-beta8",
-    "Microsoft.AspNet.Tooling.Razor": "1.0.0-beta8",
-    "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta8",
-    "Microsoft.Framework.Configuration.Json": "1.0.0-beta8",
-    "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta8",
-    "Microsoft.Framework.Logging": "1.0.0-beta8",
-    "Microsoft.Framework.Logging.Console": "1.0.0-beta8",
-    "Microsoft.Framework.Logging.Debug" : "1.0.0-beta8"
+    "EntityFramework.Commands": "7.0.0-rc1-*",
+    "EntityFramework.SQLite": "7.0.0-rc1-*",
+    "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-*",
+    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-rc1-*",
+    "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-rc1-*",
+    "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-*",
+    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-*",
+    "Microsoft.AspNet.Mvc": "6.0.0-rc1-*",
+    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-*",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-*",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-*",
+    "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-*",
+    "Microsoft.Dnx.Runtime":"1.0.0-rc1-*",
+    "Microsoft.Extensions.CodeGenerators.Mvc": "1.0.0-rc1-*",
+    "Microsoft.Extensions.Configuration.FileProviderExtensions" : "1.0.0-rc1-*",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-*",
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc1-*",
+    "Microsoft.Extensions.Logging": "1.0.0-rc1-*",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-*",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-*"
   },
 
   "commands": {
