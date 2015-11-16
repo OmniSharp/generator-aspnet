@@ -441,12 +441,14 @@ describe('aspnet - Web Application Basic', function() {
     'webTest/Views/Shared/_Layout.cshtml',
     'webTest/Views/Shared/Error.cshtml',
     'webTest/wwwroot/css/site.css',
+    'webTest/wwwroot/css/site.min.css',
     'webTest/wwwroot/favicon.ico',
     'webTest/wwwroot/images/ASP-NET-Banners-01.png',
     'webTest/wwwroot/images/ASP-NET-Banners-02.png',
     'webTest/wwwroot/images/Banner-01-Azure.png',
     'webTest/wwwroot/images/Banner-02-VS.png',
     'webTest/wwwroot/js/site.js',
+    'webTest/wwwroot/js/site.min.js',
     'webTest/wwwroot/web.config'
   ];
   describe('Checking files', function() {
