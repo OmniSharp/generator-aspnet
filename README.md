@@ -11,7 +11,7 @@ Yeoman generator for ASP.NET 5 projects
 ## Getting Started
 
 - Dependencies:
-    - node.js: `brew install node` for OSX, `choco install nodejs` for Windows
+    - Node.js: `brew install node` for Mac OS X, `choco install nodejs` for Windows OS
     - Yeoman: `npm install -g yo`
 - Install: `npm install -g generator-aspnet`
 - Run: `yo aspnet`
@@ -37,8 +37,9 @@ Full, template based projects available in generator:
 - Class Library
 - Unit Test project
 
-The Empty Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application are based on the new templates recently introduced with Visual Studio 2015 RC release, with updates for `beta5`. You can read about these new templates on the blog post accompanying the `beta5` release:
-[Updates to ASP.NET 5 yeoman generators for beta 5](http://blogs.msdn.com/b/webdev/archive/2015/07/04/updates-to-asp-net-5-yeoman-generators-for-beta-5.aspx)
+The Empty Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
+
+> ASP.NET Templates provide project templates which are used in Visual Studio for creating ASP.NET 5 applications.
 
 The Nancy project is based on framework's "Hello World" template:
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
@@ -48,17 +49,9 @@ The [Docker](https://www.docker.com/) support with `Dockerfile` configuration fi
 ## Related yeoman generators
 
 The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET 5 (_DNX_) projects
-and files in Visual Studio 2015. Below are some other related generators that you may be interested in.
+and files in Visual Studio 2015.
 
-### `generator-csharp`
-
-[`generator-csharp`](https://github.com/OmniSharp/generator-csharp) is a work in progress but is available for you to try out today. The goal of [`generator-csharp`](https://github.com/OmniSharp/generator-csharp) is to provide an experience consistent with creating C# projects (_MSBuild based, not DNX_) and files in Visual Studio 2015.
-
-### `generator-aspnet-xtianus`
-
-[`generator-aspnet-xtianus`](https://github.com/xtianus79/generator-aspnet) is an extension of OmniSharp/generator-aspnet that comes with a special Foundation 5 SASS/SCSS framework ready out of the box with wiredep & other grunt tasks for advanced front-end development. Look for => [`Starter Web Application - Foundation 5`](https://github.com/xtianus79/generator-aspnet/blob/master/templates/projects/foundation5/README.md). The other goal of this generator is to provide alternative templates to the traditional ASP.NET Visual Studio templates. More templates will become housed under this fork in the near future.  Feel free to participate and learn more about [`generator-aspnet-xtianus](https://github.com/xtianus79/generator-aspnet).
-
-If you are working on a related generator please [open an issue](https://github.com/OmniSharp/generator-aspnet/issues/new) to let us know about it so that we can add it to the list.
+The list of related generators [can be seen on our Wiki section](https://github.com/OmniSharp/generator-aspnet/wiki#related-yeoman-generators)
 
 ## Sub Generators
 
