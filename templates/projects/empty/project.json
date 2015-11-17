@@ -8,8 +8,8 @@
   },
 
   "dependencies": {
-    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-*",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-*"
+    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final"
   },
 
   "commands": {
