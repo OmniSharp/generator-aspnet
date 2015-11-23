@@ -460,15 +460,16 @@ Produces `/ContactView.cshtml`
 
 ### nuget
 
-Creates a new `NuGet.config` file
+Creates a new `NuGet.config` file. The support for unstable development
+feed is provided by `--unstable` option.
 
 Example:
 
 ```
-yo aspnet:nuget
+yo aspnet:nuget --unstable
 ```
 
-Produces `NuGet.config`
+Produces `NuGet.config` with unstable NuGet feed
 
 [Return to top](#top)
 

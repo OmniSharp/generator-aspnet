@@ -9,5 +9,11 @@ var Generator = module.exports = function Generator() {
 util.inherits(Generator, ScriptBase);
 
 Generator.prototype.createItem = function() {
-  this.generateStandardFile('_nuget.config', 'NuGet.config');
+  // supports unstable feed via optional --unstable cli argument
+  this.generateTemplateFile(
+    '_nuget.config',
+    'NuGet.config', {
+      unstable: (this.options.unstable ? this.options.unstable : false)
+    }
+  );
 };
