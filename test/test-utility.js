@@ -158,6 +158,19 @@ var util = (function() {
     });
   }
 
+  /**
+   * The opposite function: specific content cannot be found
+   * in a file assertion
+   * @param  {String} file
+   * @param  {String} message
+   * @param  {String} content
+   * @return {Boolean} true if condition is met
+   */
+  function noFileContentCheck(file, message, content) {
+    it(message, function() {
+      assert.noFileContent(file, content);
+    });
+  }
 
   var methods = {
     goCreateApplication: goCreateApplication,
@@ -169,6 +182,7 @@ var util = (function() {
     dirCheck: dirCheck,
     dirsCheck: dirsCheck,
     fileContentCheck: fileContentCheck,
+    noFileContentCheck: noFileContentCheck,
     makeTempDir: makeTempDir
   };
 
