@@ -105,6 +105,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       this.applicationName = props.applicationName;
       this.templatedata.guid = guid.v4();
       this.templatedata.grunt = this.options.grunt || false;
+      this.templatedata.coreclr = this.options.coreclr || false;
       done();
     }.bind(this));
   },
@@ -123,7 +124,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.template(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
 
-        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
 
         /// wwwroot
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
@@ -133,7 +134,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.copy(this.sourceRoot() + '/appsettings.json', this.applicationName + '/appsettings.json');
-        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/Properties', this.applicationName + '/Properties');
@@ -150,7 +151,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
         }
         // individual files (configs, etc)
-        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
         this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
@@ -191,7 +192,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
         }
         // individual files (configs, etc)
-        this.copy(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile');
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
         this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);

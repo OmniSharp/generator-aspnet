@@ -232,7 +232,9 @@ Produces `filename.coffee`
 
 ### Dockerfile
 
-Creates a new Docker configuration file
+Creates a new Docker configuration file.
+By default `Mono` based definition file is created.
+To create `CoreCLR` based definition file use `--coreclr` option
 
 Example:
 ```

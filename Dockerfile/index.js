@@ -9,5 +9,11 @@ var Generator = module.exports = function Generator() {
 util.inherits(Generator, ScriptBase);
 
 Generator.prototype.createItem = function() {
-  this.generateStandardFile('Dockerfile.txt', 'Dockerfile');
+  // support CoreCLR runtime version of Docker image
+  // is provided by --coreclr option
+  this.generateTemplateFile(
+    'Dockerfile.txt', 
+    'Dockerfile', {
+      coreclr: (this.options.coreclr) ? this.options.coreclr : false
+  });
 };
