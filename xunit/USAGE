@@ -1,0 +1,8 @@
+Description:
+	Creates a new xUnit sample test file
+
+Example:
+	yo aspnet:xunit SampleTest
+
+	This will create:
+		SampleTest.cs
