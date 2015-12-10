@@ -55,8 +55,7 @@
       "npm install",
       "bower install",<% if(!grunt){ %>
       "gulp clean",
-      "gulp min"<% } %><% if(grunt){ %>
-      "grunt default"<% } %>
+      "gulp min"<% } %>
     ]
   }
 }
