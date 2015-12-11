@@ -53,7 +53,7 @@
   "scripts": {
     "prepublish": [
       "npm install",
-      "bower install",<% if(!grunt){ %>
+      "bower install"<% if(!grunt){ %>,
       "gulp clean",
       "gulp min"<% } %>
     ]
