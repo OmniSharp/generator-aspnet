@@ -91,6 +91,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:tfignore](#tfignore)
 * [aspnet:TypeScript](#typescript)
 * [aspnet:TypeScriptConfig](#typescriptconfig)
+* [aspnet:xunit](#xunit)
 * [aspnet:WebApiContoller](#webapicontroller)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
@@ -612,6 +613,20 @@ yo aspnet:TypeScriptConfig
 ```
 
 Produces `tsconfig.json`
+
+[Return to top](#top)
+
+### xunit
+
+Creates a new xUnit sample test file
+
+Example:
+
+```
+yo aspnet:xunit SampleTest
+```
+
+Produces `SampleTest.cs`
 
 [Return to top](#top)
 

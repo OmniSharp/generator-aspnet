@@ -439,6 +439,22 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
+  describe('aspnet:xunit', function() {
+    var arg = 'SampleTest';
+    var filename = 'SampleTest.cs';
+    util.goCreateWithArgs('xunit', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:xunit in cwd of project.json', function() {
+    var arg = 'SampleTest';
+    var filename = 'SampleTest.cs';
+    var dir = util.makeTempDir();
+    util.goCreateApplication('web', 'webTest', dir);
+    util.goCreateWithArgs('xunit', [arg], path.join(dir, 'webTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
   describe('aspnet:WebApiController', function() {
     var arg = 'file';
     var filename = 'file.cs';

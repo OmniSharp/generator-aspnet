@@ -37,4 +37,5 @@ Subgenerators:
   yo aspnet:tfignore [options]
   yo aspnet:TypeScript [options] <name>
   yo aspnet:TypeScriptConfig [options] <name>
+  yo aspnet:xunit [options] <name>
   yo aspnet:WebApiController [options] <name>
