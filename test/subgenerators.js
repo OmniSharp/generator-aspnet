@@ -438,6 +438,13 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('TypeScript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
+  
+  describe('aspnet:TypeScriptJSX', function() {
+    var arg = 'file';
+    var filename = 'file.tsx';
+    util.goCreateWithArgs('TypeScriptJSX', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });  
 
   describe('aspnet:WebApiController', function() {
     var arg = 'file';
