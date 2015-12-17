@@ -615,6 +615,20 @@ Produces `tsconfig.json`
 
 [Return to top](#top)
 
+### TypeScriptJSX
+
+Creates a new JSX-enabled TypeScript file
+
+Example:
+
+```
+yo aspnet:TypeScriptJSX filename
+```
+
+Produces `filename.tsx`
+
+[Return to top](#top)
+
 ### WebApiController
 
 Creates a new ASP.NET 5 WebApiController class
