@@ -694,7 +694,7 @@ namespace MyNamespace.Controllers
 
 ## License
 
-Copyright 2014-2015 OmniSharp
+Copyright 2014-2016 OmniSharp
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
