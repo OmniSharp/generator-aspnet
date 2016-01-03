@@ -1,0 +1,11 @@
+Description:
+  Adds UserSecrets information to ASP.NET5 project.json file
+  The generator do not update existing keys if found and does
+  not create new project.json file
+
+Example:
+	yo aspnet:UserSecrets
+
+	This will add following keys to project.json:
+    - "userSecretsId" key
+    - "Microsoft.Extensions.Configuration.UserSecrets" key under "dependencies"

@@ -50,12 +50,14 @@
     "chai": "^3.3.0",
     "chalk": "^1.0.0",
     "findup-sync": "^0.3.0",
+    "nconf": "^0.8.2",
     "uuid": "^2.0.1",
     "vs_projectname": "^1.0.0",
     "yeoman-generator": "^0.19.0",
     "yosay": "^1.0.0"
   },
   "devDependencies": {
+    "mkdirp": "^0.5.1",
     "mocha": "^2.3.3"
   },
   "scripts": {
