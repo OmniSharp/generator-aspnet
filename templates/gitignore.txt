@@ -156,6 +156,8 @@ publish/
 csx/
 *.build.csdef
 
+ecf/
+rcf/
 # Windows Store app package directory
 AppPackages/
 
