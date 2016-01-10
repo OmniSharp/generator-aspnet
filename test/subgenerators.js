@@ -132,10 +132,17 @@ describe('Subgenerators without arguments tests', function() {
  */
 describe('Subgenerators with named arguments tests', function() {
 
-  describe('aspnet:AngularController', function() {
+  describe('aspnet:AngularController without extension', function() {
     var arg = 'HomeController';
     var filename = 'HomeController.js';
     util.goCreateWithArgs('AngularController', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
+  });
+
+  describe('aspnet:AngularController with extension', function() {
+    var filename = 'HomeController.js';
+    util.goCreateWithArgs('AngularController', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
   });
@@ -154,10 +161,17 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
-  describe('aspnet:AngularControllerAs', function() {
+  describe('aspnet:AngularControllerAs without extension', function() {
     var arg = 'HomeController';
     var filename = 'HomeController.js';
     util.goCreateWithArgs('AngularControllerAs', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /vm.title/);
+  });
+
+  describe('aspnet:AngularControllerAs with extension', function() {
+    var filename = 'HomeController.js';
+    util.goCreateWithArgs('AngularControllerAs', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /vm.title/);
   });
@@ -176,10 +190,17 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
-  describe('aspnet:AngularDirective', function() {
+  describe('aspnet:AngularDirective without extension', function() {
     var arg = 'HomeComponentDirective';
     var filename = 'HomeComponentDirective.js';
     util.goCreateWithArgs('AngularDirective', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
+  });
+
+  describe('aspnet:AngularDirective with extension', function() {
+    var filename = 'HomeComponentDirective.js';
+    util.goCreateWithArgs('AngularDirective', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
   });
@@ -198,10 +219,17 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
-  describe('aspnet:AngularFactory', function() {
+  describe('aspnet:AngularFactory without extension', function() {
     var arg = 'MyService';
     var filename = 'MyService.js';
     util.goCreateWithArgs('AngularFactory', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
+  });
+
+  describe('aspnet:AngularFactory with extension', function() {
+    var filename = 'MyService.js';
+    util.goCreateWithArgs('AngularFactory', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
   });
@@ -220,10 +248,17 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
-  describe('aspnet:AngularModule', function() {
+  describe('aspnet:AngularModule without extension', function() {
     var arg = 'MyApplication';
     var filename = 'MyApplication.js';
     util.goCreateWithArgs('AngularModule', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /angular.module/);
+  });
+
+  describe('aspnet:AngularModule with extension', function() {
+    var filename = 'MyApplication.js';
+    util.goCreateWithArgs('AngularModule', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /angular.module/);
   });
@@ -242,11 +277,17 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\'');
   });
 
-  describe('aspnet:Class', function() {
+  describe('aspnet:Class without extension', function() {
     var arg = 'MyClass';
     var filename = 'MyClass.cs';
-
     util.goCreateWithArgs('Class', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyClass/);
+  });
+
+  describe('aspnet:Class with extension', function() {
+    var filename = 'MyClass.cs';
+    util.goCreateWithArgs('Class', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyClass/);
   });
@@ -266,24 +307,43 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
-  describe('aspnet:CoffeeScript', function() {
+  describe('aspnet:CoffeeScript without extension', function() {
     var arg = 'file';
     var filename = 'file.coffee';
     util.goCreateWithArgs('CoffeeScript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:HTMLPage', function() {
+  describe('aspnet:CoffeeScript with extension', function() {
+    var filename = 'file.coffee';
+    util.goCreateWithArgs('CoffeeScript', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:HTMLPage without extension', function() {
     var arg = 'mypage';
     var filename = 'mypage.html';
     util.goCreateWithArgs('HTMLPage', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:Interface', function() {
+  describe('aspnet:HTMLPage with extension', function() {
+    var filename = 'mypage.html';
+    util.goCreateWithArgs('HTMLPage', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:Interface without extension', function() {
     var arg = 'IContact';
     var filename = 'IContact.cs';
     util.goCreateWithArgs('Interface', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
+  });
+
+  describe('aspnet:Interface with extension', function() {
+    var filename = 'IContact.cs';
+    util.goCreateWithArgs('Interface', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
   });
@@ -302,7 +362,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
-  describe('aspnet:JSONSchema', function() {
+  describe('aspnet:JSONSchema without extension', function() {
     var arg = 'MySchema';
     var filename = 'MySchema.json';
     util.goCreateWithArgs('JSONSchema', [arg]);
@@ -310,11 +370,24 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /my MySchema JSON format/);
   });
 
-  describe('aspnet:Middleware', function() {
+  describe('aspnet:JSONSchema with extension', function() {
+    var filename = 'MySchema.json';
+    util.goCreateWithArgs('JSONSchema', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /my MySchema JSON format/);
+  });
+
+  describe('aspnet:Middleware without extension', function() {
     var arg = 'MyMiddleware';
     var filename = 'MyMiddleware.cs';
-
     util.goCreateWithArgs('Middleware', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
+  });
+
+  describe('aspnet:Middleware with extension', function() {
+    var filename = 'MyMiddleware.cs';
+    util.goCreateWithArgs('Middleware', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
   });
@@ -334,34 +407,57 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
-  describe('aspnet:JavaScript', function() {
+  describe('aspnet:JavaScript without extension', function() {
     var arg = 'file';
     var filename = 'file.js';
     util.goCreateWithArgs('JavaScript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:JSON', function() {
+  describe('aspnet:JavaScript with extension', function() {
+    var filename = 'file.js';
+    util.goCreateWithArgs('JavaScript', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:JSON without extension', function() {
     var arg = 'file';
     var filename = 'file.json';
     util.goCreateWithArgs('JSON', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:JSX', function() {
+  describe('aspnet:JSON with extension', function() {
+    var filename = 'file.json';
+    util.goCreateWithArgs('JSON', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:JSX without extension', function() {
     var arg = 'file';
     var filename = 'file.jsx';
     util.goCreateWithArgs('JSX', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:MvcController', function() {
+  describe('aspnet:JSX with extension', function() {
+    var arg = 'file';
+    var filename = 'file.jsx';
+    util.goCreateWithArgs('JSX', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:MvcController without extension', function() {
     var arg = 'file';
     var filename = 'file.cs';
-
     util.goCreateWithArgs('MvcController', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
+  });
 
+  describe('aspnet:MvcController with extension', function() {
+    var filename = 'file.cs';
+    util.goCreateWithArgs('MvcController', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
   });
 
   describe('aspnet:MvcController in cwd of project.json', function() {
@@ -375,13 +471,17 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create Controllers/' + filename + ' file', filename);
   });
 
-  describe('aspnet:MvcView', function() {
+  describe('aspnet:MvcView without extension', function() {
     var arg = 'file';
     var filename = 'file.cshtml';
-
     util.goCreateWithArgs('MvcView', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
+  });
 
+  describe('aspnet:MvcView with extension', function() {
+    var filename = 'file.cshtml';
+    util.goCreateWithArgs('MvcView', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
   });
 
   describe('aspnet:MvcView in cwd of project.json', function() {
@@ -394,7 +494,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create Views/' + filename + ' file', filename);
   });
 
-  describe('aspnet:Class', function() {
+  describe('aspnet:Class without extension', function() {
     var arg = 'CartTagHelper';
     var filename = 'CartTagHelper.cs';
     util.goCreateWithArgs('TagHelper', [arg]);
@@ -402,57 +502,102 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
   });
 
-  describe('aspnet:StyleSheetSCSS', function() {
+  describe('aspnet:Class with extension', function() {
+    var filename = 'CartTagHelper.cs';
+    util.goCreateWithArgs('TagHelper', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
+  });
+
+  describe('aspnet:StyleSheetSCSS without extension', function() {
     var arg = '_base';
     var filename = '_base.scss';
     util.goCreateWithArgs('StyleSheetSCSS', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:StyleSheet', function() {
+  describe('aspnet:StyleSheetSCSS with extension', function() {
+    var filename = '_base.scss';
+    util.goCreateWithArgs('StyleSheetSCSS', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:StyleSheet without extension', function() {
     var arg = 'style';
     var filename = 'style.css';
     util.goCreateWithArgs('StyleSheet', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:StyleSheetLess', function() {
+  describe('aspnet:StyleSheet with extension', function() {
+    var filename = 'style.css';
+    util.goCreateWithArgs('StyleSheet', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:StyleSheetLess without extension', function() {
     var arg = '_base';
     var filename = '_base.less';
     util.goCreateWithArgs('StyleSheetLess', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:TextFile', function() {
-    var arg = 'file';
-    var filename = 'file.txt';
-
-    util.goCreateWithArgs('TextFile', [arg]);
+  describe('aspnet:StyleSheetLess with extension', function() {
+    var filename = '_base.less';
+    util.goCreateWithArgs('StyleSheetLess', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
-
   });
 
-  describe('aspnet:TypeScript', function() {
+  describe('aspnet:TextFile without extension', function() {
+    var arg = 'file';
+    var filename = 'file.txt';
+    util.goCreateWithArgs('TextFile', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:TextFile with extension', function() {
+    var filename = 'file.txt';
+    util.goCreateWithArgs('TextFile', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:TypeScript without extension', function() {
     var arg = 'file';
     var filename = 'file.ts';
     util.goCreateWithArgs('TypeScript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:TypeScriptJSX', function() {
+  describe('aspnet:TypeScript with extension', function() {
+    var filename = 'file.ts';
+    util.goCreateWithArgs('TypeScript', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:TypeScriptJSX without extension', function() {
     var arg = 'file';
     var filename = 'file.tsx';
     util.goCreateWithArgs('TypeScriptJSX', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:WebApiController', function() {
+  describe('aspnet:TypeScriptJSX with extension', function() {
+    var filename = 'file.tsx';
+    util.goCreateWithArgs('TypeScriptJSX', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:WebApiController without extension', function() {
     var arg = 'file';
     var filename = 'file.cs';
-
     util.goCreateWithArgs('WebApiController', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
+  });
 
+  describe('aspnet:WebApiController with extension', function() {
+    var filename = 'file.cs';
+    util.goCreateWithArgs('WebApiController', [filename]);
+    util.fileCheck('should create ' + filename + ' file', filename);
   });
 
   describe('aspnet:WebApiController in cwd of project.json', function() {
@@ -464,5 +609,41 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('WebApiController', [arg], path.join(dir, 'webTest'));
 
     util.fileCheck('should create Controllers/' + filename + ' file', filename);
+  });
+
+  // now some tests to check if we correctly handle using named subgenerators
+  // with commonly used scenario: having config.default.json or config.default
+  // lets create config.default.json.txt and config.default.txt
+  describe('aspnet:TextFile creates config.default.json.txt from config.default.json', function() {
+    var arg = 'config.default.json';
+    var filename = 'config.default.json.txt';
+    util.goCreateWithArgs('TextFile', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+  describe('aspnet:TextFile creates config.default.txt from config.default', function() {
+    var arg = 'config.default';
+    var filename = 'config.default.txt';
+    util.goCreateWithArgs('TextFile', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  // now some test for development/stating/production config.json
+  describe('aspnet:TextFile creates config.development.json from config.development', function() {
+    var arg = 'config.development';
+    var filename = 'config.development.json';
+    util.goCreateWithArgs('JSON', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+  describe('aspnet:TextFile creates config.staging.json from config.staging', function() {
+    var arg = 'config.staging';
+    var filename = 'config.staging.json';
+    util.goCreateWithArgs('JSON', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+  describe('aspnet:TextFile creates config.staging.json from config.staging.json', function() {
+    var arg = 'config.staging.json';
+    var filename = 'config.staging.json';
+    util.goCreateWithArgs('JSON', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
   });
 });
