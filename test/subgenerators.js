@@ -125,6 +125,38 @@ describe('Subgenerators without arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content for unstable feed', /https:\/\/myget\.org\/f\/aspnetrc1\/api\/v2/);
   });
 
+  describe('aspnet:readme creates README.md', function() {
+    util.goCreate('readme');
+    var filename = 'README.md';
+    util.fileCheck('should create README.md documentation file', filename);
+    util.fileContentCheck(filename, 'Check file content', /^# MyNamespace$/m);
+  });
+
+  describe('aspnet:readme with --txt option creates README.txt', function() {
+    var arg = '--txt';
+    util.goCreateWithArgs('readme', [arg]);
+    var filename = 'README.txt';
+    util.fileCheck('should create README.txt documentation file', filename);
+    util.fileContentCheck(filename, 'Check file content', /^# MyNamespace$/m);
+  });
+
+  describe('aspnet:readme in cwd of project.json should contain correct project name', function() {
+    var dir = util.makeTempDir();
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreate('readme', path.join(dir, 'emptyTest'));
+    util.fileCheck('should create README.md file', 'README.md');
+    util.fileContentCheck('README.md', 'file content check', /^# emptyTest$/m);
+  });
+
+  describe('aspnet:readme with --txt option in cwd of project.json should contain correct project name', function() {
+    var arg = '--txt';
+    var dir = util.makeTempDir();
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateWithArgs('readme', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create README.txt file', 'README.txt');
+    util.fileContentCheck('README.txt', 'file content check', /^# emptyTest$/m);
+  });
+
 });
 
 /*

@@ -1,0 +1,9 @@
+Description:
+	Creates a new README documentation file in Markdown format
+	You could pass optional --txt option to use .txt extension
+
+Example:
+	yo aspnet:readme [--txt]
+
+	This will create:
+		README.md [README.txt]

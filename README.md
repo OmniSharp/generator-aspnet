@@ -82,6 +82,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:MvcView](#mvcview)
 * [aspnet:nuget](#nuget)
 * [aspnet:PackageJson](#packagejson)
+* [aspnet:readme](#readme)
 * [aspnet:StartupClass](#startupclass)
 * [aspnet:StyleSheet](#stylesheet)
 * [aspnet:StyleSheetLess](#stylesheetless)
@@ -487,6 +488,20 @@ yo aspnet:PackageJson
 ```
 
 Produces `package.json`
+
+[Return to top](#top)
+
+### README
+
+Creates a new REAMDE.md documentation file in Markdown format
+You can optionally pass `--txt` option to use `.txt` extension.
+Example:
+
+```
+yo aspnet:readme [--txt]
+```
+
+Produces `readme.md`
 
 [Return to top](#top)
 
