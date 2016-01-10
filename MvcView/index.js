@@ -16,10 +16,11 @@ var NamedGenerator = module.exports = function NamedGenerator() {
 util.inherits(NamedGenerator, ScriptBase);
 
 NamedGenerator.prototype.createNamedItem = function() {
+  var extension = '.cshtml';
   this.generateTemplateFile(
     'MvcView.cshtml',
-    this.name + '.cshtml', {
-      pagename: this.name
+    extension, {
+      pagename: this.classNameWithoutExtension(extension)
     }
   );
 };

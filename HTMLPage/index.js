@@ -11,6 +11,6 @@ util.inherits(NamedGenerator, ScriptBase);
 NamedGenerator.prototype.createNamedItem = function() {
   this.generateTemplateFile(
     'HTMLPage.html',
-    this.name + '.html'
+    '.html'
   );
 };

@@ -16,11 +16,12 @@ var NamedGenerator = module.exports = function NamedGenerator() {
 util.inherits(NamedGenerator, ScriptBase);
 
 NamedGenerator.prototype.createNamedItem = function() {
+  var extension = '.cs';
   this.generateTemplateFile(
     'WebApiController.cs',
-    this.name + '.cs', {
+    extension, {
       namespace: this.namespace(),
-      classname: this.name
+      classname: this.classNameWithoutExtension(extension)
     }
   );
 };
