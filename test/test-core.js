@@ -528,3 +528,33 @@ describe('aspnet - Nancy Application', function() {
   });
 
 });
+
+
+/*
+ * command line options
+ */
+describe('command line options', function() {
+  it('keeps project type and application name if passed correctly from CLI', function() {
+    var app = require('../app');
+    app.prototype.log = function() {}; //stub
+    app.prototype.type = 'webbasic';
+    app.prototype.applicationName = 'myWebApp'
+
+    app.prototype._checkProjectType();
+
+    assert.equal('webbasic', app.prototype.type);
+    assert.equal('myWebApp', app.prototype.applicationName);
+  });
+
+  it('removes project type and application name if invalid project type', function() {
+    var app = require('../app');
+    app.prototype.log = function() {}; //stub
+    app.prototype.type = 'not-a-real-project-type';
+    app.prototype.applicationName = 'myWebApp'
+
+    app.prototype._checkProjectType();
+
+    assert.equal(undefined, app.prototype.type);
+    assert.equal(undefined, app.prototype.applicationName);
+  });
+});

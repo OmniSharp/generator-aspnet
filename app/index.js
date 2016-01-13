@@ -15,6 +15,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       defaults: false,
       desc: 'Use the Grunt JavaScript task runner instead of Gulp in web projects.'
     });
+
+    this.argument('type', { type: String, required: false, desc: 'the project type to create' });
+    this.argument('applicationName', { type: String, required: false, desc: 'the name of the application' });
   },
 
 
@@ -23,14 +26,33 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.templatedata = {};
   },
 
-  askFor: function() {
-    var done = this.async();
+  _checkProjectType: function() {
+    if (this.type) {
+      //normalize to lower case
+      this.type = this.type.toLowerCase();
+      var validProjectTypes = ['empty', 'console', 'web', 'webbasic', 'webapi', 'nancy', 'classlib', 'unittest'];
+      if (validProjectTypes.indexOf(this.type) === -1) {
+        //if it's not in the list, send them through the normal path
+        this.log('"%s" is not a valid project type', chalk.cyan(this.type));
+        this.type = undefined;
+        this.applicationName = undefined;
+      } else {
+        this.log('Creating "%s" project', chalk.cyan(this.type));
+      }
+    }
+  },
 
-    var prompts = [{
-      type: 'list',
-      name: 'type',
-      message: 'What type of application do you want to create?',
-      choices: [{
+  askFor: function() {
+    this._checkProjectType();
+    if (!this.type) {
+      var done = this.async();
+
+      var prompts = [{
+        type: 'list',
+        name: 'type',
+        message: 'What type of application do you want to create?',
+        choices: [
+          {
             name: 'Empty Application',
             value: 'empty'
           }, {
@@ -55,59 +77,68 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             name: 'Unit test project',
             value: 'unittest'
           }
-      ]
-    }];
+        ]
+      }];
 
-    this.prompt(prompts, function(props) {
-      this.type = props.type;
+      this.prompt(prompts, function (props) {
+        this.type = props.type;
 
-      done();
-    }.bind(this));
+        done();
+      }.bind(this));
+    }
+  },
+
+  _buildTemplateData: function() {
+    this.templatedata.namespace = projectName(this.applicationName);
+    this.templatedata.applicationname = this.applicationName;
+    this.templatedata.guid = guid.v4();
+    this.templatedata.grunt = this.options.grunt || false;
+    this.templatedata.coreclr = this.options.coreclr || false;
   },
 
   askForName: function() {
-    var done = this.async();
-    var app = '';
-    switch (this.type) {
-      case 'empty':
-        app = 'EmptyApplication';
-        break;
-      case 'console':
-        app = 'ConsoleApplication';
-        break;
-      case 'web':
-        app = 'WebApplication';
-        break;
-      case 'webbasic':
-        app = 'WebApplicationBasic';
-        break;
-      case 'webapi':
-        app = 'WebAPIApplication';
-        break;
-      case 'nancy':
-        app = 'NancyApplication';
-        break;
-      case 'classlib':
-        app = 'ClassLibrary';
-        break;
-      case 'unittest':
-        app = 'UnitTest';
-        break;
+    if (!this.applicationName) {
+      var done = this.async();
+      var app = '';
+      switch (this.type) {
+        case 'empty':
+          app = 'EmptyApplication';
+          break;
+        case 'console':
+          app = 'ConsoleApplication';
+          break;
+        case 'web':
+          app = 'WebApplication';
+          break;
+        case 'webbasic':
+          app = 'WebApplicationBasic';
+          break;
+        case 'webapi':
+          app = 'WebAPIApplication';
+          break;
+        case 'nancy':
+          app = 'NancyApplication';
+          break;
+        case 'classlib':
+          app = 'ClassLibrary';
+          break;
+        case 'unittest':
+          app = 'UnitTest';
+          break;
+      }
+      var prompts = [{
+        name: 'applicationName',
+        message: 'What\'s the name of your ASP.NET application?',
+        default: app
+      }];
+      this.prompt(prompts, function (props) {
+        this.applicationName = props.applicationName;
+        this._buildTemplateData();
+        done();
+      }.bind(this));
+    } else {
+      this._buildTemplateData();
     }
-    var prompts = [{
-      name: 'applicationName',
-      message: 'What\'s the name of your ASP.NET application?',
-      default: app
-    }];
-    this.prompt(prompts, function(props) {
-      this.templatedata.namespace = projectName(props.applicationName);
-      this.templatedata.applicationname = props.applicationName;
-      this.applicationName = props.applicationName;
-      this.templatedata.guid = guid.v4();
-      this.templatedata.grunt = this.options.grunt || false;
-      this.templatedata.coreclr = this.options.coreclr || false;
-      done();
-    }.bind(this));
   },
 
   writing: function() {

@@ -46,6 +46,25 @@ The Nancy project is based on framework's "Hello World" template:
 
 The [Docker](https://www.docker.com/) support with `Dockerfile` configuration files is based on the official [Docker image for ASP.NET 5](https://github.com/aspnet/aspnet-docker)
 
+## Command line automation
+
+The project type and application name can be specified as optional command line arguments:
+
+    yo aspnet [projecttype [applicationname]]
+
+The valid project types are:
+
+- `empty` for Empty Application
+- `console` for Console Application
+- `web` for Web Application
+- `webbasic` for Web Application Basic
+- `webapi` for Web API Application
+- `nancy` for Nancy ASP.NET Application
+- `classlib` for Class Library
+- `unittest` Unit Test project
+
+> Example: `yo aspnet webbasic "my test app"` will create a "Web Application Basic" project called "my test app"
+
 ## Related yeoman generators
 
 The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET 5 (_DNX_) projects
