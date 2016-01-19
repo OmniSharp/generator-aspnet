@@ -85,9 +85,19 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create tsconfig.json file', 'tsconfig.json');
   });
 
-  describe('aspnet:Dockerfile', function() {
-    util.goCreate('Dockerfile');
-    util.fileCheck('should create Dockerfile', 'Dockerfile');
+  describe('aspnet:Dockerfile Mono-based', function() {
+    var filename = 'Dockerfile';
+    util.goCreate(filename);
+    util.fileCheck('should create Dockerfile', filename);
+    util.fileContentCheck(filename, 'Check the content for Mono-based image tag', /FROM microsoft\/aspnet:1\.0\.0-rc1-update1/);
+  });
+
+  describe('aspnet:Dockerfile CoreCLR-based', function() {
+    var arg = '--coreclr';
+    var filename = 'Dockerfile';
+    util.goCreateWithArgs(filename, [arg]);
+    util.fileCheck('should create Dockerfile', filename);
+    util.fileContentCheck(filename, 'Check the content for CoreCLR-based image tag', /FROM microsoft\/aspnet:1\.0\.0-rc1-update1-coreclr/);
   });
 
   describe('aspnet:nuget', function() {
@@ -97,11 +107,22 @@ describe('Subgenerators without arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
   });
 
+  // unstable feed cannot be found in generated file
   describe('aspnet:nuget', function() {
     util.goCreate('nuget');
     var filename = 'NuGet.config';
     util.fileCheck('should create NuGet configuration file', filename);
     util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
+    util.noFileContentCheck(filename, 'Check file content for no unstable feed', /https:\/\/myget\.org\/f\/aspnetrc1\/api\/v2/);
+  });
+
+  // unstable feed should be found in generated file
+  describe('aspnet:nuget --unstable', function() {
+    var arg = '--unstable';
+    var filename = 'NuGet.config';
+    util.goCreateWithArgs('nuget', [arg]);
+    util.fileCheck('should create ' + filename + ' file with unstable feed', filename);
+    util.fileContentCheck(filename, 'Check file content for unstable feed', /https:\/\/myget\.org\/f\/aspnetrc1\/api\/v2/);
   });
 
 });
@@ -415,6 +436,13 @@ describe('Subgenerators with named arguments tests', function() {
     var arg = 'file';
     var filename = 'file.ts';
     util.goCreateWithArgs('TypeScript', [arg]);
+    util.fileCheck('should create ' + filename + ' file', filename);
+  });
+
+  describe('aspnet:TypeScriptJSX', function() {
+    var arg = 'file';
+    var filename = 'file.tsx';
+    util.goCreateWithArgs('TypeScriptJSX', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 

@@ -91,6 +91,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:tfignore](#tfignore)
 * [aspnet:TypeScript](#typescript)
 * [aspnet:TypeScriptConfig](#typescriptconfig)
+* [aspnet:TypeScriptJSX](#typescriptjsx)
 * [aspnet:WebApiContoller](#webapicontroller)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
@@ -232,7 +233,9 @@ Produces `filename.coffee`
 
 ### Dockerfile
 
-Creates a new Docker configuration file
+Creates a new Docker configuration file.
+By default `Mono` based definition file is created.
+To create `CoreCLR` based definition file use `--coreclr` option
 
 Example:
 ```
@@ -460,15 +463,16 @@ Produces `/ContactView.cshtml`
 
 ### nuget
 
-Creates a new `NuGet.config` file
+Creates a new `NuGet.config` file. The support for unstable development
+feed is provided by `--unstable` option.
 
 Example:
 
 ```
-yo aspnet:nuget
+yo aspnet:nuget --unstable
 ```
 
-Produces `NuGet.config`
+Produces `NuGet.config` with unstable NuGet feed
 
 [Return to top](#top)
 
@@ -612,6 +616,20 @@ Produces `tsconfig.json`
 
 [Return to top](#top)
 
+### TypeScriptJSX
+
+Creates a new JSX-enabled TypeScript file
+
+Example:
+
+```
+yo aspnet:TypeScriptJSX filename
+```
+
+Produces `filename.tsx`
+
+[Return to top](#top)
+
 ### WebApiController
 
 Creates a new ASP.NET 5 WebApiController class
@@ -676,7 +694,7 @@ namespace MyNamespace.Controllers
 
 ## License
 
-Copyright 2014-2015 OmniSharp
+Copyright 2014-2016 OmniSharp
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

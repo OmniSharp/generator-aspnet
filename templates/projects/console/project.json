@@ -5,6 +5,11 @@
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
   "tooling": {
     "defaultNamespace": "<%= namespace %>"
   },
