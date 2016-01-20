@@ -9,10 +9,11 @@ var NamedGenerator = module.exports = function NamedGenerator() {
 util.inherits(NamedGenerator, ScriptBase);
 
 NamedGenerator.prototype.createNamedItem = function() {
+  var extension = '.json';
   this.generateTemplateFile(
     'JSONSchema.json',
-    this.name + '.json', {
-      name: this.name
+    extension, {
+      name: this.classNameWithoutExtension(extension)
     }
   );
 };

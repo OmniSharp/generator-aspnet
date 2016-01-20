@@ -11,6 +11,6 @@ util.inherits(NamedGenerator, ScriptBase);
 NamedGenerator.prototype.createNamedItem = function() {
   this.generateTemplateFile(
     'TypeScriptJSX.tsx',
-    this.name + '.tsx'
+    '.tsx'
   );
 };

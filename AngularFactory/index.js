@@ -11,7 +11,7 @@ util.inherits(NamedGenerator, ScriptBase);
 NamedGenerator.prototype.createNamedItem = function() {
   this.generateTemplateFile(
     'AngularFactory.js',
-    this.name + '.js', {
+    '.js', {
       namespace: this.namespace()
     }
   );
