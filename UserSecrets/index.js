@@ -52,7 +52,7 @@ Generator.prototype.createItem = function() {
 
 Generator.prototype._projectPath = null;
 /**
- * Creates unique hash for ASP.NET5 userSecretId key
+ * Creates unique hash for ASP.NET Core 1.0 userSecretId key
  * @return {String} unique hash token
  */
 Generator.prototype._generateUserSecretId = function() {
@@ -74,7 +74,7 @@ Generator.prototype._getProject = function() {
   // no-op if project.json is not found
   if (this._projectPath === null) {
     this.log(red('Cannot find project.json file!'));
-    this.log('You need to invoke this generator from within an ASP.NET 5 project');
+    this.log('You need to invoke this generator from within an ASP.NET Core 1.0 project');
     return null;
   }
   this.log("project.json found: %s", green(this._projectPath));
