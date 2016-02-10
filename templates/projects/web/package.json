@@ -1,5 +1,5 @@
 {
-  "name": "<%= namespace %>",
+  "name": "<%= namespace.toLowerCase() %>",
   "version": "0.0.0",
   "devDependencies": {<% if(!grunt){ %>
     "gulp": "^3.9.0",

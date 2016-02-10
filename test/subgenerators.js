@@ -19,7 +19,7 @@ describe('Subgenerators without arguments tests', function() {
 
     util.goCreate('PackageJson', path.join(dir, 'emptyTest'));
     util.fileCheck('should create package json file', 'package.json');
-    util.fileContentCheck('package.json', 'file content check', '"name": "emptyTest"');
+    util.fileContentCheck('package.json', 'file content check', '"name": "emptytest"');
   });
 
   describe('aspnet:Gulpfile', function() {
