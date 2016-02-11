@@ -175,7 +175,8 @@ namespace <%= namespace %>.Controllers
 
         //
         // GET: /Manage/RemovePhoneNumber
-        [HttpGet]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemovePhoneNumber()
         {
             var user = await GetCurrentUserAsync();
