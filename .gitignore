@@ -5,3 +5,5 @@ npm-debug.log
 .tmp
 typings
 **/project.lock.json
+.vscode
+.vs
