@@ -124,19 +124,25 @@ Generator.prototype._updateDependencies = function(project) {
     return false;
   }
   var updated = false;
-  var USER_SECRETS_NUGET_PACKAGE_KEY = 'dependencies:Microsoft.Extensions.Configuration.UserSecrets';
+  var USER_SECRETS_NUGET_PACKAGE_KEY = 'Microsoft.Extensions.Configuration.UserSecrets';
+  var USER_SECRETS_NUGET_PARENT_KEY = "dependencies";
   var USER_SECRETS_NUGET_VERSION = '1.0.0-rc1-final';
-  // do not update existing userSecretsId keys!
-  var currentUserSecretsDependency = project.get(USER_SECRETS_NUGET_PACKAGE_KEY);
-  if (currentUserSecretsDependency) {
-    this.log('Existing %s found with value: %s', USER_SECRETS_NUGET_PACKAGE_KEY, green(currentUserSecretsDependency));
-    this.log('Adding %s key: %s', USER_SECRETS_NUGET_PACKAGE_KEY, yellow("skipped"));
+  // the UserSecrets package can exists at different location in project.json
+  var projectAsString = JSON.stringify(project.get()) || '';
+  var currentUserSecretsDependency = projectAsString.indexOf(USER_SECRETS_NUGET_PACKAGE_KEY);
+  if (currentUserSecretsDependency > 0) {
+    this.log('Existing key %s found',
+      USER_SECRETS_NUGET_PACKAGE_KEY);
+    this.log('Adding key: %s', USER_SECRETS_NUGET_PACKAGE_KEY, yellow("skipped"));
   } else {
-    updated = project.set(USER_SECRETS_NUGET_PACKAGE_KEY, USER_SECRETS_NUGET_VERSION);
+    var keyPath = util.format('%s:%s',
+      USER_SECRETS_NUGET_PARENT_KEY,
+      USER_SECRETS_NUGET_PACKAGE_KEY);
+    updated = project.set(keyPath, USER_SECRETS_NUGET_VERSION);
     if (updated === false) {
-      this.log('Adding %s: %s %s', USER_SECRETS_NUGET_PACKAGE_KEY, USER_SECRETS_NUGET_VERSION, red("failure"));
+      this.log('Adding %s: %s %s', keyPath, USER_SECRETS_NUGET_VERSION, red("failure"));
     } else {
-      this.log('Adding %s: %s %s', USER_SECRETS_NUGET_PACKAGE_KEY, USER_SECRETS_NUGET_VERSION, green("success"));
+      this.log('Adding %s: %s %s', keyPath, USER_SECRETS_NUGET_VERSION, green("success"));
     }
   }
   return updated;
