@@ -1,10 +1,12 @@
 # generator-aspnet
 
+[![Join the chat at https://gitter.im/jackjwilliams/generator-aspnet-semanticui](https://badges.gitter.im/jackjwilliams/generator-aspnet-semanticui.svg)](https://gitter.im/jackjwilliams/generator-aspnet-semanticui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/OmniSharp/generator-aspnet.svg?branch=master)](https://travis-ci.org/OmniSharp/generator-aspnet)
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
 
-Yeoman generator for ASP.NET 5 projects
+Yeoman generator for ASP.NET 5 projects with Semantic UI
 
 [![](https://cloud.githubusercontent.com/assets/14539/10418056/b72ae284-7050-11e5-99db-5a0cda8f0ac1.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
 
@@ -50,7 +52,7 @@ The [Docker](https://www.docker.com/) support with `Dockerfile` configuration fi
 
 The project type and application name can be specified as optional command line arguments:
 
-    yo aspnet [projecttype [applicationname]]
+    yo aspnet [projecttype [applicationname] [uiframework]]
 
 The valid project types are:
 
@@ -63,7 +65,38 @@ The valid project types are:
 - `classlib` for Class Library
 - `unittest` Unit Test project
 
-> Example: `yo aspnet webbasic "my test app"` will create a "Web Application Basic" project called "my test app"
+The valid UI framework types are:
+
+- `bootstrap` for Bootstrap (this is the default and does not have to be specified explicitly)
+- `semantic` for Semantic UI
+
+> Example: `yo aspnet webbasic "my semantic app" semantic` will create a "Web Application Basic" project called "my semantic app" using the Semantic UI framework.
+
+> Example: `yo aspnet webbasic "my bootstrap app"` OR `yo aspnet webbasic "my bootstrap app" bootstrap` will create a "Web Application Basic" project called "my bootstrap app" using the Bootstrap framework.
+
+## Additional UI Framework Notes
+
+## Semantic UI
+
+### CSS / JS
+This generator uses the Semantic UI bower package. By default it includes the entire Semantic UI .css or .min.css
+depending on the environment. You can read the Semantic UI documentation [here](http://semantic-ui.com/introduction/build-tools.html) to learn how to use just the components you need.
+
+### Validation
+In order for Semantic UI validation to play nicely with the jQuery unobtrusive validation, a helper has been added to 
+hook into the validation calls and update the fields. This module simply highlights the field, and displays a 
+validation summary.
+
+For a form to be validated, add the `validate-me` class. To display the error messages use:
+
+`<div asp-validation-summary="ValidationSummary.All" class="ui error message"></div>`
+
+semantic.validation.js is where the magic happens. Upon error (highlight), find the nearest field element and add the error class.
+When the error is cleared (unhighlight), remove the error class from the nearest field element.
+
+### MenuLinkTagHelper
+To assist with menu highlighting depending on the route, a MenuLinkTagHelper class has been included.
+
 
 ## Related yeoman generators
 

@@ -1,0 +1,21 @@
+@model SendCodeViewModel
+@{
+    ViewData["Title"] = "Send Verification Code";
+}
+
+<h2 class="ui header">@ViewData["Title"]</h2>
+
+<form asp-controller="Account" asp-action="SendCode" asp-route-returnurl="@Model.ReturnUrl" method="post" class="ui small form validate-me" role="form">
+    <input asp-for="RememberMe" type="hidden"/>
+    <div class="field">
+        <label>Provider</label>
+        <select asp-for="SelectedProvider" asp-items="Model.Providers"></select>
+    </div>
+    <input type="submit" class="ui blue submit button" value="Send Code" />
+
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

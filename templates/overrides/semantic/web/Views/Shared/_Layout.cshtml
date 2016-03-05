@@ -1,0 +1,119 @@
+﻿@using System.Security.Claims
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>@ViewData["Title"] - SemanticUI</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/semantic/dist/semantic.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="//oss.maxcdn.com/semantic-ui/2.1.8/semantic.min.css"
+              asp-fallback-ref="~/lib/semantic/dist/semantic.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+
+
+    <!-- Following Menu -->
+    <div class="ui large top pointing fixed menu">
+        <div class="ui container">
+            <a class="toc item">
+                <i class="sidebar icon"></i>
+            </a>
+            <menulink class="blue item" controller-name="Home" action-name="Index" menu-text="Home"></menulink>
+            <menulink class="blue item" controller-name="Home" action-name="About" menu-text="About"></menulink>
+            <menulink class="blue item" controller-name="Home" action-name="Contact" menu-text="Contact">Contact</menulink>
+            
+           @await Html.PartialAsync("_LoginPartial")
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+        <menulink class="blue item" controller-name="Home" action-name="Index" menu-text="Home"></menulink>
+        <menulink class="blue item" controller-name="Home" action-name="About" menu-text="About"></menulink>
+        <menulink class="blue item" controller-name="Home" action-name="Contact" menu-text="Contact"></menulink>
+
+
+        @if (User.IsSignedIn())
+        {
+            <div class="blue item"><a asp-controller="Manage" asp-action="Index" title="Manage">Hello @User.GetUserName()</a>
+            </div>
+            <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="item">
+                <button type="submit" class="ui button">Log off</button>
+            </form>
+        }
+        else
+        {
+            <menulink class="blue item" controller-name="Account" action-name="Login" menu-text="Log in"></menulink>
+            <menulink class="blue item" controller-name="Account" action-name="Register" menu-text="Sign up"></menulink>
+        }
+        
+    </div>
+
+    
+
+<!-- Page Contents -->
+<div class="pusher">
+    <div class="ui container content">
+        @RenderBody()
+    </div>
+    
+    <div class="ui vertical footer segment">
+        <div class="ui container">
+            <div class="ui stackable  divided equal height stackable grid">
+                <div class="three wide column">
+                    <h4 class="ui header">About</h4>
+                    <div class="ui  link list">
+                        <a href="#" class="item">Sitemap</a>
+                        <a href="#" class="item">Contact Us</a>
+                        <a href="#" class="item">Link</a>
+                        <a href="#" class="item">Link</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui header">Services</h4>
+                    <div class="ui  link list">
+                        <a href="#" class="item">Service One</a>
+                        <a href="#" class="item">Service Two</a>
+                        <a href="#" class="item">Service Three</a>
+                        <a href="#" class="item">Service Four</a>
+                    </div>
+                </div>
+                <div class="ten wide column">
+                    <h4 class="ui header">Footer Header</h4>
+                    <p>Yes I know you probably disregarded the earlier boasts as non-sequitor filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/semantic/dist/semantic.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="//oss.maxcdn.com/semantic-ui/2.1.8/semantic.min.js"
+                asp-fallback-src="~/lib/semantic/dist/semantic.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

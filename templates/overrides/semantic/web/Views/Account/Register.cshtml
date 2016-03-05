@@ -1,0 +1,38 @@
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="ui raised very padded text container">
+    <h3 class="ui header centered">Register</h3>
+
+    <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="ui large form validate-me" role="form">
+        <div class="ui stacked segment">
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="user icon"></i>
+                    <input asp-for="Email" placeholder="Email address" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    <input asp-for="Password" type="password" placeholder="Password" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    <input asp-for="ConfirmPassword" type="password" placeholder="Confirm Password" />
+                </div>
+            </div>
+            <input type="submit" class="ui large blue submit button" value="Register" />
+            <div asp-validation-summary="ValidationSummary.All" class="ui error message"></div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
