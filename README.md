@@ -1,7 +1,5 @@
 # generator-aspnet
 
-[![Join the chat at https://gitter.im/jackjwilliams/generator-aspnet-semanticui](https://badges.gitter.im/jackjwilliams/generator-aspnet-semanticui.svg)](https://gitter.im/jackjwilliams/generator-aspnet-semanticui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Build Status](https://travis-ci.org/OmniSharp/generator-aspnet.svg?branch=master)](https://travis-ci.org/OmniSharp/generator-aspnet)
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
