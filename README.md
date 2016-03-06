@@ -4,7 +4,7 @@
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
 
-Yeoman generator for ASP.NET 5 projects with Semantic UI
+Yeoman generator for ASP.NET 5 projects
 
 [![](https://cloud.githubusercontent.com/assets/14539/10418056/b72ae284-7050-11e5-99db-5a0cda8f0ac1.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
 
