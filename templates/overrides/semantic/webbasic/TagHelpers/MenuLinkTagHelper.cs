@@ -15,6 +15,11 @@ using Microsoft.Extensions.WebEncoders;
 
 namespace <%= namespace %>.TagHelpers
 {
+    /// <summary>
+    /// <see cref="ITagHelper"/> implementation targeting &lt;menulink&gt; elements that assist with rendering contextually aware menu links.
+    /// If the current route is matched the given &lt;menulink&gt; will be active. This was added to demonstrate how a TagHelper might be used
+    /// with Semantic UI to implement a simple menu.
+    /// </summary>
     [HtmlTargetElement("menulink", Attributes = "controller-name, action-name, menu-text")]
     public class MenuLinkTagHelper : TagHelper
     {
