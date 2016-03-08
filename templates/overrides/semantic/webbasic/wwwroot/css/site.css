@@ -106,16 +106,6 @@
     padding-top: 53px;
 }
 
-/*Hack: http://stackoverflow.com/questions/19810966/semanitc-ui-with-asp-net-mvc-checkbox */
-/*Also see: https://github.com/aspnet/Mvc/issues/2369 */
-.ui.checkbox input:checked ~ .box:after,
-.ui.checkbox input:checked ~ label:after
-{
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: alpha(opacity=100);
-  opacity: 1;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
