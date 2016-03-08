@@ -72,30 +72,6 @@ The valid UI framework types are:
 
 > Example: `yo aspnet webbasic "my bootstrap app"` OR `yo aspnet webbasic "my bootstrap app" bootstrap` will create a "Web Application Basic" project called "my bootstrap app" using the Bootstrap framework.
 
-## Additional UI Framework Notes
-
-## Semantic UI
-
-### CSS / JS
-This generator uses the Semantic UI bower package. By default it includes the entire Semantic UI .css or .min.css
-depending on the environment. You can read the Semantic UI documentation [here](http://semantic-ui.com/introduction/build-tools.html) to learn how to use just the components you need.
-
-### Validation
-In order for Semantic UI validation to play nicely with the jQuery unobtrusive validation, a helper has been added to 
-hook into the validation calls and update the fields. This module simply highlights the field, and displays a 
-validation summary.
-
-For a form to be validated, add the `validate-me` class. To display the error messages use:
-
-`<div asp-validation-summary="ValidationSummary.All" class="ui error message"></div>`
-
-semantic.validation.js is where the magic happens. Upon error (highlight), find the nearest field element and add the error class.
-When the error is cleared (unhighlight), remove the error class from the nearest field element.
-
-### MenuLinkTagHelper
-To assist with menu highlighting depending on the route, a MenuLinkTagHelper class has been included.
-
-
 ## Related yeoman generators
 
 The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET 5 (_DNX_) projects
