@@ -6,7 +6,7 @@ var util = require('./test-utility');
 /*
  * can be imported
  */
-describe('aspnet 5 generator', function() {
+describe('aspnet Core 1.0 generator', function() {
   it('can be imported', function() {
     var app = require('../app');
     yeoman.assert.notEqual(app, undefined);

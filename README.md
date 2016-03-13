@@ -4,7 +4,7 @@
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
 
-Yeoman generator for ASP.NET 5 projects
+Yeoman generator for ASP.NET Core 1.0 projects
 
 [![](https://cloud.githubusercontent.com/assets/14539/10418056/b72ae284-7050-11e5-99db-5a0cda8f0ac1.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
 
@@ -18,7 +18,7 @@ Yeoman generator for ASP.NET 5 projects
 
 ## Usage
 
-* `yo aspnet` shows a wizard for generating a new ASP.NET app
+* `yo aspnet` shows a wizard for generating a new ASP.NET Core 1.0 app
 
 * `yo aspnet --grunt` generates `Gruntfile.js` files for **web** templates instead of `gulpfile.js`
 
@@ -39,7 +39,7 @@ Full, template based projects available in generator:
 
 The Empty Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
 
-> ASP.NET Templates provide project templates which are used in Visual Studio for creating ASP.NET 5 applications.
+> ASP.NET Templates provide project templates which are used in Visual Studio for creating ASP.NET Core 1.0 applications.
 
 The Nancy project is based on framework's "Hello World" template:
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
@@ -67,7 +67,7 @@ The valid project types are:
 
 ## Related yeoman generators
 
-The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET 5 (_DNX_) projects
+The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET Core 1.0 (_DNX_) projects
 and files in Visual Studio 2015.
 
 The list of related generators [can be seen on our Wiki section](https://github.com/OmniSharp/generator-aspnet/wiki#related-yeoman-generators)
@@ -214,7 +214,7 @@ Produces `bower.json` and `.bowerrc`
 
 ### Class
 
-Creates a new ASP.NET 5 Class
+Creates a new ASP.NET Core 1.0 Class
 
 Example:
 
@@ -265,7 +265,7 @@ yo aspnet:Dockerfile
 
 Creates a new `Dockerfile`
 
-Are you curious about Docker, Linux containers and ASP.NET 5 Docker image and all these buzz words?
+Are you curious about Docker, Linux containers and ASP.NET Core 1.0 Docker image and all these buzz words?
 - [Docker image for ASP.NET 5 (Docker Hub)](https://hub.docker.com/r/microsoft/aspnet/)
 - [Running ASP.NET 5 applications in Linux Containers with Docker (MSDN)](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 - [ASP.NET 5 : Continuous Integration with Travis-CI, Tutum, Docker, Webhooks and Azure [Advanced]](http://tattoocoder.com/asp-net-5-continuous-integration-with-travis-ci-tutum-docker-webhooks-and-azure/)
@@ -331,7 +331,7 @@ Produces `filename.html`
 
 ### Interface
 
-Creates a new ASP.NET 5 Interface
+Creates a new ASP.NET Core 1.0 Interface
 
 Example:
 
@@ -429,7 +429,7 @@ Produces `filename.cs`
 
 ### MvcController
 
-Creates a new ASP.NET 5 MvcController class
+Creates a new ASP.NET Core 1.0 MvcController class
 
 Example:
 
@@ -461,7 +461,7 @@ namespace MyNamespace
 
 ### MvcView
 
-Creates a new ASP.NET 5 MvcView page file
+Creates a new ASP.NET Core 1.0 MvcView page file
 
 Example:
 
@@ -668,7 +668,7 @@ Produces `filename.tsx`
 
 ### UserSecrets
 
-Adds UserSecrets information to ASP.NET5 `project.json` file.
+Adds UserSecrets information to ASP.NET Core 1.0 `project.json` file.
 The generator do not update existing keys if found and does
 not create new `project.json` file.
 
@@ -686,7 +686,7 @@ This will add following keys to project.json:
 
 ### WebApiController
 
-Creates a new ASP.NET 5 WebApiController class
+Creates a new ASP.NET Core 1.0 WebApiController class
 
 Example:
 
