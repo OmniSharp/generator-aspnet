@@ -15,9 +15,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       defaults: false,
       desc: 'Use the Grunt JavaScript task runner instead of Gulp in web projects.'
     });
-
+        
     this.argument('type', { type: String, required: false, desc: 'the project type to create' });
     this.argument('applicationName', { type: String, required: false, desc: 'the name of the application' });
+    this.argument('ui', {type: String, required: false, defaults: 'bootstrap', desc: 'the ui library to use (bootstrap OR semantic)'});
   },
 
 
@@ -78,11 +79,32 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             value: 'unittest'
           }
         ]
-      }];
+      },
+      {
+          type: 'list',
+          name: 'ui',
+          message: 'Which UI framework would you like to use?',
+          default: 'bootstrap',
+          choices: [
+              {
+                  name: 'Bootstrap (3.3.5)',
+                  value: 'bootstrap'
+              },
+              {
+                  name: 'Semantic UI (2.1.8)',
+                  value: 'semantic'
+              }
+          ],
+          when: function (answers){
+              return answers.type === 'web' || answers.type === 'webbasic';
+          }
+          
+      }
+      ];
 
       this.prompt(prompts, function (props) {
         this.type = props.type;
-
+        this.ui = props.ui;
         done();
       }.bind(this));
     }
@@ -94,6 +116,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.templatedata.guid = guid.v4();
     this.templatedata.grunt = this.options.grunt || false;
     this.templatedata.coreclr = this.options.coreclr || false;
+    this.templatedata.ui = this.ui;
   },
 
   askForName: function() {
@@ -210,9 +233,16 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('ViewModels/**/*'), this.applicationName + '/ViewModels', this.templatedata);
         // Views
         this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
+        
+        // wwwroot
         // wwwroot - the content in the wwwroot does not include any direct references or imports
         // So again it is copied 1-to-1 - but tests cover list of all files
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        
+        // UI Component Overrides
+        // If the developer has placed anything in overrides/ui-module/project-type/**/* then use it
+        this.fs.copyTpl(this.templatePath('/../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
+        
         break;
       case 'webbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
@@ -236,9 +266,15 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
         // Views
         this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
+        
         // wwwroot - the content in the wwwroot does not include any direct references or imports
         // So again it is copied 1-to-1 - but tests cover list of all files
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        
+        // UI Component Overrides
+        // If the developer has placed anything in overrides/ui-module/project-type/**/* then use it
+        this.fs.copyTpl(this.templatePath('/../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
+        
         break;
       case 'nancy':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));

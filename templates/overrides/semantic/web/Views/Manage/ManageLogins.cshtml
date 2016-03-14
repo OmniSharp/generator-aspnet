@@ -1,0 +1,53 @@
+@model ManageLoginsViewModel
+@using Microsoft.AspNet.Http.Authentication
+@{
+    ViewData["Title"] = "Manage your external logins";
+}
+
+<h2 class="ui header">@ViewData["Title"]</h2>
+
+@if ((string)ViewData["StatusMessage"] != "")
+{
+    <p class="ui success message">@ViewData["StatusMessage"]</p>
+
+}
+@if (Model.CurrentLogins.Count > 0)
+{
+    <h3 class="ui header">Registered Logins</h3>
+
+
+            foreach (var account in Model.CurrentLogins)
+            {
+
+                <h4 class="ui header">@account.LoginProvider</h4>
+                <div class="content">@if ((bool)ViewData["ShowRemoveButton"])
+                {
+                    <form asp-controller="Manage" asp-action="RemoveLogin" method="post" class="form-horizontal" role="form">
+                        <div>
+                            <input asp-for="@account.LoginProvider" type="hidden" />
+                            <input asp-for="@account.ProviderKey" type="hidden" />
+                            <input type="submit" class="ui red submit button" value="Remove" title="Remove this @account.LoginProvider login from your account" />
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    @: &nbsp;
+                        }</div>
+                
+            }
+}
+@if (Model.OtherLogins.Count > 0)
+{
+    <h3 class="ui header">Add another service to log in.</h3>
+    <form asp-controller="Manage" asp-action="LinkLogin" method="post" class="form-horizontal" role="form">
+        <div id="socialLoginList">
+            <p>
+                @foreach (var provider in Model.OtherLogins)
+                {
+                    <button type="submit" class="ui @provider.AuthenticationScheme.ToLower() button" name="provider" value="@provider.AuthenticationScheme" title="Log in using your @provider.DisplayName account"><i class="@provider.AuthenticationScheme.ToLower() icon"></i> @provider.AuthenticationScheme</button>
+                }
+            </p>
+        </div>
+    </form>
+}

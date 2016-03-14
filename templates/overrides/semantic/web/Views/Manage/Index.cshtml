@@ -1,0 +1,92 @@
+@model IndexViewModel
+@{
+    ViewData["Title"] = "Manage your account";
+}
+
+<h2 class="ui header">@ViewData["Title"]</h2>
+
+@if ((string)ViewData["StatusMessage"] != "")
+{
+    <p class="ui success message">@ViewData["StatusMessage"]</p>
+}
+
+
+    <h3 class="ui header">Change your account settings</h3>
+<div class="ui segment">
+    <h4 class="ui header">Password</h4>
+    <div class="content">
+        
+        [@if (Model.HasPassword)
+        {
+            <a asp-controller="Manage" asp-action="ChangePassword">Change</a>
+        }
+        else
+        {
+            <a asp-controller="Manage" asp-action="SetPassword">Create</a>
+        }]
+    </div>
+   
+</div>
+
+<div class="ui segment">
+    <h4 class="ui header">
+        External Logins
+    </h4>
+
+    <div class="content">
+        @Model.Logins.Count [ <a asp-controller="Manage" asp-action="ManageLogins">Manage</a> ]
+    </div>
+</div>
+
+<div class="ui segment">
+    <h4 class="ui header">
+        Phone Number
+    </h4>
+
+    <div class="content">
+        Phone Numbers can used as a second factor of verification in two-factor authentication.
+        See <a href="http://go.microsoft.com/fwlink/?LinkID=532713">this article</a>
+        for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+    </div>
+    <div class="content">
+        @(Model.PhoneNumber ?? "None") [
+        @if (Model.PhoneNumber != null)
+        {
+            <a asp-controller="Manage" asp-action="AddPhoneNumber">Change</a>
+            @: &nbsp;|&nbsp;
+            <a asp-controller="Manage" asp-action="RemovePhoneNumber">Remove</a>
+        }
+        else
+        {
+            <a asp-controller="Manage" asp-action="AddPhoneNumber">Add</a>
+        }
+        ]
+    </div>
+</div>
+
+<div class="ui segment">
+    <h4 class="ui header">
+        Two-Factor Authentication
+    </h4>
+
+    <div class="content">
+        There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkID=532713">this article</a>
+        for setting up this application to support two-factor authentication.
+    </div>
+    <div class="content">
+        @if (Model.TwoFactor)
+    {
+        <form asp-controller="Manage" asp-action="DisableTwoFactorAuthentication" method="post" class="form-horizontal" role="form">
+                Enabled &nbsp;
+                <button type="submit" class="ui red submit button">Disable</button>
+        </form>
+    }
+    else
+    {
+        <form asp-controller="Manage" asp-action="EnableTwoFactorAuthentication" method="post" class="form-horizontal" role="form">
+                Disabled &nbsp;
+                <button type="submit" class="ui primary submit button">Enable</button>
+        </form>
+    }
+    </div>
+</div>

@@ -1,0 +1,82 @@
+@using System.Collections.Generic
+@using Microsoft.AspNet.Http
+@using Microsoft.AspNet.Http.Authentication
+@model LoginViewModel
+    @inject SignInManager<ApplicationUser> SignInManager
+
+    @{
+        ViewData["Title"] = "Log in";
+    }
+
+<div class="ui two column middle aligned very relaxed stackable grid" style="position:relative">
+    <div class="column">
+        <div class="ui form">
+            <h3 class="ui header centered">Local Account Log In</h3>
+
+            <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="ui large form validate-me" role="form" id="loginForm">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input asp-for="Email" placeholder="Email address"/>
+                        <div asp-validation-for="LoginModel.Email"></div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input asp-for="Password" placeholder="Password"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input asp-for="RememberMe" type="checkbox" tabindex="0" class="hidden"/>
+                        <label>Remember Me</label>
+                    </div>
+                </div>
+                <input type="submit" class="ui large blue submit button" value="Login"/>
+                <br/>
+                <br/>
+                Forgot your password? Click <a asp-action="ForgotPassword" asp-controller="Account">here</a>.
+                <div asp-validation-summary="ValidationSummary.All" class="ui error message"></div>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="ui vertical divider">
+        OR
+    </div>
+    <div class="center aligned column">
+        <h3 class="ui header centered">Use Another Service to Log In</h3>
+        @{
+            var loginProviders = SignInManager.GetExternalAuthenticationSchemes().ToList();
+            if (loginProviders.Count == 0)
+            {
+                <div>
+                    <p>
+                        There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                        for details on setting up this ASP.NET application to support logging in via external services.
+                    </p>
+                </div>
+            }
+            else
+            {
+                <form asp-controller="Account" asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal" role="form">
+                    <div>
+                        <p>
+                            @foreach (var provider in loginProviders)
+                            {
+
+                                <button type="submit" class="ui @provider.AuthenticationScheme.ToLower() button" name="provider" value="@provider.AuthenticationScheme" title="Log in using your @provider.DisplayName account"><i class="@provider.AuthenticationScheme.ToLower() icon"></i> @provider.AuthenticationScheme</button>
+                            }
+                        </p>
+                    </div>
+                </form>
+            }
+        }
+    </div>
+</div>
+
+    @section Scripts {
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    }

@@ -50,7 +50,7 @@ The [Docker](https://www.docker.com/) support with `Dockerfile` configuration fi
 
 The project type and application name can be specified as optional command line arguments:
 
-    yo aspnet [projecttype [applicationname]]
+    yo aspnet [projecttype [applicationname] [uiframework]]
 
 The valid project types are:
 
@@ -63,7 +63,14 @@ The valid project types are:
 - `classlib` for Class Library
 - `unittest` Unit Test project
 
-> Example: `yo aspnet webbasic "my test app"` will create a "Web Application Basic" project called "my test app"
+The valid UI framework types are:
+
+- `bootstrap` for Bootstrap (this is the default and does not have to be specified explicitly)
+- `semantic` for Semantic UI
+
+> Example: `yo aspnet webbasic "my semantic app" semantic` will create a "Web Application Basic" project called "my semantic app" using the Semantic UI framework.
+
+> Example: `yo aspnet webbasic "my bootstrap app"` OR `yo aspnet webbasic "my bootstrap app" bootstrap` will create a "Web Application Basic" project called "my bootstrap app" using the Bootstrap framework.
 
 ## Related yeoman generators
 

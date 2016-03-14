@@ -95,7 +95,7 @@ var util = (function() {
 
   }
 
-  function goCreateApplicationWithOptions(type, applicationName, options) {
+  function goCreateApplicationWithOptions(type, applicationName, ui, options) {
     before(function(done) {
 
       assert = yeoman.assert;
@@ -103,7 +103,8 @@ var util = (function() {
 
       var mockPrompt = {
         type: type,
-        applicationName: applicationName
+        applicationName: applicationName,
+        ui: ui
       };
 
       mockGen.run(path.join(__dirname, '../app'))

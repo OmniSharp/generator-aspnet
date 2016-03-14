@@ -1,0 +1,25 @@
+@model AddPhoneNumberViewModel
+@{
+    ViewData["Title"] = "Add Phone Number";
+}
+
+<h2 class="ui header">@ViewData["Title"]</h2>
+<form asp-controller="Manage" asp-action="AddPhoneNumber" method="post" class="ui small form validate-me" role="form">
+    <h3 class="ui header">Add a phone number</h3>
+
+    <div class="field">
+        <div class="ui left icon input">
+            <i class="phone icon"></i>
+            <input asp-for="PhoneNumber" placeholder="Phone Number" />
+            <div asp-validation-for="LoginModel.Email"></div>
+        </div>
+    </div>
+    <input type="submit" class="ui blue submit button" value="Send Verification Code" />
+    
+    <div asp-validation-summary="ValidationSummary.All" class="ui error message"></div>
+
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
