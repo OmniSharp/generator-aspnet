@@ -40,10 +40,13 @@
   "keywords": [
     "yeoman-generator",
     "ASP.NET",
+    "ASP.NET Core",
     "aspnet",
+    "aspnet core",
     "ASP",
+    ".net",
     "net",
-    "vNext",
+    "core",
     "dnx"
   ],
   "dependencies": {
