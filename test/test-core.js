@@ -344,7 +344,7 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     it('Controllers directory created', function() {
       assert.file('webTest/Controllers');
     });
-    
+
     it('Migrations directory created', function() {
       assert.file('webTest/Migrations');
     });
@@ -356,7 +356,7 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     it('Services directory created', function() {
       assert.file('webTest/Services');
     });
-    
+
     it('TagHelpers directory created', function() {
       assert.file('webTest/TagHelpers');
     });
@@ -404,8 +404,6 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     it('wwwroot/js directory created', function() {
       assert.file('webTest/wwwroot/js');
     });
-    
-    
 
   });
 
@@ -494,48 +492,48 @@ describe('aspnet - Web Application (Semantic UI)', function() {
   });
 
 
-  describe('Checking file content for overrides', function(){
+  describe('Checking file content for overrides', function() {
 
-    it('_Layout.cshtml contains menulink tags', function(){
-        assert.fileContent('webTest/Views/Shared/_Layout.cshtml', "menulink");
+    it('_Layout.cshtml contains menulink tags', function() {
+      assert.fileContent('webTest/Views/Shared/_Layout.cshtml', "menulink");
     });
 
-    it('_ViewImports.cshtml contains TagHelper', function(){
-        assert.fileContent('webTest/Views/_ViewImports.cshtml', '*, webTest');
+    it('_ViewImports.cshtml contains TagHelper', function() {
+      assert.fileContent('webTest/Views/_ViewImports.cshtml', '*, webTest');
     });
 
-    it('_ValidationScriptsPartial.cshtml contains reference to semantic.validation.js', function(){
-        assert.fileContent('webTest/Views/Shared/_ValidationScriptsPartial.cshtml', 'semantic.validation.js');
+    it('_ValidationScriptsPartial.cshtml contains reference to semantic.validation.js', function() {
+      assert.fileContent('webTest/Views/Shared/_ValidationScriptsPartial.cshtml', 'semantic.validation.js');
     });
 
-    it('site.css is overridden', function(){
-        assert.fileContent('webTest/wwwroot/css/site.css', '.masthead');
+    it('site.css is overridden', function() {
+      assert.fileContent('webTest/wwwroot/css/site.css', '.masthead');
     });
 
-    it('site.js is overridden', function(){
-        assert.fileContent('webTest/wwwroot/js/site.js', '.sidebar(');
+    it('site.js is overridden', function() {
+      assert.fileContent('webTest/wwwroot/js/site.js', '.sidebar(');
     });
 
     //We wont explicitly check every single file in every directory, one file per directory should suffice
 
-    it('Views/Account/ConfirmEmail.cshtml contains Semantic UI markup', function(){
-        assert.fileContent('webTest/Views/Account/ConfirmEmail.cshtml', 'ui header');
+    it('Views/Account/ConfirmEmail.cshtml contains Semantic UI markup', function() {
+      assert.fileContent('webTest/Views/Account/ConfirmEmail.cshtml', 'ui header');
     });
 
-    it('Views/Home/About.cshtml contains Semantic UI markup', function(){
-        assert.fileContent('webTest/Views/Home/About.cshtml', 'ui container');
+    it('Views/Home/About.cshtml contains Semantic UI markup', function() {
+      assert.fileContent('webTest/Views/Home/About.cshtml', 'ui container');
     });
 
-    it('Views/Manage/AddPhoneNumber.cshtml contains Semantic UI markup', function(){
-        assert.fileContent('webTest/Views/Manage/AddPhoneNumber.cshtml', 'ui header');
+    it('Views/Manage/AddPhoneNumber.cshtml contains Semantic UI markup', function() {
+      assert.fileContent('webTest/Views/Manage/AddPhoneNumber.cshtml', 'ui header');
     });
 
-    it('Views/Shared/Error.cshtml contains Semantic UI markup', function(){
-        assert.fileContent('webTest/Views/Shared/Error.cshtml', 'ui header');
+    it('Views/Shared/Error.cshtml contains Semantic UI markup', function() {
+      assert.fileContent('webTest/Views/Shared/Error.cshtml', 'ui header');
     });
 
-    it('bower.json contains semantic references', function(){
-        assert.fileContent('webTest/bower.json', 'semantic');
+    it('bower.json contains semantic references', function() {
+      assert.fileContent('webTest/bower.json', 'semantic');
     });
   });
 
@@ -689,7 +687,7 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     it('Controllers directory created', function() {
       assert.file('webTest/Controllers');
     });
-    
+
     it('TagHelpers directory created', function() {
       assert.file('webTest/TagHelpers');
     });
@@ -763,36 +761,36 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     }
   });
 
-  describe('Checking file content for overrides', function(){
+  describe('Checking file content for overrides', function() {
 
-    it('_Layout.cshtml contains menulink tags', function(){
-        assert.fileContent('webTest/Views/Shared/_Layout.cshtml', "menulink");
+    it('_Layout.cshtml contains menulink tags', function() {
+      assert.fileContent('webTest/Views/Shared/_Layout.cshtml', "menulink");
     });
 
-    it('_ViewImports.cshtml contains TagHelper', function(){
-        assert.fileContent('webTest/Views/_ViewImports.cshtml', '*, webTest');
+    it('_ViewImports.cshtml contains TagHelper', function() {
+      assert.fileContent('webTest/Views/_ViewImports.cshtml', '*, webTest');
     });
 
-    it('site.css is overridden', function(){
-        assert.fileContent('webTest/wwwroot/css/site.css', '.masthead');
+    it('site.css is overridden', function() {
+      assert.fileContent('webTest/wwwroot/css/site.css', '.masthead');
     });
 
-    it('site.js is overridden', function(){
-        assert.fileContent('webTest/wwwroot/js/site.js', '.sidebar(');
+    it('site.js is overridden', function() {
+      assert.fileContent('webTest/wwwroot/js/site.js', '.sidebar(');
     });
 
     //We wont explicitly check every single file in every directory, one file per directory should suffice
 
-    it('Views/Home/About.cshtml contains Semantic UI markup', function(){
-        assert.fileContent('webTest/Views/Home/About.cshtml', 'ui container');
+    it('Views/Home/About.cshtml contains Semantic UI markup', function() {
+      assert.fileContent('webTest/Views/Home/About.cshtml', 'ui container');
     });
 
-    it('Views/Shared/Error.cshtml contains Semantic UI markup', function(){
-        assert.fileContent('webTest/Views/Shared/Error.cshtml', 'ui header');
+    it('Views/Shared/Error.cshtml contains Semantic UI markup', function() {
+      assert.fileContent('webTest/Views/Shared/Error.cshtml', 'ui header');
     });
 
-    it('bower.json contains semantic references', function(){
-        assert.fileContent('webTest/bower.json', 'semantic');
+    it('bower.json contains semantic references', function() {
+      assert.fileContent('webTest/bower.json', 'semantic');
     });
   });
 
