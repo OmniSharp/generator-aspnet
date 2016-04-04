@@ -492,51 +492,51 @@ describe('aspnet - Web Application (Semantic UI)', function() {
       util.filesCheck(files[i]);
     }
   });
-  
-  
+
+
   describe('Checking file content for overrides', function(){
-    
+
     it('_Layout.cshtml contains menulink tags', function(){
         assert.fileContent('webTest/Views/Shared/_Layout.cshtml', "menulink");
-    })
-    
+    });
+
     it('_ViewImports.cshtml contains TagHelper', function(){
         assert.fileContent('webTest/Views/_ViewImports.cshtml', '*, webTest');
-    })
-      
+    });
+
     it('_ValidationScriptsPartial.cshtml contains reference to semantic.validation.js', function(){
         assert.fileContent('webTest/Views/Shared/_ValidationScriptsPartial.cshtml', 'semantic.validation.js');
-    })
-    
+    });
+
     it('site.css is overridden', function(){
         assert.fileContent('webTest/wwwroot/css/site.css', '.masthead');
-    })
-    
+    });
+
     it('site.js is overridden', function(){
         assert.fileContent('webTest/wwwroot/js/site.js', '.sidebar(');
-    })
-    
+    });
+
     //We wont explicitly check every single file in every directory, one file per directory should suffice
-    
+
     it('Views/Account/ConfirmEmail.cshtml contains Semantic UI markup', function(){
         assert.fileContent('webTest/Views/Account/ConfirmEmail.cshtml', 'ui header');
-    })
-    
+    });
+
     it('Views/Home/About.cshtml contains Semantic UI markup', function(){
         assert.fileContent('webTest/Views/Home/About.cshtml', 'ui container');
-    })
-    
+    });
+
     it('Views/Manage/AddPhoneNumber.cshtml contains Semantic UI markup', function(){
         assert.fileContent('webTest/Views/Manage/AddPhoneNumber.cshtml', 'ui header');
-    })
-    
+    });
+
     it('Views/Shared/Error.cshtml contains Semantic UI markup', function(){
         assert.fileContent('webTest/Views/Shared/Error.cshtml', 'ui header');
-    })
-    
+    });
+
     it('bower.json contains semantic references', function(){
         assert.fileContent('webTest/bower.json', 'semantic');
-    })
+    });
   });
 
 });
@@ -762,38 +762,38 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
       util.filesCheck(files[i]);
     }
   });
-  
+
   describe('Checking file content for overrides', function(){
-    
+
     it('_Layout.cshtml contains menulink tags', function(){
         assert.fileContent('webTest/Views/Shared/_Layout.cshtml', "menulink");
-    })
-    
+    });
+
     it('_ViewImports.cshtml contains TagHelper', function(){
         assert.fileContent('webTest/Views/_ViewImports.cshtml', '*, webTest');
-    })
-    
+    });
+
     it('site.css is overridden', function(){
         assert.fileContent('webTest/wwwroot/css/site.css', '.masthead');
-    })
-    
+    });
+
     it('site.js is overridden', function(){
         assert.fileContent('webTest/wwwroot/js/site.js', '.sidebar(');
-    })
-    
+    });
+
     //We wont explicitly check every single file in every directory, one file per directory should suffice
-    
+
     it('Views/Home/About.cshtml contains Semantic UI markup', function(){
         assert.fileContent('webTest/Views/Home/About.cshtml', 'ui container');
-    })
-    
+    });
+
     it('Views/Shared/Error.cshtml contains Semantic UI markup', function(){
         assert.fileContent('webTest/Views/Shared/Error.cshtml', 'ui header');
-    })
-    
+    });
+
     it('bower.json contains semantic references', function(){
         assert.fileContent('webTest/bower.json', 'semantic');
-    })
+    });
   });
 
 });
@@ -877,7 +877,7 @@ describe('command line options', function() {
     var app = require('../app');
     app.prototype.log = function() {}; //stub
     app.prototype.type = 'webbasic';
-    app.prototype.applicationName = 'myWebApp'
+    app.prototype.applicationName = 'myWebApp';
     app.prototype.ui = 'bootstrap';
 
     app.prototype._checkProjectType();
@@ -891,7 +891,7 @@ describe('command line options', function() {
     var app = require('../app');
     app.prototype.log = function() {}; //stub
     app.prototype.type = 'not-a-real-project-type';
-    app.prototype.applicationName = 'myWebApp'
+    app.prototype.applicationName = 'myWebApp';
 
     app.prototype._checkProjectType();
 
