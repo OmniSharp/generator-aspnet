@@ -130,7 +130,6 @@ var util = (function() {
 
   function filesCheck(file) {
 
-
     it(file + ' created.', function() {
       assert.file(file);
     });
