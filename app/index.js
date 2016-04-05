@@ -241,8 +241,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         
         // UI Component Overrides
         // If the developer has placed anything in overrides/ui-module/project-type/**/* then use it
-        this.fs.copyTpl(this.templatePath('/../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
-        
+        this.fs.copyTpl(this.templatePath('../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
+
         break;
       case 'webbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
@@ -273,8 +273,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         
         // UI Component Overrides
         // If the developer has placed anything in overrides/ui-module/project-type/**/* then use it
-        this.fs.copyTpl(this.templatePath('/../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
-        
+        this.fs.copyTpl(this.templatePath('../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
+
         break;
       case 'nancy':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
