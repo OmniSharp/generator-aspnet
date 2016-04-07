@@ -6,7 +6,7 @@ You've created a new ASP.NET Core project. [Learn what's new](http://go.microsof
 
 ## This application consists of:
 
-*   Sample pages using ASP.NET MVC Core
+*   Sample pages using ASP.NET Core MVC
 *   [Gulp](http://go.microsoft.com/fwlink/?LinkId=518007) and [Bower](http://go.microsoft.com/fwlink/?LinkId=518004) for managing client-side libraries
 *   Theming using [Bootstrap](http://go.microsoft.com/fwlink/?LinkID=398939)
 
@@ -33,8 +33,7 @@ You've created a new ASP.NET Core project. [Learn what's new](http://go.microsof
 ## Run & Deploy
 
 *   [Run your app](http://go.microsoft.com/fwlink/?LinkID=517851)
-*   [Run your app on .NET Core](http://go.microsoft.com/fwlink/?LinkID=517852)
-*   [Run commands in your project.json](http://go.microsoft.com/fwlink/?LinkID=517853)
+*   [Run tools such as EF migrations and more](http://go.microsoft.com/fwlink/?LinkID=517853)
 *   [Publish to Microsoft Azure Web Apps](http://go.microsoft.com/fwlink/?LinkID=398609)
 
 We would love to hear your [feedback](http://go.microsoft.com/fwlink/?LinkId=518015)
