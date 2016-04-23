@@ -87,7 +87,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           default: 'bootstrap',
           choices: [
               {
-                  name: 'Bootstrap (3.3.5)',
+                  name: 'Bootstrap (3.3.6)',
                   value: 'bootstrap'
               },
               {
@@ -266,8 +266,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('package.json'), this.applicationName + '/package.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
+        // Properties
+        this.fs.copy(this.templatePath('Properties/**/*'), this.applicationName + '/Properties');
         this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
         this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationName + '/Startup.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('web.config'), this.applicationName + '/web.config', this.templatedata);
         // Controllers
         this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
         // Views

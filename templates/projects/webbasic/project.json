@@ -1,54 +1,70 @@
 {
-  "version": "1.0.0-*",
   "compilationOptions": {
-    "emitEntryPoint": true
-  },
-  "tooling": {
-    "defaultNamespace": "<%= namespace %>"
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true
   },
 
   "dependencies": {
-    "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
-    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
-    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-    "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration.FileProviderExtensions" : "1.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final"
-  },
-
-  "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel"
+    "dotnet-razor-tooling": {
+      "type": "build",
+      "version": "1.0.0-rc2-20581"
+    },
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-20581",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc2-20581",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20581",
+    "Microsoft.Extensions.Logging": "1.0.0-rc2-20581",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-20581",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-20581",
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0-rc2-24008"
+    },
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-20581"
   },
 
   "frameworks": {
-    "dnx451": {},
-    "dnxcore50": {}
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50",
+        "portable-net45+win8"
+      ]
+    }
   },
 
-  "exclude": [
+  "tools": {
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
+      "version": "1.0.0-rc2-20581",
+      "imports": "portable-net45+win8+dnxcore50"
+    },
+    "dotnet-razor-tooling": {
+      "version": "1.0.0-rc2-20581",
+      "imports": "portable-net45+win8+dnxcore50"
+    }
+  },
+
+  "content": [
     "wwwroot",
-    "node_modules",
-    "bower_components"
+    "Views",
+    "appsettings.json",
+    "web.config"
   ],
-  "publishExclude": [
-    "node_modules",
-    "bower_components",
-    "**.xproj",
-    "**.user",
-    "**.vspscc"
+
+  "exclude": [
+    "node_modules"
   ],
+
   "scripts": {
-    "prepublish": [
-      "npm install",
-      "bower install"<% if(!grunt){ %>,
-      "gulp clean",
-      "gulp min"<% } %>
-    ]
+    "prepublish": [ "npm install", "bower install"<% if(!grunt){ %>, "gulp clean", "gulp min"<% } %> ],
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath%" ]
+  },
+
+  "tooling": {
+    "defaultNamespace": "<%= namespace %>"
   }
 }
