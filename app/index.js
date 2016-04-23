@@ -31,7 +31,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     if (this.type) {
       //normalize to lower case
       this.type = this.type.toLowerCase();
-      var validProjectTypes = ['emptyweb', 'console', 'web', 'webbasic', 'webapi', 'nancy', 'classlibrary', 'unittest'];
+      var validProjectTypes = ['emptyweb', 'consoleapp', 'web', 'webbasic', 'webapi', 'nancy', 'classlibrary', 'unittest'];
       if (validProjectTypes.indexOf(this.type) === -1) {
         //if it's not in the list, send them through the normal path
         this.log('"%s" is not a valid project type', chalk.cyan(this.type));
@@ -58,7 +58,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             value: 'emptyweb'
           }, {
             name: 'Console Application',
-            value: 'console'
+            value: 'consoleapp'
           }, {
             name: 'Web Application',
             value: 'web'
@@ -127,7 +127,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'emptyweb':
           app = 'EmptyWebApplication';
           break;
-        case 'console':
+        case 'consoleapp':
           app = 'ConsoleApplication';
           break;
         case 'web':
@@ -294,8 +294,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.template(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
 
         break;
-      case 'console':
-        this.sourceRoot(path.join(__dirname, '../templates/projects/console'));
+      case 'consoleapp':
+        this.sourceRoot(path.join(__dirname, '../templates/projects/consoleapp'));
         this.fs.copy(path.join(__dirname, '../templates/gitignore.txt'), this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
@@ -329,8 +329,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.log(chalk.green('    dotnet build') + ' (optional, build will also happen when it\'s run)');
 
     switch (this.type) {
-      case 'console':
-        this.log(chalk.green('    dnx run'));
+      case 'consoleapp':
+        this.log(chalk.green('    dotnet run'));
         break;
       case 'emptyweb':
       case 'nancy':

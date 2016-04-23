@@ -54,8 +54,13 @@ The project type and application name can be specified as optional command line 
 
 The valid project types are:
 
+<<<<<<< HEAD
 - `emptyweb` for Empty Application
 - `console` for Console Application
+=======
+- `empty` for Empty Application
+- `consoleapp` for Console Application
+>>>>>>> :arrow_up: Update Console application template for RC2. Closes #600
 - `web` for Web Application
 - `webbasic` for Web Application Basic
 - `webapi` for Web API Application

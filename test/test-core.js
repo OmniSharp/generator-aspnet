@@ -82,18 +82,18 @@ describe('aspnet - Class Library', function() {
  */
 describe('aspnet - Console Application', function() {
 
-  util.goCreateApplication('console', 'consoleTest');
+  util.goCreateApplication('consoleapp', 'consoleAppTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
-      assert.file('consoleTest/');
+      assert.file('consoleAppTest/');
     });
   });
 
   var files = [
-    'consoleTest/.gitignore',
-    'consoleTest/Program.cs',
-    'consoleTest/project.json'
+    'consoleAppTest/.gitignore',
+    'consoleAppTest/Program.cs',
+    'consoleAppTest/project.json'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
