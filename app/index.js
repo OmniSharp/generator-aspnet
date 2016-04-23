@@ -31,7 +31,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     if (this.type) {
       //normalize to lower case
       this.type = this.type.toLowerCase();
-      var validProjectTypes = ['empty', 'console', 'web', 'webbasic', 'webapi', 'nancy', 'classlib', 'unittest'];
+      var validProjectTypes = ['emptyweb', 'console', 'web', 'webbasic', 'webapi', 'nancy', 'classlib', 'unittest'];
       if (validProjectTypes.indexOf(this.type) === -1) {
         //if it's not in the list, send them through the normal path
         this.log('"%s" is not a valid project type', chalk.cyan(this.type));
@@ -54,8 +54,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         message: 'What type of application do you want to create?',
         choices: [
           {
-            name: 'Empty Application',
-            value: 'empty'
+            name: 'Empty Web Application',
+            value: 'emptyweb'
           }, {
             name: 'Console Application',
             value: 'console'
@@ -124,8 +124,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       var done = this.async();
       var app = '';
       switch (this.type) {
-        case 'empty':
-          app = 'EmptyApplication';
+        case 'emptyweb':
+          app = 'EmptyWebApplication';
           break;
         case 'console':
           app = 'ConsoleApplication';
@@ -169,7 +169,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
     switch (this.type) {
 
-      case 'empty':
+      case 'emptyweb':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
@@ -326,7 +326,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       case 'console':
         this.log(chalk.green('    dnx run'));
         break;
-      case 'empty':
+      case 'emptyweb':
       case 'nancy':
       case 'web':
       case 'webapi':

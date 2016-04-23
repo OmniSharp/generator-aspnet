@@ -28,7 +28,7 @@ Yeoman generator for ASP.NET Core 1.0 projects
 
 Full, template based projects available in generator:
 
-- Empty Application
+- Empty Web Application
 - Console Application
 - Web Application
 - Web Application Basic [without Membership and Authorization]
@@ -37,7 +37,7 @@ Full, template based projects available in generator:
 - Class Library
 - Unit Test project
 
-The Empty Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
+The Empty Web Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
 
 > ASP.NET Templates provide project templates which are used in Visual Studio for creating ASP.NET Core 1.0 applications.
 
@@ -54,7 +54,7 @@ The project type and application name can be specified as optional command line 
 
 The valid project types are:
 
-- `empty` for Empty Application
+- `emptyweb` for Empty Application
 - `console` for Console Application
 - `web` for Web Application
 - `webbasic` for Web Application Basic

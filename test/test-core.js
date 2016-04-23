@@ -17,28 +17,28 @@ describe('aspnet Core 1.0 generator', function() {
 /*
  * yo aspnet Empty Application
  */
-describe('aspnet - Empty Application', function() {
+describe('aspnet - Empty Web Application', function() {
 
-  util.goCreateApplication('empty', 'emptyTest');
+  util.goCreateApplication('emptyweb', 'emptyWebTest');
 
   describe('Checking directories', function() {
 
     it('Application directory created', function() {
-      assert.file('emptyTest/');
+      assert.file('emptyWebTest/');
     });
 
     it('wwwroot directory created', function() {
-      assert.file('emptyTest/wwwroot');
+      assert.file('emptyWebTest/wwwroot');
     });
 
   });
 
   var files = [
-    'emptyTest/project.json',
-    'emptyTest/Startup.cs',
-    'emptyTest/wwwroot/README.md',
-    'emptyTest/wwwroot/web.config',
-    'emptyTest/Dockerfile'
+    'emptyWebTest/project.json',
+    'emptyWebTest/Startup.cs',
+    'emptyWebTest/wwwroot/README.md',
+    'emptyWebTest/wwwroot/web.config',
+    'emptyWebTest/Dockerfile'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
