@@ -20,7 +20,6 @@ Subgenerators:
   yo aspnet:HTMLPage [options] <name>
   yo aspnet:Interface [options] <name>
   yo aspnet:JavaScript [options] <name>
-  yo aspnet:JScript [options] <name>
   yo aspnet:JSON [options] <name>
   yo aspnet:JSONSchema [options] <name>
   yo aspnet:Middleware [options] <name>

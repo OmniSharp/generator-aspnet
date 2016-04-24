@@ -104,7 +104,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:HTMLPage](#htmlpage)
 * [aspnet:Interface](#interface)
 * [aspnet:JavaScript](#javascript)
-* [aspnet:JScript](#jscript)
 * [aspnet:JSON](#json)
 * [aspnet:JSONSchema](#jsonschema)
 * [aspnet:JSX](#jsx)
@@ -363,20 +362,6 @@ Example:
 
 ```
 yo aspnet:JavaScript filename
-```
-
-Produces `filename.js`
-
-[Return to top](#top)
-
-### JScript
-
-Creates a new JavaScript file
-
-Example:
-
-```
-yo aspnet:JScript filename
 ```
 
 Produces `filename.js`
