@@ -29,7 +29,7 @@ Subgenerators:
   yo aspnet:nuget [options]
   yo aspnet:PackageJson [options]
   yo aspnet:Program [options]
-  yo aspnet:StartupClass [options]
+  yo aspnet:Startup [options]
   yo aspnet:StyleSheet [options] <name>
   yo aspnet:StyleSheetLess [options] <name>
   yo aspnet:StyleSheetScss [options] <name>
