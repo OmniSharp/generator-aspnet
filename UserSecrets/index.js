@@ -56,7 +56,7 @@ Generator.prototype._projectPath = null;
  * @return {String} unique hash token
  */
 Generator.prototype._generateUserSecretId = function() {
-  var HASH_PREFIX = 'aspnet5';
+  var HASH_PREFIX = 'aspnet';
   var namespace = this.namespace();
   var guid = uuid.v4();
   var userSecretId = util.format('%s-%s-%s', HASH_PREFIX, namespace, guid);
@@ -126,7 +126,7 @@ Generator.prototype._updateDependencies = function(project) {
   var updated = false;
   var USER_SECRETS_NUGET_PACKAGE_KEY = 'Microsoft.Extensions.Configuration.UserSecrets';
   var USER_SECRETS_NUGET_PARENT_KEY = "dependencies";
-  var USER_SECRETS_NUGET_VERSION = '1.0.0-rc1-final';
+  var USER_SECRETS_NUGET_VERSION = '1.0.0-*';
   // the UserSecrets package can exists at different location in project.json
   var projectAsString = JSON.stringify(project.get()) || '';
   var currentUserSecretsDependency = projectAsString.indexOf(USER_SECRETS_NUGET_PACKAGE_KEY);
