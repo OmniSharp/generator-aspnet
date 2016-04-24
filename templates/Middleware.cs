@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Http;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 
 namespace <%= namespace %>
 {
-    // You may need to install the Microsoft.AspNet.Http.Abstractions package into your project
+    // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class <%= classname %>
     {
         private readonly RequestDelegate _next;
@@ -27,7 +27,7 @@ namespace <%= namespace %>
     // Extension method used to add the middleware to the HTTP request pipeline.
     public static class <%= classname %>Extensions
     {
-        public static IApplicationBuilder UseMiddleware(this IApplicationBuilder builder)
+        public static IApplicationBuilder Use<%= classname %>(this IApplicationBuilder builder)
         {
             return builder.UseMiddleware<<%= classname %>>();
         }

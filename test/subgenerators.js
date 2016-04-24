@@ -415,6 +415,8 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('Middleware', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*static[ ]*class[ ]*MyMiddlewareExtensions/);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*IApplicationBuilder[ ]*UseMyMiddleware/);
   });
 
   describe('aspnet:Middleware with extension', function() {
@@ -422,6 +424,8 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('Middleware', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*static[ ]*class[ ]*MyMiddlewareExtensions/);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*IApplicationBuilder[ ]*UseMyMiddleware/);
   });
 
   describe('aspnet:Middleware in cwd of project.json', function() {
