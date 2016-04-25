@@ -174,12 +174,18 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
 
+        this.template(this.sourceRoot() + '/Program.cs', this.applicationName + '/Program.cs', this.templatedata);
+
         this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
         this.template(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
 
+        this.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
+
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
 
+        /// Properties
+        this.fs.copy(this.templatePath('Properties/**/*'), this.applicationName + '/Properties');
         /// wwwroot
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
         break;
@@ -319,8 +325,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.log('\r\n');
     this.log('Your project is now created, you can use the following commands to get going');
     this.log(chalk.green('    cd "' + this.applicationName + '"'));
-    this.log(chalk.green('    dnu restore'));
-    this.log(chalk.green('    dnu build') + ' (optional, build will also happen when it\'s run)');
+    this.log(chalk.green('    dotnet restore'));
+    this.log(chalk.green('    dotnet build') + ' (optional, build will also happen when it\'s run)');
 
     switch (this.type) {
       case 'console':
@@ -331,7 +337,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       case 'web':
       case 'webapi':
       case 'webbasic':
-        this.log(chalk.green('    dnx web'));
+        this.log(chalk.green('    dotnet run'));
         break;
       case 'unittest':
         this.log(chalk.green('    dnx test'));

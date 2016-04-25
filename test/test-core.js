@@ -27,6 +27,10 @@ describe('aspnet - Empty Web Application', function() {
       assert.file('emptyWebTest/');
     });
 
+    it('Properties directory created', function() {
+      assert.file('emptyWebTest/Properties');
+    });
+
     it('wwwroot directory created', function() {
       assert.file('emptyWebTest/wwwroot');
     });
@@ -35,9 +39,11 @@ describe('aspnet - Empty Web Application', function() {
 
   var files = [
     'emptyWebTest/project.json',
+    'emptyWebTest/Program.cs',
+    'emptyWebTest/Properties/launchSettings.json',
     'emptyWebTest/Startup.cs',
     'emptyWebTest/wwwroot/README.md',
-    'emptyWebTest/wwwroot/web.config',
+    'emptyWebTest/web.config',
     'emptyWebTest/Dockerfile'
   ];
   describe('Checking files', function() {
