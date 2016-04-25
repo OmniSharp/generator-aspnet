@@ -14,7 +14,7 @@ NamedGenerator.prototype.createNamedItem = function() {
   //   namespaceSuffix: foo.bar.baz
   //   classname: wibble
   var namespace = this.namespace();
-  var pathSegments = this.classNameWithoutExtension(extension).split('\\');
+  var pathSegments = this.classNameWithoutExtension(extension).replace(/\//g, '\\').split('\\');
   var namespaceSuffix = pathSegments.slice(0, -1).join('.');
   if (namespaceSuffix !== '') {
     namespace += "." + namespaceSuffix;

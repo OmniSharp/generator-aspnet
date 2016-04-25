@@ -340,12 +340,27 @@ describe('Subgenerators with named arguments tests', function() {
   });
   
   
-  describe('aspnet:Class in child dir of project.json', function() {
+  describe('aspnet:Class in child dir of project.json (backslash)', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlib', 'emptyTest', dir);
 
     var arg = 'foo\\bar\\MyClass';
+    var filename = 'foo\\bar\\MyClass.cs';
+    console.log(arg, dir);
+
+    util.goCreateWithArgs('Class', [arg], path.join(dir, 'emptyTest'));
+    util.fileCheck('should create ' + filename + ' file', filename);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyClass/);
+    util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest.foo.bar');
+  });
+
+  describe('aspnet:Class in child dir of project.json (forwardslash)', function() {
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('classlib', 'emptyTest', dir);
+
+    var arg = 'foo/bar/MyClass';
     var filename = 'foo\\bar\\MyClass.cs';
     console.log(arg, dir);
 
