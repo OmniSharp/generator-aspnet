@@ -113,6 +113,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:MvcView](#mvcview)
 * [aspnet:nuget](#nuget)
 * [aspnet:PackageJson](#packagejson)
+* [aspnet:Program](#program)
 * [aspnet:readme](#readme)
 * [aspnet:StartupClass](#startupclass)
 * [aspnet:StyleSheet](#stylesheet)
@@ -521,6 +522,20 @@ yo aspnet:PackageJson
 ```
 
 Produces `package.json`
+
+[Return to top](#top)
+
+### Program
+
+Creates a new `Program.cs` file
+
+Example:
+
+```
+yo aspnet:Program
+```
+
+Produces `Program.cs`
 
 [Return to top](#top)
 
