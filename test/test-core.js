@@ -845,11 +845,12 @@ describe('aspnet - Web API Application', function() {
     'webAPITest/Controllers/ValuesController.cs',
     'webAPITest/appsettings.json',
     'webAPITest/project.json',
+    'webAPITest/Program.cs',
     'webAPITest/Properties/launchSettings.json',
     'webAPITest/Startup.cs',
     'webAPITest/.gitignore',
     'webAPITest/wwwroot/README.md',
-    'webAPITest/wwwroot/web.config',
+    'webAPITest/web.config',
     'webAPITest/Dockerfile'
   ];
   describe('Checking files', function() {
