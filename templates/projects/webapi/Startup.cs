@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -16,7 +16,13 @@ namespace <%= namespace %>
         {
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile(source =>
+                {
+                    source.Path = "appsettings.json";
+                    source.ReloadOnChange = true;
+                })
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -36,14 +42,7 @@ namespace <%= namespace %>
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseIISPlatformHandler();
-
-            app.UseStaticFiles();
-
             app.UseMvc();
         }
-
-        // Entry point for the application.
-        public static void Main(string[] args) => Microsoft.AspNet.Hosting.WebApplication.Run<Startup>(args);
     }
 }
