@@ -168,12 +168,12 @@ describe('aspnet:UserSecrets', function() {
     });
 
     it('The correctly formatted userSecretId value is added', function() {
-      assert.fileContent('./project.json', /aspnet5-emptyWebTest/);
+      assert.fileContent('./project.json', /aspnet-emptyWebTest/);
     });
 
     it('the UserSecrets nuget package version is added', function() {
       assert.fileContent('./project.json', /Microsoft\.Extensions\.Configuration\.UserSecrets/);
-      assert.fileContent('./project.json', /1\.0\.0-rc1-final/);
+      assert.fileContent('./project.json', /1\.0\.0-*/);
     });
 
   });
