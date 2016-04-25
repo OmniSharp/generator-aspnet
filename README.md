@@ -28,7 +28,7 @@ Yeoman generator for ASP.NET Core 1.0 projects
 
 Full, template based projects available in generator:
 
-- Empty Application
+- Empty Web Application
 - Console Application
 - Web Application
 - Web Application Basic [without Membership and Authorization]
@@ -37,7 +37,7 @@ Full, template based projects available in generator:
 - Class Library
 - Unit Test project
 
-The Empty Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
+The Empty Web Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
 
 > ASP.NET Templates provide project templates which are used in Visual Studio for creating ASP.NET Core 1.0 applications.
 
@@ -54,13 +54,18 @@ The project type and application name can be specified as optional command line 
 
 The valid project types are:
 
-- `empty` for Empty Application
+<<<<<<< HEAD
+- `emptyweb` for Empty Application
 - `console` for Console Application
+=======
+- `empty` for Empty Application
+- `consoleapp` for Console Application
+>>>>>>> :arrow_up: Update Console application template for RC2. Closes #600
 - `web` for Web Application
 - `webbasic` for Web Application Basic
 - `webapi` for Web API Application
 - `nancy` for Nancy ASP.NET Application
-- `classlib` for Class Library
+- `classlibrary` for Class Library
 - `unittest` Unit Test project
 
 The valid UI framework types are:
@@ -99,7 +104,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:HTMLPage](#htmlpage)
 * [aspnet:Interface](#interface)
 * [aspnet:JavaScript](#javascript)
-* [aspnet:JScript](#jscript)
 * [aspnet:JSON](#json)
 * [aspnet:JSONSchema](#jsonschema)
 * [aspnet:JSX](#jsx)
@@ -358,20 +362,6 @@ Example:
 
 ```
 yo aspnet:JavaScript filename
-```
-
-Produces `filename.js`
-
-[Return to top](#top)
-
-### JScript
-
-Creates a new JavaScript file
-
-Example:
-
-```
-yo aspnet:JScript filename
 ```
 
 Produces `filename.js`

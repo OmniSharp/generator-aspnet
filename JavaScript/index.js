@@ -1,3 +1,16 @@
 'use strict';
+var util = require('util');
+var ScriptBase = require('../script-base.js');
 
-module.exports = require('../JScript');
+var NamedGenerator = module.exports = function NamedGenerator() {
+  ScriptBase.apply(this, arguments);
+};
+
+util.inherits(NamedGenerator, ScriptBase);
+
+NamedGenerator.prototype.createNamedItem = function() {
+  this.generateTemplateFile(
+    'JavaScript.js',
+    '.js'
+  );
+};

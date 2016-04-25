@@ -15,11 +15,11 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:PackageJson in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('empty', 'emptyTest', dir);
+    util.goCreateApplication('emptyweb', 'emptyWebTest', dir);
 
-    util.goCreate('PackageJson', path.join(dir, 'emptyTest'));
+    util.goCreate('PackageJson', path.join(dir, 'emptyWebTest'));
     util.fileCheck('should create package json file', 'package.json');
-    util.fileContentCheck('package.json', 'file content check', '"name": "emptytest"');
+    util.fileContentCheck('package.json', 'file content check', '"name": "emptywebtest"');
   });
 
   describe('aspnet:Gulpfile', function() {
@@ -42,12 +42,12 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:BowerJson in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('empty', 'emptyTest', dir);
+    util.goCreateApplication('emptyweb', 'emptyWebTest', dir);
 
-    util.goCreate('BowerJson', path.join(dir, 'emptyTest'));
+    util.goCreate('BowerJson', path.join(dir, 'emptyWebTest'));
     util.fileCheck('should create bower configuration file', '.bowerrc');
     util.fileCheck('should create bower file', 'bower.json');
-    util.fileContentCheck('bower.json', 'file content check', '"name": "emptyTest"');
+    util.fileContentCheck('bower.json', 'file content check', '"name": "emptyWebTest"');
   });
 
   describe('aspnet:AppSettings', function() {
@@ -63,7 +63,7 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:StartupClass in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
     util.goCreate('StartupClass', path.join(dir, 'emptyTest'));
     util.fileCheck('should create Startup.cs file', 'Startup.cs');
@@ -142,7 +142,7 @@ describe('Subgenerators without arguments tests', function() {
 
   describe('aspnet:readme in cwd of project.json should contain correct project name', function() {
     var dir = util.makeTempDir();
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
     util.goCreate('readme', path.join(dir, 'emptyTest'));
     util.fileCheck('should create README.md file', 'README.md');
     util.fileContentCheck('README.md', 'file content check', /^# emptyTest$/m);
@@ -151,7 +151,7 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:readme with --txt option in cwd of project.json should contain correct project name', function() {
     var arg = '--txt';
     var dir = util.makeTempDir();
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
     util.goCreateWithArgs('readme', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create README.txt file', 'README.txt');
     util.fileContentCheck('README.txt', 'file content check', /^# emptyTest$/m);
@@ -182,7 +182,7 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:AngularController in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
     var arg = 'HomeController';
     var filename = 'HomeController.js';
@@ -211,7 +211,7 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:AngularControllerAs in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
     var arg = 'HomeController';
     var filename = 'HomeController.js';
@@ -240,7 +240,7 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:AngularDirective in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
     var arg = 'HomeComponentDirective';
     var filename = 'HomeComponentDirective.js';
@@ -269,7 +269,7 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:AngularFactory in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
     var arg = 'MyService';
     var filename = 'MyService.js';
@@ -298,7 +298,7 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:AngularModule in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
     var arg = 'MyApplication';
     var filename = 'MyApplication.js';
@@ -327,7 +327,7 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:Class in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
     var arg = 'MyClass';
     var filename = 'MyClass.cs';
@@ -383,7 +383,7 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:Interface in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
     var arg = 'IContact';
     var filename = 'IContact.cs';
@@ -427,7 +427,7 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:Middleware in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlib', 'emptyTest', dir);
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
     var arg = 'MyMiddleware';
     var filename = 'MyMiddleware.cs';

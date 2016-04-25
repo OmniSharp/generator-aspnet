@@ -17,28 +17,34 @@ describe('aspnet Core 1.0 generator', function() {
 /*
  * yo aspnet Empty Application
  */
-describe('aspnet - Empty Application', function() {
+describe('aspnet - Empty Web Application', function() {
 
-  util.goCreateApplication('empty', 'emptyTest');
+  util.goCreateApplication('emptyweb', 'emptyWebTest');
 
   describe('Checking directories', function() {
 
     it('Application directory created', function() {
-      assert.file('emptyTest/');
+      assert.file('emptyWebTest/');
+    });
+
+    it('Properties directory created', function() {
+      assert.file('emptyWebTest/Properties');
     });
 
     it('wwwroot directory created', function() {
-      assert.file('emptyTest/wwwroot');
+      assert.file('emptyWebTest/wwwroot');
     });
 
   });
 
   var files = [
-    'emptyTest/project.json',
-    'emptyTest/Startup.cs',
-    'emptyTest/wwwroot/README.md',
-    'emptyTest/wwwroot/web.config',
-    'emptyTest/Dockerfile'
+    'emptyWebTest/project.json',
+    'emptyWebTest/Program.cs',
+    'emptyWebTest/Properties/launchSettings.json',
+    'emptyWebTest/Startup.cs',
+    'emptyWebTest/wwwroot/README.md',
+    'emptyWebTest/web.config',
+    'emptyWebTest/Dockerfile'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -53,15 +59,15 @@ describe('aspnet - Empty Application', function() {
  */
 describe('aspnet - Class Library', function() {
 
-  util.goCreateApplication('classlib', 'classTest');
+  util.goCreateApplication('classlibrary', 'classLibraryTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
-      assert.file('classTest/');
+      assert.file('classLibraryTest/');
     });
   });
 
-  var files = ['classTest/project.json', 'classTest/Class1.cs', 'classTest/.gitignore'];
+  var files = ['classLibraryTest/project.json', 'classLibraryTest/Class1.cs', 'classLibraryTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
@@ -76,18 +82,18 @@ describe('aspnet - Class Library', function() {
  */
 describe('aspnet - Console Application', function() {
 
-  util.goCreateApplication('console', 'consoleTest');
+  util.goCreateApplication('consoleapp', 'consoleAppTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
-      assert.file('consoleTest/');
+      assert.file('consoleAppTest/');
     });
   });
 
   var files = [
-    'consoleTest/.gitignore',
-    'consoleTest/Program.cs',
-    'consoleTest/project.json'
+    'consoleAppTest/.gitignore',
+    'consoleAppTest/Program.cs',
+    'consoleAppTest/project.json'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -603,6 +609,10 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
       assert.file('webTest/Controllers');
     });
 
+    it('Properties directory created', function() {
+      assert.file('webTest/Properties');
+    });
+
     it('Views directory created', function() {
       assert.file('webTest/Views');
     });
@@ -642,7 +652,9 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     'webTest/Controllers/HomeController.cs',
     'webTest/gulpfile.js',
     'webTest/package.json',
+    'webTest/Program.cs',
     'webTest/project.json',
+    'webTest/Properties/launchSettings.json',
     'webTest/README.md',
     'webTest/Startup.cs',
     'webTest/Views/_ViewImports.cshtml',
@@ -655,13 +667,13 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     'webTest/wwwroot/css/site.css',
     'webTest/wwwroot/css/site.min.css',
     'webTest/wwwroot/favicon.ico',
-    'webTest/wwwroot/images/ASP-NET-Banners-01.png',
-    'webTest/wwwroot/images/ASP-NET-Banners-02.png',
-    'webTest/wwwroot/images/Banner-01-Azure.png',
-    'webTest/wwwroot/images/Banner-02-VS.png',
+    'webTest/wwwroot/images/banner1.svg',
+    'webTest/wwwroot/images/banner2.svg',
+    'webTest/wwwroot/images/banner3.svg',
+    'webTest/wwwroot/images/banner4.svg',
     'webTest/wwwroot/js/site.js',
     'webTest/wwwroot/js/site.min.js',
-    'webTest/wwwroot/web.config'
+    'webTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -686,6 +698,10 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
 
     it('Controllers directory created', function() {
       assert.file('webTest/Controllers');
+    });
+
+    it('Properties directory created', function() {
+      assert.file('webTest/Properties');
     });
 
     it('TagHelpers directory created', function() {
@@ -731,7 +747,9 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     'webTest/Controllers/HomeController.cs',
     'webTest/gulpfile.js',
     'webTest/package.json',
+    'webTest/Program.cs',
     'webTest/project.json',
+    'webTest/Properties/launchSettings.json',
     'webTest/README.md',
     'webTest/Startup.cs',
     'webTest/TagHelpers/MenuLinkTagHelper.cs',
@@ -745,15 +763,15 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     'webTest/wwwroot/css/site.css',
     'webTest/wwwroot/css/site.min.css',
     'webTest/wwwroot/favicon.ico',
-    'webTest/wwwroot/images/ASP-NET-Banners-01.png',
-    'webTest/wwwroot/images/ASP-NET-Banners-02.png',
-    'webTest/wwwroot/images/Banner-01-Azure.png',
-    'webTest/wwwroot/images/Banner-02-VS.png',
+    'webTest/wwwroot/images/banner1.svg',
+    'webTest/wwwroot/images/banner2.svg',
+    'webTest/wwwroot/images/banner3.svg',
+    'webTest/wwwroot/images/banner4.svg',
     'webTest/wwwroot/js/semantic.validation.js',
     'webTest/wwwroot/js/semantic.validation.js',
     'webTest/wwwroot/js/site.js',
     'webTest/wwwroot/js/site.min.js',
-    'webTest/wwwroot/web.config'
+    'webTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {

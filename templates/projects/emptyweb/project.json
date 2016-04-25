@@ -1,0 +1,50 @@
+
+{
+  "compilationOptions": {
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true
+  },
+
+  "dependencies": {
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20581",
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0-rc2-24008"
+    }
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50",
+        "portable-net45+win8"
+      ]
+    }
+  },
+
+  "tools": {
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
+      "version": "1.0.0-rc2-20581",
+      "imports": "portable-net45+win8+dnxcore50"
+    }
+  },
+
+  "tooling": {
+    "defaultNamespace": "<%= namespace %>"
+  },
+
+  "content": [
+    "wwwroot",
+    "web.config"
+  ],
+
+  "exclude": [
+    "node_modules"
+  ],
+
+  "scripts": {
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath%" ]
+  }
+}
