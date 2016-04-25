@@ -15,11 +15,11 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:PackageJson in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('empty', 'emptyTest', dir);
+    util.goCreateApplication('emptyweb', 'emptyWebTest', dir);
 
-    util.goCreate('PackageJson', path.join(dir, 'emptyTest'));
+    util.goCreate('PackageJson', path.join(dir, 'emptyWebTest'));
     util.fileCheck('should create package json file', 'package.json');
-    util.fileContentCheck('package.json', 'file content check', '"name": "emptytest"');
+    util.fileContentCheck('package.json', 'file content check', '"name": "emptywebtest"');
   });
 
   describe('aspnet:Gulpfile', function() {
@@ -42,12 +42,12 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:BowerJson in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('empty', 'emptyTest', dir);
+    util.goCreateApplication('emptyweb', 'emptyWebTest', dir);
 
-    util.goCreate('BowerJson', path.join(dir, 'emptyTest'));
+    util.goCreate('BowerJson', path.join(dir, 'emptyWebTest'));
     util.fileCheck('should create bower configuration file', '.bowerrc');
     util.fileCheck('should create bower file', 'bower.json');
-    util.fileContentCheck('bower.json', 'file content check', '"name": "emptyTest"');
+    util.fileContentCheck('bower.json', 'file content check', '"name": "emptyWebTest"');
   });
 
   describe('aspnet:AppSettings', function() {

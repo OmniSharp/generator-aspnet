@@ -130,12 +130,12 @@ describe('aspnet:UserSecrets', function() {
       var tempDir = util.makeTempDir();
       helpers.run(require.resolve('../app'))
         .withPrompts({
-          type: 'empty',
-          applicationName: 'emptyTest'
+          type: 'emptyweb',
+          applicationName: 'emptyWebTest'
         })
         .inDir(tempDir)
         .on('end', function() {
-          var targetDir = path.join(tempDir, 'emptyTest/');
+          var targetDir = path.join(tempDir, 'emptyWebTest/');
           process.chdir(targetDir);
           nconf.remove('file');
           nconf.file({
@@ -168,7 +168,7 @@ describe('aspnet:UserSecrets', function() {
     });
 
     it('The correctly formatted userSecretId value is added', function() {
-      assert.fileContent('./project.json', /aspnet5-emptyTest/);
+      assert.fileContent('./project.json', /aspnet5-emptyWebTest/);
     });
 
     it('the UserSecrets nuget package version is added', function() {
