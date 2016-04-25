@@ -59,15 +59,15 @@ describe('aspnet - Empty Web Application', function() {
  */
 describe('aspnet - Class Library', function() {
 
-  util.goCreateApplication('classlib', 'classTest');
+  util.goCreateApplication('classlibrary', 'classLibraryTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
-      assert.file('classTest/');
+      assert.file('classLibraryTest/');
     });
   });
 
-  var files = ['classTest/project.json', 'classTest/Class1.cs', 'classTest/.gitignore'];
+  var files = ['classLibraryTest/project.json', 'classLibraryTest/Class1.cs', 'classLibraryTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);

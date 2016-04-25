@@ -60,7 +60,7 @@ The valid project types are:
 - `webbasic` for Web Application Basic
 - `webapi` for Web API Application
 - `nancy` for Nancy ASP.NET Application
-- `classlib` for Class Library
+- `classlibrary` for Class Library
 - `unittest` Unit Test project
 
 The valid UI framework types are:
