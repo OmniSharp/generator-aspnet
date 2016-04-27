@@ -22,6 +22,20 @@ describe('Subgenerators without arguments tests', function() {
     util.fileContentCheck('package.json', 'file content check', '"name": "emptywebtest"');
   });
 
+  describe('aspnet:Program', function() {
+    util.goCreate('Program');
+    util.fileCheck('should create Program.cs file', 'Program.cs');
+  });
+
+  describe('aspnet:Program in cwd of project.json', function() {
+    var dir = util.makeTempDir();
+    // the Nancy project does not contain Program.cs
+    util.goCreateApplication('nancy', 'emptyTest', dir);
+    util.goCreate('Program', path.join(dir, 'emptyTest'));
+    util.fileCheck('should create Program.cs file', 'Program.cs');
+    util.fileContentCheck('Program.cs', 'file content check', /^namespace emptyTest$/m);
+  });
+
   describe('aspnet:Gulpfile', function() {
     util.goCreate('Gulpfile');
     util.fileCheck('should create gulp file', 'gulpfile.js');
@@ -55,17 +69,17 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create appsettings json file', 'appsettings.json');
   });
 
-  describe('aspnet:StartupClass', function() {
-    util.goCreate('StartupClass');
+  describe('aspnet:Startup', function() {
+    util.goCreate('Startup');
     util.fileCheck('should create Startup.cs file', 'Startup.cs');
   });
 
-  describe('aspnet:StartupClass in cwd of project.json', function() {
+  describe('aspnet:Startup in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
-    util.goCreate('StartupClass', path.join(dir, 'emptyTest'));
+    util.goCreate('Startup', path.join(dir, 'emptyTest'));
     util.fileCheck('should create Startup.cs file', 'Startup.cs');
     util.fileContentCheck('Startup.cs', 'file content check', /^namespace emptyTest$/m);
   });
@@ -113,7 +127,7 @@ describe('Subgenerators without arguments tests', function() {
     var filename = 'NuGet.config';
     util.fileCheck('should create NuGet configuration file', filename);
     util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
-    util.noFileContentCheck(filename, 'Check file content for no unstable feed', /https:\/\/myget\.org\/f\/aspnetrc1\/api\/v2/);
+    util.noFileContentCheck(filename, 'Check file content for no unstable feed', /https:\/\/www\.myget\.org\/F\/aspnetrelease\/api\/v3/);
   });
 
   // unstable feed should be found in generated file
@@ -122,7 +136,7 @@ describe('Subgenerators without arguments tests', function() {
     var filename = 'NuGet.config';
     util.goCreateWithArgs('nuget', [arg]);
     util.fileCheck('should create ' + filename + ' file with unstable feed', filename);
-    util.fileContentCheck(filename, 'Check file content for unstable feed', /https:\/\/myget\.org\/f\/aspnetrc1\/api\/v2/);
+    util.fileContentCheck(filename, 'Check file content for unstable feed', /https:\/\/www\.myget\.org\/F\/aspnetrelease\/api\/v3/);
   });
 
   describe('aspnet:readme creates README.md', function() {
@@ -415,6 +429,8 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('Middleware', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*static[ ]*class[ ]*MyMiddlewareExtensions/);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*IApplicationBuilder[ ]*UseMyMiddleware/);
   });
 
   describe('aspnet:Middleware with extension', function() {
@@ -422,6 +438,8 @@ describe('Subgenerators with named arguments tests', function() {
     util.goCreateWithArgs('Middleware', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*static[ ]*class[ ]*MyMiddlewareExtensions/);
+    util.fileContentCheck(filename, 'Check file content', /[ ]*IApplicationBuilder[ ]*UseMyMiddleware/);
   });
 
   describe('aspnet:Middleware in cwd of project.json', function() {

@@ -54,13 +54,8 @@ The project type and application name can be specified as optional command line 
 
 The valid project types are:
 
-<<<<<<< HEAD
-- `emptyweb` for Empty Application
-- `console` for Console Application
-=======
-- `empty` for Empty Application
+- `emptyweb` for Empty Web Application
 - `consoleapp` for Console Application
->>>>>>> :arrow_up: Update Console application template for RC2. Closes #600
 - `web` for Web Application
 - `webbasic` for Web Application Basic
 - `webapi` for Web API Application
@@ -112,8 +107,9 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:MvcView](#mvcview)
 * [aspnet:nuget](#nuget)
 * [aspnet:PackageJson](#packagejson)
+* [aspnet:Program](#program)
 * [aspnet:readme](#readme)
-* [aspnet:StartupClass](#startupclass)
+* [aspnet:Startup](#startup)
 * [aspnet:StyleSheet](#stylesheet)
 * [aspnet:StyleSheetLess](#stylesheetless)
 * [aspnet:StyleSheetScss](#stylesheetscss)
@@ -509,6 +505,20 @@ Produces `package.json`
 
 [Return to top](#top)
 
+### Program
+
+Creates a new `Program.cs` file
+
+Example:
+
+```
+yo aspnet:Program
+```
+
+Produces `Program.cs`
+
+[Return to top](#top)
+
 ### README
 
 Creates a new REAMDE.md documentation file in Markdown format
@@ -523,14 +533,14 @@ Produces `readme.md`
 
 [Return to top](#top)
 
-### StartupClass
+### Startup
 
-Creates a new Startup Class file
+Creates a new `Startup.cs` file
 
 Example:
 
 ```
-yo aspnet:StartupClass
+yo aspnet:Startup
 ```
 
 Produces `Startup.cs`
