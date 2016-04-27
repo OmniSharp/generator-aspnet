@@ -1,5 +1,7 @@
 # generator-aspnet
 
+> IMPORTANT NOTE: The project content is being updated to be compatible with RC2 (all `dotnet` and x-plat) and some things could not work and break. So if you are using `DNVM`/`DNX` - please either use `release` branch in your local copy of the project or [use `0.0.93` version published to NPM](https://www.npmjs.com/package/generator-aspnet). If you want to help with RC2 migration, please start by [runtime installation]((https://github.com/dotnet/cli#installers-and-binaries) and [reviewing issues with `RC2` tag](https://github.com/omnisharp/generator-aspnet/issues?q=is%3Aissue+is%3Aopen+label%3Arc2). Thanks!
+
 [![Build Status](https://travis-ci.org/OmniSharp/generator-aspnet.svg?branch=master)](https://travis-ci.org/OmniSharp/generator-aspnet)
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
