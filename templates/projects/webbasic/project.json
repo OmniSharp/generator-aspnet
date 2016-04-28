@@ -48,6 +48,12 @@
     }
   },
 
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true
+    }
+  },
+
   "content": [
     "wwwroot",
     "Views",
