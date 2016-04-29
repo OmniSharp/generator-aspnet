@@ -5,7 +5,15 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables" : {
-        "ASPNET_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "<%= namespace %>": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5000/api/values",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }
