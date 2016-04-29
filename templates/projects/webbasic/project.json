@@ -5,25 +5,23 @@
   },
 
   "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0-rc2-24008",
+      "type": "platform"
+    },
     "dotnet-razor-tooling": {
-      "type": "build",
-      "version": "1.0.0-rc2-20581"
+      "version": "1.0.0-rc2-20581",
+      "type": "build"
     },
     "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20581",
     "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-rc2-20581",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20581",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20581",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc2-20581",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20581",
     "Microsoft.Extensions.Logging": "1.0.0-rc2-20581",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-20581",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-20581",
-    "Microsoft.NETCore.App": {
-      "type": "platform",
-      "version": "1.0.0-rc2-24008"
-    },
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-20581"
   },
 
@@ -45,6 +43,12 @@
     "dotnet-razor-tooling": {
       "version": "1.0.0-rc2-20581",
       "imports": "portable-net45+win8+dnxcore50"
+    }
+  },
+
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true
     }
   },
 

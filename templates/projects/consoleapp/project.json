@@ -17,5 +17,5 @@
 
   "tooling": {
     "defaultNamespace": "<%= namespace %>"
-  },
+  }
 }
