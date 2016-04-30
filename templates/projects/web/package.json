@@ -1,6 +1,7 @@
 {
   "name": "<%= namespace.toLowerCase() %>",
   "version": "0.0.0",
+  "private": true,
   "devDependencies": {<% if(!grunt){ %>
     "gulp": "^3.9.0",
     "gulp-concat": "2.5.2",
