@@ -1,17 +1,14 @@
-﻿using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Html.Abstractions;
-using Microsoft.AspNet.Mvc.TagHelpers;
-using Microsoft.AspNet.Mvc.ViewFeatures;
-using Microsoft.AspNet.Razor.TagHelpers;
-using Microsoft.Extensions.WebEncoders;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace <%= namespace %>.TagHelpers
 {
@@ -30,25 +27,16 @@ namespace <%= namespace %>.TagHelpers
         [ViewContext]
         public ViewContext ViewContext { get; set; }
 
-        public IUrlHelper _UrlHelper { get; set; }
-
-        public MenuLinkTagHelper(IUrlHelper urlHelper)
-        {
-            _UrlHelper = urlHelper;
-        }
-
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            string menuUrl = _UrlHelper.Action(ActionName, ControllerName);
+            var urlHelper = new UrlHelper(ViewContext);
 
-            output.TagName = "";
+            string menuUrl = urlHelper.Action(ActionName, ControllerName);
 
-            var a = new TagBuilder("a");
-
-            a.MergeAttribute("href", $"{menuUrl}");
-            a.MergeAttribute("class", "item");
-
-            a.InnerHtml.Append(MenuText);
+            output.TagName = "a";
+            output.Attributes.Add("href", $"{menuUrl}");
+            output.Attributes.Add("class", "item blue");
+            output.Content.SetContent(MenuText);
 
             var routeData = ViewContext.RouteData.Values;
             var currentController = routeData["controller"];
@@ -57,11 +45,8 @@ namespace <%= namespace %>.TagHelpers
             if (String.Equals(ActionName, currentAction as string, StringComparison.OrdinalIgnoreCase)
                 && String.Equals(ControllerName, currentController as string, StringComparison.OrdinalIgnoreCase))
             {
-                a.AddCssClass("active");
-                a.AddCssClass("blue");
+                output.Attributes.SetAttribute("class", "active item blue");
             }
-
-            output.Content.SetContent(a);
 
         }
     }

@@ -1,12 +1,12 @@
 @using System.Collections.Generic
-@using Microsoft.AspNet.Http
-@using Microsoft.AspNet.Http.Authentication
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
 @model LoginViewModel
-    @inject SignInManager<ApplicationUser> SignInManager
+@inject SignInManager<ApplicationUser> SignInManager
 
-    @{
-        ViewData["Title"] = "Log in";
-    }
+@{
+    ViewData["Title"] = "Log in";
+}
 
 <div class="ui two column middle aligned very relaxed stackable grid" style="position:relative">
     <div class="column">
@@ -37,7 +37,7 @@
                 <br/>
                 <br/>
                 Forgot your password? Click <a asp-action="ForgotPassword" asp-controller="Account">here</a>.
-                <div asp-validation-summary="ValidationSummary.All" class="ui error message"></div>
+                <div asp-validation-summary="All" class="ui error message"></div>
 
             </form>
         </div>
