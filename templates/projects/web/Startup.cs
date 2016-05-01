@@ -36,7 +36,7 @@ namespace <%= namespace %>
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-            Configuration["Data:DefaultConnection:ConnectionString"] = $@"Data Source={env.ContentRootPath}/<%= namespace %>.db";
+            Configuration["ConnectionStrings:SQLite"] = $@"Data Source={env.ContentRootPath}/<%= namespace %>.db";
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -46,7 +46,7 @@ namespace <%= namespace %>
         {
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("Data:DefaultConnection:ConnectionString")));
+                options.UseSqlite(Configuration.GetConnectionString("SQLite")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
