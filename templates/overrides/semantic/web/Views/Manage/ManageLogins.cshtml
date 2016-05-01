@@ -1,5 +1,5 @@
 @model ManageLoginsViewModel
-@using Microsoft.AspNet.Http.Authentication
+@using Microsoft.AspNetCore.Http.Authentication
 @{
     ViewData["Title"] = "Manage your external logins";
 }
@@ -34,7 +34,7 @@
                 {
                     @: &nbsp;
                         }</div>
-                
+
             }
 }
 @if (Model.OtherLogins.Count > 0)

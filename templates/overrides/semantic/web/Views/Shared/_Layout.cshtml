@@ -1,4 +1,8 @@
-﻿@using System.Security.Claims
+﻿@using Microsoft.AspNetCore.Identity
+@using WebSemantic.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 <!doctype html>
 <html lang="">
 <head>
@@ -44,9 +48,9 @@
         <menulink class="blue item" controller-name="Home" action-name="Contact" menu-text="Contact"></menulink>
 
 
-        @if (User.IsSignedIn())
+        @if (SignInManager.IsSignedIn(User))
         {
-            <div class="blue item"><a asp-controller="Manage" asp-action="Index" title="Manage">Hello @User.GetUserName()</a>
+            <div class="blue item"><a asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)</a>
             </div>
             <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="item">
                 <button type="submit" class="ui button">Log off</button>
@@ -104,7 +108,7 @@
         <script src="~/js/site.js"></script>
     </environment>
     <environment names="Staging,Production">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery">
         </script>
