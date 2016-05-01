@@ -36,7 +36,7 @@ namespace <%= namespace %>
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-            Configuration["ConnectionStrings:SQLite"] = $@"Data Source={env.ContentRootPath}/<%= namespace %>.db";
+            Configuration["ConnectionStrings:SQLite"] = $"Data Source={env.ContentRootPath}/<%= namespace %>.db";
         }
 
         public IConfigurationRoot Configuration { get; }
