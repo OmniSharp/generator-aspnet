@@ -23,8 +23,6 @@
     </environment>
 </head>
 <body>
-
-
     <!-- Following Menu -->
     <div class="ui large top pointing fixed menu">
         <div class="ui container">
@@ -47,7 +45,6 @@
         <menulink class="blue item" controller-name="Home" action-name="About" menu-text="About"></menulink>
         <menulink class="blue item" controller-name="Home" action-name="Contact" menu-text="Contact"></menulink>
 
-
         @if (SignInManager.IsSignedIn(User))
         {
             <div class="blue item"><a asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)</a>
@@ -63,8 +60,6 @@
         }
 
     </div>
-
-
 
     <!-- Page Contents -->
     <div class="pusher">
