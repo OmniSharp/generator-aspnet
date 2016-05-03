@@ -30,7 +30,7 @@ namespace <%= namespace %>
 
             if (env.IsDevelopment())
             {
-                // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
+                // For more details on using the user secret store see https://go.microsoft.com/fwlink/?LinkID=532709
                 builder.AddUserSecrets();
             }
 
@@ -75,7 +75,7 @@ namespace <%= namespace %>
             {
                 app.UseExceptionHandler("/Home/Error");
 
-                // For more details on creating database during deployment see http://go.microsoft.com/fwlink/?LinkID=615859
+                // For more details on creating database during deployment see https://go.microsoft.com/fwlink/?LinkID=615859
                 try
                 {
                     using (var context = new ApplicationDbContext(
@@ -91,7 +91,7 @@ namespace <%= namespace %>
 
             app.UseIdentity();
 
-            // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
+            // To configure external authentication please see https://go.microsoft.com/fwlink/?LinkID=532715
 
             app.UseMvc(routes =>
             {
