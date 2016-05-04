@@ -3,9 +3,23 @@
 RUN printf "deb http://ftp.us.debian.org/debian jessie main\n" >> /etc/apt/sources.list
 RUN apt-get -qq update && apt-get install -qqy sqlite3 libsqlite3-dev && rm -rf /var/lib/apt/lists/*
 
-COPY . /app
+# for any project involving EntityFramework, SQLLITE3 must be a version >= 3.7.15
+RUN printf "deb http://ftp.us.debian.org/debian jessie main\n" >> /etc/apt/sources.list
+RUN apt-get -qq update && apt-get install -qqy sqlite3 libsqlite3-dev
+
+# The reason we copy the project.json first is related to the way that 
+# Docker's "union file system" works. Each command in sequence gets cached 
+# on the docker host as a binary. Commands that are "unchanged" from the
+# previous run will not be run a second time.
+#
+# By changing the order here, docker's "restart" of a container will only
+# run a full nuget restore when a project's dependencies change, as opposed
+# to when any code changes at all.
+#
+COPY ./project.json /app/project.json
 WORKDIR /app
 RUN ["dnu", "restore"]
+COPY . /app
 
 EXPOSE 5000/tcp
 ENTRYPOINT ["dnx", "-p", "project.json", "Microsoft.AspNet.Server.Kestrel", "--server.urls", "http://0.0.0.0:5000"]
