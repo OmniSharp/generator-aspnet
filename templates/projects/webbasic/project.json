@@ -1,9 +1,4 @@
 {
-  "compilationOptions": {
-    "emitEntryPoint": true,
-    "preserveCompilationContext": true
-  },
-
   "dependencies": {
     "Microsoft.NETCore.App": {
       "version": "1.0.0-rc2-24008",
@@ -25,6 +20,17 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-20581"
   },
 
+  "tools": {
+    "dotnet-razor-tooling": {
+      "version": "1.0.0-rc2-20581",
+      "imports": "portable-net45+win8+dnxcore50"
+    },
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
+      "version": "1.0.0-rc2-20581",
+      "imports": "portable-net45+win8+dnxcore50"
+    }
+  },
+
   "frameworks": {
     "netcoreapp1.0": {
       "imports": [
@@ -35,15 +41,9 @@
     }
   },
 
-  "tools": {
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-rc2-20581",
-      "imports": "portable-net45+win8+dnxcore50"
-    },
-    "dotnet-razor-tooling": {
-      "version": "1.0.0-rc2-20581",
-      "imports": "portable-net45+win8+dnxcore50"
-    }
+  "compilationOptions": {
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true
   },
 
   "runtimeOptions": {
@@ -65,7 +65,7 @@
 
   "scripts": {
     "prepublish": [ "npm install", "bower install"<% if(!grunt){ %>, "gulp clean", "gulp min"<% } %> ],
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath%" ]
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   },
 
   "tooling": {
