@@ -52,6 +52,10 @@ describe('aspnet - Empty Web Application', function() {
     }
   });
 
+  describe('Checking FQCN when using WebApplication.Run', function() {
+    util.fileContentCheck('emptyTest/Startup.cs', 'file contains FQCN check', /Microsoft\.AspNet\.Hosting\.WebApplication\.Run/);
+  });
+
 });
 
 /*
@@ -330,6 +334,10 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+  });
+
+  describe('Checking FQCN when using WebApplication.Run', function() {
+    util.fileContentCheck('webTest/Startup.cs', 'file contains FQCN check', /Microsoft\.AspNet\.Hosting\.WebApplication\.Run/);
   });
 
 });
@@ -681,6 +689,9 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     }
   });
 
+  describe('Checking FQCN when using WebApplication.Run', function() {
+    util.fileContentCheck('webTest/Startup.cs', 'file contains FQCN check', /Microsoft\.AspNet\.Hosting\.WebApplication\.Run/);
+  });
 });
 
 /*
@@ -857,6 +868,10 @@ describe('aspnet - Web API Application', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+  });
+
+  describe('Checking FQCN when using WebApplication.Run', function() {
+    util.fileContentCheck('webAPITest/Startup.cs', 'file contains FQCN check', /Microsoft\.AspNet\.Hosting\.WebApplication\.Run/);
   });
 
 });
