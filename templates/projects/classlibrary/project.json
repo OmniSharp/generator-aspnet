@@ -6,7 +6,9 @@
   },
 
   "frameworks": {
-    "netstandard1.5": {}
+    "netstandard1.5": {
+      "imports": "dnxcore50"
+    }
   },
 
   "tooling": {
