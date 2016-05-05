@@ -1,10 +1,4 @@
-
 {
-  "compilationOptions": {
-    "emitEntryPoint": true,
-    "preserveCompilationContext": true
-  },
-
   "dependencies": {
     "Microsoft.NETCore.App": {
       "version": "1.0.0-rc2-24008",
@@ -12,6 +6,13 @@
     },
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20581",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20581"
+  },
+
+  "tools": {
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
+      "version": "1.0.0-rc2-20581",
+      "imports": "portable-net45+win8+dnxcore50"
+    }
   },
 
   "frameworks": {
@@ -24,15 +25,9 @@
     }
   },
 
-  "tools": {
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-rc2-20581",
-      "imports": "portable-net45+win8+dnxcore50"
-    }
-  },
-
-  "tooling": {
-    "defaultNamespace": "<%= namespace %>"
+  "compilationOptions": {
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true
   },
 
   "runtimeOptions": {
@@ -51,6 +46,10 @@
   ],
 
   "scripts": {
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath%" ]
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+  },
+
+  "tooling": {
+    "defaultNamespace": "<%= namespace %>"
   }
 }
