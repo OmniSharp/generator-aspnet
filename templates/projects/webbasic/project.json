@@ -41,7 +41,7 @@
     }
   },
 
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
