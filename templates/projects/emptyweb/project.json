@@ -36,6 +36,12 @@
     }
   },
 
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true
+    }
+  },
+
   "content": [
     "wwwroot",
     "web.config"
