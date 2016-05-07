@@ -8,7 +8,7 @@
 
 Yeoman generator for ASP.NET Core 1.0 projects
 
-[![](https://cloud.githubusercontent.com/assets/14539/10418056/b72ae284-7050-11e5-99db-5a0cda8f0ac1.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
+[![](https://cloud.githubusercontent.com/assets/14539/15092217/b059cd46-1463-11e6-944d-e0312da3df27.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core 1.0 Generator')
 
 ## Getting Started
 
