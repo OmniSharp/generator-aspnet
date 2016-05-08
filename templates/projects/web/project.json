@@ -30,6 +30,7 @@
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0-rc2-20581",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-20581",
     "Microsoft.Extensions.CodeGenerators.Mvc": "1.0.0-rc2-20581",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-20581",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20581",
     "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc2-20581",
     "Microsoft.Extensions.Logging": "1.0.0-rc2-20581",
