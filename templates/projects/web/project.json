@@ -81,21 +81,21 @@
   },
 
   "runtimeOptions": {
-    "configProperties": {
-      "System.GC.Server": true
-    }
+    "gcServer": true
   },
 
-  "content": [
-    "wwwroot",
-    "Views",
-    "appsettings.json",
-    "web.config"
-  ],
+  "publishOptions": {
+    "include": [
+      "wwwroot",
+      "Views",
+      "appsettings.json",
+      "web.config"
+    ],
 
-  "exclude": [
-    "node_modules"
-  ],
+    "exclude": [
+      "node_modules"
+    ]
+  },
 
   "scripts": {
     "prepublish": [ "npm install", "bower install"<% if(!grunt){ %>, "gulp clean", "gulp min"<% } %> ],

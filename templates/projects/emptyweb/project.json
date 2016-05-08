@@ -31,19 +31,18 @@
   },
 
   "runtimeOptions": {
-    "configProperties": {
-      "System.GC.Server": true
-    }
+    "gcServer": true
   },
 
-  "content": [
-    "wwwroot",
-    "web.config"
-  ],
-
-  "exclude": [
-    "node_modules"
-  ],
+  "publishOptions": {
+    "include": [
+      "wwwroot",
+      "web.config"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  },
 
   "scripts": {
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
