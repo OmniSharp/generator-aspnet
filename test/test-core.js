@@ -331,6 +331,10 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('bower.json name field is lower case', function() {
+      assert.fileContent('webTest/bower.json', /"name": "webtest"/);
+    });
   });
 
 });
@@ -497,6 +501,10 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('bower.json name field is lower case', function() {
+      assert.fileContent('webTest/bower.json', /"name": "webtest"/);
+    });
   });
 
 
@@ -681,6 +689,10 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('bower.json name field is lower case', function() {
+      assert.fileContent('webTest/bower.json', /"name": "webtest"/);
+    });
   });
 
 });
@@ -779,6 +791,10 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('bower.json name field is lower case', function() {
+      assert.fileContent('webTest/bower.json', /"name": "webtest"/);
+    });
   });
 
   describe('Checking file content for overrides', function() {
