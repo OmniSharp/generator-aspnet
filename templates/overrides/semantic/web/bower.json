@@ -1,5 +1,5 @@
 {
-  "name": "<%= namespace %>",
+  "name": "<%= namespace.toLowerCase() %>",
   "private": true,
   "dependencies": {
     "jquery": "2.2.0",
