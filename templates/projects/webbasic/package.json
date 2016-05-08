@@ -7,7 +7,7 @@
     "gulp-concat": "2.6.0",
     "gulp-cssmin": "0.1.7",
     "gulp-uglify": "1.5.3",
-    "rimraf": "2.2.8"<% } %><% if(grunt){ %>
+    "rimraf": "2.5.2"<% } %><% if(grunt){ %>
     "grunt": "0.4.5"<% } %>
   }
 }
