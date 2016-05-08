@@ -2,7 +2,7 @@
   "name": "<%= namespace %>",
   "private": true,
   "dependencies": {
-    "jquery": "2.2.0",
+    "jquery": "2.2.3",
     "jquery-validation": "1.14.0",
     "jquery-validation-unobtrusive": "3.2.6",
 	  "semantic": "2.1.8"
