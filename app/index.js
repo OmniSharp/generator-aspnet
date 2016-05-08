@@ -185,7 +185,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
 
         /// Properties
-        this.fs.copy(this.templatePath('Properties/**/*'), this.applicationName + '/Properties');
+        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         /// wwwroot
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
         break;
@@ -198,7 +198,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Program.cs', this.applicationName + '/Program.cs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
-        this.fs.copy(this.sourceRoot() + '/Properties', this.applicationName + '/Properties');
+        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
@@ -272,7 +272,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
         // Properties
-        this.fs.copy(this.templatePath('Properties/**/*'), this.applicationName + '/Properties');
+        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
         this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationName + '/Startup.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('web.config'), this.applicationName + '/web.config', this.templatedata);
