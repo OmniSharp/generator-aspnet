@@ -1,16 +1,16 @@
 {
   "dependencies": {
     "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-24008",
+      "version": "1.0.0-rc2-3002611",
       "type": "platform"
     },
-    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20581"
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20801",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20801"
   },
 
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-rc2-20581",
+      "version": "1.0.0-rc2-20801",
       "imports": "portable-net45+win8+dnxcore50"
     }
   },
@@ -25,7 +25,7 @@
     }
   },
 
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
@@ -38,9 +38,6 @@
     "include": [
       "wwwroot",
       "web.config"
-    ],
-    "exclude": [
-      "node_modules"
     ]
   },
 
