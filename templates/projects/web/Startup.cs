@@ -74,17 +74,6 @@ namespace <%= namespace %>
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-
-                // For more details on creating database during deployment see https://go.microsoft.com/fwlink/?LinkID=615859
-                try
-                {
-                    using (var context = new ApplicationDbContext(
-                        app.ApplicationServices.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
-                    {
-                        context.Database.Migrate();
-                    }
-                }
-                catch { }
             }
 
             app.UseStaticFiles();
