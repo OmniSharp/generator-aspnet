@@ -865,9 +865,9 @@ describe('aspnet - Web API Application', function() {
     'webAPITest/project.json',
     'webAPITest/Program.cs',
     'webAPITest/Properties/launchSettings.json',
+    'webAPITest/README.md',
     'webAPITest/Startup.cs',
     'webAPITest/.gitignore',
-    'webAPITest/wwwroot/README.md',
     'webAPITest/web.config',
     'webAPITest/Dockerfile'
   ];
