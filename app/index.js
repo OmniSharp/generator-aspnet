@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
+var mkdirp = require('mkdirp');
 var path = require('path');
 var guid = require('uuid');
 var projectName = require('vs_projectname');
@@ -201,7 +202,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
-        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
+        mkdirp.sync(this.applicationName + '/wwwroot');
         break;
 
       case 'web':
