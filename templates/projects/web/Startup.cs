@@ -21,11 +21,7 @@ namespace <%= namespace %>
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile(source =>
-                {
-                    source.Path = "appsettings.json";
-                    source.ReloadOnChange = true;
-                })
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
             if (env.IsDevelopment())
@@ -36,7 +32,6 @@ namespace <%= namespace %>
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-            Configuration["ConnectionStrings:SQLite"] = $"Data Source={env.ContentRootPath}/<%= namespace %>.db";
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -46,7 +41,7 @@ namespace <%= namespace %>
         {
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("SQLite")));
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()

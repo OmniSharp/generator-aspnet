@@ -3,64 +3,68 @@
 
   "dependencies": {
     "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-24008",
+      "version": "1.0.0-rc2-3002611",
       "type": "platform"
     },
-     "dotnet-aspnet-codegenerator": {
-      "version": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-rc2-20801",
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20801",
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0-rc2-20801",
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0-rc2-20801",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-20801",
+    "Microsoft.AspNetCore.Razor.Tools": {
+      "version": "1.0.0-rc2-20801",
       "type": "build"
     },
-    "dotnet-ef": {
-      "version": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20801",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20801",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-20801",
+    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0-rc2-20801",
+    "Microsoft.EntityFrameworkCore.Tools": {
+      "version": "1.0.0-rc2-20801",
       "type": "build"
     },
-    "dotnet-razor-tooling": {
-      "version": "1.0.0-rc2-20581",
+    "Microsoft.Extensions.CodeGeneration.Tools": {
+      "version": "1.0.0-rc2-20801",
       "type": "build"
     },
-    "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-20581",
-    "Microsoft.EntityFrameworkCore.Commands": "1.0.0-rc2-20581",
-    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0-rc2-20581",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.CodeGenerators.Mvc": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Logging": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-20581",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-20581"
+    "Microsoft.Extensions.CodeGenerators.Mvc": {
+      "version": "1.0.0-rc2-20801",
+      "type": "build"
+    },
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-20801",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20801",
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc2-20801",
+    "Microsoft.Extensions.Logging": "1.0.0-rc2-20801",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-20801",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-20801",
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-20801"
   },
 
   "tools": {
-    "dotnet-aspnet-codegenerator": {
-      "version": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Razor.Tools": {
+      "version": "1.0.0-rc2-20801",
+      "imports": "portable-net45+win8+dnxcore50"
+    },
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
+      "version": "1.0.0-rc2-20801",
+      "imports": "portable-net45+win8+dnxcore50"
+    },
+    "Microsoft.EntityFrameworkCore.Tools": {
+      "version": "1.0.0-rc2-20801",
       "imports": [
         "portable-net45+win8+dnxcore50",
         "portable-net45+win8"
       ]
     },
-    "dotnet-ef": {
-      "version": "1.0.0-rc2-20581",
-      "imports": "portable-net45+win8+dnxcore50"
-    },
-    "dotnet-razor-tooling": {
-      "version": "1.0.0-rc2-20581",
-      "imports": "portable-net45+win8+dnxcore50"
-    },
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-rc2-20581",
-      "imports": "portable-net45+win8+dnxcore50"
+    "Microsoft.Extensions.CodeGeneration.Tools": {
+      "version": "1.0.0-rc2-20801",
+      "imports": [
+        "portable-net45+win8+dnxcore50",
+        "portable-net45+win8"
+      ]
     },
     "Microsoft.Extensions.SecretManager.Tools": {
-      "version": "1.0.0-rc2-20581",
+      "version": "1.0.0-rc2-20801",
       "imports": "portable-net45+win8+dnxcore50"
     }
   },
@@ -75,7 +79,7 @@
     }
   },
 
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
@@ -90,16 +94,12 @@
       "Views",
       "appsettings.json",
       "web.config"
-    ],
-
-    "exclude": [
-      "node_modules"
     ]
   },
 
   "scripts": {
     "prepublish": [ "npm install", "bower install"<% if(!grunt){ %>, "gulp clean", "gulp min"<% } %> ],
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath%" ]
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   },
 
   "tooling": {
