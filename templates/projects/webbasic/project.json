@@ -1,33 +1,33 @@
 {
   "dependencies": {
     "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-3002611",
+      "version": "1.0.0-rc2-3002702",
       "type": "platform"
     },
-    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20801",
-    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-20801",
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
     "Microsoft.AspNetCore.Razor.Tools": {
-      "version": "1.0.0-rc2-20801",
+      "version": "1.0.0-preview1-final",
       "type": "build"
     },
-    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20801",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20801",
-    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-20801",
-    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-20801",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20801",
-    "Microsoft.Extensions.Logging": "1.0.0-rc2-20801",
-    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-20801",
-    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-20801",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-20801"
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-final",
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-final"
   },
 
   "tools": {
     "Microsoft.AspNetCore.Razor.Tools": {
-      "version": "1.0.0-rc2-20801",
+      "version": "1.0.0-preview1-final",
       "imports": "portable-net45+win8+dnxcore50"
     },
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-rc2-20801",
+      "version": "1.0.0-preview1-final",
       "imports": "portable-net45+win8+dnxcore50"
     }
   },
