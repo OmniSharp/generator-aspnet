@@ -187,8 +187,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         /// Properties
         this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
-        /// wwwroot
-        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
+        mkdirp.sync(this.applicationName + '/wwwroot');
         break;
 
       case 'webapi':
