@@ -7,12 +7,14 @@
   "dependencies": {
     "Microsoft.NETCore.App": {
       "type": "platform",
-      "version": "1.0.0-rc2-3002611"
+      "version": "1.0.0-rc2-3002702"
     }
   },
 
   "frameworks": {
-    "netcoreapp1.0": {}
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
   },
 
   "tooling": {
