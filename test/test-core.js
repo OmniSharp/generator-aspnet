@@ -41,8 +41,8 @@ describe('aspnet - Empty Web Application', function() {
     'emptyWebTest/project.json',
     'emptyWebTest/Program.cs',
     'emptyWebTest/Properties/launchSettings.json',
+    'emptyWebTest/README.md',
     'emptyWebTest/Startup.cs',
-    'emptyWebTest/wwwroot/README.md',
     'emptyWebTest/web.config',
     'emptyWebTest/Dockerfile'
   ];
