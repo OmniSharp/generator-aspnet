@@ -1,33 +1,33 @@
 {
   "dependencies": {
     "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-24008",
+      "version": "1.0.0-rc2-3002702",
       "type": "platform"
     },
-    "dotnet-razor-tooling": {
-      "version": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Razor.Tools": {
+      "version": "1.0.0-preview1-final",
       "type": "build"
     },
-    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-20581",
-    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Logging": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-20581",
-    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-20581",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-20581"
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-final",
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-final"
   },
 
   "tools": {
-    "dotnet-razor-tooling": {
-      "version": "1.0.0-rc2-20581",
+    "Microsoft.AspNetCore.Razor.Tools": {
+      "version": "1.0.0-preview1-final",
       "imports": "portable-net45+win8+dnxcore50"
     },
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-rc2-20581",
+      "version": "1.0.0-preview1-final",
       "imports": "portable-net45+win8+dnxcore50"
     }
   },
@@ -42,7 +42,7 @@
     }
   },
 
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
@@ -57,10 +57,6 @@
       "Views",
       "appsettings.json",
       "web.config"
-    ],
-
-    "exclude": [
-      "node_modules"
     ]
   },
 
