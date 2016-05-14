@@ -103,7 +103,7 @@ describe('Subgenerators without arguments tests', function() {
     var filename = 'Dockerfile';
     util.goCreate(filename);
     util.fileCheck('should create Dockerfile', filename);
-    util.fileContentCheck(filename, 'Check the content for dotnet image tag', /FROM microsoft\/dotnet:1\.0\.0-rc2/);
+    util.fileContentCheck(filename, 'Check the content for dotnet image tag', /FROM microsoft\/dotnet:1\.0\.0-rc2-core/);
   });
 
   describe('aspnet:nuget', function() {
