@@ -15,8 +15,8 @@
     "netcoreapp1.0": {
       "dependencies": {
         "Microsoft.NETCore.App": {
-          "version": "1.0.0-*",
-          "type": "platform"
+          "type": "platform",
+          "version": "1.0.0-*"
         },
         "Microsoft.Dnx.Compilation.CSharp.Common": "1.0.0-*",
         "Microsoft.Dnx.Compilation.CSharp.Abstractions": "1.0.0-*",
