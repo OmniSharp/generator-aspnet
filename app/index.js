@@ -362,6 +362,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.log(chalk.green('    cd "' + this.applicationName + '"'));
     this.log(chalk.green('    dotnet restore'));
     this.log(chalk.green('    dotnet build') + ' (optional, build will also happen when it\'s run)');
+    if(this.type === 'web') {
+      this.log(chalk.green('    dotnet ef database update') + ' (to create the SQLite database for the project)');
+    }
     switch (this.type) {
       case 'consoleapp':
         this.log(chalk.green('    dotnet run'));
