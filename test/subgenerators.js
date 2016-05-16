@@ -99,19 +99,11 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create tsconfig.json file', 'tsconfig.json');
   });
 
-  describe('aspnet:Dockerfile Mono-based', function() {
+  describe('aspnet:Dockerfile', function() {
     var filename = 'Dockerfile';
     util.goCreate(filename);
     util.fileCheck('should create Dockerfile', filename);
-    util.fileContentCheck(filename, 'Check the content for Mono-based image tag', /FROM microsoft\/aspnet:1\.0\.0-rc1-update1/);
-  });
-
-  describe('aspnet:Dockerfile CoreCLR-based', function() {
-    var arg = '--coreclr';
-    var filename = 'Dockerfile';
-    util.goCreateWithArgs(filename, [arg]);
-    util.fileCheck('should create Dockerfile', filename);
-    util.fileContentCheck(filename, 'Check the content for CoreCLR-based image tag', /FROM microsoft\/aspnet:1\.0\.0-rc1-update1-coreclr/);
+    util.fileContentCheck(filename, 'Check the content for dotnet image tag', /FROM microsoft\/dotnet:1\.0\.0-rc2-core/);
   });
 
   describe('aspnet:nuget', function() {
