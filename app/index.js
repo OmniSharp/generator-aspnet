@@ -331,13 +331,37 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     }
   },
 
+  /**
+   * Called on the very end of Yo execution
+   * Dependencies are installed only for web type
+   * of projects that depends on client side libraries
+   * and tools like Gulp or Grunt
+   * Uses can skip installing dependencies using built-in yo
+   * --skip-install option
+   */
   end: function() {
+    if(!this.options['skip-install'] && (this.type === 'web' || this.type === 'webbasic')) {
+      process.chdir(this.applicationName);
+      this.installDependencies({
+        npm: true,
+        bower: true,
+        callback: this._showUsageHints.bind(this)
+      });
+    } else {
+      this._showUsageHints();
+    }
+  },
+
+  /**
+   * Shows usage hints to end user
+   * Called on the very end of all processes
+   */
+  _showUsageHints: function() {
     this.log('\r\n');
     this.log('Your project is now created, you can use the following commands to get going');
     this.log(chalk.green('    cd "' + this.applicationName + '"'));
     this.log(chalk.green('    dotnet restore'));
     this.log(chalk.green('    dotnet build') + ' (optional, build will also happen when it\'s run)');
-
     switch (this.type) {
       case 'consoleapp':
         this.log(chalk.green('    dotnet run'));
