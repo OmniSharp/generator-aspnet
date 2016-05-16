@@ -76,7 +76,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             name: 'Class Library',
             value: 'classlibrary'
           }, {
-            name: 'Unit test project',
+            name: 'Unit test project (xUnit.net)',
             value: 'unittest'
           }
         ]
@@ -350,7 +350,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.log(chalk.green('    dotnet run'));
         break;
       case 'unittest':
-        this.log(chalk.green('    dnx test'));
+        this.log(chalk.green('    dotnet test'));
         break;
     }
 
