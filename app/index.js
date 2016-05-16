@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
+var mkdirp = require('mkdirp');
 var path = require('path');
 var guid = require('uuid');
 var projectName = require('vs_projectname');
@@ -75,7 +76,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             name: 'Class Library',
             value: 'classlibrary'
           }, {
-            name: 'Unit test project',
+            name: 'Unit test project (xUnit.net)',
             value: 'unittest'
           }
         ]
@@ -185,9 +186,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
 
         /// Properties
-        this.fs.copy(this.templatePath('Properties/**/*'), this.applicationName + '/Properties');
-        /// wwwroot
-        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
+        mkdirp.sync(this.applicationName + '/wwwroot');
         break;
 
       case 'webapi':
@@ -198,10 +199,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Program.cs', this.applicationName + '/Program.cs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
-        this.fs.copy(this.sourceRoot() + '/Properties', this.applicationName + '/Properties');
+        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
-        this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
+        mkdirp.sync(this.applicationName + '/wwwroot');
         break;
 
       case 'web':
@@ -219,6 +221,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('package.json'), this.applicationName + '/package.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
         this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
         this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationName + '/Startup.cs', this.templatedata);
@@ -227,26 +230,27 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('Controllers/HomeController.cs'), this.applicationName + '/Controllers/HomeController.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('Controllers/ManageController.cs'), this.applicationName + '/Controllers/ManageController.cs', this.templatedata);
         // Migrations
-        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_CreateIdentitySchema.Designer.cs'), this.applicationName + '/Migrations/00000000000000_CreateIdentitySchema.Designer.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Migrations/00000000000000_CreateIdentitySchema.cs'), this.applicationName + '/Migrations/00000000000000_CreateIdentitySchema.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('Migrations/ApplicationDbContextModelSnapshot.cs'), this.applicationName + '/Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs'), this.applicationName + '/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Data/Migrations/00000000000000_CreateIdentitySchema.cs'), this.applicationName + '/Data/Migrations/00000000000000_CreateIdentitySchema.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Data/Migrations/ApplicationDbContextModelSnapshot.cs'), this.applicationName + '/Data/Migrations/ApplicationDbContextModelSnapshot.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Data/ApplicationDbContext.cs'), this.applicationName + '/Data/ApplicationDbContext.cs', this.templatedata);
         // Models
-        this.fs.copyTpl(this.templatePath('Models/ApplicationDbContext.cs'), this.applicationName + '/Models/ApplicationDbContext.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('Models/ApplicationUser.cs'), this.applicationName + '/Models/ApplicationUser.cs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Models/AccountViewModels/**/*'), this.applicationName + '/Models/AccountViewModels', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Models/ManageViewModels/**/*'), this.applicationName + '/Models/ManageViewModels', this.templatedata);
+        // Properties
+        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         // Services
         this.fs.copyTpl(this.templatePath('Services/IEmailSender.cs'), this.applicationName + '/Services/IEmailSender.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('Services/ISmsSender.cs'), this.applicationName + '/Services/ISmsSender.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('Services/MessageServices.cs'), this.applicationName + '/Services/MessageServices.cs', this.templatedata);
-        // ViewModels
-        this.fs.copyTpl(this.templatePath('ViewModels/**/*'), this.applicationName + '/ViewModels', this.templatedata);
         // Views
         this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
-
         // wwwroot
         // wwwroot - the content in the wwwroot does not include any direct references or imports
         // So again it is copied 1-to-1 - but tests cover list of all files
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
-
+        this.fs.copy(this.templatePath('web.config'), this.applicationName + '/web.config');
         // UI Component Overrides
         // If the developer has placed anything in overrides/ui-module/project-type/**/* then use it
         this.fs.copyTpl(this.templatePath('/../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
@@ -270,7 +274,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
         // Properties
-        this.fs.copy(this.templatePath('Properties/**/*'), this.applicationName + '/Properties');
+        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
         this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationName + '/Startup.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('web.config'), this.applicationName + '/web.config', this.templatedata);
@@ -327,13 +331,40 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     }
   },
 
+  /**
+   * Called on the very end of Yo execution
+   * Dependencies are installed only for web type
+   * of projects that depends on client side libraries
+   * and tools like Gulp or Grunt
+   * Uses can skip installing dependencies using built-in yo
+   * --skip-install option
+   */
   end: function() {
+    if(!this.options['skip-install'] && (this.type === 'web' || this.type === 'webbasic')) {
+      process.chdir(this.applicationName);
+      this.installDependencies({
+        npm: true,
+        bower: true,
+        callback: this._showUsageHints.bind(this)
+      });
+    } else {
+      this._showUsageHints();
+    }
+  },
+
+  /**
+   * Shows usage hints to end user
+   * Called on the very end of all processes
+   */
+  _showUsageHints: function() {
     this.log('\r\n');
     this.log('Your project is now created, you can use the following commands to get going');
     this.log(chalk.green('    cd "' + this.applicationName + '"'));
     this.log(chalk.green('    dotnet restore'));
     this.log(chalk.green('    dotnet build') + ' (optional, build will also happen when it\'s run)');
-
+    if(this.type === 'web') {
+      this.log(chalk.green('    dotnet ef database update') + ' (to create the SQLite database for the project)');
+    }
     switch (this.type) {
       case 'consoleapp':
         this.log(chalk.green('    dotnet run'));
@@ -346,7 +377,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.log(chalk.green('    dotnet run'));
         break;
       case 'unittest':
-        this.log(chalk.green('    dnx test'));
+        this.log(chalk.green('    dotnet test'));
         break;
     }
 

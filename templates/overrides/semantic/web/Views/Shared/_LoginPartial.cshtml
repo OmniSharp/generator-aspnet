@@ -1,10 +1,13 @@
-@using System.Security.Claims
+@using Microsoft.AspNetCore.Identity
+@using <%= namespace %>.Models
 
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
-@if (User.IsSignedIn())
+@if (SignInManager.IsSignedIn(User))
 {
     <div class="right menu">
-        <div class="item"><a asp-controller="Manage" asp-action="Index" title="Manage">Hello @User.GetUserName()!</a></div>
+        <div class="item"><a asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a></div>
         <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="item">
             <button type="submit" class="ui button">Log off</button>
         </form>

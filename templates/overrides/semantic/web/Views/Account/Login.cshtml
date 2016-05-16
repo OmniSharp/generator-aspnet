@@ -1,12 +1,12 @@
 @using System.Collections.Generic
-@using Microsoft.AspNet.Http
-@using Microsoft.AspNet.Http.Authentication
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
 @model LoginViewModel
-    @inject SignInManager<ApplicationUser> SignInManager
+@inject SignInManager<ApplicationUser> SignInManager
 
-    @{
-        ViewData["Title"] = "Log in";
-    }
+@{
+    ViewData["Title"] = "Log in";
+}
 
 <div class="ui two column middle aligned very relaxed stackable grid" style="position:relative">
     <div class="column">
@@ -37,7 +37,7 @@
                 <br/>
                 <br/>
                 Forgot your password? Click <a asp-action="ForgotPassword" asp-controller="Account">here</a>.
-                <div asp-validation-summary="ValidationSummary.All" class="ui error message"></div>
+                <div asp-validation-summary="All" class="ui error message"></div>
 
             </form>
         </div>
@@ -54,7 +54,7 @@
             {
                 <div>
                     <p>
-                        There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                        There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
                         for details on setting up this ASP.NET application to support logging in via external services.
                     </p>
                 </div>

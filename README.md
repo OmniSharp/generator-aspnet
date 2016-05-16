@@ -1,22 +1,23 @@
 # generator-aspnet
 
-> IMPORTANT NOTE: The project content is being updated to be compatible with RC2 (all `dotnet` and x-plat) and some things could not work and break. So if you are using `DNVM`/`DNX` - please either use `release` branch in your local copy of the project or [use `0.0.93` version published to NPM](https://www.npmjs.com/package/generator-aspnet). If you want to help with RC2 migration, please start by [runtime installation](https://github.com/dotnet/cli#installers-and-binaries) and [reviewing issues with `RC2` tag](https://github.com/omnisharp/generator-aspnet/issues?q=is%3Aissue+is%3Aopen+label%3Arc2). Thanks!
-
 [![Build Status](https://travis-ci.org/OmniSharp/generator-aspnet.svg?branch=master)](https://travis-ci.org/OmniSharp/generator-aspnet)
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
 
 Yeoman generator for ASP.NET Core 1.0 projects
 
-[![](https://cloud.githubusercontent.com/assets/14539/10418056/b72ae284-7050-11e5-99db-5a0cda8f0ac1.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET 5 Generator')
+[![](https://cloud.githubusercontent.com/assets/14539/15092217/b059cd46-1463-11e6-944d-e0312da3df27.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core 1.0 Generator')
 
 ## Getting Started
 
 - Dependencies:
     - Node.js: `brew install node` for Mac OS X, `choco install nodejs` for Windows OS
     - Yeoman: `npm install -g yo`
+    - Bower `npm install -g bower`
 - Install: `npm install -g generator-aspnet`
 - Run: `yo aspnet`
+
+See also: [Building Projects with Yeoman on docs.asp.net](https://docs.asp.net/en/latest/client-side/yeoman.html?#building-projects-with-yeoman)
 
 ## Usage
 
@@ -37,16 +38,23 @@ Full, template based projects available in generator:
 - Web API Application
 - Nancy ASP.NET Application
 - Class Library
-- Unit Test project
+- Unit Test project (xUnit.net)
 
 The Empty Web Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
 
-> ASP.NET Templates provide project templates which are used in Visual Studio for creating ASP.NET Core 1.0 applications.
+> [ASP.NET Templates](https://github.com/aspnet/Templates) project provides templates which are used in Visual Studio for creating ASP.NET Core 1.0 applications.
+
+> NOTE: Starting from `RC2` `dotnet` release the web application template project no longer ships with built-in EF migration. For this reason you should call `dotnet ef database update` to scaffold database using template provided migrations!
 
 The Nancy project is based on framework's "Hello World" template:
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
 
 The [Docker](https://www.docker.com/) support with `Dockerfile` configuration files is based on the official [Docker image for ASP.NET 5](https://github.com/aspnet/aspnet-docker)
+
+The Unit test project uses [xUnit: a free, open source, community-focused unit testing tool for the .NET Framework](https://xunit.github.io/)
+
+The templates that use client side libraries and `Gulp` or `Grunt` tasks are now calling `npm install` and `bower install` script to install NPM and Bower managed dependencies. You can skip installation process by passign `--skip-install` option to generator, e.g. `yo aspnet --skip-install`. This should allow better experience when `Development` has been enabled.
+
 
 ## Command line automation
 
@@ -63,7 +71,7 @@ The valid project types are:
 - `webapi` for Web API Application
 - `nancy` for Nancy ASP.NET Application
 - `classlibrary` for Class Library
-- `unittest` Unit Test project
+- `unittest` Unit Test project (xUnit.net)
 
 The valid UI framework types are:
 
@@ -76,7 +84,7 @@ The valid UI framework types are:
 
 ## Related yeoman generators
 
-The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET Core 1.0 (_DNX_) projects
+The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET Core 1.0 `dotnet cli` projects
 and files in Visual Studio 2015.
 
 The list of related generators [can be seen on our Wiki section](https://github.com/OmniSharp/generator-aspnet/wiki#related-yeoman-generators)
@@ -232,18 +240,6 @@ yo aspnet:Class Contact
 ```
 
 Produces `/Contact.cs`
-
-```cs
-using System;
-
-namespace MyNamespace
-{
-    public class Contact
-    {
-
-    }
-}
-```
 
 [Return to top](#top)
 
@@ -434,23 +430,7 @@ yo aspnet:MvcController ContactController
 
 Produces `/ContactController.cs`
 
-```cs
-using Microsoft.AspNet.Mvc;
-
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace MyNamespace
-{
-    public class ContactController : Controller
-    {
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
-        }
-    }
-}
-```
+[Read more about MVC Controllers on docs.asp.net](https://docs.asp.net/en/latest/mvc/controllers/index.html)
 
 [Return to top](#top)
 
@@ -466,15 +446,7 @@ yo aspnet:MvcView ContactView
 
 Produces `/ContactView.cshtml`
 
-```
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    // ViewBag.Title = "ContactView Page";
-}
-
-```
+[Read more about MVC Views on docs.asp.net](https://docs.asp.net/en/latest/mvc/views/index.html?#views)
 
 [Return to top](#top)
 
@@ -705,53 +677,7 @@ yo aspnet:WebApiController ValuesController
 
 Produces `/ValuesController.cs`
 
-```cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNet.Mvc;
-
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace MyNamespace.Controllers
-{
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
-    {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-    }
-}
-```
+[Read more about Web API MVC concepts on docs.asp.net](https://docs.asp.net/en/latest/tutorials/first-web-api.html)
 
 [Return to top](#top)
 
