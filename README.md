@@ -13,6 +13,7 @@ Yeoman generator for ASP.NET Core 1.0 projects
 - Dependencies:
     - Node.js: `brew install node` for Mac OS X, `choco install nodejs` for Windows OS
     - Yeoman: `npm install -g yo`
+    - Bower `npm install -g bower`
 - Install: `npm install -g generator-aspnet`
 - Run: `yo aspnet`
 
@@ -49,6 +50,9 @@ The Nancy project is based on framework's "Hello World" template:
 The [Docker](https://www.docker.com/) support with `Dockerfile` configuration files is based on the official [Docker image for ASP.NET 5](https://github.com/aspnet/aspnet-docker)
 
 The Unit test project uses [xUnit: a free, open source, community-focused unit testing tool for the .NET Framework](https://xunit.github.io/)
+
+The templates that use client side libraries and `Gulp` or `Grunt` tasks are now calling `npm install` and `bower install` script to install NPM and Bower managed dependencies. You can skip installation process by passign `--skip-install` option to generator, e.g. `yo aspnet --skip-install`. This should allow better experience when `Development` has been enabled.
+
 
 ## Command line automation
 
