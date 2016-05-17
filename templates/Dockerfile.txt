@@ -1,7 +1,7 @@
 <% if(!coreclr){ %>FROM microsoft/dotnet<% } %><% if(coreclr){ %>FROM microsoft/dotnet:core<% } %>
 
 #Set urls and port environments
-ENV ASPNETCORE_URLS="http://*:5000
+ENV ASPNETCORE_URLS="http://*:5000"
 ENV ASPNETCORE_ENVIRONMENT="Development"
 
 COPY . /app
