@@ -555,53 +555,6 @@ describe('aspnet - Web Application (Semantic UI)', function() {
 
 });
 
-
-/*
- * yo aspnet Web Application Basic - Grunt option
- */
-describe('aspnet - Web Application Basic w/grunt', function() {
-
-  util.goCreateApplicationWithOptions('webbasic', 'gruntTest', 'bootstrap', {
-    grunt: 'grunt'
-  });
-
-  describe('Checking directories', function() {
-    it('Application directory created', function() {
-      assert.file('gruntTest/');
-    });
-
-    it('grunt file created', function() {
-      assert.file('gruntTest/Gruntfile.js');
-    });
-
-    it('gulpfile does NOT exist', function() {
-      assert.noFile('gruntTest/gulpfile.js');
-    });
-  });
-});
-
-/*
- * yo aspnet Web Application Basic - No Grunt option
- */
-describe('aspnet - Web Application Basic w/o grunt', function() {
-
-  util.goCreateApplication('webbasic', 'gulpTest');
-
-  describe('Checking directories', function() {
-    it('Application directory created', function() {
-      assert.file('gulpTest/');
-    });
-
-    it('gulp file created', function() {
-      assert.file('gulpTest/gulpfile.js');
-    });
-
-    it('grunt file does NOT exist', function() {
-      assert.noFile('gulpTest/Gruntfile.js');
-    });
-  });
-});
-
 /*
  * yo aspnet Web Application (Bootstrap)
  */
@@ -658,10 +611,9 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     'webTest/.bowerrc',
     'webTest/.gitignore',
     'webTest/bower.json',
+    'webTest/bundleconfig.json',
     'webTest/appsettings.json',
     'webTest/Controllers/HomeController.cs',
-    'webTest/gulpfile.js',
-    'webTest/package.json',
     'webTest/Program.cs',
     'webTest/project.json',
     'webTest/Properties/launchSettings.json',
@@ -759,8 +711,6 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     'webTest/bower.json',
     'webTest/appsettings.json',
     'webTest/Controllers/HomeController.cs',
-    'webTest/gulpfile.js',
-    'webTest/package.json',
     'webTest/Program.cs',
     'webTest/project.json',
     'webTest/Properties/launchSettings.json',
