@@ -337,7 +337,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     if(!this.options['skip-install'] && (this.type === 'web' || this.type === 'webbasic')) {
       process.chdir(this.applicationName);
       this.installDependencies({
-        npm: true,
+        npm: false,
         bower: true,
         callback: this._showUsageHints.bind(this)
       });
