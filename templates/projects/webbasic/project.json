@@ -23,7 +23,7 @@
 
   "tools": {
     "BundlerMinifier.Core": {
-      "version": "2.0.200",
+      "version": "2.0.208",
       "imports": [
         "portable-net45+win8+dnxcore50",
         "portable-net40+sl5+win8+wp8+wpa81"
