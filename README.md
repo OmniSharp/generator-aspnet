@@ -23,8 +23,6 @@ See also: [Building Projects with Yeoman on docs.asp.net](https://docs.asp.net/e
 
 * `yo aspnet` shows a wizard for generating a new ASP.NET Core 1.0 app
 
-* `yo aspnet --grunt` generates `Gruntfile.js` files for **web** templates instead of `gulpfile.js`
-
 * `yo aspnet --help` shows flags and other configurable options
 
 ## Template projects
@@ -53,8 +51,7 @@ The [Docker](https://www.docker.com/) support with `Dockerfile` configuration fi
 
 The Unit test project uses [xUnit: a free, open source, community-focused unit testing tool for the .NET Framework](https://xunit.github.io/)
 
-The templates that use client side libraries and `Gulp` or `Grunt` tasks are now calling `npm install` and `bower install` script to install NPM and Bower managed dependencies. You can skip installation process by passign `--skip-install` option to generator, e.g. `yo aspnet --skip-install`. This should allow better experience when `Development` has been enabled.
-
+The templates that use client side libraries are calling `bower install` script to install Bower managed dependencies. You can skip installation process by passign `--skip-install` option to generator, e.g. `yo aspnet --skip-install`. This should allow better experience when `Development` has been enabled.
 
 ## Command line automation
 
