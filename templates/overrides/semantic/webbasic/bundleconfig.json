@@ -23,7 +23,8 @@
       "wwwroot/js/semantic.validation.js"
     ],
     "minify": {
-      "enabled": true
+      "enabled": true,
+      "renameLocals": true
     }
   }
 ]
