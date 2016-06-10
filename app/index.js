@@ -258,19 +258,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         break;
       case 'webbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-        // Grunt or Gulp
-        if (this.options.grunt) {
-          this.fs.copyTpl(this.templatePath('Gruntfile.js'), this.applicationName + '/Gruntfile.js', this.templatedata);
-        } else {
-          this.fs.copyTpl(this.templatePath('gulpfile.js'), this.applicationName + '/gulpfile.js', this.templatedata);
-        }
         // individual files (configs, etc)
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
         this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
+        this.fs.copy(this.templatePath('bundleconfig.json'), this.applicationName + '/bundleconfig.json');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
-        this.fs.copyTpl(this.templatePath('package.json'), this.applicationName + '/package.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
         // Properties
@@ -343,7 +337,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     if(!this.options['skip-install'] && (this.type === 'web' || this.type === 'webbasic')) {
       process.chdir(this.applicationName);
       this.installDependencies({
-        npm: true,
+        npm: false,
         bower: true,
         callback: this._showUsageHints.bind(this)
       });
