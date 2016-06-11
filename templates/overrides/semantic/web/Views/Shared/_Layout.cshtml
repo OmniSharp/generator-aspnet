@@ -31,9 +31,9 @@
                 <span class="sr-only">Toggle Navigation</span>
             </a>
             <a href="/" class="header item"><%= namespace %></a>
-            <menulink class="blue item" controller-name="Home" action-name="Index" menu-text="Home"></menulink>
-            <menulink class="blue item" controller-name="Home" action-name="About" menu-text="About"></menulink>
-            <menulink class="blue item" controller-name="Home" action-name="Contact" menu-text="Contact">Contact</menulink>
+            <menulink class="blue item" asp-area="" controller-name="Home" action-name="Index" menu-text="Home"></menulink>
+            <menulink class="blue item" asp-area="" controller-name="Home" action-name="About" menu-text="About"></menulink>
+            <menulink class="blue item" asp-area="" controller-name="Home" action-name="Contact" menu-text="Contact">Contact</menulink>
 
            @await Html.PartialAsync("_LoginPartial")
         </div>
@@ -41,9 +41,9 @@
 
     <!-- Sidebar Menu -->
     <div class="ui vertical inverted sidebar menu">
-        <menulink class="blue item" controller-name="Home" action-name="Index" menu-text="Home"></menulink>
-        <menulink class="blue item" controller-name="Home" action-name="About" menu-text="About"></menulink>
-        <menulink class="blue item" controller-name="Home" action-name="Contact" menu-text="Contact"></menulink>
+        <menulink class="blue item" asp-area="" controller-name="Home" action-name="Index" menu-text="Home"></menulink>
+        <menulink class="blue item" asp-area="" controller-name="Home" action-name="About" menu-text="About"></menulink>
+        <menulink class="blue item" asp-area="" controller-name="Home" action-name="Contact" menu-text="Contact"></menulink>
 
         @if (SignInManager.IsSignedIn(User))
         {

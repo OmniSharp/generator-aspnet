@@ -29,6 +29,7 @@
     "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-final",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0-rc2-final",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-final",
     "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
       "version": "1.0.0-preview1-final",
@@ -41,6 +42,13 @@
   },
 
   "tools": {
+    "BundlerMinifier.Core": {
+      "version": "2.0.208",
+      "imports": [
+        "portable-net45+win8+dnxcore50",
+        "portable-net40+sl5+win8+wp8+wpa81"
+      ]
+    },
     "Microsoft.AspNetCore.Razor.Tools": {
       "version": "1.0.0-preview1-final",
       "imports": "portable-net45+win8+dnxcore50"
@@ -81,11 +89,18 @@
 
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+     "compile": {
+      "exclude": [
+        "node_modules"
+      ]
+    }
   },
 
   "runtimeOptions": {
-    "gcServer": true
+    "configProperties": {
+      "System.GC.Server": true
+    }
   },
 
   "publishOptions": {
@@ -98,7 +113,8 @@
   },
 
   "scripts": {
-    "prepublish": [ "npm install", "bower install"<% if(!grunt){ %>, "gulp clean", "gulp min"<% } %> ],
+    "precompile": [ "dotnet bundle" ],
+    "prepublish": [ "bower install" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   },
 
