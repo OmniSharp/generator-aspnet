@@ -14,7 +14,8 @@
       "wwwroot/js/site.js"
     ],
     "minify": {
-      "enabled": true
+      "enabled": true,
+      "renameLocals": true
     }
   }
 ]
