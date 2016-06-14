@@ -116,7 +116,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.templatedata.applicationname = this.applicationName;
     this.templatedata.guid = guid.v4();
     this.templatedata.grunt = this.options.grunt || false;
-    this.templatedata.coreclr = this.options.coreclr || false;
+    this.templatedata.sqlite = (this.type === 'web') ? true : false;
     this.templatedata.ui = this.ui;
   },
 

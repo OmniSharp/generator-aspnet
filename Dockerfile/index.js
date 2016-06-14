@@ -9,11 +9,11 @@ var Generator = module.exports = function Generator() {
 util.inherits(Generator, ScriptBase);
 
 Generator.prototype.createItem = function() {
-  // support CoreCLR runtime version of Docker image
-  // is provided by --coreclr option
+  // support SQLite library is provided by sqlite option
+  // is provided by --sqlite option
   this.generateTemplateFile(
-    'Dockerfile.txt', 
+    'Dockerfile.txt',
     'Dockerfile', {
-      coreclr: (this.options.coreclr) ? this.options.coreclr : false
+      sqlite: (this.options.sqlite) ? this.options.sqlite : false
   });
 };
