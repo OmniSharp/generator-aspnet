@@ -50,6 +50,15 @@ describe('aspnet - Empty Web Application', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('Dockerfile does not include SQLite', function() {
+      assert.noFileContent('emptyWebTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile does not contain migrations', function() {
+      assert.noFileContent('emptyWebTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
   });
 
 });
@@ -288,6 +297,15 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     it('bower.json name field is lower case', function() {
       assert.fileContent('webTest/bower.json', /"name": "webtest"/);
     });
+
+    it('Dockerfile includes SQLite', function() {
+      assert.fileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile contains migrations', function() {
+      assert.fileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
   });
 
 });
@@ -457,6 +475,15 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     it('bower.json name field is lower case', function() {
       assert.fileContent('webTest/bower.json', /"name": "webtest"/);
     });
+
+    it('Dockerfile includes SQLite', function() {
+      assert.fileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile contains migrations', function() {
+      assert.fileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
   });
 
 
@@ -597,6 +624,15 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     it('bower.json name field is lower case', function() {
       assert.fileContent('webTest/bower.json', /"name": "webtest"/);
     });
+
+    it('Dockerfile does not include SQLite', function() {
+      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile does not contain migrations', function() {
+      assert.noFileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
   });
 
 });
@@ -697,6 +733,15 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     it('bower.json name field is lower case', function() {
       assert.fileContent('webTest/bower.json', /"name": "webtest"/);
     });
+
+    it('Dockerfile does not include SQLite', function() {
+      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile does not contain migrations', function() {
+      assert.noFileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
   });
 
   describe('Checking file content for overrides', function() {
@@ -777,6 +822,15 @@ describe('aspnet - Web API Application', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('Dockerfile does not include SQLite', function() {
+      assert.noFileContent('webAPITest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile does not contain migrations', function() {
+      assert.noFileContent('webAPITest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
   });
 
 });
