@@ -1,13 +1,13 @@
-# Welcome to ASP.NET 5
+# Welcome to ASP.NET Core
 
 We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
 
-You've created a new ASP.NET 5 project. [Learn what's new](https://go.microsoft.com/fwlink/?LinkId=518016)
+You've created a new ASP.NET Core project. [Learn what's new](https://go.microsoft.com/fwlink/?LinkId=518016)
 
 ## This application consists of:
 
-*   Sample pages using ASP.NET MVC 6
-*   [Gulp](https://go.microsoft.com/fwlink/?LinkId=518007) and [Bower](https://go.microsoft.com/fwlink/?LinkId=518004) for managing client-side libraries
+*   Sample pages using ASP.NET Core MVC
+*   [Bower](https://go.microsoft.com/fwlink/?LinkId=518004) for managing client-side libraries
 *   Theming using [Semantic UI](http://semantic-ui.com/)
 
 ## Semantic UI
@@ -43,8 +43,8 @@ To assist with menu highlighting depending on the route, a MenuLinkTagHelper cla
 
 ## Overview
 
-*   [Conceptual overview of what is ASP.NET 5](https://go.microsoft.com/fwlink/?LinkId=518008)
-*   [Fundamentals of ASP.NET 5 such as Startup and middleware.](https://go.microsoft.com/fwlink/?LinkId=699320)
+*   [Conceptual overview of what is ASP.NET Core](https://go.microsoft.com/fwlink/?LinkId=518008)
+*   [Fundamentals of ASP.NET Core such as Startup and middleware.](https://go.microsoft.com/fwlink/?LinkId=699320)
 *   [Working with Data](https://go.microsoft.com/fwlink/?LinkId=398602)
 *   [Security](https://go.microsoft.com/fwlink/?LinkId=398603)
 *   [Client side development](https://go.microsoft.com/fwlink/?LinkID=699321)
@@ -54,8 +54,7 @@ To assist with menu highlighting depending on the route, a MenuLinkTagHelper cla
 ## Run & Deploy
 
 *   [Run your app](https://go.microsoft.com/fwlink/?LinkID=517851)
-*   [Run your app on .NET Core](https://go.microsoft.com/fwlink/?LinkID=517852)
-*   [Run commands in your project.json](https://go.microsoft.com/fwlink/?LinkID=517853)
+*   [Run tools such as EF migrations and more](https://go.microsoft.com/fwlink/?LinkID=517853)
 *   [Publish to Microsoft Azure Web Apps](https://go.microsoft.com/fwlink/?LinkID=398609)
 
 We would love to hear your [feedback](https://go.microsoft.com/fwlink/?LinkId=518015)
