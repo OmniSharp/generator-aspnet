@@ -2,12 +2,7 @@
   "version": "1.0.0-*",
 
   "buildOptions": {
-    "preserveCompilationContext": true,
-     "compile": {
-      "exclude": [
-        "node_modules"
-      ]
-    }
+    "preserveCompilationContext": true
   },
 
   "dependencies": {
