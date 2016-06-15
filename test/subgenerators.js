@@ -99,11 +99,28 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create tsconfig.json file', 'tsconfig.json');
   });
 
+  /**
+   * Dockerfile can be created with two versions:
+   * - without SQLite installed
+   * - with SQLite installed and EF migrations called
+   */
   describe('aspnet:Dockerfile dotnet', function() {
     var filename = 'Dockerfile';
     util.goCreate(filename);
     util.fileCheck('should create Dockerfile', filename);
-    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:latest/);    
+    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:latest/);
+    util.noFileContentCheck(filename, 'Does not contain SQLite install', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    util.noFileContentCheck(filename, 'Does not call database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
+  });
+
+  describe('aspnet:Dockerfile dotnet with --sqlite', function() {
+    var arg = '--sqlite';
+    var filename = 'Dockerfile';
+    util.goCreateWithArgs(filename, [arg]);
+    util.fileCheck('should create Dockerfile', filename);
+    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:latest/);
+    util.fileContentCheck(filename, 'Contains SQLite install', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    util.fileContentCheck(filename, 'Calls database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
   });
 
   describe('aspnet:nuget', function() {
