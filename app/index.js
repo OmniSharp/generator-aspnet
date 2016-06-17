@@ -10,12 +10,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
   constructor: function() {
     yeoman.generators.Base.apply(this, arguments);
-    // only implemented for web template
-    this.option('grunt', {
-      type: Boolean,
-      defaults: false,
-      desc: 'Use the Grunt JavaScript task runner instead of Gulp in web projects.'
-    });
 
     this.argument('type', { type: String, required: false, desc: 'the project type to create' });
     this.argument('applicationName', { type: String, required: false, desc: 'the name of the application' });
@@ -115,7 +109,6 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.templatedata.namespace = projectName(this.applicationName);
     this.templatedata.applicationname = this.applicationName;
     this.templatedata.guid = guid.v4();
-    this.templatedata.grunt = this.options.grunt || false;
     this.templatedata.sqlite = (this.type === 'web') ? true : false;
     this.templatedata.ui = this.ui;
   },
