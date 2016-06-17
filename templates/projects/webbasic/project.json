@@ -27,25 +27,17 @@
     "BundlerMinifier.Core": {
       "version": "2.0.231",
       "imports": [
-        "portable-net45+win8+dnxcore50",
-        "portable-net40+sl5+win8+wp8+wpa81"
+        "portable-net45+win8+dnxcore50"
       ]
     },
-    "Microsoft.AspNetCore.Razor.Tools": {
-      "version": "1.0.0-preview1-final",
-      "imports": "portable-net45+win8+dnxcore50"
-    },
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-preview1-final",
-      "imports": "portable-net45+win8+dnxcore50"
-    }
+    "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview1-final",
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview1-final"
   },
 
   "frameworks": {
     "netcoreapp1.0": {
       "imports": [
         "dotnet5.6",
-        "dnxcore50",
         "portable-net45+win8"
       ]
     }
