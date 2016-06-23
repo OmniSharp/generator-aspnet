@@ -136,7 +136,7 @@ describe('Subgenerators without arguments tests', function() {
     var filename = 'NuGet.config';
     util.fileCheck('should create NuGet configuration file', filename);
     util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
-    util.noFileContentCheck(filename, 'Check file content for no unstable feed', /https:\/\/www\.myget\.org\/F\/aspnetrelease\/api\/v3/);
+    util.noFileContentCheck(filename, 'Check file content for no unstable feed', /https:\/\/dotnet\.myget\.org\/F\/aspnet1\/api\/v3/);
   });
 
   // unstable feed should be found in generated file
@@ -145,7 +145,7 @@ describe('Subgenerators without arguments tests', function() {
     var filename = 'NuGet.config';
     util.goCreateWithArgs('nuget', [arg]);
     util.fileCheck('should create ' + filename + ' file with unstable feed', filename);
-    util.fileContentCheck(filename, 'Check file content for unstable feed', /https:\/\/www\.myget\.org\/F\/aspnetrc2\/api\/v3/);
+    util.fileContentCheck(filename, 'Check file content for unstable feed', /https:\/\/dotnet\.myget\.org\/F\/aspnet1\/api\/v3/);
   });
 
   describe('aspnet:readme creates README.md', function() {
