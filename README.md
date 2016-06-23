@@ -1,3 +1,5 @@
+> NOTE: The `master` branch of this project is currently under active rewrite for upcoming major update of ASP.NET Core. Please use published NPM version - unless you want to contribute to upcoming release. Thanks!
+
 # generator-aspnet
 
 [![Build Status](https://travis-ci.org/OmniSharp/generator-aspnet.svg?branch=master)](https://travis-ci.org/OmniSharp/generator-aspnet)
