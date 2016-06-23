@@ -39,9 +39,9 @@ Please start a discussion on the [Home repo issue tracker](https://github.com/as
 
 ## Bugs and feature requests?
 
-### Note about ASP.NET Core 1.0 and Visual Studio
+### Note about ASP.NET Core and Visual Studio
 
-Do not post issues related to ASP.NET Core 1.0 and Visual Studio tooling here. Please log a new issue in the appropriate GitHub repo. Here are some of the most common repos:
+Do not post issues related to ASP.NET Core and Visual Studio tooling here. Please log a new issue in the appropriate GitHub repo. Here are some of the most common repos:
 
 * [Visual Studio Templates](https://github.com/aspnet/Templates)
 * [Visual Studio Tooling](https://github.com/aspnet/Tooling)
@@ -49,7 +49,7 @@ Do not post issues related to ASP.NET Core 1.0 and Visual Studio tooling here. P
 * [EntityFramework](https://github.com/aspnet/EntityFramework)
 * [DNX](https://github.com/aspnet/dnx)
 * [MVC](https://github.com/aspnet/Mvc)
-* [ASP.NET Core 1.0 Home](https://github.com/aspnet/Home)
+* [ASP.NET Core Home](https://github.com/aspnet/Home)
 
 Or browse the full list of repos in the [aspnet](https://github.com/aspnet/) organization.
 
