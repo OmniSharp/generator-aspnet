@@ -3,10 +3,7 @@
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
       "wwwroot/css/site.css"
-    ],
-    "minify": {
-      "enabled": true
-    }
+    ]
   },
   {
     "outputFileName": "wwwroot/js/site.min.js",
@@ -14,8 +11,10 @@
       "wwwroot/js/site.js"
     ],
     "minify": {
-      "enabled": true
-    }
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
   },
   {
     "outputFileName": "wwwroot/js/semantic.validation.min.js",
