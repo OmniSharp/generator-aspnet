@@ -6,9 +6,9 @@
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
 
-Yeoman generator for ASP.NET Core 1.0 projects
+Yeoman generator for ASP.NET Core projects
 
-[![](https://cloud.githubusercontent.com/assets/14539/15092217/b059cd46-1463-11e6-944d-e0312da3df27.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core 1.0 Generator')
+[![](https://cloud.githubusercontent.com/assets/14539/15092217/b059cd46-1463-11e6-944d-e0312da3df27.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core Generator')
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ See also: [Building Projects with Yeoman on docs.asp.net](https://docs.asp.net/e
 
 ## Usage
 
-* `yo aspnet` shows a wizard for generating a new ASP.NET Core 1.0 app
+* `yo aspnet` shows a wizard for generating a new ASP.NET Core app
 
 * `yo aspnet --help` shows flags and other configurable options
 
@@ -42,7 +42,7 @@ Full, template based projects available in generator:
 
 The Empty Web Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
 
-> [ASP.NET Templates](https://github.com/aspnet/Templates) project provides templates which are used in Visual Studio for creating ASP.NET Core 1.0 applications.
+> [ASP.NET Templates](https://github.com/aspnet/Templates) project provides templates which are used in Visual Studio for creating ASP.NET Core applications.
 
 > NOTE: Starting from `RC2` `dotnet` release the web application template project no longer ships with built-in EF migration. For this reason you should call `dotnet ef database update` to scaffold database using template provided migrations!
 
@@ -83,7 +83,7 @@ The valid UI framework types are:
 
 ## Related yeoman generators
 
-The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET Core 1.0 `dotnet cli` projects
+The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET Core `dotnet cli` projects
 and files in Visual Studio 2015.
 
 The list of related generators [can be seen on our Wiki section](https://github.com/OmniSharp/generator-aspnet/wiki#related-yeoman-generators)
@@ -230,7 +230,7 @@ Produces `bower.json` and `.bowerrc`
 
 ### Class
 
-Creates a new ASP.NET Core 1.0 Class
+Creates a new ASP.NET Core Class
 
 Example:
 
@@ -268,7 +268,7 @@ yo aspnet:Dockerfile
 
 Creates a new `Dockerfile`
 
-Are you curious about Docker, Linux containers and ASP.NET Core 1.0 Docker image and all these buzz words?
+Are you curious about Docker, Linux containers and ASP.NET Core Docker image and all these buzz words?
 - [Docker image for ASP.NET 5 (Docker Hub)](https://hub.docker.com/r/microsoft/aspnet/)
 - [Running ASP.NET 5 applications in Linux Containers with Docker (MSDN)](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 - [ASP.NET 5 : Continuous Integration with Travis-CI, Tutum, Docker, Webhooks and Azure [Advanced]](http://tattoocoder.com/asp-net-5-continuous-integration-with-travis-ci-tutum-docker-webhooks-and-azure/)
@@ -334,7 +334,7 @@ Produces `filename.html`
 
 ### Interface
 
-Creates a new ASP.NET Core 1.0 Interface
+Creates a new ASP.NET Core Interface
 
 Example:
 
@@ -418,7 +418,7 @@ Produces `filename.cs`
 
 ### MvcController
 
-Creates a new ASP.NET Core 1.0 MvcController class
+Creates a new ASP.NET Core MvcController class
 
 Example:
 
@@ -434,7 +434,7 @@ Produces `/ContactController.cs`
 
 ### MvcView
 
-Creates a new ASP.NET Core 1.0 MvcView page file
+Creates a new ASP.NET Core MvcView page file
 
 Example:
 
@@ -647,7 +647,7 @@ Produces `filename.tsx`
 
 ### UserSecrets
 
-Adds UserSecrets information to ASP.NET Core 1.0 `project.json` file.
+Adds UserSecrets information to ASP.NET Core `project.json` file.
 The generator do not update existing keys if found and does
 not create new `project.json` file.
 
@@ -665,7 +665,7 @@ This will add following keys to project.json:
 
 ### WebApiController
 
-Creates a new ASP.NET Core 1.0 WebApiController class
+Creates a new ASP.NET Core WebApiController class
 
 Example:
 

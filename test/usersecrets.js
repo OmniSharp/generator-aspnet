@@ -42,7 +42,7 @@ describe('aspnet:UserSecrets', function() {
   });
 
   /**
-   * We are in directory witout ASP.NET Core 1.0 project.json
+   * We are in directory witout ASP.NET Core project.json
    * We don't want to create any artefacts after running UserSecrets
    * that is: make sure we don't create project.json
    */
@@ -63,7 +63,7 @@ describe('aspnet:UserSecrets', function() {
   });
 
   /**
-   * When we are in directory with ASP.NET Core 1.0 project.json
+   * When we are in directory with ASP.NET Core project.json
    * make sure we are not overriding existing keys - as with web template
    * which already comes with UserSecrets implementation.
    * That is: don't mess with existing project.json
@@ -119,7 +119,7 @@ describe('aspnet:UserSecrets', function() {
   });
 
   /**
-   * When we are in directory with existing ASP.NET Core 1.0 project and there is
+   * When we are in directory with existing ASP.NET Core project and there is
    * no UserSupport added to project make sure that required keys are added
    * and values are at least formatted as expected or have correct values
    */
