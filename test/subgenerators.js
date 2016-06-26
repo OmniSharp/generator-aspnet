@@ -29,8 +29,8 @@ describe('Subgenerators without arguments tests', function() {
 
   describe('aspnet:Program in cwd of project.json', function() {
     var dir = util.makeTempDir();
-    // the Nancy project does not contain Program.cs
-    util.goCreateApplication('nancy', 'emptyTest', dir);
+    // the Class Library project does not contain Program.cs
+    util.goCreateApplication('classlibrary', 'emptyTest', dir);
     util.goCreate('Program', path.join(dir, 'emptyTest'));
     util.fileCheck('should create Program.cs file', 'Program.cs');
     util.fileContentCheck('Program.cs', 'file content check', /^namespace emptyTest$/m);

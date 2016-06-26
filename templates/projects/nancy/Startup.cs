@@ -1,16 +1,31 @@
 namespace <%= namespace %>
 {
-    using Microsoft.AspNet.Builder;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
     using Nancy.Owin;
- 
+
     public class Startup
     {
-        public void Configure(IApplicationBuilder app)
+        public IConfiguration Configuration { get; set; }
+
+        public Startup(IHostingEnvironment env)
         {
-            app.UseOwin(x => x.UseNancy());
+            var builder = new ConfigurationBuilder()
+                              .AddJsonFile("appsettings.json")
+                              .SetBasePath(env.ContentRootPath);
+
+            Configuration = builder.Build();
         }
 
-        // Entry point for the application.
-        public static void Main(string[] args) => Microsoft.AspNet.Hosting.WebApplication.Run<Startup>(args);
+        public void Configure(IApplicationBuilder app)
+        {
+
+            var config = this.Configuration;
+            var appConfig = new AppConfiguration();
+            ConfigurationBinder.Bind(config, appConfig);
+
+            app.UseOwin(x => x.UseNancy(opt => opt.Bootstrapper = new DemoBootstrapper(appConfig)));
+        }
     }
 }
