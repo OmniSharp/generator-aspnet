@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace <%= namespace %>
 {
     // see example explanation on xUnit.net website:
-    // https://xunit.github.io/docs/getting-started-dnx.html
+    // https://xunit.github.io/docs/getting-started-dotnet-core.html
     public class SampleTest
     {
         [Fact]
