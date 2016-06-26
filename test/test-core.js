@@ -128,7 +128,8 @@ describe('aspnet - Unit Test Application', function() {
   var files = [
     'unittestTest/.gitignore',
     'unittestTest/project.json',
-    'unittestTest/SampleTest.cs'
+    'unittestTest/SampleTest.cs',
+    'unittestTest/xunit.runner.json'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {

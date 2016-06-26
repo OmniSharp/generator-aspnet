@@ -1,32 +1,34 @@
 {
-  "version": "1.0.0-*",
-
-  "buildOptions": {
-    "preserveCompilationContext": true
-  },
-
-  "dependencies": {
-    "dotnet-test-xunit": "1.0.0-rc2-*",
-    "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-3002702",
-      "type": "platform"
+    "version": "1.0.0-*",
+    "testRunner": "xunit",
+    "dependencies": {
+        "dotnet-test-xunit": "1.0.0-*",
+        "Microsoft.NETCore.App": {
+            "type": "platform",
+            "version": "1.0.0"
+        },
+        "xunit": "2.1.0"
     },
-    "xunit": "2.1.0-rc2-*"
-  },
-
-  "frameworks": {
-    "netcoreapp1.0": {
-      "imports": [
-        "dotnet5.6",
-        "dnxcore50",
-        "portable-net45+win8"
-      ]
+    "frameworks": {
+        "netcoreapp1.0": {
+            "dependencies": {
+                "Microsoft.NETCore.App": {
+                    "type": "platform",
+                    "version": "1.0.0"
+                }
+            },
+            "imports": [
+                "dnxcore50",
+                "portable-net45+win8"
+            ]
+        }
+    },
+    "buildOptions": {
+        "copyToOutput": {
+            "include": [ "xunit.runner.json" ]
+        }
+    },
+    "tooling": {
+        "defaultNamespace": "<%= namespace %>"
     }
-  },
-
-  "testRunner": "xunit",
-
-  "tooling": {
-    "defaultNamespace": "<%= namespace %>"
-  }
 }
