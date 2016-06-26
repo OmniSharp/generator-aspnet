@@ -21,6 +21,9 @@ Yeoman generator for ASP.NET Core projects
 
 See also: [Building Projects with Yeoman on docs.asp.net](https://docs.asp.net/en/latest/client-side/yeoman.html?#building-projects-with-yeoman)
 
+> NOTE: Starting from RTM release `Web Application` and `Web Application Basic` project templates use [`Bundler Minifier`](https://www.nuget.org/packages/BundlerMinifier.Core/) tool instead of NPM based build systems like Gulp or Grunt. The Bundler tool is installed as part of tooling support for the project, the `project.json` contains relevant scripting integration and one can use that tool independently from console using its `CLI` interface. Visit [Bundler tool WIKI](https://git.io/vo9hw) for details.  
+Also see [ASP NET Community Standup - June 21st, 2016 - Mads Visits](https://www.youtube.com/watch?v=p6NUkeTVsGE) for detailed information about this change introduction.
+
 ## Usage
 
 * `yo aspnet` shows a wizard for generating a new ASP.NET Core app
