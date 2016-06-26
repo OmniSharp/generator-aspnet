@@ -282,7 +282,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
 
-        this.template(this.sourceRoot() + '/homemodule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
+        this.template(this.sourceRoot() + '/HomeModule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
 
         break;
       case 'consoleapp':

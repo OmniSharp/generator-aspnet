@@ -1,7 +1,7 @@
 namespace <%= namespace %>
 {
     using Nancy;
-    
+
     public class HomeModule : NancyModule
     {
         public HomeModule()
