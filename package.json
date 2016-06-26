@@ -58,7 +58,7 @@
     "uuid": "^2.0.1",
     "vs_projectname": "^1.0.0",
     "yeoman-generator": "^0.19.2",
-    "yosay": "^1.1.1"
+    "yosay": "^1.2.0"
   },
   "devDependencies": {
     "mocha": "^2.3.3"
