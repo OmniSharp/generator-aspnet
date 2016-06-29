@@ -123,7 +123,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:Startup](#startup)
 * [aspnet:StyleSheet](#stylesheet)
 * [aspnet:StyleSheetLess](#stylesheetless)
-* [aspnet:StyleSheetScss](#stylesheetscss)
+* [aspnet:StyleSheetSCSS](#stylesheetscss)
 * [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:tfignore](#tfignore)
