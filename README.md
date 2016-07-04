@@ -6,7 +6,7 @@
 
 Yeoman generator for ASP.NET Core projects
 
-[![](https://cloud.githubusercontent.com/assets/14539/15092217/b059cd46-1463-11e6-944d-e0312da3df27.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core Generator')
+[![](https://cloud.githubusercontent.com/assets/14539/16569731/0590dada-423a-11e6-997c-1e1e20b1d37e.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core Generator')
 
 ## Getting Started
 
