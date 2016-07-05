@@ -52,7 +52,7 @@ describe('aspnet - Empty Web Application', function() {
     }
 
     it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('emptyWebTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+      assert.noFileContent('emptyWebTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     });
 
     it('Dockerfile does not contain migrations', function() {
@@ -300,7 +300,7 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     });
 
     it('Dockerfile includes SQLite', function() {
-      assert.fileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+      assert.fileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     });
 
     it('Dockerfile contains migrations', function() {
@@ -478,7 +478,7 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     });
 
     it('Dockerfile includes SQLite', function() {
-      assert.fileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+      assert.fileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     });
 
     it('Dockerfile contains migrations', function() {
@@ -627,7 +627,7 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     });
 
     it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     });
 
     it('Dockerfile does not contain migrations', function() {
@@ -736,7 +736,7 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     });
 
     it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     });
 
     it('Dockerfile does not contain migrations', function() {
@@ -825,7 +825,7 @@ describe('aspnet - Web API Application', function() {
     }
 
     it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('webAPITest/Dockerfile', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+      assert.noFileContent('webAPITest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     });
 
     it('Dockerfile does not contain migrations', function() {
