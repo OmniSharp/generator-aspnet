@@ -851,7 +851,17 @@ describe('aspnet - Nancy Application', function() {
   });
 
 
-  var files = ['nancyTest/project.json', 'nancyTest/Startup.cs', 'nancyTest/HomeModule.cs'];
+  var files = [
+    'nancyTest/AppConfiguration.cs',
+    'nancyTest/appsettings.json',
+    'nancyTest/DemoBootstrapper.cs',
+    'nancyTest/HomeModule.cs',
+    'nancyTest/Person.cs',
+    'nancyTest/PersonValidator.cs',
+    'nancyTest/Program.cs',
+    'nancyTest/project.json',
+    'nancyTest/Startup.cs'
+  ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
