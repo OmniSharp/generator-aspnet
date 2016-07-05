@@ -109,7 +109,7 @@ describe('Subgenerators without arguments tests', function() {
     util.goCreate(filename);
     util.fileCheck('should create Dockerfile', filename);
     util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:latest/);
-    util.noFileContentCheck(filename, 'Does not contain SQLite install', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    util.noFileContentCheck(filename, 'Does not contain SQLite install', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     util.noFileContentCheck(filename, 'Does not call database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
   });
 
@@ -119,7 +119,7 @@ describe('Subgenerators without arguments tests', function() {
     util.goCreateWithArgs(filename, [arg]);
     util.fileCheck('should create Dockerfile', filename);
     util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:latest/);
-    util.fileContentCheck(filename, 'Contains SQLite install', /RUN apt-get update && apt-get install sqlite3 libsqlite3-dev/);
+    util.fileContentCheck(filename, 'Contains SQLite install', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     util.fileContentCheck(filename, 'Calls database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
   });
 
