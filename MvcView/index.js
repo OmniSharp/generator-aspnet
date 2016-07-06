@@ -6,11 +6,6 @@ var path = require('path');
 
 var NamedGenerator = module.exports = function NamedGenerator() {
   ScriptBase.apply(this, arguments);
-
-  // If we're in the root, create the new view in the Views folder
-  if (process.cwd() === path.dirname(cfg.getProjectJsonPath())) {
-    process.chdir(path.join(process.cwd(), 'Views'));
-  }
 };
 
 util.inherits(NamedGenerator, ScriptBase);
