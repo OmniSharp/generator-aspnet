@@ -1,20 +1,22 @@
 {
     "version": "1.0.0-*",
-    "compilationOptions": {
+    "buildOptions": {
+        "debugType": "portable",
         "emitEntryPoint": true
     },
-    "tooling": {
-        "defaultNamespace": "<%= namespace %>"
-    },
-    "dependencies": {
-        "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-        "Microsoft.AspNet.Owin": "1.0.0-rc1-final",
-        "Nancy": "1.4.3"
-    },
-    "commands": {
-        "web": "Microsoft.AspNet.Server.Kestrel"
-    },
+
     "frameworks": {
-        "dnx451": {}
+        "netcoreapp1.0": {
+            "dependencies": {
+                "Microsoft.AspNetCore.Hosting": "1.0.0",
+                "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+                "Microsoft.AspNetCore.Owin": "1.0.0",
+                "Nancy": "2.0.0-barneyrubble",
+                "Microsoft.NETCore.App": {
+                    "type": "platform",
+                    "version": "1.0.0"
+                }
+            }
+        }
     }
 }
