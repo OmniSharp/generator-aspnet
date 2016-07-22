@@ -18,7 +18,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
 
   init: function() {
-    this.log(yosay('Welcome to the marvellous ASP.NET Core generator!'));
+    this.log(yosay('Welcome to the marvelous ASP.NET Core generator!'));
     this.templatedata = {};
   },
 
