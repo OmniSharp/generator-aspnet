@@ -63,10 +63,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           }, {
             name: 'Web API Application',
             value: 'webapi'
-          },/* {
+          }, {
             name: 'Nancy ASP.NET Application',
             value: 'nancy'
-          },*/ {
+          }, {
             name: 'Class Library',
             value: 'classlibrary'
           }, {
@@ -133,10 +133,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'webapi':
           app = 'WebAPIApplication';
           break;
-        /*
         case 'nancy':
           app = 'NancyApplication';
-          break;*/
+          break;
         case 'classlibrary':
           app = 'ClassLibrary';
           break;
@@ -284,6 +283,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
 
         this.template(this.sourceRoot() + '/HomeModule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
+
+        this.template(this.sourceRoot() + '/Program.cs', this.applicationName + '/Program.cs', this.templatedata);
 
         break;
       case 'consoleapp':
