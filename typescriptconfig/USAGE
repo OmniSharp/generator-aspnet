@@ -2,7 +2,7 @@ Description:
 	Creates a new TypeScript configuration file
 
 Example:
-	yo aspnet:TypeScriptConfig
+	yo aspnet:typescriptconfig
 
 	This will create:
 		tsconfig.json

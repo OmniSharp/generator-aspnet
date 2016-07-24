@@ -128,7 +128,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:textfile](#textfile)
 * [aspnet:tfignore](#tfignore)
 * [aspnet:typescript](#typescript)
-* [aspnet:TypeScriptConfig](#typescriptconfig)
+* [aspnet:typescriptconfig](#typescriptconfig)
 * [aspnet:TypeScriptJSX](#typescriptjsx)
 * [aspnet:UserSecrets](#usersecrets)
 * [aspnet:WebApiContoller](#webapicontroller)
@@ -619,14 +619,14 @@ Produces `filename.ts`
 
 [Return to top](#top)
 
-### TypeScriptConfig
+### typescriptconfig
 
 Creates a new TypeScript configuration file
 
 Example:
 
 ```
-yo aspnet:TypeScriptConfig
+yo aspnet:typescriptconfig
 ```
 
 Produces `tsconfig.json`
