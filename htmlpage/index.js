@@ -10,7 +10,7 @@ util.inherits(NamedGenerator, ScriptBase);
 
 NamedGenerator.prototype.createNamedItem = function() {
   this.generateTemplateFile(
-    'HTMLPage.html',
+    'htmlpage.html',
     '.html'
   );
 };

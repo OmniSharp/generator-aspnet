@@ -2,7 +2,7 @@ Description:
 	Creates a new HTML file
 
 Example:
-	yo aspnet:HTMLPage filename
+	yo aspnet:htmlpage filename
 
 	This will create:
 		filename.html

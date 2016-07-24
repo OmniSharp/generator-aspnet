@@ -366,16 +366,16 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:HTMLPage without extension', function() {
+  describe('aspnet:htmlpage without extension', function() {
     var arg = 'mypage';
     var filename = 'mypage.html';
-    util.goCreateWithArgs('HTMLPage', [arg]);
+    util.goCreateWithArgs('htmlpage', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:HTMLPage with extension', function() {
+  describe('aspnet:htmlpage with extension', function() {
     var filename = 'mypage.html';
-    util.goCreateWithArgs('HTMLPage', [filename]);
+    util.goCreateWithArgs('htmlpage', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
