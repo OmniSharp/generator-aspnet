@@ -2,7 +2,7 @@ Description:
 	Creates a new JSON schema file
 
 Example:
-	yo aspnet:JSONSchema filename
+	yo aspnet:jsonschema filename
 
 	This will create:
 		filename.json

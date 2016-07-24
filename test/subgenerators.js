@@ -408,17 +408,17 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
-  describe('aspnet:JSONSchema without extension', function() {
+  describe('aspnet:jsonschema without extension', function() {
     var arg = 'MySchema';
     var filename = 'MySchema.json';
-    util.goCreateWithArgs('JSONSchema', [arg]);
+    util.goCreateWithArgs('jsonschema', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /my MySchema JSON format/);
   });
 
-  describe('aspnet:JSONSchema with extension', function() {
+  describe('aspnet:jsonschema with extension', function() {
     var filename = 'MySchema.json';
-    util.goCreateWithArgs('JSONSchema', [filename]);
+    util.goCreateWithArgs('jsonschema', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /my MySchema JSON format/);
   });

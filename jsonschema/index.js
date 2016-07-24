@@ -11,7 +11,7 @@ util.inherits(NamedGenerator, ScriptBase);
 NamedGenerator.prototype.createNamedItem = function() {
   var extension = '.json';
   this.generateTemplateFile(
-    'JSONSchema.json',
+    'jsonschema.json',
     extension, {
       name: this.classNameWithoutExtension(extension)
     }

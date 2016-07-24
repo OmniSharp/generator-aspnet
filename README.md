@@ -111,7 +111,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:interface](#interface)
 * [aspnet:JavaScript](#javascript)
 * [aspnet:json](#json)
-* [aspnet:JSONSchema](#jsonschema)
+* [aspnet:jsonschema](#jsonschema)
 * [aspnet:JSX](#jsx)
 * [aspnet:Middleware](#middleware)
 * [aspnet:MvcController](#mvccontroller)
@@ -376,14 +376,14 @@ Produces `filename.json`
 
 [Return to top](#top)
 
-### JSONSchema
+### jsonschema
 
 Creates a new JSON schema file
 
 Example:
 
 ```
-yo aspnet:JSONSchema filename
+yo aspnet:jsonschema filename
 ```
 
 Produces `filename.json`
