@@ -22,8 +22,8 @@ describe('Subgenerators without arguments tests', function() {
     util.fileContentCheck('package.json', 'file content check', '"name": "emptywebtest"');
   });
 
-  describe('aspnet:Program', function() {
-    util.goCreate('Program');
+  describe('aspnet:program', function() {
+    util.goCreate('program');
     util.fileCheck('should create Program.cs file', 'Program.cs');
   });
 

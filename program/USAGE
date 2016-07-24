@@ -2,7 +2,7 @@ Description:
 	Creates a new Program.cs file
 
 Example:
-	yo aspnet:Program
+	yo aspnet:program
 
 	This will create:
 		Program.cs
