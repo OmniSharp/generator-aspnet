@@ -97,7 +97,7 @@ describe('Subgenerators without arguments tests', function() {
    */
   describe('aspnet:dockerfile dotnet', function() {
     var filename = 'Dockerfile';
-    util.goCreate(filename);
+    util.goCreate(filename.toLowerCase());
     util.fileCheck('should create Dockerfile', filename);
     util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:latest/);
     util.noFileContentCheck(filename, 'Does not contain SQLite install', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
@@ -107,7 +107,7 @@ describe('Subgenerators without arguments tests', function() {
   describe('aspnet:dockerfile dotnet with --sqlite', function() {
     var arg = '--sqlite';
     var filename = 'Dockerfile';
-    util.goCreateWithArgs(filename, [arg]);
+    util.goCreateWithArgs(filename.toLowerCase(), [arg]);
     util.fileCheck('should create Dockerfile', filename);
     util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:latest/);
     util.fileContentCheck(filename, 'Contains SQLite install', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
