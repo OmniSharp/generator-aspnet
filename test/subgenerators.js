@@ -547,14 +547,14 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:class without extension', function() {
     var arg = 'CartTagHelper';
     var filename = 'CartTagHelper.cs';
-    util.goCreateWithArgs('TagHelper', [arg]);
+    util.goCreateWithArgs('taghelper', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
   });
 
   describe('aspnet:class with extension', function() {
     var filename = 'CartTagHelper.cs';
-    util.goCreateWithArgs('TagHelper', [filename]);
+    util.goCreateWithArgs('taghelper', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
   });

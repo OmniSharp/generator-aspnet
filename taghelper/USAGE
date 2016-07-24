@@ -2,7 +2,7 @@ Description:
 	Creates a new C# TagHelper file
 
 Example:
-	yo aspnet:TagHelper filename
+	yo aspnet:taghelper filename
 
 	This will create:
 		filename.cs

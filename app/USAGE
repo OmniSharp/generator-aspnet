@@ -32,7 +32,7 @@ Subgenerators:
   yo aspnet:stylesheet [options] <name>
   yo aspnet:stylesheetless [options] <name>
   yo aspnet:stylesheetscss [options] <name>
-  yo aspnet:TagHelper [options] <name>
+  yo aspnet:taghelper [options] <name>
   yo aspnet:TextFile [options] <name>
   yo aspnet:tfignore [options]
   yo aspnet:TypeScript [options] <name>

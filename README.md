@@ -124,7 +124,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:stylesheet](#stylesheet)
 * [aspnet:stylesheetless](#stylesheetless)
 * [aspnet:stylesheetscss](#stylesheetscss)
-* [aspnet:TagHelper](#taghelper)
+* [aspnet:taghelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:tfignore](#tfignore)
 * [aspnet:TypeScript](#typescript)
@@ -563,14 +563,14 @@ Produces `filename.scss`
 
 [Return to top](#top)
 
-### TagHelper
+### taghelper
 
 Creates a new TagHelper class file
 
 Example:
 
 ```
-yo aspnet:TagHelper filename
+yo aspnet:taghelper filename
 ```
 
 Produces `filename.cs`
