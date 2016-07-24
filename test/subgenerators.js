@@ -497,26 +497,26 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:MvcController without extension', function() {
+  describe('aspnet:mvccontroller without extension', function() {
     var arg = 'file';
     var filename = 'file.cs';
-    util.goCreateWithArgs('MvcController', [arg]);
+    util.goCreateWithArgs('mvccontroller', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:MvcController with extension', function() {
+  describe('aspnet:mvccontroller with extension', function() {
     var filename = 'file.cs';
-    util.goCreateWithArgs('MvcController', [filename]);
+    util.goCreateWithArgs('mvccontroller', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:MvcController in cwd of project.json', function() {
+  describe('aspnet:mvccontroller in cwd of project.json', function() {
     var arg = 'file';
     var filename = 'file.cs';
     var dir = util.makeTempDir();
 
     util.goCreateApplication('web', 'webTest', dir);
-    util.goCreateWithArgs('MvcController', [arg], path.join(dir, 'webTest'));
+    util.goCreateWithArgs('mvccontroller', [arg], path.join(dir, 'webTest'));
 
     util.fileCheck('should create Controllers/' + filename + ' file', filename);
   });

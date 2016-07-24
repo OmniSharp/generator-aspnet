@@ -23,7 +23,7 @@ Subgenerators:
   yo aspnet:json [options] <name>
   yo aspnet:jsonschema [options] <name>
   yo aspnet:middleware [options] <name>
-  yo aspnet:MvcController [options] <name>
+  yo aspnet:mvccontroller [options] <name>
   yo aspnet:MvcView [options] <name>
   yo aspnet:nuget [options]
   yo aspnet:PackageJson [options]

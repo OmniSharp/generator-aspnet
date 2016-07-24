@@ -114,7 +114,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:jsonschema](#jsonschema)
 * [aspnet:jsx](#jsx)
 * [aspnet:middleware](#middleware)
-* [aspnet:MvcController](#mvccontroller)
+* [aspnet:mvccontroller](#mvccontroller)
 * [aspnet:MvcView](#mvcview)
 * [aspnet:nuget](#nuget)
 * [aspnet:PackageJson](#packagejson)
@@ -418,14 +418,14 @@ Produces `filename.cs`
 
 [Return to top](#top)
 
-### MvcController
+### mvccontroller
 
 Creates a new ASP.NET Core MvcController class
 
 Example:
 
 ```
-yo aspnet:MvcController ContactController
+yo aspnet:mvccontroller ContactController
 ```
 
 Produces `/ContactController.cs`
