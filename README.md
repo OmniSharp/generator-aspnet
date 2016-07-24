@@ -120,7 +120,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:packagejson](#packagejson)
 * [aspnet:program](#program)
 * [aspnet:readme](#readme)
-* [aspnet:Startup](#startup)
+* [aspnet:startup](#startup)
 * [aspnet:StyleSheet](#stylesheet)
 * [aspnet:StyleSheetLess](#stylesheetless)
 * [aspnet:StyleSheetSCSS](#stylesheetscss)
@@ -507,14 +507,14 @@ Produces `readme.md`
 
 [Return to top](#top)
 
-### Startup
+### startup
 
 Creates a new `Startup.cs` file
 
 Example:
 
 ```
-yo aspnet:Startup
+yo aspnet:startup
 ```
 
 Produces `Startup.cs`

@@ -60,17 +60,17 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create appsettings json file', 'appsettings.json');
   });
 
-  describe('aspnet:Startup', function() {
-    util.goCreate('Startup');
-    util.fileCheck('should create Startup.cs file', 'Startup.cs');
+  describe('aspnet:startup', function() {
+    util.goCreate('startup');
+    util.fileCheck('should create startup.cs file', 'Startup.cs');
   });
 
-  describe('aspnet:Startup in cwd of project.json', function() {
+  describe('aspnet:startup in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlibrary', 'emptyTest', dir);
 
-    util.goCreate('Startup', path.join(dir, 'emptyTest'));
+    util.goCreate('startup', path.join(dir, 'emptyTest'));
     util.fileCheck('should create Startup.cs file', 'Startup.cs');
     util.fileContentCheck('Startup.cs', 'file content check', /^namespace emptyTest$/m);
   });

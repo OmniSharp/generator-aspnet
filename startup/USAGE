@@ -2,7 +2,7 @@ Description:
 	Creates a new Startup.cs file
 
 Example:
-	yo aspnet:Startup
+	yo aspnet:startup
 
 	This will create:
 		Startup.cs
