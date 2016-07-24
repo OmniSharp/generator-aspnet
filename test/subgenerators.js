@@ -33,8 +33,8 @@ describe('Subgenerators without arguments tests', function() {
     util.fileContentCheck('gulpfile.js', 'file content check', /gulp\.task\("default"/);
   });
 
-  describe('aspnet:Gruntfile', function() {
-    util.goCreate('Gruntfile');
+  describe('aspnet:gruntfile', function() {
+    util.goCreate('gruntfile');
     util.fileCheck('should create Grunt file', 'Gruntfile.js');
   });
 

@@ -105,7 +105,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:coffeescript](#coffeescript)
 * [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
-* [aspnet:Gruntfile](#gruntfile)
+* [aspnet:gruntfile](#gruntfile)
 * [aspnet:Gulpfile](#gulpfile)
 * [aspnet:HTMLPage](#htmlpage)
 * [aspnet:Interface](#interface)
@@ -292,14 +292,14 @@ Produces `.gitignore`
 
 [Return to top](#top)
 
-### Gruntfile
+### gruntfile
 
 Creates a new `Grunt` file
 
 Example:
 
 ```
-yo aspnet:Gruntfile
+yo aspnet:gruntfile
 ```
 
 Produces `Gruntfile.js`
