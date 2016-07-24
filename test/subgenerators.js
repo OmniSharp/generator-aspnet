@@ -470,16 +470,16 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:JSON without extension', function() {
+  describe('aspnet:json without extension', function() {
     var arg = 'file';
     var filename = 'file.json';
-    util.goCreateWithArgs('JSON', [arg]);
+    util.goCreateWithArgs('json', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:JSON with extension', function() {
+  describe('aspnet:json with extension', function() {
     var filename = 'file.json';
-    util.goCreateWithArgs('JSON', [filename]);
+    util.goCreateWithArgs('json', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
@@ -681,19 +681,19 @@ describe('Subgenerators with named arguments tests', function() {
   describe('aspnet:TextFile creates config.development.json from config.development', function() {
     var arg = 'config.development';
     var filename = 'config.development.json';
-    util.goCreateWithArgs('JSON', [arg]);
+    util.goCreateWithArgs('json', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
   describe('aspnet:TextFile creates config.staging.json from config.staging', function() {
     var arg = 'config.staging';
     var filename = 'config.staging.json';
-    util.goCreateWithArgs('JSON', [arg]);
+    util.goCreateWithArgs('json', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
   describe('aspnet:TextFile creates config.staging.json from config.staging.json', function() {
     var arg = 'config.staging.json';
     var filename = 'config.staging.json';
-    util.goCreateWithArgs('JSON', [arg]);
+    util.goCreateWithArgs('json', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 });

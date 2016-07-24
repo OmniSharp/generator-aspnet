@@ -2,7 +2,7 @@ Description:
 	Creates a new JSON file
 
 Example:
-	yo aspnet:JSON filename
+	yo aspnet:json filename
 
 	This will create:
 		filename.json

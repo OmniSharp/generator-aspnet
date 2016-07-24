@@ -110,7 +110,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:htmlpage](#htmlpage)
 * [aspnet:interface](#interface)
 * [aspnet:JavaScript](#javascript)
-* [aspnet:JSON](#json)
+* [aspnet:json](#json)
 * [aspnet:JSONSchema](#jsonschema)
 * [aspnet:JSX](#jsx)
 * [aspnet:Middleware](#middleware)
@@ -362,14 +362,14 @@ Produces `filename.js`
 
 [Return to top](#top)
 
-### JSON
+### json
 
 Creates a new JSON file
 
 Example:
 
 ```
-yo aspnet:JSON filename
+yo aspnet:json filename
 ```
 
 Produces `filename.json`
