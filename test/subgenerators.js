@@ -236,22 +236,22 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
-  describe('aspnet:AngularDirective without extension', function() {
+  describe('aspnet:angulardirective without extension', function() {
     var arg = 'HomeComponentDirective';
     var filename = 'HomeComponentDirective.js';
-    util.goCreateWithArgs('AngularDirective', [arg]);
+    util.goCreateWithArgs('angulardirective', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
   });
 
-  describe('aspnet:AngularDirective with extension', function() {
+  describe('aspnet:angulardirective with extension', function() {
     var filename = 'HomeComponentDirective.js';
-    util.goCreateWithArgs('AngularDirective', [filename]);
+    util.goCreateWithArgs('angulardirective', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
   });
 
-  describe('aspnet:AngularDirective in cwd of project.json', function() {
+  describe('aspnet:angulardirective in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlibrary', 'emptyTest', dir);
@@ -259,7 +259,7 @@ describe('Subgenerators with named arguments tests', function() {
     var arg = 'HomeComponentDirective';
     var filename = 'HomeComponentDirective.js';
     console.log(arg, dir);
-    util.goCreateWithArgs('AngularDirective', [arg], path.join(dir, 'emptyTest'));
+    util.goCreateWithArgs('angulardirective', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');

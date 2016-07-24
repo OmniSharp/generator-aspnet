@@ -2,7 +2,7 @@ Description:
 	Creates a new AngularJS directive file.
 
 Example:
-	yo aspnet:AngularDirective filename
+	yo aspnet:angulardirective filename
 
 	This will create:
 		filename.js

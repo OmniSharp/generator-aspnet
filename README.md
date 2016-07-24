@@ -96,7 +96,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 
 * [aspnet:angularcontroller](#angularcontroller)
 * [aspnet:angularcontrolleras](#angularcontrolleras)
-* [aspnet:AngularDirective](#angulardirective)
+* [aspnet:angulardirective](#angulardirective)
 * [aspnet:AngularFactory](#angularfactory)
 * [aspnet:AngularModule](#angularmodule)
 * [aspnet:AppSettings](#appsettings)
@@ -163,13 +163,13 @@ Produces `filename.js`
 
 [Return to top](#top)
 
-### AngularDirective
+### angulardirective
 
 Creates AngularJS directive file.
 
 Example:
 ```
-yo aspnet:AngularDirective filename
+yo aspnet:angulardirective filename
 ```
 
 Produces `filename.js`
