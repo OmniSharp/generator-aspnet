@@ -115,7 +115,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:jsx](#jsx)
 * [aspnet:middleware](#middleware)
 * [aspnet:mvccontroller](#mvccontroller)
-* [aspnet:MvcView](#mvcview)
+* [aspnet:mvcview](#mvcview)
 * [aspnet:nuget](#nuget)
 * [aspnet:PackageJson](#packagejson)
 * [aspnet:Program](#program)
@@ -434,14 +434,14 @@ Produces `/ContactController.cs`
 
 [Return to top](#top)
 
-### MvcView
+### mvcview
 
 Creates a new ASP.NET Core MvcView page file
 
 Example:
 
 ```
-yo aspnet:MvcView ContactView
+yo aspnet:mvcview ContactView
 ```
 
 Produces `/ContactView.cshtml`

@@ -13,7 +13,7 @@ util.inherits(NamedGenerator, ScriptBase);
 NamedGenerator.prototype.createNamedItem = function() {
   var extension = '.cshtml';
   this.generateTemplateFile(
-    'MvcView.cshtml',
+    'mvcview.cshtml',
     extension, {
       pagename: this.classNameWithoutExtension(extension)
     }

@@ -2,7 +2,7 @@ Description:
 	Creates a new MvcView
 
 Example:
-	yo aspnet:MvcView filename
+	yo aspnet:mvcview filename
 
 	This will create:
 		filename.cshtml
