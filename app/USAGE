@@ -8,7 +8,7 @@ Subgenerators:
   yo aspnet:angularcontrolleras [options] <name>
   yo aspnet:angulardirective [options] <name>
   yo aspnet:angularfactory [options] <name>
-  yo aspnet:AngularModule [options] <name>
+  yo aspnet:angularmodule [options] <name>
   yo aspnet:AppSettings [options]
   yo aspnet:BowerJson [options]
   yo aspnet:Class [options] <name>

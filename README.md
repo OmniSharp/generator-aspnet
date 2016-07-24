@@ -98,7 +98,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:angularcontrolleras](#angularcontrolleras)
 * [aspnet:angulardirective](#angulardirective)
 * [aspnet:angularfactory](#angularfactory)
-* [aspnet:AngularModule](#angularmodule)
+* [aspnet:angularmodule](#angularmodule)
 * [aspnet:AppSettings](#appsettings)
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:Class](#class)
@@ -189,13 +189,13 @@ Produces `filename.js`
 
 [Return to top](#top)
 
-### AngularModule
+### angularmodule
 
 Creates AngularJS module file
 
 Example:
 ```
-yo aspnet:AngularModule filename
+yo aspnet:angularmodule filename
 ```
 
 Produces `filename.js`

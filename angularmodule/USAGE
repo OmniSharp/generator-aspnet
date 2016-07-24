@@ -2,7 +2,7 @@ Description:
   Creates AngularJS module file
 
 Example:
-  yo aspnet:AngularModule filename
+  yo aspnet:angularmodule filename
 
   This will produce:
     filename.js

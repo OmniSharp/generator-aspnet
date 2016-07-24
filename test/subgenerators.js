@@ -294,22 +294,22 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
   });
 
-  describe('aspnet:AngularModule without extension', function() {
+  describe('aspnet:angularmodule without extension', function() {
     var arg = 'MyApplication';
     var filename = 'MyApplication.js';
-    util.goCreateWithArgs('AngularModule', [arg]);
+    util.goCreateWithArgs('angularmodule', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /angular.module/);
   });
 
-  describe('aspnet:AngularModule with extension', function() {
+  describe('aspnet:angularmodule with extension', function() {
     var filename = 'MyApplication.js';
-    util.goCreateWithArgs('AngularModule', [filename]);
+    util.goCreateWithArgs('angularmodule', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /angular.module/);
   });
 
-  describe('aspnet:AngularModule in cwd of project.json', function() {
+  describe('aspnet:angularmodule in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlibrary', 'emptyTest', dir);
@@ -317,7 +317,7 @@ describe('Subgenerators with named arguments tests', function() {
     var arg = 'MyApplication';
     var filename = 'MyApplication.js';
     console.log(arg, dir);
-    util.goCreateWithArgs('AngularModule', [arg], path.join(dir, 'emptyTest'));
+    util.goCreateWithArgs('angularmodule', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /angular.module/);
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\'');
