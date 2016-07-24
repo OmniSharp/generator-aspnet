@@ -95,7 +95,7 @@ describe('Subgenerators without arguments tests', function() {
    * - without SQLite installed
    * - with SQLite installed and EF migrations called
    */
-  describe('aspnet:Dockerfile dotnet', function() {
+  describe('aspnet:dockerfile dotnet', function() {
     var filename = 'Dockerfile';
     util.goCreate(filename);
     util.fileCheck('should create Dockerfile', filename);
@@ -104,7 +104,7 @@ describe('Subgenerators without arguments tests', function() {
     util.noFileContentCheck(filename, 'Does not call database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
   });
 
-  describe('aspnet:Dockerfile dotnet with --sqlite', function() {
+  describe('aspnet:dockerfile dotnet with --sqlite', function() {
     var arg = '--sqlite';
     var filename = 'Dockerfile';
     util.goCreateWithArgs(filename, [arg]);

@@ -4,7 +4,7 @@ Description:
     use --sqlite option
 
 Example:
-    yo aspnet:Dockerfile [--sqlite]
+    yo aspnet:dockerfile [--sqlite]
 
     This will create:
         Dockerfile

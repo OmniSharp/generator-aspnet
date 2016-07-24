@@ -13,7 +13,7 @@ Subgenerators:
   yo aspnet:bowerjson [options]
   yo aspnet:class [options] <name>
   yo aspnet:coffeescript [options] <name>
-  yo aspnet:Dockerfile [options]
+  yo aspnet:dockerfile [options]
   yo aspnet:gitignore [options]
   yo aspnet:Gruntfile [options]
   yo aspnet:Gulpfile [options] <name>

@@ -103,7 +103,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:bowerjson](#bowerjson)
 * [aspnet:class](#class)
 * [aspnet:coffeescript](#coffeescript)
-* [aspnet:Dockerfile](#dockerfile)
+* [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:Gruntfile](#gruntfile)
 * [aspnet:Gulpfile](#gulpfile)
@@ -258,14 +258,14 @@ Produces `filename.coffee`
 
 [Return to top](#top)
 
-### Dockerfile
+### dockerfile
 
 Creates a new Docker configuration file.
 To create Docker image with SQLite support for EntityFramework use `--sqlite` option
 
 Example:
 ```
-yo aspnet:Dockerfile
+yo aspnet:dockerfile
 ```
 
 Creates a new `Dockerfile`
