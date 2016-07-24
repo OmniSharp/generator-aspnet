@@ -5,7 +5,7 @@ Description:
 Subgenerators:
 
   yo aspnet:angularcontroller [options] <name>
-  yo aspnet:AngularControllerAs [options] <name>
+  yo aspnet:angularcontrolleras [options] <name>
   yo aspnet:AngularDirective [options] <name>
   yo aspnet:AngularFactory [options] <name>
   yo aspnet:AngularModule [options] <name>
