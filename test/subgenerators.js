@@ -585,16 +585,16 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:StyleSheetLess without extension', function() {
+  describe('aspnet:stylesheetless without extension', function() {
     var arg = '_base';
     var filename = '_base.less';
-    util.goCreateWithArgs('StyleSheetLess', [arg]);
+    util.goCreateWithArgs('stylesheetless', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:StyleSheetLess with extension', function() {
+  describe('aspnet:stylesheetless with extension', function() {
     var filename = '_base.less';
-    util.goCreateWithArgs('StyleSheetLess', [filename]);
+    util.goCreateWithArgs('stylesheetless', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 

@@ -30,7 +30,7 @@ Subgenerators:
   yo aspnet:program [options]
   yo aspnet:startup [options]
   yo aspnet:stylesheet [options] <name>
-  yo aspnet:StyleSheetLess [options] <name>
+  yo aspnet:stylesheetless [options] <name>
   yo aspnet:StyleSheetScss [options] <name>
   yo aspnet:TagHelper [options] <name>
   yo aspnet:TextFile [options] <name>

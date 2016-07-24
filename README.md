@@ -122,7 +122,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:readme](#readme)
 * [aspnet:startup](#startup)
 * [aspnet:stylesheet](#stylesheet)
-* [aspnet:StyleSheetLess](#stylesheetless)
+* [aspnet:stylesheetless](#stylesheetless)
 * [aspnet:StyleSheetSCSS](#stylesheetscss)
 * [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
@@ -535,14 +535,14 @@ Produces `style.css`
 
 [Return to top](#top)
 
-### StyleSheetLess
+### stylesheetless
 
 Creates a new Less class file
 
 Example:
 
 ```
-yo aspnet:StyleSheetLess filename
+yo aspnet:stylesheetless filename
 ```
 
 Produces `filename.less`
