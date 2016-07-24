@@ -11,7 +11,7 @@ util.inherits(NamedGenerator, ScriptBase);
 NamedGenerator.prototype.createNamedItem = function() {
   var extension = '.cs';
   this.generateTemplateFile(
-    'Interface.cs',
+    'interface.cs',
     '.cs', {
       namespace: this.namespace(),
       classname: this.classNameWithoutExtension(extension)

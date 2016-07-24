@@ -108,7 +108,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:gruntfile](#gruntfile)
 * [aspnet:gulpfile](#gulpfile)
 * [aspnet:htmlpage](#htmlpage)
-* [aspnet:Interface](#interface)
+* [aspnet:interface](#interface)
 * [aspnet:JavaScript](#javascript)
 * [aspnet:JSON](#json)
 * [aspnet:JSONSchema](#jsonschema)
@@ -334,14 +334,14 @@ Produces `filename.html`
 
 [Return to top](#top)
 
-### Interface
+### interface
 
-Creates a new ASP.NET Core Interface
+Creates a new ASP.NET Core interface
 
 Example:
 
 ```
-yo aspnet:Interface IContact
+yo aspnet:interface IContact
 ```
 
 Produces `/IContact.cs`

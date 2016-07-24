@@ -379,22 +379,22 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:Interface without extension', function() {
+  describe('aspnet:interface without extension', function() {
     var arg = 'IContact';
     var filename = 'IContact.cs';
-    util.goCreateWithArgs('Interface', [arg]);
+    util.goCreateWithArgs('interface', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
   });
 
-  describe('aspnet:Interface with extension', function() {
+  describe('aspnet:interface with extension', function() {
     var filename = 'IContact.cs';
-    util.goCreateWithArgs('Interface', [filename]);
+    util.goCreateWithArgs('interface', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
   });
 
-  describe('aspnet:Interface in cwd of project.json', function() {
+  describe('aspnet:interface in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlibrary', 'emptyTest', dir);
@@ -402,7 +402,7 @@ describe('Subgenerators with named arguments tests', function() {
     var arg = 'IContact';
     var filename = 'IContact.cs';
     console.log(arg, dir);
-    util.goCreateWithArgs('Interface', [arg], path.join(dir, 'emptyTest'));
+    util.goCreateWithArgs('interface', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*interface[ ]*IContact/);
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
