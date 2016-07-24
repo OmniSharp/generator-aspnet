@@ -2,7 +2,7 @@ Description:
 	Creates a new package.json file
 
 Example:
-	yo aspnet:PackageJson
+	yo aspnet:packagejson
 
 	This will create:
 		package.json

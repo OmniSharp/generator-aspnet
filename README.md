@@ -117,7 +117,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:mvccontroller](#mvccontroller)
 * [aspnet:mvcview](#mvcview)
 * [aspnet:nuget](#nuget)
-* [aspnet:PackageJson](#packagejson)
+* [aspnet:packagejson](#packagejson)
 * [aspnet:Program](#program)
 * [aspnet:readme](#readme)
 * [aspnet:Startup](#startup)
@@ -465,14 +465,14 @@ Produces `NuGet.config` with unstable NuGet feed
 
 [Return to top](#top)
 
-### PackageJson
+### packagejson
 
 Creates a new package.json file
 
 Example:
 
 ```
-yo aspnet:PackageJson
+yo aspnet:packagejson
 ```
 
 Produces `package.json`
