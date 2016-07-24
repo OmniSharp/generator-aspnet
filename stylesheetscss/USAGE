@@ -2,7 +2,7 @@ Description:
 	Creates a new Sass SCSS style sheet file
 
 Example:
-	yo aspnet:StyleSheetSCSS filename
+	yo aspnet:stylesheetscss filename
 
 	This will create:
     filename.scss

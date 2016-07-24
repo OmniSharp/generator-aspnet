@@ -123,7 +123,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:startup](#startup)
 * [aspnet:stylesheet](#stylesheet)
 * [aspnet:stylesheetless](#stylesheetless)
-* [aspnet:StyleSheetSCSS](#stylesheetscss)
+* [aspnet:stylesheetscss](#stylesheetscss)
 * [aspnet:TagHelper](#taghelper)
 * [aspnet:TextFile](#textfile)
 * [aspnet:tfignore](#tfignore)
@@ -549,14 +549,14 @@ Produces `filename.less`
 
 [Return to top](#top)
 
-### StyleSheetSCSS
+### stylesheetscss
 
 Creates a new Sass SCSS class file
 
 Example:
 
 ```
-yo aspnet:StyleSheetSCSS filename
+yo aspnet:stylesheetscss filename
 ```
 
 Produces `filename.scss`
