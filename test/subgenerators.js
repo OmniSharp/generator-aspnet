@@ -38,18 +38,18 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create Grunt file', 'Gruntfile.js');
   });
 
-  describe('aspnet:BowerJson', function() {
-    util.goCreate('BowerJson');
+  describe('aspnet:bowerjson', function() {
+    util.goCreate('bowerjson');
     util.fileCheck('should create bower configuration file', '.bowerrc');
     util.fileCheck('should create bower file', 'bower.json');
   });
 
-  describe('aspnet:BowerJson in cwd of project.json', function() {
+  describe('aspnet:bowerjson in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('emptyweb', 'emptyWebTest', dir);
 
-    util.goCreate('BowerJson', path.join(dir, 'emptyWebTest'));
+    util.goCreate('bowerjson', path.join(dir, 'emptyWebTest'));
     util.fileCheck('should create bower configuration file', '.bowerrc');
     util.fileCheck('should create bower file', 'bower.json');
     util.fileContentCheck('bower.json', 'file content check', '"name": "emptyWebTest"');

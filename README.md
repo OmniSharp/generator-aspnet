@@ -100,7 +100,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:angularfactory](#angularfactory)
 * [aspnet:angularmodule](#angularmodule)
 * [aspnet:appsettings](#appsettings)
-* [aspnet:BowerJson](#bowerjson)
+* [aspnet:bowerjson](#bowerjson)
 * [aspnet:Class](#class)
 * [aspnet:CoffeeScript](#coffeescript)
 * [aspnet:Dockerfile](#dockerfile)
@@ -216,14 +216,14 @@ Produces `appsettings.json`
 
 [Return to top](#top)
 
-### BowerJson
+### bowerjson
 
 Creates a new `bower.json` and configuration file.
 
 Example:
 
 ```
-yo aspnet:BowerJson
+yo aspnet:bowerjson
 ```
 
 Produces `bower.json` and `.bowerrc`

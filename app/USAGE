@@ -10,7 +10,7 @@ Subgenerators:
   yo aspnet:angularfactory [options] <name>
   yo aspnet:angularmodule [options] <name>
   yo aspnet:appsettings [options]
-  yo aspnet:BowerJson [options]
+  yo aspnet:bowerjson [options]
   yo aspnet:Class [options] <name>
   yo aspnet:CoffeeScript [options] <name>
   yo aspnet:Dockerfile [options]
