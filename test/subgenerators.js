@@ -323,22 +323,22 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\'');
   });
 
-  describe('aspnet:Class without extension', function() {
+  describe('aspnet:class without extension', function() {
     var arg = 'MyClass';
     var filename = 'MyClass.cs';
-    util.goCreateWithArgs('Class', [arg]);
+    util.goCreateWithArgs('class', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyClass/);
   });
 
-  describe('aspnet:Class with extension', function() {
+  describe('aspnet:class with extension', function() {
     var filename = 'MyClass.cs';
-    util.goCreateWithArgs('Class', [filename]);
+    util.goCreateWithArgs('class', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyClass/);
   });
 
-  describe('aspnet:Class in cwd of project.json', function() {
+  describe('aspnet:class in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlibrary', 'emptyTest', dir);
@@ -347,7 +347,7 @@ describe('Subgenerators with named arguments tests', function() {
     var filename = 'MyClass.cs';
     console.log(arg, dir);
 
-    util.goCreateWithArgs('Class', [arg], path.join(dir, 'emptyTest'));
+    util.goCreateWithArgs('class', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyClass/);
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
@@ -544,7 +544,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create Views/' + filename + ' file', filename);
   });
 
-  describe('aspnet:Class without extension', function() {
+  describe('aspnet:class without extension', function() {
     var arg = 'CartTagHelper';
     var filename = 'CartTagHelper.cs';
     util.goCreateWithArgs('TagHelper', [arg]);
@@ -552,7 +552,7 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
   });
 
-  describe('aspnet:Class with extension', function() {
+  describe('aspnet:class with extension', function() {
     var filename = 'CartTagHelper.cs';
     util.goCreateWithArgs('TagHelper', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);

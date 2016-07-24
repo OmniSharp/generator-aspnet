@@ -1,8 +1,8 @@
 Description:
-	Creates a new C# Class file
+	Creates a new C# class file
 
 Example:
-	yo aspnet:Class filename
+	yo aspnet:class filename
 
 	This will create:
 		filename.cs

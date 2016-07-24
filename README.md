@@ -101,7 +101,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:angularmodule](#angularmodule)
 * [aspnet:appsettings](#appsettings)
 * [aspnet:bowerjson](#bowerjson)
-* [aspnet:Class](#class)
+* [aspnet:class](#class)
 * [aspnet:CoffeeScript](#coffeescript)
 * [aspnet:Dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
@@ -230,14 +230,14 @@ Produces `bower.json` and `.bowerrc`
 
 [Return to top](#top)
 
-### Class
+### class
 
-Creates a new ASP.NET Core Class
+Creates a new ASP.NET Core class
 
 Example:
 
 ```
-yo aspnet:Class Contact
+yo aspnet:class Contact
 ```
 
 Produces `/Contact.cs`
