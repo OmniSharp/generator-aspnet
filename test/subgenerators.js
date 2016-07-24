@@ -55,8 +55,8 @@ describe('Subgenerators without arguments tests', function() {
     util.fileContentCheck('bower.json', 'file content check', '"name": "emptyWebTest"');
   });
 
-  describe('aspnet:AppSettings', function() {
-    util.goCreate('AppSettings');
+  describe('aspnet:appsettings', function() {
+    util.goCreate('appsettings');
     util.fileCheck('should create appsettings json file', 'appsettings.json');
   });
 

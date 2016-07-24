@@ -99,7 +99,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:angulardirective](#angulardirective)
 * [aspnet:angularfactory](#angularfactory)
 * [aspnet:angularmodule](#angularmodule)
-* [aspnet:AppSettings](#appsettings)
+* [aspnet:appsettings](#appsettings)
 * [aspnet:BowerJson](#bowerjson)
 * [aspnet:Class](#class)
 * [aspnet:CoffeeScript](#coffeescript)
@@ -202,14 +202,14 @@ Produces `filename.js`
 
 [Return to top](#top)
 
-### AppSettings
+### appsettings
 
 Creates a new appsettings.json file
 
 Example:
 
 ```
-yo aspnet:AppSettings
+yo aspnet:appsettings
 ```
 
 Produces `appsettings.json`

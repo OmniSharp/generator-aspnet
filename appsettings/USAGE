@@ -2,7 +2,7 @@ Description:
 	Creates a new appsettings.json file
 
 Example:
-	yo aspnet:AppSettings
+	yo aspnet:appsettings
 
 	This will create:
 		appsettings.json
