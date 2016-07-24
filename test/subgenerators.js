@@ -483,17 +483,17 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:JSX without extension', function() {
+  describe('aspnet:jsx without extension', function() {
     var arg = 'file';
     var filename = 'file.jsx';
-    util.goCreateWithArgs('JSX', [arg]);
+    util.goCreateWithArgs('jsx', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:JSX with extension', function() {
+  describe('aspnet:jsx with extension', function() {
     var arg = 'file';
     var filename = 'file.jsx';
-    util.goCreateWithArgs('JSX', [arg]);
+    util.goCreateWithArgs('jsx', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 

@@ -112,7 +112,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:JavaScript](#javascript)
 * [aspnet:json](#json)
 * [aspnet:jsonschema](#jsonschema)
-* [aspnet:JSX](#jsx)
+* [aspnet:jsx](#jsx)
 * [aspnet:Middleware](#middleware)
 * [aspnet:MvcController](#mvccontroller)
 * [aspnet:MvcView](#mvcview)
@@ -390,14 +390,14 @@ Produces `filename.json`
 
 [Return to top](#top)
 
-### JSX
+### jsx
 
 Creates a new React JSX file
 
 Example:
 
 ```
-yo aspnet:JSX filename
+yo aspnet:jsx filename
 ```
 
 Produces `filename.jsx`
