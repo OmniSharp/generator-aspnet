@@ -457,16 +457,16 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
-  describe('aspnet:JavaScript without extension', function() {
+  describe('aspnet:javascript without extension', function() {
     var arg = 'file';
     var filename = 'file.js';
-    util.goCreateWithArgs('JavaScript', [arg]);
+    util.goCreateWithArgs('javascript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:JavaScript with extension', function() {
+  describe('aspnet:javascript with extension', function() {
     var filename = 'file.js';
-    util.goCreateWithArgs('JavaScript', [filename]);
+    util.goCreateWithArgs('javascript', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 

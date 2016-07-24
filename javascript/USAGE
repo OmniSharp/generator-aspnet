@@ -2,7 +2,7 @@ Description:
 	Creates a new JavaScript file
 
 Example:
-	yo aspnet:JavaScript filename
+	yo aspnet:javascript filename
 
 	This will create:
 		filename.js

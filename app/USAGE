@@ -19,7 +19,7 @@ Subgenerators:
   yo aspnet:gulpfile [options] <name>
   yo aspnet:htmlpage [options] <name>
   yo aspnet:interface [options] <name>
-  yo aspnet:JavaScript [options] <name>
+  yo aspnet:javascript [options] <name>
   yo aspnet:json [options] <name>
   yo aspnet:jsonschema [options] <name>
   yo aspnet:Middleware [options] <name>

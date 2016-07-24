@@ -109,7 +109,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:gulpfile](#gulpfile)
 * [aspnet:htmlpage](#htmlpage)
 * [aspnet:interface](#interface)
-* [aspnet:JavaScript](#javascript)
+* [aspnet:javascript](#javascript)
 * [aspnet:json](#json)
 * [aspnet:jsonschema](#jsonschema)
 * [aspnet:jsx](#jsx)
@@ -348,14 +348,14 @@ Produces `/IContact.cs`
 
 [Return to top](#top)
 
-### JavaScript
+### javascript
 
 Creates a new JavaScript file
 
 Example:
 
 ```
-yo aspnet:JavaScript filename
+yo aspnet:javascript filename
 ```
 
 Produces `filename.js`
