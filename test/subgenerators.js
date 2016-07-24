@@ -178,22 +178,22 @@ describe('Subgenerators without arguments tests', function() {
  */
 describe('Subgenerators with named arguments tests', function() {
 
-  describe('aspnet:AngularController without extension', function() {
+  describe('aspnet:angularcontroller without extension', function() {
     var arg = 'HomeController';
     var filename = 'HomeController.js';
-    util.goCreateWithArgs('AngularController', [arg]);
+    util.goCreateWithArgs('angularcontroller', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
   });
 
-  describe('aspnet:AngularController with extension', function() {
+  describe('aspnet:angularcontroller with extension', function() {
     var filename = 'HomeController.js';
-    util.goCreateWithArgs('AngularController', [filename]);
+    util.goCreateWithArgs('angularcontroller', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
   });
 
-  describe('aspnet:AngularController in cwd of project.json', function() {
+  describe('aspnet:angularcontroller in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlibrary', 'emptyTest', dir);
@@ -201,7 +201,7 @@ describe('Subgenerators with named arguments tests', function() {
     var arg = 'HomeController';
     var filename = 'HomeController.js';
     console.log(arg, dir);
-    util.goCreateWithArgs('AngularController', [arg], path.join(dir, 'emptyTest'));
+    util.goCreateWithArgs('angularcontroller', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /\$scope.title/);
     util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');

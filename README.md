@@ -94,7 +94,7 @@ The list of related generators [can be seen on our Wiki section](https://github.
 
 The alphabetic list of available sub generators (_to create files after the project has been created_):
 
-* [aspnet:AngularController](#angularcontroller)
+* [aspnet:angularcontroller](#angularcontroller)
 * [aspnet:AngularControllerAs](#angularcontrolleras)
 * [aspnet:AngularDirective](#angulardirective)
 * [aspnet:AngularFactory](#angularfactory)
@@ -137,13 +137,13 @@ The alphabetic list of available sub generators (_to create files after the proj
 
 [Return to top](#top)
 
-### AngularController
+### angularcontroller
 
 Creates AngularJS controller file using $scope
 
 Example:
 ```
-yo aspnet:AngularController filename
+yo aspnet:angularcontroller filename
 ```
 
 Produces `filename.js`
