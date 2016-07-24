@@ -129,7 +129,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:tfignore](#tfignore)
 * [aspnet:typescript](#typescript)
 * [aspnet:typescriptconfig](#typescriptconfig)
-* [aspnet:TypeScriptJSX](#typescriptjsx)
+* [aspnet:typescriptjsx](#typescriptjsx)
 * [aspnet:UserSecrets](#usersecrets)
 * [aspnet:WebApiContoller](#webapicontroller)
 
@@ -633,14 +633,14 @@ Produces `tsconfig.json`
 
 [Return to top](#top)
 
-### TypeScriptJSX
+### typescriptjsx
 
 Creates a new JSX-enabled TypeScript file
 
 Example:
 
 ```
-yo aspnet:TypeScriptJSX filename
+yo aspnet:typescriptjsx filename
 ```
 
 Produces `filename.tsx`
