@@ -4,7 +4,7 @@ Description:
   not create new project.json file
 
 Example:
-	yo aspnet:UserSecrets
+	yo aspnet:usersecrets
 
 	This will add following keys to project.json:
     - "userSecretsId" key

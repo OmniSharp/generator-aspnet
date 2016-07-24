@@ -130,7 +130,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:typescript](#typescript)
 * [aspnet:typescriptconfig](#typescriptconfig)
 * [aspnet:typescriptjsx](#typescriptjsx)
-* [aspnet:UserSecrets](#usersecrets)
+* [aspnet:usersecrets](#usersecrets)
 * [aspnet:WebApiContoller](#webapicontroller)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
@@ -647,7 +647,7 @@ Produces `filename.tsx`
 
 [Return to top](#top)
 
-### UserSecrets
+### usersecrets
 
 Adds UserSecrets information to ASP.NET Core `project.json` file.
 The generator do not update existing keys if found and does
@@ -656,7 +656,7 @@ not create new `project.json` file.
 Example:
 
 ```
-yo aspnet:UserSecrets
+yo aspnet:usersecrets
 ```
 
 This will add following keys to project.json:

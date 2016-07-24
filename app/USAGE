@@ -38,5 +38,5 @@ Subgenerators:
   yo aspnet:typescript [options] <name>
   yo aspnet:typescriptconfig [options] <name>
   yo aspnet:typescriptjsx [options] <name>
-  yo aspnet:UserSecrets [options] <name>
+  yo aspnet:usersecrets [options] <name>
   yo aspnet:WebApiController [options] <name>
