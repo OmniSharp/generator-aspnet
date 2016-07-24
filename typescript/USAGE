@@ -1,0 +1,8 @@
+Description:
+	Creates a new typescript file
+
+Example:
+	yo aspnet:typescript filename
+
+	This will create:
+		filename.ts

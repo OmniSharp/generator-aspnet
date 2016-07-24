@@ -35,7 +35,7 @@ Subgenerators:
   yo aspnet:taghelper [options] <name>
   yo aspnet:textfile [options] <name>
   yo aspnet:tfignore [options]
-  yo aspnet:TypeScript [options] <name>
+  yo aspnet:typescript [options] <name>
   yo aspnet:TypeScriptConfig [options] <name>
   yo aspnet:TypeScriptJSX [options] <name>
   yo aspnet:UserSecrets [options] <name>

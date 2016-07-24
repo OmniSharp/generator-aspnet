@@ -127,7 +127,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:taghelper](#taghelper)
 * [aspnet:textfile](#textfile)
 * [aspnet:tfignore](#tfignore)
-* [aspnet:TypeScript](#typescript)
+* [aspnet:typescript](#typescript)
 * [aspnet:TypeScriptConfig](#typescriptconfig)
 * [aspnet:TypeScriptJSX](#typescriptjsx)
 * [aspnet:UserSecrets](#usersecrets)
@@ -605,14 +605,14 @@ Produces `.tfignore`
 
 [Return to top](#top)
 
-### TypeScript
+### typescript
 
 Creates a new TypeScript file
 
 Example:
 
 ```
-yo aspnet:TypeScript filename
+yo aspnet:typescript filename
 ```
 
 Produces `filename.ts`

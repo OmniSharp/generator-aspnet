@@ -611,16 +611,16 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:TypeScript without extension', function() {
+  describe('aspnet:typescript without extension', function() {
     var arg = 'file';
     var filename = 'file.ts';
-    util.goCreateWithArgs('TypeScript', [arg]);
+    util.goCreateWithArgs('typescript', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:TypeScript with extension', function() {
+  describe('aspnet:typescript with extension', function() {
     var filename = 'file.ts';
-    util.goCreateWithArgs('TypeScript', [filename]);
+    util.goCreateWithArgs('typescript', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
