@@ -106,7 +106,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:gruntfile](#gruntfile)
-* [aspnet:Gulpfile](#gulpfile)
+* [aspnet:gulpfile](#gulpfile)
 * [aspnet:HTMLPage](#htmlpage)
 * [aspnet:Interface](#interface)
 * [aspnet:JavaScript](#javascript)
@@ -306,14 +306,14 @@ Produces `Gruntfile.js`
 
 [Return to top](#top)
 
-### Gulpfile
+### gulpfile
 
 Creates a new Gulp file
 
 Example:
 
 ```
-yo aspnet:Gulpfile
+yo aspnet:gulpfile
 ```
 
 Produces `gulpfile.js`

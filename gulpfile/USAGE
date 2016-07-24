@@ -2,7 +2,7 @@ Description:
 	Creates a new Gulp file
 
 Example:
-	yo aspnet:Gulpfile
+	yo aspnet:gulpfile
 
 	This will create:
 		gulpfile.js

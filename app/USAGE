@@ -16,7 +16,7 @@ Subgenerators:
   yo aspnet:dockerfile [options]
   yo aspnet:gitignore [options]
   yo aspnet:gruntfile [options]
-  yo aspnet:Gulpfile [options] <name>
+  yo aspnet:gulpfile [options] <name>
   yo aspnet:HTMLPage [options] <name>
   yo aspnet:Interface [options] <name>
   yo aspnet:JavaScript [options] <name>
