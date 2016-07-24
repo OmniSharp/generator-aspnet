@@ -637,26 +637,26 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:WebApiController without extension', function() {
+  describe('aspnet:webapicontroller without extension', function() {
     var arg = 'file';
     var filename = 'file.cs';
-    util.goCreateWithArgs('WebApiController', [arg]);
+    util.goCreateWithArgs('webapicontroller', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:WebApiController with extension', function() {
+  describe('aspnet:webapicontroller with extension', function() {
     var filename = 'file.cs';
-    util.goCreateWithArgs('WebApiController', [filename]);
+    util.goCreateWithArgs('webapicontroller', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
   });
 
-  describe('aspnet:WebApiController in cwd of project.json', function() {
+  describe('aspnet:webapicontroller in cwd of project.json', function() {
     var arg = 'file';
     var filename = 'file.cs';
     var dir = util.makeTempDir();
 
     util.goCreateApplication('web', 'webTest', dir);
-    util.goCreateWithArgs('WebApiController', [arg], path.join(dir, 'webTest'));
+    util.goCreateWithArgs('webapicontroller', [arg], path.join(dir, 'webTest'));
 
     util.fileCheck('should create Controllers/' + filename + ' file', filename);
   });

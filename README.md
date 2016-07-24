@@ -665,14 +665,14 @@ This will add following keys to project.json:
 
 [Return to top](#top)
 
-### WebApiController
+### webapicontroller
 
 Creates a new ASP.NET Core WebApiController class
 
 Example:
 
 ```
-yo aspnet:WebApiController ValuesController
+yo aspnet:webapicontroller ValuesController
 ```
 
 Produces `/ValuesController.cs`
