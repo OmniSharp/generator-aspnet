@@ -423,26 +423,26 @@ describe('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /my MySchema JSON format/);
   });
 
-  describe('aspnet:Middleware without extension', function() {
+  describe('aspnet:middleware without extension', function() {
     var arg = 'MyMiddleware';
     var filename = 'MyMiddleware.cs';
-    util.goCreateWithArgs('Middleware', [arg]);
+    util.goCreateWithArgs('middleware', [arg]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*static[ ]*class[ ]*MyMiddlewareExtensions/);
     util.fileContentCheck(filename, 'Check file content', /[ ]*IApplicationBuilder[ ]*UseMyMiddleware/);
   });
 
-  describe('aspnet:Middleware with extension', function() {
+  describe('aspnet:middleware with extension', function() {
     var filename = 'MyMiddleware.cs';
-    util.goCreateWithArgs('Middleware', [filename]);
+    util.goCreateWithArgs('middleware', [filename]);
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*static[ ]*class[ ]*MyMiddlewareExtensions/);
     util.fileContentCheck(filename, 'Check file content', /[ ]*IApplicationBuilder[ ]*UseMyMiddleware/);
   });
 
-  describe('aspnet:Middleware in cwd of project.json', function() {
+  describe('aspnet:middleware in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlibrary', 'emptyTest', dir);
@@ -451,7 +451,7 @@ describe('Subgenerators with named arguments tests', function() {
     var filename = 'MyMiddleware.cs';
     console.log(arg, dir);
 
-    util.goCreateWithArgs('Middleware', [arg], path.join(dir, 'emptyTest'));
+    util.goCreateWithArgs('middleware', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create ' + filename + ' file', filename);
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*MyMiddleware/);
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');

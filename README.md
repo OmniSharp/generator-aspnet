@@ -113,7 +113,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:json](#json)
 * [aspnet:jsonschema](#jsonschema)
 * [aspnet:jsx](#jsx)
-* [aspnet:Middleware](#middleware)
+* [aspnet:middleware](#middleware)
 * [aspnet:MvcController](#mvccontroller)
 * [aspnet:MvcView](#mvcview)
 * [aspnet:nuget](#nuget)
@@ -404,14 +404,14 @@ Produces `filename.jsx`
 
 [Return to top](#top)
 
-### Middleware
+### middleware
 
-Creates a new C# Middleware class file
+Creates a new C# middleware class file
 
 Example:
 
 ```
-yo aspnet:Middleware filename
+yo aspnet:middleware filename
 ```
 
 Produces `filename.cs`
