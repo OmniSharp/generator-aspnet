@@ -37,7 +37,7 @@ Full, template based projects available in generator:
 - Web Application
 - Web Application Basic [without Membership and Authorization]
 - Web API Application
-- Nancy ASP.NET Application (as `yo aspnet nancy {NAME}` command line option)
+- Nancy ASP.NET Application
 - Class Library
 - Unit Test project (xUnit.net)
 
@@ -49,7 +49,6 @@ The Empty Web Application, Console Application, Web Application, Web Application
 
 The Nancy project is based on framework's "Hello World" template:
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
-> We are in the process of updating Nancy template for RTM - until updated the Nancy project type is available only as `yo aspnet nancy {NAME}` command line option
 
 The [Docker](https://www.docker.com/) support with `Dockerfile` configuration files is based on the official [Docker image for ASP.NET 5](https://github.com/aspnet/aspnet-docker)
 
