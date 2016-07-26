@@ -1,8 +1,0 @@
-Description:
-	Creates a new C# Interface file
-
-Example:
-	yo aspnet:Interface filename
-
-	This will create:
-		filename.cs

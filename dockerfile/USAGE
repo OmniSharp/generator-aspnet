@@ -1,0 +1,10 @@
+Description:
+    Creates a new Docker configuration file.
+    To create Docker image with SQLite support for EntityFramework
+    use --sqlite option
+
+Example:
+    yo aspnet:dockerfile [--sqlite]
+
+    This will create:
+        Dockerfile

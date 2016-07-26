@@ -1,0 +1,8 @@
+Description:
+	Creates a new Grunt file
+
+Example:
+	yo aspnet:gruntfile
+
+	This will create:
+		Gruntfile.js

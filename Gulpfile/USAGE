@@ -1,8 +1,0 @@
-Description:
-	Creates a new Gulp file
-
-Example:
-	yo aspnet:Gulpfile
-
-	This will create:
-		gulpfile.js

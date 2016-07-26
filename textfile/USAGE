@@ -1,0 +1,8 @@
+Description:
+	Creates a new Text file
+
+Example:
+	yo aspnet:textfile filename
+
+	This will create:
+		filename.txt

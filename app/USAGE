@@ -4,39 +4,39 @@ Description:
 
 Subgenerators:
 
-  yo aspnet:AngularController [options] <name>
-  yo aspnet:AngularControllerAs [options] <name>
-  yo aspnet:AngularDirective [options] <name>
-  yo aspnet:AngularFactory [options] <name>
-  yo aspnet:AngularModule [options] <name>
-  yo aspnet:AppSettings [options]
-  yo aspnet:BowerJson [options]
-  yo aspnet:Class [options] <name>
-  yo aspnet:CoffeeScript [options] <name>
-  yo aspnet:Dockerfile [options]
+  yo aspnet:angularcontroller [options] <name>
+  yo aspnet:angularcontrolleras [options] <name>
+  yo aspnet:angulardirective [options] <name>
+  yo aspnet:angularfactory [options] <name>
+  yo aspnet:angularmodule [options] <name>
+  yo aspnet:appsettings [options]
+  yo aspnet:bowerjson [options]
+  yo aspnet:class [options] <name>
+  yo aspnet:coffeescript [options] <name>
+  yo aspnet:dockerfile [options]
   yo aspnet:gitignore [options]
-  yo aspnet:Gruntfile [options]
-  yo aspnet:Gulpfile [options] <name>
-  yo aspnet:HTMLPage [options] <name>
-  yo aspnet:Interface [options] <name>
-  yo aspnet:JavaScript [options] <name>
-  yo aspnet:JSON [options] <name>
-  yo aspnet:JSONSchema [options] <name>
-  yo aspnet:Middleware [options] <name>
-  yo aspnet:MvcController [options] <name>
-  yo aspnet:MvcView [options] <name>
+  yo aspnet:gruntfile [options]
+  yo aspnet:gulpfile [options] <name>
+  yo aspnet:htmlpage [options] <name>
+  yo aspnet:interface [options] <name>
+  yo aspnet:javascript [options] <name>
+  yo aspnet:json [options] <name>
+  yo aspnet:jsonschema [options] <name>
+  yo aspnet:middleware [options] <name>
+  yo aspnet:mvccontroller [options] <name>
+  yo aspnet:mvcview [options] <name>
   yo aspnet:nuget [options]
-  yo aspnet:PackageJson [options]
-  yo aspnet:Program [options]
-  yo aspnet:Startup [options]
-  yo aspnet:StyleSheet [options] <name>
-  yo aspnet:StyleSheetLess [options] <name>
-  yo aspnet:StyleSheetScss [options] <name>
-  yo aspnet:TagHelper [options] <name>
-  yo aspnet:TextFile [options] <name>
+  yo aspnet:packagejson [options]
+  yo aspnet:program [options]
+  yo aspnet:startup [options]
+  yo aspnet:stylesheet [options] <name>
+  yo aspnet:stylesheetless [options] <name>
+  yo aspnet:stylesheetscss [options] <name>
+  yo aspnet:taghelper [options] <name>
+  yo aspnet:textfile [options] <name>
   yo aspnet:tfignore [options]
-  yo aspnet:TypeScript [options] <name>
-  yo aspnet:TypeScriptConfig [options] <name>
-  yo aspnet:TypeScriptJSX [options] <name>
-  yo aspnet:UserSecrets [options] <name>
-  yo aspnet:WebApiController [options] <name>
+  yo aspnet:typescript [options] <name>
+  yo aspnet:typescriptconfig [options] <name>
+  yo aspnet:typescriptjsx [options] <name>
+  yo aspnet:usersecrets [options] <name>
+  yo aspnet:webapicontroller [options] <name>

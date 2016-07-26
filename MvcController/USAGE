@@ -1,8 +1,0 @@
-Description:
-	Creates a new MvcController
-
-Example:
-	yo aspnet:MvcController filename
-
-	This will create:
-		filename.cs

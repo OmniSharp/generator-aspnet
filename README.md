@@ -94,178 +94,178 @@ The list of related generators [can be seen on our Wiki section](https://github.
 
 The alphabetic list of available sub generators (_to create files after the project has been created_):
 
-* [aspnet:AngularController](#angularcontroller)
-* [aspnet:AngularControllerAs](#angularcontrolleras)
-* [aspnet:AngularDirective](#angulardirective)
-* [aspnet:AngularFactory](#angularfactory)
-* [aspnet:AngularModule](#angularmodule)
-* [aspnet:AppSettings](#appsettings)
-* [aspnet:BowerJson](#bowerjson)
-* [aspnet:Class](#class)
-* [aspnet:CoffeeScript](#coffeescript)
-* [aspnet:Dockerfile](#dockerfile)
+* [aspnet:angularcontroller](#angularcontroller)
+* [aspnet:angularcontrolleras](#angularcontrolleras)
+* [aspnet:angulardirective](#angulardirective)
+* [aspnet:angularfactory](#angularfactory)
+* [aspnet:angularmodule](#angularmodule)
+* [aspnet:appsettings](#appsettings)
+* [aspnet:bowerjson](#bowerjson)
+* [aspnet:class](#class)
+* [aspnet:coffeescript](#coffeescript)
+* [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
-* [aspnet:Gruntfile](#gruntfile)
-* [aspnet:Gulpfile](#gulpfile)
-* [aspnet:HTMLPage](#htmlpage)
-* [aspnet:Interface](#interface)
-* [aspnet:JavaScript](#javascript)
-* [aspnet:JSON](#json)
-* [aspnet:JSONSchema](#jsonschema)
-* [aspnet:JSX](#jsx)
-* [aspnet:Middleware](#middleware)
-* [aspnet:MvcController](#mvccontroller)
-* [aspnet:MvcView](#mvcview)
+* [aspnet:gruntfile](#gruntfile)
+* [aspnet:gulpfile](#gulpfile)
+* [aspnet:htmlpage](#htmlpage)
+* [aspnet:interface](#interface)
+* [aspnet:javascript](#javascript)
+* [aspnet:json](#json)
+* [aspnet:jsonschema](#jsonschema)
+* [aspnet:jsx](#jsx)
+* [aspnet:middleware](#middleware)
+* [aspnet:mvccontroller](#mvccontroller)
+* [aspnet:mvcview](#mvcview)
 * [aspnet:nuget](#nuget)
-* [aspnet:PackageJson](#packagejson)
-* [aspnet:Program](#program)
+* [aspnet:packagejson](#packagejson)
+* [aspnet:program](#program)
 * [aspnet:readme](#readme)
-* [aspnet:Startup](#startup)
-* [aspnet:StyleSheet](#stylesheet)
-* [aspnet:StyleSheetLess](#stylesheetless)
-* [aspnet:StyleSheetSCSS](#stylesheetscss)
-* [aspnet:TagHelper](#taghelper)
-* [aspnet:TextFile](#textfile)
+* [aspnet:startup](#startup)
+* [aspnet:stylesheet](#stylesheet)
+* [aspnet:stylesheetless](#stylesheetless)
+* [aspnet:stylesheetscss](#stylesheetscss)
+* [aspnet:taghelper](#taghelper)
+* [aspnet:textfile](#textfile)
 * [aspnet:tfignore](#tfignore)
-* [aspnet:TypeScript](#typescript)
-* [aspnet:TypeScriptConfig](#typescriptconfig)
-* [aspnet:TypeScriptJSX](#typescriptjsx)
-* [aspnet:UserSecrets](#usersecrets)
+* [aspnet:typescript](#typescript)
+* [aspnet:typescriptconfig](#typescriptconfig)
+* [aspnet:typescriptjsx](#typescriptjsx)
+* [aspnet:usersecrets](#usersecrets)
 * [aspnet:WebApiContoller](#webapicontroller)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
 
 [Return to top](#top)
 
-### AngularController
+### angularcontroller
 
 Creates AngularJS controller file using $scope
 
 Example:
 ```
-yo aspnet:AngularController filename
+yo aspnet:angularcontroller filename
 ```
 
 Produces `filename.js`
 
 [Return to top](#top)
 
-### AngularControllerAs
+### angularcontrolleras
 
 Creates AngularJS controller file using `Controller As` syntax.
 
 Example:
 ```
-yo aspnet:AngularControllerAs filename
+yo aspnet:angularcontrolleras filename
 ```
 
 Produces `filename.js`
 
 [Return to top](#top)
 
-### AngularDirective
+### angulardirective
 
 Creates AngularJS directive file.
 
 Example:
 ```
-yo aspnet:AngularDirective filename
+yo aspnet:angulardirective filename
 ```
 
 Produces `filename.js`
 
 [Return to top](#top)
 
-### AngularFactory
+### angularfactory
 
 Creates AngularJS factory file.
 
 Example:
 ```
-yo aspnet:AngularFactory filename
+yo aspnet:angularfactory filename
 ```
 
 Produces `filename.js`
 
 [Return to top](#top)
 
-### AngularModule
+### angularmodule
 
 Creates AngularJS module file
 
 Example:
 ```
-yo aspnet:AngularModule filename
+yo aspnet:angularmodule filename
 ```
 
 Produces `filename.js`
 
 [Return to top](#top)
 
-### AppSettings
+### appsettings
 
 Creates a new appsettings.json file
 
 Example:
 
 ```
-yo aspnet:AppSettings
+yo aspnet:appsettings
 ```
 
 Produces `appsettings.json`
 
 [Return to top](#top)
 
-### BowerJson
+### bowerjson
 
 Creates a new `bower.json` and configuration file.
 
 Example:
 
 ```
-yo aspnet:BowerJson
+yo aspnet:bowerjson
 ```
 
 Produces `bower.json` and `.bowerrc`
 
 [Return to top](#top)
 
-### Class
+### class
 
-Creates a new ASP.NET Core Class
+Creates a new ASP.NET Core class
 
 Example:
 
 ```
-yo aspnet:Class Contact
+yo aspnet:class Contact
 ```
 
 Produces `/Contact.cs`
 
 [Return to top](#top)
 
-### CoffeeScript
+### coffeescript
 
 Creates a new CoffeeScript file
 
 Example:
 
 ```
-yo aspnet:CoffeeScript filename
+yo aspnet:coffeescript filename
 ```
 
 Produces `filename.coffee`
 
 [Return to top](#top)
 
-### Dockerfile
+### dockerfile
 
 Creates a new Docker configuration file.
 To create Docker image with SQLite support for EntityFramework use `--sqlite` option
 
 Example:
 ```
-yo aspnet:Dockerfile
+yo aspnet:dockerfile
 ```
 
 Creates a new `Dockerfile`
@@ -292,140 +292,140 @@ Produces `.gitignore`
 
 [Return to top](#top)
 
-### Gruntfile
+### gruntfile
 
 Creates a new `Grunt` file
 
 Example:
 
 ```
-yo aspnet:Gruntfile
+yo aspnet:gruntfile
 ```
 
 Produces `Gruntfile.js`
 
 [Return to top](#top)
 
-### Gulpfile
+### gulpfile
 
 Creates a new Gulp file
 
 Example:
 
 ```
-yo aspnet:Gulpfile
+yo aspnet:gulpfile
 ```
 
 Produces `gulpfile.js`
 
 [Return to top](#top)
 
-### HTMLPage
+### htmlpage
 
 Creates a new HTML file
 
 Example:
 
 ```
-yo aspnet:HTMLPage filename
+yo aspnet:htmlpage filename
 ```
 
 Produces `filename.html`
 
 [Return to top](#top)
 
-### Interface
+### interface
 
-Creates a new ASP.NET Core Interface
+Creates a new ASP.NET Core interface
 
 Example:
 
 ```
-yo aspnet:Interface IContact
+yo aspnet:interface IContact
 ```
 
 Produces `/IContact.cs`
 
 [Return to top](#top)
 
-### JavaScript
+### javascript
 
 Creates a new JavaScript file
 
 Example:
 
 ```
-yo aspnet:JavaScript filename
+yo aspnet:javascript filename
 ```
 
 Produces `filename.js`
 
 [Return to top](#top)
 
-### JSON
+### json
 
 Creates a new JSON file
 
 Example:
 
 ```
-yo aspnet:JSON filename
+yo aspnet:json filename
 ```
 
 Produces `filename.json`
 
 [Return to top](#top)
 
-### JSONSchema
+### jsonschema
 
 Creates a new JSON schema file
 
 Example:
 
 ```
-yo aspnet:JSONSchema filename
+yo aspnet:jsonschema filename
 ```
 
 Produces `filename.json`
 
 [Return to top](#top)
 
-### JSX
+### jsx
 
 Creates a new React JSX file
 
 Example:
 
 ```
-yo aspnet:JSX filename
+yo aspnet:jsx filename
 ```
 
 Produces `filename.jsx`
 
 [Return to top](#top)
 
-### Middleware
+### middleware
 
-Creates a new C# Middleware class file
+Creates a new C# middleware class file
 
 Example:
 
 ```
-yo aspnet:Middleware filename
+yo aspnet:middleware filename
 ```
 
 Produces `filename.cs`
 
 [Return to top](#top)
 
-### MvcController
+### mvccontroller
 
 Creates a new ASP.NET Core MvcController class
 
 Example:
 
 ```
-yo aspnet:MvcController ContactController
+yo aspnet:mvccontroller ContactController
 ```
 
 Produces `/ContactController.cs`
@@ -434,14 +434,14 @@ Produces `/ContactController.cs`
 
 [Return to top](#top)
 
-### MvcView
+### mvcview
 
 Creates a new ASP.NET Core MvcView page file
 
 Example:
 
 ```
-yo aspnet:MvcView ContactView
+yo aspnet:mvcview ContactView
 ```
 
 Produces `/ContactView.cshtml`
@@ -465,28 +465,28 @@ Produces `NuGet.config` with unstable NuGet feed
 
 [Return to top](#top)
 
-### PackageJson
+### packagejson
 
 Creates a new package.json file
 
 Example:
 
 ```
-yo aspnet:PackageJson
+yo aspnet:packagejson
 ```
 
 Produces `package.json`
 
 [Return to top](#top)
 
-### Program
+### program
 
 Creates a new `Program.cs` file
 
 Example:
 
 ```
-yo aspnet:Program
+yo aspnet:program
 ```
 
 Produces `Program.cs`
@@ -507,84 +507,84 @@ Produces `readme.md`
 
 [Return to top](#top)
 
-### Startup
+### startup
 
 Creates a new `Startup.cs` file
 
 Example:
 
 ```
-yo aspnet:Startup
+yo aspnet:startup
 ```
 
 Produces `Startup.cs`
 
 [Return to top](#top)
 
-### StyleSheet
+### stylesheet
 
 Creates a new CSS file
 
 Example:
 
 ```
-yo aspnet:StyleSheet style
+yo aspnet:stylesheet style
 ```
 
 Produces `style.css`
 
 [Return to top](#top)
 
-### StyleSheetLess
+### stylesheetless
 
 Creates a new Less class file
 
 Example:
 
 ```
-yo aspnet:StyleSheetLess filename
+yo aspnet:stylesheetless filename
 ```
 
 Produces `filename.less`
 
 [Return to top](#top)
 
-### StyleSheetSCSS
+### stylesheetscss
 
 Creates a new Sass SCSS class file
 
 Example:
 
 ```
-yo aspnet:StyleSheetSCSS filename
+yo aspnet:stylesheetscss filename
 ```
 
 Produces `filename.scss`
 
 [Return to top](#top)
 
-### TagHelper
+### taghelper
 
 Creates a new TagHelper class file
 
 Example:
 
 ```
-yo aspnet:TagHelper filename
+yo aspnet:taghelper filename
 ```
 
 Produces `filename.cs`
 
 [Return to top](#top)
 
-### TextFile
+### textfile
 
 Creates a new Text file
 
 Example:
 
 ```
-yo aspnet:TextFile filename
+yo aspnet:textfile filename
 ```
 
 Produces `filename.txt`
@@ -605,49 +605,49 @@ Produces `.tfignore`
 
 [Return to top](#top)
 
-### TypeScript
+### typescript
 
 Creates a new TypeScript file
 
 Example:
 
 ```
-yo aspnet:TypeScript filename
+yo aspnet:typescript filename
 ```
 
 Produces `filename.ts`
 
 [Return to top](#top)
 
-### TypeScriptConfig
+### typescriptconfig
 
 Creates a new TypeScript configuration file
 
 Example:
 
 ```
-yo aspnet:TypeScriptConfig
+yo aspnet:typescriptconfig
 ```
 
 Produces `tsconfig.json`
 
 [Return to top](#top)
 
-### TypeScriptJSX
+### typescriptjsx
 
 Creates a new JSX-enabled TypeScript file
 
 Example:
 
 ```
-yo aspnet:TypeScriptJSX filename
+yo aspnet:typescriptjsx filename
 ```
 
 Produces `filename.tsx`
 
 [Return to top](#top)
 
-### UserSecrets
+### usersecrets
 
 Adds UserSecrets information to ASP.NET Core `project.json` file.
 The generator do not update existing keys if found and does
@@ -656,7 +656,7 @@ not create new `project.json` file.
 Example:
 
 ```
-yo aspnet:UserSecrets
+yo aspnet:usersecrets
 ```
 
 This will add following keys to project.json:
@@ -665,14 +665,14 @@ This will add following keys to project.json:
 
 [Return to top](#top)
 
-### WebApiController
+### webapicontroller
 
 Creates a new ASP.NET Core WebApiController class
 
 Example:
 
 ```
-yo aspnet:WebApiController ValuesController
+yo aspnet:webapicontroller ValuesController
 ```
 
 Produces `/ValuesController.cs`

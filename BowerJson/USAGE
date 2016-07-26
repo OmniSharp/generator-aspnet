@@ -1,9 +1,0 @@
-Description:
-	Creates a new bower.json and configuration file
-
-Example:
-	yo aspnet:BowerJson
-
-	This will create:
-		.bowerrc
-		bower.json

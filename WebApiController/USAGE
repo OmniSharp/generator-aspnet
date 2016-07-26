@@ -1,8 +1,0 @@
-Description:
-	Creates a new Web API Controller 
-
-Example:
-	yo aspnet:WebApiController filename
-
-	This will create:
-		filename.cs

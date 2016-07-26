@@ -1,8 +1,0 @@
-Description:
-	Creates a new AngularJS Controller file using $scope.
-
-Example:
-	yo aspnet:AngularController filename
-
-	This will create:
-		filename.js

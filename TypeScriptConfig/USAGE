@@ -1,8 +1,0 @@
-Description:
-	Creates a new TypeScript configuration file
-
-Example:
-	yo aspnet:TypeScriptConfig
-
-	This will create:
-		tsconfig.json

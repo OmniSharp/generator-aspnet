@@ -1,0 +1,8 @@
+Description:
+	Creates a new Program.cs file
+
+Example:
+	yo aspnet:program
+
+	This will create:
+		Program.cs

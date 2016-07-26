@@ -1,8 +1,0 @@
-Description:
-	Creates a new JSX-enabled TypeScript file
-
-Example:
-	yo aspnet:TypeScriptJSX filename
-
-	This will create:
-		filename.tsx

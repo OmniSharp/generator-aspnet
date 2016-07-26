@@ -1,0 +1,8 @@
+Description:
+	Creates a new Startup.cs file
+
+Example:
+	yo aspnet:startup
+
+	This will create:
+		Startup.cs

@@ -1,8 +1,0 @@
-Description:
-	Creates a new AngularJS Controller file using `Controller As` syntax.
-
-Example:
-	yo aspnet:AngularControllerAs filename
-
-	This will create:
-		filename.js
