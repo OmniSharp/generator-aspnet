@@ -130,7 +130,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:typescriptconfig](#typescriptconfig)
 * [aspnet:typescriptjsx](#typescriptjsx)
 * [aspnet:usersecrets](#usersecrets)
-* [aspnet:WebApiController](#webapicontroller)
+* [aspnet:webapicontroller](#webapicontroller)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
 
