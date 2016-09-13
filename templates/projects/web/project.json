@@ -19,7 +19,7 @@
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
-    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0",
+    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.1",
     "Microsoft.EntityFrameworkCore.Sqlite.Design": {
       "version": "1.0.0",
       "type": "build"
