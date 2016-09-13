@@ -4,6 +4,9 @@
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
 
+> NOTE: The content has been updated to match Microsoft Security Advisory 3181759.  
+> [Read more about 3181759](https://technet.microsoft.com/en-us/en-us/library/3181759.aspx)
+
 Yeoman generator for ASP.NET Core projects
 
 [![](https://cloud.githubusercontent.com/assets/14539/16569731/0590dada-423a-11e6-997c-1e1e20b1d37e.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core Generator')
