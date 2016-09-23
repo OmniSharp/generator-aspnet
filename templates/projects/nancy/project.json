@@ -14,7 +14,7 @@
                 "Nancy": "2.0.0-barneyrubble",
                 "Microsoft.NETCore.App": {
                     "type": "platform",
-                    "version": "1.0.0"
+                    "version": "1.0.1"
                 }
             }
         }
