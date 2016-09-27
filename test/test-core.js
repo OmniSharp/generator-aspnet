@@ -861,6 +861,107 @@ describe('aspnet - Nancy Application', function() {
 });
 
 
+
+/*
+ * yo aspnet FSharp Empty Application
+ */
+describe('aspnet - FSharp Empty Web Application', function() {
+
+  util.goCreateApplication('fsharp','emptyweb','fsharpEmptyWebTest');
+
+  describe('Checking directories', function() {
+
+    it('Application directory created', function() {
+      assert.file('fsharpEmptyWebTest/');
+    });
+
+    it('Properties directory created', function() {
+      assert.file('fsharpEmptyWebTest/Properties');
+    });
+
+    it('wwwroot directory created', function() {
+      assert.file('fsharpEmptyWebTest/wwwroot');
+    });
+
+  });
+
+  var files = [
+    'fsharpEmptyWebTest/.gitignore',
+    'fsharpEmptyWebTest/project.json',
+    'fsharpEmptyWebTest/Program.fs',
+    'fsharpEmptyWebTest/Properties/launchSettings.json',
+    'fsharpEmptyWebTest/README.md',
+    'fsharpEmptyWebTest/Startup.fs',
+    'fsharpEmptyWebTest/web.config',
+    'fsharpEmptyWebTest/Dockerfile'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+
+    it('Dockerfile does not include SQLite', function() {
+      assert.noFileContent('fsharpEmptyWebTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile does not contain migrations', function() {
+      assert.noFileContent('fsharpEmptyWebTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+  });
+
+});
+
+/*
+ * yo aspnet Class Library
+ */
+describe('aspnet - FSharp Class Library', function() {
+
+  util.goCreateApplication('fsharp','classlibrary', 'fSharpClassLibraryTest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('fSharpClassLibraryTest/');
+    });
+  });
+
+  var files = ['fSharpClassLibraryTest/project.json', 'fSharpClassLibraryTest/Library.fs'];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+
+});
+
+
+/*
+ * yo aspnet Console Application
+ */
+describe('aspnet - FSharp Console Application', function() {
+
+  util.goCreateApplication('fsharp','consoleapp', 'fsharpConsoleAppTest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('fsharpConsoleAppTest/');
+    });
+  });
+
+  var files = [
+    'fsharpConsoleAppTest/Program.cs',
+    'fsharpConsoleAppTest/project.json'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+
+});
+
+
+
 /*
  * command line options
  */
