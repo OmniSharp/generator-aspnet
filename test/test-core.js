@@ -862,6 +862,54 @@ describe('aspnet - Nancy Application', function() {
 
 
 /*
+ * yo aspnet Class Library
+ */
+describe('FSharp Class Library', function() {
+
+  util.goCreateApplication('fsharp_lib', 'fsharpLibTest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('fsharpLibTest/');
+    });
+  });
+
+  var files = ['fsharpLibTest/project.json', 'fsharpLibTest/Library.fs'];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+
+});
+
+
+/*
+ * yo aspnet Console Application
+ */
+describe('FSharp Console Application', function() {
+
+  util.goCreateApplication('fsharp_console', 'fsharpConsoleTest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('fsharpConsoleTest/');
+    });
+  });
+
+  var files = [
+    'fsharpConsoleTest/.gitignore',
+    'fsharpConsoleTest/Program.fs',
+    'fsharpConsoleTest/project.json'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+});
+
+/*
  * command line options
  */
 describe('command line options', function() {
