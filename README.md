@@ -77,8 +77,11 @@ The valid project types are:
 - `nancy` for Nancy ASP.NET Application
 - `classlibrary` for Class Library
 - `unittest` Unit Test project (xUnit.net)
+- `fsharp_emptyweb` for F# Empty Web Application
 - `fsharp_console` for F# Console Application
 - `fsharp_lib` for F# Class Library
+- `fsharp_webbasic` for F# Web Application Basic
+- `fsharp_test` for F# Unit Test project (xUnit.net)
 
 The valid UI framework types are:
 
