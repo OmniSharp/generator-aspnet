@@ -862,6 +862,229 @@ describe('aspnet - Nancy Application', function() {
 
 
 /*
+ * yo aspnet FSharp Class Library
+ */
+describe('FSharp Class Library', function() {
+
+  util.goCreateApplication('fsharp_lib', 'fsharpLibTest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('fsharpLibTest/');
+    });
+  });
+
+  var files = ['fsharpLibTest/project.json', 'fsharpLibTest/Library.fs'];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+
+});
+
+
+/*
+ * yo aspnet FSharp Console Application
+ */
+describe('FSharp Console Application', function() {
+
+  util.goCreateApplication('fsharp_console', 'fsharpConsoleTest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('fsharpConsoleTest/');
+    });
+  });
+
+  var files = [
+    'fsharpConsoleTest/.gitignore',
+    'fsharpConsoleTest/Program.fs',
+    'fsharpConsoleTest/project.json'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+});
+
+/*
+ * yo aspnet FSharp Unit Test Application
+ */
+describe('aspnet - Fsharp Unit Test Application', function() {
+
+  util.goCreateApplication('fsharp_test', 'fsharpTestTest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('fsharpTestTest/');
+    });
+  });
+
+  var files = [
+    'fsharpTestTest/.gitignore',
+    'fsharpTestTest/project.json',
+    'fsharpTestTest/UnitTest1.fs',
+    'fsharpTestTest/xunit.runner.json'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+  });
+});
+
+
+/*
+ * yo aspnet FSharp Empty Application
+ */
+describe('aspnet - F# Empty Web Application', function() {
+
+  util.goCreateApplication('fsharp_emptyweb', 'fsharpEmptyWebTest');
+
+  describe('Checking directories', function() {
+
+    it('Application directory created', function() {
+      assert.file('fsharpEmptyWebTest/');
+    });
+
+    it('Properties directory created', function() {
+      assert.file('fsharpEmptyWebTest/Properties');
+    });
+
+    it('wwwroot directory created', function() {
+      assert.file('fsharpEmptyWebTest/wwwroot');
+    });
+
+  });
+
+  var files = [
+    'fsharpEmptyWebTest/project.json',
+    'fsharpEmptyWebTest/Program.fs',
+    'fsharpEmptyWebTest/Properties/launchSettings.json',
+    'fsharpEmptyWebTest/README.md',
+    'fsharpEmptyWebTest/Startup.fs',
+    'fsharpEmptyWebTest/web.config',
+    'fsharpEmptyWebTest/Dockerfile'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+
+    it('Dockerfile does not include SQLite', function() {
+      assert.noFileContent('fsharpEmptyWebTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile does not contain migrations', function() {
+      assert.noFileContent('fsharpEmptyWebTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+  });
+
+});
+
+/*
+ * yo aspnet FSharp Web Application Basic
+ */
+describe('aspnet - FSharp Web Application Basic', function() {
+
+  util.goCreateApplication('fsharp_webbasic', 'fsharpWebBasicTest');
+
+  describe('Checking directories', function() {
+
+    it('Application directory created', function() {
+      assert.file('fsharpWebBasicTest/');
+    });
+
+    it('Properties directory created', function() {
+      assert.file('fsharpWebBasicTest/Properties');
+    });
+
+    it('Views directory created', function() {
+      assert.file('fsharpWebBasicTest/Views');
+    });
+
+    it('Views/Home directory created', function() {
+      assert.file('fsharpWebBasicTest/Views/Home');
+    });
+
+    it('Views/Shared directory created', function() {
+      assert.file('fsharpWebBasicTest/Views/Shared');
+    });
+
+    it('wwwroot directory created', function() {
+      assert.file('fsharpWebBasicTest/wwwroot');
+    });
+
+    it('wwwroot/css directory created', function() {
+      assert.file('fsharpWebBasicTest/wwwroot/css');
+    });
+
+    it('wwwroot/images directory created', function() {
+      assert.file('fsharpWebBasicTest/wwwroot/images');
+    });
+
+    it('wwwroot/js directory created', function() {
+      assert.file('fsharpWebBasicTest/wwwroot/js');
+    });
+
+  });
+
+  var files = [
+    'fsharpWebBasicTest/Dockerfile',
+    'fsharpWebBasicTest/.bowerrc',
+    'fsharpWebBasicTest/.gitignore',
+    'fsharpWebBasicTest/bower.json',
+    'fsharpWebBasicTest/bundleconfig.json',
+    'fsharpWebBasicTest/appsettings.json',
+    'fsharpWebBasicTest/Controllers.fs',
+    'fsharpWebBasicTest/Program.fs',
+    'fsharpWebBasicTest/project.json',
+    'fsharpWebBasicTest/Properties/launchSettings.json',
+    'fsharpWebBasicTest/README.md',
+    'fsharpWebBasicTest/Startup.fs',
+    'fsharpWebBasicTest/Views/_ViewImports.cshtml',
+    'fsharpWebBasicTest/Views/_ViewStart.cshtml',
+    'fsharpWebBasicTest/Views/Home/About.cshtml',
+    'fsharpWebBasicTest/Views/Home/Contact.cshtml',
+    'fsharpWebBasicTest/Views/Home/Index.cshtml',
+    'fsharpWebBasicTest/Views/Shared/_Layout.cshtml',
+    'fsharpWebBasicTest/Views/Shared/Error.cshtml',
+    'fsharpWebBasicTest/wwwroot/css/site.css',
+    'fsharpWebBasicTest/wwwroot/css/site.min.css',
+    'fsharpWebBasicTest/wwwroot/favicon.ico',
+    'fsharpWebBasicTest/wwwroot/images/banner1.svg',
+    'fsharpWebBasicTest/wwwroot/images/banner2.svg',
+    'fsharpWebBasicTest/wwwroot/images/banner3.svg',
+    'fsharpWebBasicTest/wwwroot/images/banner4.svg',
+    'fsharpWebBasicTest/wwwroot/js/site.js',
+    'fsharpWebBasicTest/wwwroot/js/site.min.js',
+    'fsharpWebBasicTest/web.config'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+
+    it('bower.json name field is lower case', function() {
+      assert.fileContent('fsharpWebBasicTest/bower.json', /"name": "fsharpwebbasictest"/);
+    });
+
+    it('Dockerfile does not include SQLite', function() {
+      assert.noFileContent('fsharpWebBasicTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile does not contain migrations', function() {
+      assert.noFileContent('fsharpWebBasicTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+  });
+
+});
+
+/*
  * command line options
  */
 describe('command line options', function() {

@@ -1,0 +1,39 @@
+{
+    "version": "1.0.0-*",
+    "testRunner": "xunit",
+    "dependencies": {
+        "dotnet-test-xunit": "2.2.0-preview2-build1029",
+        "xunit": "2.2.0-beta2-build3300"
+    },
+    "frameworks": {
+        "netcoreapp1.0": {
+            "dependencies": {
+                "Microsoft.NETCore.App": {
+                    "type": "platform",
+                    "version": "1.0.1"
+                },
+                "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-160629"
+            }
+        }
+    },
+    "tools": {
+        "dotnet-compile-fsc": "1.0.0-preview2-*"
+    },
+    "buildOptions": {
+        "debugType": "portable",
+        "compilerName": "fsc",
+        "compile": {
+            "includeFiles": [
+                "UnitTest1.fs"
+            ]
+        },
+        "copyToOutput": {
+            "include": [
+                "xunit.runner.json"
+            ]
+        }
+    },
+    "tooling": {
+        "defaultNamespace": "<%= namespace %>"
+    }
+}
