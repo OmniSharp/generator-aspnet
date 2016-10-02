@@ -986,6 +986,58 @@ describe('aspnet - F# Empty Web Application', function() {
 });
 
 /*
+ * yo aspnet Web API Application
+ */
+describe('aspnet - Fsharp Web API Application', function() {
+
+  util.goCreateApplication('fsharp_webapi', 'fsharpWebAPITest');
+
+  describe('Checking directories', function() {
+
+    it('Application directory created', function() {
+      assert.file('fsharpWebAPITest/');
+    });
+
+    it('Properties directory created', function() {
+      assert.file('fsharpWebAPITest/Properties');
+    });
+
+    it('wwwroot directory created', function() {
+      assert.file('fsharpWebAPITest/wwwroot');
+    });
+  });
+
+
+  var files = [
+    'fsharpWebAPITest/Controllers.fs',
+    'fsharpWebAPITest/appsettings.json',
+    'fsharpWebAPITest/project.json',
+    'fsharpWebAPITest/Program.fs',
+    'fsharpWebAPITest/Properties/launchSettings.json',
+    'fsharpWebAPITest/README.md',
+    'fsharpWebAPITest/Startup.fs',
+    'fsharpWebAPITest/.gitignore',
+    'fsharpWebAPITest/web.config',
+    'fsharpWebAPITest/Dockerfile'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+
+    it('Dockerfile does not include SQLite', function() {
+      assert.noFileContent('fsharpWebAPITest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
+    });
+
+    it('Dockerfile does not contain migrations', function() {
+      assert.noFileContent('fsharpWebAPITest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+  });
+
+});
+
+/*
  * yo aspnet FSharp Web Application Basic
  */
 describe('aspnet - FSharp Web Application Basic', function() {

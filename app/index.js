@@ -36,6 +36,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         'classlibrary', 
         'unittest', 
         'fsharp_lib',
+        'fsharp_webapi',
         'fsharp_console', 
         'fsharp_emptyweb', 
         'fsharp_webbasic', 
@@ -86,6 +87,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           }, {
             name: 'Web API Application',
             value: 'webapi'
+          }, {
+            name: 'Web API Application (F#)',
+            value: 'fsharp_webapi'
           }, {
             name: 'Nancy ASP.NET Application',
             value: 'nancy'
@@ -176,6 +180,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           break;
         case 'fsharp_console':
           app = "ConsoleApplication";
+          break;
+        case 'fsharp_webapi':
+          app = "WebAPIApplication";
           break;
         case 'fsharp_emptyweb':
           app = "EmptyWebApplication";
@@ -389,6 +396,21 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
         mkdirp.sync(this.applicationName + '/wwwroot');
         break;
+      
+      case 'fsharp_webapi':
+        this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+        this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        this.copy(this.sourceRoot() + '/appsettings.json', this.applicationName + '/appsettings.json');
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/Startup.fs', this.applicationName + '/Startup.fs', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/Program.fs', this.applicationName + '/Program.fs', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/Controllers.fs', this.applicationName + '/Controllers.fs', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
+        this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
+        mkdirp.sync(this.applicationName + '/wwwroot');
+        break;
 
       case 'fsharp_webbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
@@ -471,6 +493,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       case 'webapi':
       case 'webbasic':
       case 'fsharp_console':
+      case 'fsharp_webapi':
       case 'fsharp_webbasic':
       case 'fsharp_emptyweb':
         this.log(chalk.green('    dotnet run'));
