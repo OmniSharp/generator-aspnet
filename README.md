@@ -36,15 +36,19 @@ Also see [ASP NET Community Standup - June 21st, 2016 - Mads Visits](https://www
 Full, template based projects available in generator:
 
 - Empty Web Application
+- Empty Web Application (F#)
 - Console Application
 - Console Application (F#)
 - Web Application
 - Web Application Basic [without Membership and Authorization]
+- Web Application Basic [without Membership and Authorization] (F#)
 - Web API Application
+- Web API Application (F#)
 - Nancy ASP.NET Application
 - Class Library
 - Class Library (F#)
 - Unit Test project (xUnit.net)
+- Unit Test project (xUnit.net) (F#)
 
 The Empty Web Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
 
@@ -82,6 +86,7 @@ The valid project types are:
 - `fsharp_emptyweb` for F# Empty Web Application
 - `fsharp_console` for F# Console Application
 - `fsharp_lib` for F# Class Library
+- `fsharp_webapi` for F# Web API Application
 - `fsharp_webbasic` for F# Web Application Basic
 - `fsharp_test` for F# Unit Test project (xUnit.net)
 
