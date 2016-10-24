@@ -38,6 +38,7 @@ describe('aspnet - Empty Web Application', function() {
   });
 
   var files = [
+    'emptyWebTest/.gitignore',
     'emptyWebTest/project.json',
     'emptyWebTest/Program.cs',
     'emptyWebTest/Properties/launchSettings.json',
@@ -851,7 +852,7 @@ describe('aspnet - Nancy Application', function() {
   });
 
 
-  var files = ['nancyTest/project.json', 'nancyTest/Startup.cs', 'nancyTest/HomeModule.cs', 'nancyTest/Program.cs'];
+  var files = ['nancyTest/project.json', 'nancyTest/Startup.cs', 'nancyTest/HomeModule.cs', 'nancyTest/Program.cs', 'nancyTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
@@ -874,7 +875,7 @@ describe('FSharp Class Library', function() {
     });
   });
 
-  var files = ['fsharpLibTest/project.json', 'fsharpLibTest/Library.fs'];
+  var files = ['fsharpLibTest/project.json', 'fsharpLibTest/Library.fs', 'fsharpLibTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
@@ -960,6 +961,7 @@ describe('aspnet - F# Empty Web Application', function() {
   });
 
   var files = [
+    'fsharpEmptyWebTest/.gitignore',
     'fsharpEmptyWebTest/project.json',
     'fsharpEmptyWebTest/Program.fs',
     'fsharpEmptyWebTest/Properties/launchSettings.json',
