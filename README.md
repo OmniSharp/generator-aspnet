@@ -41,7 +41,7 @@ Full, template based projects available in generator:
 - Console Application (F#)
 - Web Application
 - Web Application Basic [without Membership and Authorization]
-- Web Application Basic [without Membership and Authorization] (F#)
+- Web Application Basic [without Membership and Authorization] \(F#)
 - Web API Application
 - Web API Application (F#)
 - Nancy ASP.NET Application
