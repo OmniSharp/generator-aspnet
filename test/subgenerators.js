@@ -90,6 +90,18 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create tsconfig.json file', 'tsconfig.json');
   });
 
+  describe('aspnet:dockerfile has the same .NET version', function() {
+    var sdkVersion = '1.1.0';
+    var arg = 'file';
+    var dir = util.makeTempDir();
+
+    util.goCreateApplication('web', 'webTest', dir);
+    util.goCreateWithArgs('mvccontroller', [arg], path.join(dir, 'webTest'));
+
+    util.fileContentCheck('project.json', 'file content check', new RegExp(`"Microsoft.NETCore.App":\\s*{\\s*"version": "${sdkVersion}"`));
+    util.fileContentCheck('Dockerfile', 'Check the content for dotnet latest image tag', new RegExp(`FROM microsoft\/dotnet:dotnet:${sdkVersion}-sdk-projectjson`));
+  });
+
   /**
    * Dockerfile can be created with two versions:
    * - without SQLite installed
@@ -99,7 +111,7 @@ describe('Subgenerators without arguments tests', function() {
     var filename = 'Dockerfile';
     util.goCreate(filename.toLowerCase());
     util.fileCheck('should create Dockerfile', filename);
-    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:dotnet:1.1.0-sdk-projectjson/);
+    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:dotnet:/);
     util.noFileContentCheck(filename, 'Does not contain SQLite install', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     util.noFileContentCheck(filename, 'Does not call database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
   });
@@ -109,7 +121,7 @@ describe('Subgenerators without arguments tests', function() {
     var filename = 'Dockerfile';
     util.goCreateWithArgs(filename.toLowerCase(), [arg]);
     util.fileCheck('should create Dockerfile', filename);
-    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:dotnet:1.1.0-sdk-projectjson/);
+    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:dotnet:/);
     util.fileContentCheck(filename, 'Contains SQLite install', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     util.fileContentCheck(filename, 'Calls database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
   });
