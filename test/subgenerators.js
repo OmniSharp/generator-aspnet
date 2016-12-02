@@ -98,8 +98,8 @@ describe('Subgenerators without arguments tests', function() {
     util.goCreateApplication('web', 'webTest', dir);
     util.goCreateWithArgs('mvccontroller', [arg], path.join(dir, 'webTest'));
 
-    util.fileContentCheck('project.json', 'file content check', new RegExp(`"Microsoft.NETCore.App":\\s*{\\s*"version": "${sdkVersion}"`));
-    util.fileContentCheck('Dockerfile', 'Check the content for dotnet latest image tag', new RegExp(`FROM microsoft\/dotnet:dotnet:${sdkVersion}-sdk-projectjson`));
+    util.fileContentCheck('project.json', 'file content check', new RegExp('"Microsoft.NETCore.App":\\s*{\\s*"version": "' + sdkVersion + '"'));
+    util.fileContentCheck('Dockerfile', 'Check the content for dotnet latest image tag', new RegExp('FROM microsoft\/dotnet:dotnet:' + sdkVersion + '-sdk-projectjson'));
   });
 
   /**
