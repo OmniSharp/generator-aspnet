@@ -1,0 +1,15 @@
+FROM microsoft/dotnet:1.1.0-sdk-projectjson-nanoserver
+
+COPY . /app
+
+WORKDIR /app
+
+RUN ["dotnet", "restore"]
+
+RUN ["dotnet", "build"]
+<% if(sqlite){ %>
+RUN ["dotnet", "ef", "database", "update"]
+<% } %>
+EXPOSE 5000/tcp
+
+CMD ["dotnet", "run", "--server.urls", "http://*:5000"]
