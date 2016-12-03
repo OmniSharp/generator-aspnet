@@ -99,7 +99,7 @@ describe('Subgenerators without arguments tests', function() {
     util.goCreateWithArgs('mvccontroller', [arg], path.join(dir, 'webTest'));
 
     util.fileContentCheck('project.json', 'file content check', new RegExp('"Microsoft.NETCore.App":\\s*{\\s*"version": "' + sdkVersion + '"'));
-    util.fileContentCheck('Dockerfile', 'Check the content for dotnet latest image tag', new RegExp('FROM microsoft\/dotnet:dotnet:' + sdkVersion + '-sdk-projectjson'));
+    util.fileContentCheck('Dockerfile', 'Check the content for dotnet latest image tag', new RegExp('FROM microsoft\/dotnet:' + sdkVersion + '-sdk-projectjson'));
   });
 
   /**
@@ -111,7 +111,7 @@ describe('Subgenerators without arguments tests', function() {
     var filename = 'Dockerfile';
     util.goCreate(filename.toLowerCase());
     util.fileCheck('should create Dockerfile', filename);
-    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:dotnet:/);
+    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:/);
     util.noFileContentCheck(filename, 'Does not contain SQLite install', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     util.noFileContentCheck(filename, 'Does not call database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
   });
@@ -121,7 +121,7 @@ describe('Subgenerators without arguments tests', function() {
     var filename = 'Dockerfile';
     util.goCreateWithArgs(filename.toLowerCase(), [arg]);
     util.fileCheck('should create Dockerfile', filename);
-    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:dotnet:/);
+    util.fileContentCheck(filename, 'Check the content for dotnet latest image tag', /FROM microsoft\/dotnet:/);
     util.fileContentCheck(filename, 'Contains SQLite install', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     util.fileContentCheck(filename, 'Calls database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
   });

@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:dotnet:1.1.0-sdk-projectjson
+FROM microsoft/dotnet:1.1.0-sdk-projectjson
 <% if(sqlite){ %>
 RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev && rm -rf /var/lib/apt/lists/*
 <% } %>
