@@ -32,7 +32,7 @@ module.exports = {
 
     var baseNamespace = getBaseNamespace(fs);
     var cwd = process.cwd();
-    var baseDirectory = path.resolve(path.dirname(this.getProjectJsonPath()));
+    var baseDirectory = path.resolve(path.dirname(this.getProjectJsonPath() || ''));
     var relativePath = path.relative(baseDirectory, cwd);
     if (relativePath) {
       return [baseNamespace].concat(relativePath.split(path.sep)).join('.');
