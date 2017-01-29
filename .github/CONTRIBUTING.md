@@ -4,6 +4,17 @@
 
 One of the easiest ways to contribute is to participate in discussions and discuss issues. You can also contribute by submitting pull requests with code changes. Just [follow rules used in Open Source projects on GitHub.com](https://guides.github.com/activities/contributing-to-open-source/).
 
+## A note about Node version supports in development
+
+The current version of development tools has been created and tested with Node 4 and NPM 3. When updating content of this project please make use of [NVM](https://github.com/creationix/nvm) Node version manager. The project root contains `.nvmrc` confiugration file to support multiple version of Nodes:
+
+```bash
+nvm use
+Found '/Users/piotrblazejewicz/git/generator-aspnet/.nvmrc' with version <lts/argon>
+```
+
+The project goes is to move tooling support into Node 6 before current LTS support ends.
+
 ## How to contribute
 Follow the steps below.
 
