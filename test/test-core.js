@@ -39,6 +39,7 @@ describe('aspnet - Empty Web Application', function() {
 
   var files = [
     'emptyWebTest/.gitignore',
+    'emptyWebTest/global.json',
     'emptyWebTest/project.json',
     'emptyWebTest/Program.cs',
     'emptyWebTest/Properties/launchSettings.json',
@@ -60,6 +61,10 @@ describe('aspnet - Empty Web Application', function() {
       assert.noFileContent('emptyWebTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
+    it('global.json contains correct version', function() {
+      assert.fileContent('emptyWebTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
   });
 
 });
@@ -77,11 +82,16 @@ describe('aspnet - Class Library', function() {
     });
   });
 
-  var files = ['classLibraryTest/project.json', 'classLibraryTest/Class1.cs', 'classLibraryTest/.gitignore'];
+  var files = ['classLibraryTest/global.json', 'classLibraryTest/project.json', 'classLibraryTest/Class1.cs', 'classLibraryTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('classLibraryTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
   });
 
 });
@@ -103,12 +113,18 @@ describe('aspnet - Console Application', function() {
   var files = [
     'consoleAppTest/.gitignore',
     'consoleAppTest/Program.cs',
+    'consoleAppTest/global.json',
     'consoleAppTest/project.json'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('consoleAppTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
   });
 
 });
@@ -128,6 +144,7 @@ describe('aspnet - Unit Test Application', function() {
 
   var files = [
     'unittestTest/.gitignore',
+    'unittestTest/global.json',
     'unittestTest/project.json',
     'unittestTest/Class1.cs',
     'unittestTest/xunit.runner.json'
@@ -136,6 +153,11 @@ describe('aspnet - Unit Test Application', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('unittestTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
   });
 
 });
@@ -224,6 +246,7 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     'webTest/bundleconfig.json',
     'webTest/Dockerfile',
     'webTest/Program.cs',
+    'webTest/global.json',
     'webTest/project.json',
     'webTest/README.md',
     'webTest/Startup.cs',
@@ -306,6 +329,10 @@ describe('aspnet - Web Application (Bootstrap)', function() {
 
     it('Dockerfile contains migrations', function() {
       assert.fileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('webTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
   });
@@ -400,6 +427,7 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     'webTest/bundleconfig.json',
     'webTest/Dockerfile',
     'webTest/Program.cs',
+    'webTest/global.json',
     'webTest/project.json',
     'webTest/README.md',
     'webTest/Startup.cs',
@@ -484,6 +512,10 @@ describe('aspnet - Web Application (Semantic UI)', function() {
 
     it('Dockerfile contains migrations', function() {
       assert.fileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('webTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
   });
@@ -702,6 +734,7 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     'webTest/appsettings.json',
     'webTest/Controllers/HomeController.cs',
     'webTest/Program.cs',
+    'webTest/global.json',
     'webTest/project.json',
     'webTest/Properties/launchSettings.json',
     'webTest/README.md',
@@ -742,6 +775,10 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
 
     it('Dockerfile does not contain migrations', function() {
       assert.noFileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('webTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
   });
@@ -811,6 +848,7 @@ describe('aspnet - Web API Application', function() {
   var files = [
     'webAPITest/Controllers/ValuesController.cs',
     'webAPITest/appsettings.json',
+    'webAPITest/global.json',
     'webAPITest/project.json',
     'webAPITest/Program.cs',
     'webAPITest/Properties/launchSettings.json',
@@ -833,6 +871,10 @@ describe('aspnet - Web API Application', function() {
       assert.noFileContent('webAPITest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
+    it('global.json contains correct version', function() {
+      assert.fileContent('webAPITest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
   });
 
 });
@@ -852,11 +894,16 @@ describe('aspnet - Nancy Application', function() {
   });
 
 
-  var files = ['nancyTest/project.json', 'nancyTest/Startup.cs', 'nancyTest/HomeModule.cs', 'nancyTest/Program.cs', 'nancyTest/.gitignore'];
+  var files = ['nancyTest/global.json', 'nancyTest/project.json', 'nancyTest/Startup.cs', 'nancyTest/HomeModule.cs', 'nancyTest/Program.cs', 'nancyTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('nancyTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
   });
 
 });
@@ -875,11 +922,16 @@ describe('FSharp Class Library', function() {
     });
   });
 
-  var files = ['fsharpLibTest/project.json', 'fsharpLibTest/Library.fs', 'fsharpLibTest/.gitignore'];
+  var files = ['fsharpLibTest/global.json', 'fsharpLibTest/project.json', 'fsharpLibTest/Library.fs', 'fsharpLibTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('fsharpLibTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
   });
 
 });
@@ -901,12 +953,18 @@ describe('FSharp Console Application', function() {
   var files = [
     'fsharpConsoleTest/.gitignore',
     'fsharpConsoleTest/Program.fs',
+    'fsharpConsoleTest/global.json',
     'fsharpConsoleTest/project.json'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('fsharpConsoleTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
   });
 });
 
@@ -925,6 +983,7 @@ describe('aspnet - Fsharp Unit Test Application', function() {
 
   var files = [
     'fsharpTestTest/.gitignore',
+    'fsharpTestTest/global.json',
     'fsharpTestTest/project.json',
     'fsharpTestTest/UnitTest1.fs',
     'fsharpTestTest/xunit.runner.json'
@@ -933,6 +992,11 @@ describe('aspnet - Fsharp Unit Test Application', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('fsharpTestTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
   });
 });
 
@@ -962,6 +1026,7 @@ describe('aspnet - F# Empty Web Application', function() {
 
   var files = [
     'fsharpEmptyWebTest/.gitignore',
+    'fsharpEmptyWebTest/global.json',
     'fsharpEmptyWebTest/project.json',
     'fsharpEmptyWebTest/Program.fs',
     'fsharpEmptyWebTest/Properties/launchSettings.json',
@@ -981,6 +1046,10 @@ describe('aspnet - F# Empty Web Application', function() {
 
     it('Dockerfile does not contain migrations', function() {
       assert.noFileContent('fsharpEmptyWebTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('fsharpEmptyWebTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
   });
@@ -1013,6 +1082,7 @@ describe('aspnet - Fsharp Web API Application', function() {
   var files = [
     'fsharpWebAPITest/Controllers.fs',
     'fsharpWebAPITest/appsettings.json',
+    'fsharpWebAPITest/global.json',
     'fsharpWebAPITest/project.json',
     'fsharpWebAPITest/Program.fs',
     'fsharpWebAPITest/Properties/launchSettings.json',
@@ -1033,6 +1103,10 @@ describe('aspnet - Fsharp Web API Application', function() {
 
     it('Dockerfile does not contain migrations', function() {
       assert.noFileContent('fsharpWebAPITest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('fsharpWebAPITest/global.json', /1.0.0-preview2-1-003177/);
     });
 
   });
@@ -1095,6 +1169,7 @@ describe('aspnet - FSharp Web Application Basic', function() {
     'fsharpWebBasicTest/appsettings.json',
     'fsharpWebBasicTest/Controllers.fs',
     'fsharpWebBasicTest/Program.fs',
+    'fsharpWebBasicTest/global.json',
     'fsharpWebBasicTest/project.json',
     'fsharpWebBasicTest/Properties/launchSettings.json',
     'fsharpWebBasicTest/README.md',
@@ -1132,6 +1207,10 @@ describe('aspnet - FSharp Web Application Basic', function() {
 
     it('Dockerfile does not contain migrations', function() {
       assert.noFileContent('fsharpWebBasicTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+    });
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('fsharpWebBasicTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
   });
