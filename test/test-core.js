@@ -84,6 +84,14 @@ describe('aspnet - Empty Web Application', function() {
       assert.fileContent('emptyWebTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
+    it('.csproj contains correct dotnet version', function() {
+      assert.fileContent('emptyWebTest/emptyWebTest.csproj', /PackageReference Include="Microsoft.AspNetCore" Version="1.0.3"/);
+    });
+
+    it('.csproj contains correct dotnet target platform', function() {
+      assert.fileContent('emptyWebTest/emptyWebTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
+    });
+
   });
 
 });
