@@ -6,6 +6,7 @@ var mkdirp = require('mkdirp');
 var path = require('path');
 var guid = require('uuid');
 var projectName = require('vs_projectname');
+var pckg = require('../package.json');
 var AspnetGenerator = yeoman.generators.Base.extend({
 
   constructor: function() {
@@ -145,6 +146,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.templatedata.sqlite = (this.type === 'web') ? true : false;
     this.templatedata.ui = this.ui;
     this.templatedata.version = "1.0.0-preview2-1-003177";
+    this.templatedata.dotnet = {
+      version: this.options['versionCurrent'] ?
+        pckg.dotnet.current.version : pckg.dotnet.lts.version,
+      targetFramework: this.options['versionCurrent'] ?
+        pckg.dotnet.current.targetFramework : pckg.dotnet.lts.targetFramework
+    };
   },
 
   askForName: function() {
