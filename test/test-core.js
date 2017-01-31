@@ -58,10 +58,11 @@ describe('aspnet - Empty Web Application', function() {
   var files = [
     'emptyWebTest/.gitignore',
     'emptyWebTest/global.json',
-    'emptyWebTest/project.json',
+    'emptyWebTest/emptyWebTest.csproj',
     'emptyWebTest/Program.cs',
     'emptyWebTest/Properties/launchSettings.json',
     'emptyWebTest/README.md',
+    'emptyWebTest/runtimeconfig.template.json',
     'emptyWebTest/Startup.cs',
     'emptyWebTest/web.config',
     'emptyWebTest/Dockerfile'

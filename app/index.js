@@ -231,7 +231,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
 
-        this.template(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
+        this.template(this.sourceRoot() + '/EmptyWeb.csproj', this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
 
         this.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
 
@@ -240,6 +240,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
         /// Properties
         this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
+        this.copy(this.sourceRoot() + '/runtimeconfig.template.json', this.applicationName + '/runtimeconfig.template.json');
         this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
         mkdirp.sync(this.applicationName + '/wwwroot');
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
