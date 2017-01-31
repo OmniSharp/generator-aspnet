@@ -13,6 +13,24 @@ describe('aspnet Core 1.0 generator', function() {
   });
 });
 
+/*
+* package.json contains dotnet target and version information
+*/
+describe('package.json contains dotnet version information', function() {
+  var pckg = require('../package.json');
+  it('contains expected LTS version', function() {
+    yeoman.assert.equal('1.0.3', pckg.dotnet.lts.version);
+  });
+  it('contains expected LTS target framework', function() {
+    yeoman.assert.equal('netcoreapp1.0', pckg.dotnet.lts.targetFramework);
+  });
+  it('contains expected Current version', function() {
+    yeoman.assert.equal('1.1.0', pckg.dotnet.current.version);
+  });
+  it('contains expected LTS version', function() {
+    yeoman.assert.equal('netcoreapp1.1', pckg.dotnet.current.targetFramework);
+  });
+});
 
 /*
  * yo aspnet Empty Application
