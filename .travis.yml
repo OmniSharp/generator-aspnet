@@ -1,9 +1,11 @@
 sudo: false
 language: node_js
 node_js:
-- '0.10'
+- '4'
 before_install:
-  npm install -g npm@'>=2.13.5'
+  - if [[ `npm -v` != 3* ]];
+    then npm i -g npm@3;
+    fi
 deploy:
   provider: npm
   email: sayed.hashimi@gmail.com

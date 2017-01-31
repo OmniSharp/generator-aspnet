@@ -144,6 +144,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.templatedata.guid = guid.v4();
     this.templatedata.sqlite = (this.type === 'web') ? true : false;
     this.templatedata.ui = this.ui;
+    this.templatedata.version = "1.0.0-preview2-1-003177";
   },
 
   askForName: function() {
@@ -228,11 +229,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
 
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.nano.txt', this.applicationName + '/Dockerfile.nano', this.templatedata);
 
         /// Properties
         this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
         mkdirp.sync(this.applicationName + '/wwwroot');
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
       case 'webapi':
@@ -240,6 +243,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.copy(this.sourceRoot() + '/appsettings.json', this.applicationName + '/appsettings.json');
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.nano.txt', this.applicationName + '/Dockerfile.nano', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Program.cs', this.applicationName + '/Program.cs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
@@ -248,12 +252,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
         this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
         mkdirp.sync(this.applicationName + '/wwwroot');
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
       case 'web':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // individual files (configs, etc)
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.nano.txt', this.applicationName + '/Dockerfile.nano', this.templatedata);
         this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
@@ -292,12 +298,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         // UI Component Overrides
         // If the developer has placed anything in overrides/ui-module/project-type/**/* then use it
         this.fs.copyTpl(this.templatePath('/../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
-
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
       case 'webbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // individual files (configs, etc)
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.nano.txt', this.applicationName + '/Dockerfile.nano', this.templatedata);
         this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
         this.fs.copy(this.templatePath('bundleconfig.json'), this.applicationName + '/bundleconfig.json');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
@@ -322,7 +329,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         // UI Component Overrides
         // If the developer has placed anything in overrides/ui-module/project-type/**/* then use it
         this.fs.copyTpl(this.templatePath('/../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
-
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
       case 'nancy':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
@@ -336,14 +343,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.template(this.sourceRoot() + '/HomeModule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
 
         this.template(this.sourceRoot() + '/Program.cs', this.applicationName + '/Program.cs', this.templatedata);
-
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
       case 'consoleapp':
         this.sourceRoot(path.join(__dirname, '../templates/projects/consoleapp'));
         this.fs.copy(path.join(__dirname, '../templates/gitignore.txt'), this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
-
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
       case 'classlibrary':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
@@ -353,12 +360,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.template(this.sourceRoot() + '/class.cs', this.applicationName + '/Class1.cs', this.templatedata);
 
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
-
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
       case 'unittest':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('**.*'), this.destinationPath(this.applicationName), this.templatedata);
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
       //F# Cases
@@ -367,6 +375,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.template(this.sourceRoot() + '/Library.fs', this.applicationName + '/Library.fs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
       case 'fsharp_console':
@@ -374,6 +383,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(path.join(__dirname, '../templates/gitignore.txt'), this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('Program.fs'), this.applicationName + '/Program.fs', this.templatedata);
         this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
       case 'fsharp_emptyweb':
@@ -390,11 +400,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
 
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.nano.txt', this.applicationName + '/Dockerfile.nano', this.templatedata);
 
         /// Properties
         this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
         mkdirp.sync(this.applicationName + '/wwwroot');
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
       
       case 'fsharp_webapi':
@@ -402,6 +414,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.copy(this.sourceRoot() + '/appsettings.json', this.applicationName + '/appsettings.json');
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.nano.txt', this.applicationName + '/Dockerfile.nano', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Startup.fs', this.applicationName + '/Startup.fs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Program.fs', this.applicationName + '/Program.fs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
@@ -410,12 +423,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
         this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
         mkdirp.sync(this.applicationName + '/wwwroot');
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
       case 'fsharp_webbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // individual files (configs, etc)
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.nano.txt', this.applicationName + '/Dockerfile.nano', this.templatedata);
         this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
         this.fs.copy(this.templatePath('bundleconfig.json'), this.applicationName + '/bundleconfig.json');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
@@ -436,12 +451,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         // wwwroot - the content in the wwwroot does not include any direct references or imports
         // So again it is copied 1-to-1 - but tests cover list of all files
         this.fs.copy(this.templatePath('wwwroot/**/*'), this.applicationName + '/wwwroot');
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
       case 'fsharp_test':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('**.*'), this.destinationPath(this.applicationName), this.templatedata);
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
       default:
