@@ -66,6 +66,8 @@ The F# Templates are based on [Core F# Templates](https://github.com/odytrice/co
 
 The templates that use client-side libraries are calling the `bower install` script to install Bower managed dependencies. You can skip the installation process by passing the `--skip-install` option to the generator, e.g. `yo aspnet --skip-install`. This should allow for a better experience when `Development` has been enabled.
 
+The templates support both `LTS` and `Current` version of runtime. The `LTS` version is enabled by default (or enforced by `--version-lts` option). You can switch to `Current` version at any time by passing `--version-current` option when invoking generator: `yo aspnet --version-current`.
+
 ## Command line automation
 
 The project type and application name can be specified as optional command line arguments:

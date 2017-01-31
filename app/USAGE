@@ -2,6 +2,10 @@ Description:
 
   Creates a basic ASP.NET Core application
 
+Options:
+
+  --version-current the created content will use `Current` version of runtime dependencies
+
 Subgenerators:
 
   yo aspnet:angularcontroller [options] <name>
