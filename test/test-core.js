@@ -132,7 +132,7 @@ describe('aspnet - Console Application', function() {
     'consoleAppTest/.gitignore',
     'consoleAppTest/Program.cs',
     'consoleAppTest/global.json',
-    'consoleAppTest/project.json'
+    'consoleAppTest/consoleAppTest.csproj'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -141,6 +141,10 @@ describe('aspnet - Console Application', function() {
 
     it('global.json contains correct version', function() {
       assert.fileContent('consoleAppTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('consoleAppTest/consoleAppTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
