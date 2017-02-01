@@ -110,7 +110,7 @@ describe('aspnet - Class Library', function() {
       assert.fileContent('classLibraryTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
-    it('global.json contains correct version', function() {
+    it('.csproj contains correct version', function() {
       assert.fileContent('classLibraryTest/classLibraryTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
