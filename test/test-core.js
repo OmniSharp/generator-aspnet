@@ -167,7 +167,7 @@ describe('aspnet - Console Application', function() {
 /*
  * yo aspnet Unit Test Application
  */
-describe('aspnet - Unit Test Application', function() {
+describe('aspnet - xUnit Test Application', function() {
 
   util.goCreateApplication('xunit', 'xunitTest');
 
@@ -180,8 +180,8 @@ describe('aspnet - Unit Test Application', function() {
   var files = [
     'xunitTest/.gitignore',
     'xunitTest/global.json',
-    'xunitTest/project.json',
-    'xunitTest/Class1.cs',
+    'xunitTest/xunitTest.csproj',
+    'xunitTest/UnitTest1.cs',
     'xunitTest/xunit.runner.json'
   ];
   describe('Checking files', function() {
@@ -191,6 +191,10 @@ describe('aspnet - Unit Test Application', function() {
 
     it('global.json contains correct version', function() {
       assert.fileContent('xunitTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('xunitTest/xunitTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
