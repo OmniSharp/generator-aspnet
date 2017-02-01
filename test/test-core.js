@@ -152,20 +152,20 @@ describe('aspnet - Console Application', function() {
  */
 describe('aspnet - Unit Test Application', function() {
 
-  util.goCreateApplication('unittest', 'unittestTest');
+  util.goCreateApplication('xunit', 'xunitTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
-      assert.file('unittestTest/');
+      assert.file('xunitTest/');
     });
   });
 
   var files = [
-    'unittestTest/.gitignore',
-    'unittestTest/global.json',
-    'unittestTest/project.json',
-    'unittestTest/Class1.cs',
-    'unittestTest/xunit.runner.json'
+    'xunitTest/.gitignore',
+    'xunitTest/global.json',
+    'xunitTest/project.json',
+    'xunitTest/Class1.cs',
+    'xunitTest/xunit.runner.json'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -173,7 +173,7 @@ describe('aspnet - Unit Test Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('unittestTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('xunitTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
   });

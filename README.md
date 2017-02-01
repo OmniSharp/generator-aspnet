@@ -46,7 +46,7 @@ Full, template based projects available in generator:
 - Nancy ASP.NET Application
 - Class Library
 - Class Library (F#)
-- Unit Test project (xUnit.net)
+- xUnit Test project (xUnit.net)
 - Unit Test project (xUnit.net) (F#)
 
 The Empty Web Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
@@ -60,7 +60,7 @@ The Nancy project is based on framework's "Hello World" template:
 
 The [Docker](https://www.docker.com/) support with `Dockerfile` configuration files is based on the official [Docker image for ASP.NET Core](https://github.com/aspnet/aspnet-docker)
 
-The Unit test project uses [xUnit: a free, open source, community-focused unit testing tool for the .NET Framework](https://xunit.github.io/)
+The xUnit test project uses [xUnit: a free, open source, community-focused unit testing tool for the .NET Framework](https://xunit.github.io/)
 
 The F# Templates are based on [Core F# Templates](https://github.com/odytrice/core-fsharp-templates) projects. They were translated into F# from the original [ASP.NET Templates](https://github.com/aspnet/Templates) 
 
@@ -83,7 +83,7 @@ The valid project types are:
 - `webapi` for Web API Application
 - `nancy` for Nancy ASP.NET Application
 - `classlibrary` for Class Library
-- `unittest` Unit Test project (xUnit.net)
+- `xunit` xUnit Test project (xUnit.net)
 - `fsharp_emptyweb` for F# Empty Web Application
 - `fsharp_console` for F# Console Application
 - `fsharp_lib` for F# Class Library

@@ -28,14 +28,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       //normalize to lower case
       this.type = this.type.toLowerCase();
       var validProjectTypes = [
-        'emptyweb', 
-        'consoleapp', 
-        'web', 
-        'webbasic', 
-        'webapi', 
-        'nancy', 
-        'classlibrary', 
-        'unittest', 
+        'emptyweb',
+        'consoleapp',
+        'web',
+        'webbasic',
+        'webapi',
+        'nancy',
+        'classlibrary',
+        'xunit',
         'fsharp_lib',
         'fsharp_webapi',
         'fsharp_console', 
@@ -101,8 +101,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             name: 'Class Library (F#)',
             value: 'fsharp_lib'
           }, {
-            name: 'Unit test project (xUnit.net)',
-            value: 'unittest'
+            name: 'Unit Test project (xUnit.net)',
+            value: 'xunit'
           }, {
             name: 'Unit test project (xUnit.net) (F#)',
             value: 'fsharp_test'
@@ -180,7 +180,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'classlibrary':
           app = 'ClassLibrary';
           break;
-        case 'unittest':
+        case 'xunit':
           app = 'UnitTest';
           break;
         case 'fsharp_lib':
@@ -369,7 +369,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
-      case 'unittest':
+      case 'xunit':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('**.*'), this.destinationPath(this.applicationName), this.templatedata);
@@ -522,7 +522,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       case 'fsharp_emptyweb':
         this.log(chalk.green('    dotnet run'));
         break;
-      case 'unittest':
+      case 'xunit':
       case 'fsharp_test':
         this.log(chalk.green('    dotnet test'));
         break;
