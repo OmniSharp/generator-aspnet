@@ -100,7 +100,7 @@ describe('aspnet - Class Library', function() {
     });
   });
 
-  var files = ['classLibraryTest/global.json', 'classLibraryTest/project.json', 'classLibraryTest/Class1.cs', 'classLibraryTest/.gitignore'];
+  var files = ['classLibraryTest/global.json', 'classLibraryTest/classLibraryTest.csproj', 'classLibraryTest/Class1.cs', 'classLibraryTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
@@ -108,6 +108,10 @@ describe('aspnet - Class Library', function() {
 
     it('global.json contains correct version', function() {
       assert.fileContent('classLibraryTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('classLibraryTest/classLibraryTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
