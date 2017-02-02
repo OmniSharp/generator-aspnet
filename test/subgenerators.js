@@ -27,12 +27,6 @@ describe.skip('Subgenerators without arguments tests', function() {
     util.fileCheck('should create Program.cs file', 'Program.cs');
   });
 
-  describe('aspnet:gulpfile', function() {
-    util.goCreate('gulpfile');
-    util.fileCheck('should create gulp file', 'gulpfile.js');
-    util.fileContentCheck('gulpfile.js', 'file content check', /gulp\.task\("default"/);
-  });
-
   describe('aspnet:appsettings', function() {
     util.goCreate('appsettings');
     util.fileCheck('should create appsettings json file', 'appsettings.json');

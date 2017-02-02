@@ -115,7 +115,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:class](#class)
 * [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
-* [aspnet:gulpfile](#gulpfile)
 * [aspnet:htmlpage](#htmlpage)
 * [aspnet:interface](#interface)
 * [aspnet:javascript](#javascript)
@@ -205,20 +204,6 @@ yo aspnet:gitignore
 ```
 
 Produces `.gitignore`
-
-[Return to top](#top)
-
-### gulpfile
-
-Creates a new Gulp file
-
-Example:
-
-```
-yo aspnet:gulpfile
-```
-
-Produces `gulpfile.js`
 
 [Return to top](#top)
 
