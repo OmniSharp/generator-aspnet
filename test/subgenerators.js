@@ -330,19 +330,6 @@ describe.skip('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
   });
 
-  describe('aspnet:stylesheetscss without extension', function() {
-    var arg = '_base';
-    var filename = '_base.scss';
-    util.goCreateWithArgs('stylesheetscss', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
-  describe('aspnet:stylesheetscss with extension', function() {
-    var filename = '_base.scss';
-    util.goCreateWithArgs('stylesheetscss', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
   describe('aspnet:textfile without extension', function() {
     var arg = 'file';
     var filename = 'file.txt';

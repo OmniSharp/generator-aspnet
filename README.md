@@ -123,7 +123,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:program](#program)
 * [aspnet:readme](#readme)
 * [aspnet:startup](#startup)
-* [aspnet:stylesheetscss](#stylesheetscss)
 * [aspnet:taghelper](#taghelper)
 * [aspnet:textfile](#textfile)
 * [aspnet:tfignore](#tfignore)
@@ -313,20 +312,6 @@ yo aspnet:startup
 ```
 
 Produces `Startup.cs`
-
-[Return to top](#top)
-
-### stylesheetscss
-
-Creates a new Sass SCSS class file
-
-Example:
-
-```
-yo aspnet:stylesheetscss filename
-```
-
-Produces `filename.scss`
 
 [Return to top](#top)
 
