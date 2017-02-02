@@ -191,35 +191,6 @@ describe.skip('Subgenerators without arguments tests', function() {
  */
 describe.skip('Subgenerators with named arguments tests', function() {
 
-  describe('aspnet:angularfactory without extension', function() {
-    var arg = 'MyService';
-    var filename = 'MyService.js';
-    util.goCreateWithArgs('angularfactory', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
-  });
-
-  describe('aspnet:angularfactory with extension', function() {
-    var filename = 'MyService.js';
-    util.goCreateWithArgs('angularfactory', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
-  });
-
-  describe('aspnet:angularfactory in cwd of project.json', function() {
-    var dir = util.makeTempDir();
-
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
-
-    var arg = 'MyService';
-    var filename = 'MyService.js';
-    console.log(arg, dir);
-    util.goCreateWithArgs('angularfactory', [arg], path.join(dir, 'emptyTest'));
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /factory.\$inject/);
-    util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
-  });
-
   describe('aspnet:angularmodule without extension', function() {
     var arg = 'MyApplication';
     var filename = 'MyApplication.js';
