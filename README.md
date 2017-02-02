@@ -124,7 +124,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:readme](#readme)
 * [aspnet:startup](#startup)
 * [aspnet:taghelper](#taghelper)
-* [aspnet:textfile](#textfile)
 * [aspnet:tfignore](#tfignore)
 * [aspnet:typescript](#typescript)
 * [aspnet:typescriptconfig](#typescriptconfig)
@@ -326,20 +325,6 @@ yo aspnet:taghelper filename
 ```
 
 Produces `filename.cs`
-
-[Return to top](#top)
-
-### textfile
-
-Creates a new Text file
-
-Example:
-
-```
-yo aspnet:textfile filename
-```
-
-Produces `filename.txt`
 
 [Return to top](#top)
 

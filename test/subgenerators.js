@@ -330,19 +330,6 @@ describe.skip('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
   });
 
-  describe('aspnet:textfile without extension', function() {
-    var arg = 'file';
-    var filename = 'file.txt';
-    util.goCreateWithArgs('textfile', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
-  describe('aspnet:textfile with extension', function() {
-    var filename = 'file.txt';
-    util.goCreateWithArgs('textfile', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
   describe('aspnet:typescript without extension', function() {
     var arg = 'file';
     var filename = 'file.ts';
@@ -393,39 +380,4 @@ describe.skip('Subgenerators with named arguments tests', function() {
     util.fileCheck('should create Controllers/' + filename + ' file', filename);
   });
 
-  // now some tests to check if we correctly handle using named subgenerators
-  // with commonly used scenario: having config.default.json or config.default
-  // lets create config.default.json.txt and config.default.txt
-  describe('aspnet:textfile creates config.default.json.txt from config.default.json', function() {
-    var arg = 'config.default.json';
-    var filename = 'config.default.json.txt';
-    util.goCreateWithArgs('textfile', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-  describe('aspnet:textfile creates config.default.txt from config.default', function() {
-    var arg = 'config.default';
-    var filename = 'config.default.txt';
-    util.goCreateWithArgs('textfile', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
-  // now some test for development/stating/production config.json
-  describe('aspnet:textfile creates config.development.json from config.development', function() {
-    var arg = 'config.development';
-    var filename = 'config.development.json';
-    util.goCreateWithArgs('json', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-  describe('aspnet:textfile creates config.staging.json from config.staging', function() {
-    var arg = 'config.staging';
-    var filename = 'config.staging.json';
-    util.goCreateWithArgs('json', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-  describe('aspnet:textfile creates config.staging.json from config.staging.json', function() {
-    var arg = 'config.staging.json';
-    var filename = 'config.staging.json';
-    util.goCreateWithArgs('json', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
 });
