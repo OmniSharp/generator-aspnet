@@ -8,7 +8,6 @@ Options:
 
 Subgenerators:
 
-  yo aspnet:angularcontroller [options] <name>
   yo aspnet:angularcontrolleras [options] <name>
   yo aspnet:angulardirective [options] <name>
   yo aspnet:angularfactory [options] <name>
