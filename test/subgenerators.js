@@ -191,35 +191,6 @@ describe.skip('Subgenerators without arguments tests', function() {
  */
 describe.skip('Subgenerators with named arguments tests', function() {
 
-  describe('aspnet:angularmodule without extension', function() {
-    var arg = 'MyApplication';
-    var filename = 'MyApplication.js';
-    util.goCreateWithArgs('angularmodule', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /angular.module/);
-  });
-
-  describe('aspnet:angularmodule with extension', function() {
-    var filename = 'MyApplication.js';
-    util.goCreateWithArgs('angularmodule', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /angular.module/);
-  });
-
-  describe('aspnet:angularmodule in cwd of project.json', function() {
-    var dir = util.makeTempDir();
-
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
-
-    var arg = 'MyApplication';
-    var filename = 'MyApplication.js';
-    console.log(arg, dir);
-    util.goCreateWithArgs('angularmodule', [arg], path.join(dir, 'emptyTest'));
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /angular.module/);
-    util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\'');
-  });
-
   describe('aspnet:class without extension', function() {
     var arg = 'MyClass';
     var filename = 'MyClass.cs';
