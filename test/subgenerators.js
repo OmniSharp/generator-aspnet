@@ -37,11 +37,6 @@ describe.skip('Subgenerators without arguments tests', function() {
     util.fileCheck('should create .gitignore file', '.gitignore');
   });
 
-  describe('aspnet:typescriptconfig', function() {
-    util.goCreate('typescriptconfig');
-    util.fileCheck('should create tsconfig.json file', 'tsconfig.json');
-  });
-
   describe('aspnet:dockerfile has the same .NET version', function() {
     var sdkVersion = '1.1.0';
     var arg = 'file';
