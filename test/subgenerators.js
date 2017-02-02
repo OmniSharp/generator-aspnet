@@ -325,19 +325,6 @@ describe.skip('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /[ ]*public[ ]*class[ ]*CartTagHelper/);
   });
 
-  describe('aspnet:typescript without extension', function() {
-    var arg = 'file';
-    var filename = 'file.ts';
-    util.goCreateWithArgs('typescript', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
-  describe('aspnet:typescript with extension', function() {
-    var filename = 'file.ts';
-    util.goCreateWithArgs('typescript', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
   describe('aspnet:typescriptjsx without extension', function() {
     var arg = 'file';
     var filename = 'file.tsx';

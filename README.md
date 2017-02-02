@@ -124,7 +124,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:readme](#readme)
 * [aspnet:startup](#startup)
 * [aspnet:taghelper](#taghelper)
-* [aspnet:typescript](#typescript)
 * [aspnet:typescriptconfig](#typescriptconfig)
 * [aspnet:typescriptjsx](#typescriptjsx)
 * [aspnet:usersecrets](#usersecrets)
@@ -324,20 +323,6 @@ yo aspnet:taghelper filename
 ```
 
 Produces `filename.cs`
-
-[Return to top](#top)
-
-### typescript
-
-Creates a new TypeScript file
-
-Example:
-
-```
-yo aspnet:typescript filename
-```
-
-Produces `filename.ts`
 
 [Return to top](#top)
 
