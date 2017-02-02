@@ -42,6 +42,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         'fsharp_console',
         'fsharp_emptyweb',
         'fsharp_webbasic',
+        'fsharp_mstest',
         'fsharp_xunit'];
 
       if (validProjectTypes.indexOf(this.type) === -1) {
@@ -108,7 +109,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             name: 'Unit Test project (xUnit.net)',
             value: 'xunit'
           }, {
-            name: 'Unit Test project (xUnit.net) (F#)',
+            name: 'Unit Test project (MSTest) (F#)',
+            value: 'fsharp_mstest'
+          }, {
+            name: 'Unit Test Project (xUnit.net) (F#)',
             value: 'fsharp_xunit'
           }
         ]
@@ -204,6 +208,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           break;
         case 'fsharp_webbasic':
           app = "WebApplicationBasic";
+          break;
+        case 'fsharp_mstest':
+          app = "UnitTest";
           break;
         case 'fsharp_xunit':
           app = "UnitTest";
@@ -433,7 +440,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         mkdirp.sync(this.applicationName + '/wwwroot');
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
-      
+
       case 'fsharp_webapi':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
@@ -483,6 +490,15 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('FSharpXUnitTest.fsproj'), this.applicationName + '/' + this.applicationName + '.fsproj', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Tests.fs'), this.applicationName + '/Tests.fs', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/xunit.runner.json', this.applicationName + '/xunit.runner.json');
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
+        break;
+
+      case 'fsharp_mstest':
+        this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        this.fs.copyTpl(this.templatePath('FSharpMSTestUnitTest.fsproj'), this.applicationName + '/' + this.applicationName + '.fsproj', this.templatedata);
         this.fs.copyTpl(this.templatePath('Tests.fs'), this.applicationName + '/Tests.fs', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/xunit.runner.json', this.applicationName + '/xunit.runner.json');
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
@@ -543,6 +559,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.log(chalk.green('    dotnet run'));
         break;
       case 'xunit':
+      case 'fsharp_mstest':
       case 'fsharp_xunit':
         this.log(chalk.green('    dotnet test'));
         break;
