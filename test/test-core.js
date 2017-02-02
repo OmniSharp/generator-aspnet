@@ -940,7 +940,7 @@ describe('FSharp Class Library', function() {
     });
   });
 
-  var files = ['fsharpLibTest/global.json', 'fsharpLibTest/project.json', 'fsharpLibTest/Library.fs', 'fsharpLibTest/.gitignore'];
+  var files = ['fsharpLibTest/global.json', 'fsharpLibTest/fsharpLibTest.fsproj', 'fsharpLibTest/Library.fs', 'fsharpLibTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
