@@ -124,7 +124,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:readme](#readme)
 * [aspnet:startup](#startup)
 * [aspnet:taghelper](#taghelper)
-* [aspnet:tfignore](#tfignore)
 * [aspnet:typescript](#typescript)
 * [aspnet:typescriptconfig](#typescriptconfig)
 * [aspnet:typescriptjsx](#typescriptjsx)
@@ -325,20 +324,6 @@ yo aspnet:taghelper filename
 ```
 
 Produces `filename.cs`
-
-[Return to top](#top)
-
-### tfignore
-
-Creates a new .tfignore file
-
-Example:
-
-```
-yo aspnet:tfignore
-```
-
-Produces `.tfignore`
 
 [Return to top](#top)
 

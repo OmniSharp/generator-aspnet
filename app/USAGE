@@ -20,7 +20,6 @@ Subgenerators:
   yo aspnet:program [options]
   yo aspnet:startup [options]
   yo aspnet:taghelper [options] <name>
-  yo aspnet:tfignore [options]
   yo aspnet:typescript [options] <name>
   yo aspnet:typescriptconfig [options] <name>
   yo aspnet:typescriptjsx [options] <name>

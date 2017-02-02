@@ -37,11 +37,6 @@ describe.skip('Subgenerators without arguments tests', function() {
     util.fileCheck('should create .gitignore file', '.gitignore');
   });
 
-  describe('aspnet:tfignore', function() {
-    util.goCreate('tfignore');
-    util.fileCheck('should create .tfignore file', '.tfignore');
-  });
-
   describe('aspnet:typescriptconfig', function() {
     util.goCreate('typescriptconfig');
     util.fileCheck('should create tsconfig.json file', 'tsconfig.json');
