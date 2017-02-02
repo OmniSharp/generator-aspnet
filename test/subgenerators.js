@@ -191,35 +191,6 @@ describe.skip('Subgenerators without arguments tests', function() {
  */
 describe.skip('Subgenerators with named arguments tests', function() {
 
-  describe('aspnet:angularcontrolleras without extension', function() {
-    var arg = 'HomeController';
-    var filename = 'HomeController.js';
-    util.goCreateWithArgs('angularcontrolleras', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /vm.title/);
-  });
-
-  describe('aspnet:angularcontrolleras with extension', function() {
-    var filename = 'HomeController.js';
-    util.goCreateWithArgs('angularcontrolleras', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /vm.title/);
-  });
-
-  describe('aspnet:angularcontrolleras in cwd of project.json', function() {
-    var dir = util.makeTempDir();
-
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
-
-    var arg = 'HomeController';
-    var filename = 'HomeController.js';
-    console.log(arg, dir);
-    util.goCreateWithArgs('angularcontrolleras', [arg], path.join(dir, 'emptyTest'));
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /vm.title/);
-    util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
-  });
-
   describe('aspnet:angulardirective without extension', function() {
     var arg = 'HomeComponentDirective';
     var filename = 'HomeComponentDirective.js';

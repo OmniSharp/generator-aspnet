@@ -111,7 +111,6 @@ The list of related generators [can be seen on our Wiki section](https://github.
 
 The alphabetic list of available sub generators (_to create files after the project has been created_):
 
-* [aspnet:angularcontrolleras](#angularcontrolleras)
 * [aspnet:angulardirective](#angulardirective)
 * [aspnet:angularfactory](#angularfactory)
 * [aspnet:angularmodule](#angularmodule)
@@ -150,19 +149,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:webapicontroller](#webapicontroller)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
-
-[Return to top](#top)
-
-### angularcontrolleras
-
-Creates AngularJS controller file using `Controller As` syntax.
-
-Example:
-```
-yo aspnet:angularcontrolleras filename
-```
-
-Produces `filename.js`
 
 [Return to top](#top)
 
