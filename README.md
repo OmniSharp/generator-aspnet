@@ -116,7 +116,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:interface](#interface)
-* [aspnet:jsx](#jsx)
 * [aspnet:middleware](#middleware)
 * [aspnet:mvccontroller](#mvccontroller)
 * [aspnet:mvcview](#mvcview)
@@ -214,20 +213,6 @@ yo aspnet:interface IContact
 ```
 
 Produces `/IContact.cs`
-
-[Return to top](#top)
-
-### jsx
-
-Creates a new React JSX file
-
-Example:
-
-```
-yo aspnet:jsx filename
-```
-
-Produces `filename.jsx`
 
 [Return to top](#top)
 
