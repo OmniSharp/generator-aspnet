@@ -9,7 +9,6 @@ Options:
 Subgenerators:
 
   yo aspnet:appsettings [options]
-  yo aspnet:bowerjson [options]
   yo aspnet:class [options] <name>
   yo aspnet:coffeescript [options] <name>
   yo aspnet:dockerfile [options]

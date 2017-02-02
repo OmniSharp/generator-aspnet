@@ -112,7 +112,6 @@ The list of related generators [can be seen on our Wiki section](https://github.
 The alphabetic list of available sub generators (_to create files after the project has been created_):
 
 * [aspnet:appsettings](#appsettings)
-* [aspnet:bowerjson](#bowerjson)
 * [aspnet:class](#class)
 * [aspnet:coffeescript](#coffeescript)
 * [aspnet:dockerfile](#dockerfile)
@@ -160,20 +159,6 @@ yo aspnet:appsettings
 ```
 
 Produces `appsettings.json`
-
-[Return to top](#top)
-
-### bowerjson
-
-Creates a new `bower.json` and configuration file.
-
-Example:
-
-```
-yo aspnet:bowerjson
-```
-
-Produces `bower.json` and `.bowerrc`
 
 [Return to top](#top)
 
