@@ -7,21 +7,6 @@ var path = require('path');
  */
 describe.skip('Subgenerators without arguments tests', function() {
 
-  describe('aspnet:packagejson', function() {
-    util.goCreate('packagejson');
-    util.fileCheck('should create package json file', 'package.json');
-  });
-
-  describe.skip('aspnet:packagejson in cwd of project.json', function() {
-    var dir = util.makeTempDir();
-
-    util.goCreateApplication('emptyweb', 'emptyWebTest', dir);
-
-    util.goCreate('packagejson', path.join(dir, 'emptyWebTest'));
-    util.fileCheck('should create package json file', 'package.json');
-    util.fileContentCheck('package.json', 'file content check', '"name": "emptywebtest"');
-  });
-
   describe('aspnet:program', function() {
     util.goCreate('program');
     util.fileCheck('should create Program.cs file', 'Program.cs');
