@@ -19,7 +19,6 @@ Subgenerators:
   yo aspnet:nuget [options]
   yo aspnet:program [options]
   yo aspnet:startup [options]
-  yo aspnet:stylesheetless [options] <name>
   yo aspnet:stylesheetscss [options] <name>
   yo aspnet:taghelper [options] <name>
   yo aspnet:textfile [options] <name>
