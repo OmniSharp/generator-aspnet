@@ -972,7 +972,7 @@ describe('FSharp Console Application', function() {
     'fsharpConsoleTest/.gitignore',
     'fsharpConsoleTest/Program.fs',
     'fsharpConsoleTest/global.json',
-    'fsharpConsoleTest/project.json'
+    'fsharpConsoleTest/fsharpConsoleTest.fsproj'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -981,6 +981,10 @@ describe('FSharp Console Application', function() {
 
     it('global.json contains correct version', function() {
       assert.fileContent('fsharpConsoleTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpConsoleTest/fsharpConsoleTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
