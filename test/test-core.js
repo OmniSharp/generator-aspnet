@@ -987,14 +987,14 @@ describe('FSharp Console Application', function() {
 });
 
 /*
- * yo aspnet FSharp Unit Test Application
+ * F# xUnit Test Application
  */
-describe('aspnet - Fsharp Unit Test Application', function() {
+describe('F# xUnit Test Application', function() {
 
-  util.goCreateApplication('fsharp_test', 'fsharpTestTest');
+  util.goCreateApplication('fsharp_xunit', 'fsharpTestTest');
 
   describe('Checking directories', function() {
-    it('Application directory created', function() {
+    it('Project directory created', function() {
       assert.file('fsharpTestTest/');
     });
   });
