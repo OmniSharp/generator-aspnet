@@ -464,7 +464,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       case 'fsharp_xunit':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-        this.fs.copyTpl(this.templatePath('**.*'), this.destinationPath(this.applicationName), this.templatedata);
+        this.fs.copyTpl(this.templatePath('FSharpXUnitTest.fsproj'), this.applicationName + '/' + this.applicationName + '.fsproj', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Tests.fs'), this.applicationName + '/Tests.fs', this.templatedata);
+        this.fs.copy(this.sourceRoot() + '/xunit.runner.json', this.applicationName + '/xunit.runner.json');
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
