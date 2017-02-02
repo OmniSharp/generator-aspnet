@@ -191,35 +191,6 @@ describe.skip('Subgenerators without arguments tests', function() {
  */
 describe.skip('Subgenerators with named arguments tests', function() {
 
-  describe('aspnet:angulardirective without extension', function() {
-    var arg = 'HomeComponentDirective';
-    var filename = 'HomeComponentDirective.js';
-    util.goCreateWithArgs('angulardirective', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
-  });
-
-  describe('aspnet:angulardirective with extension', function() {
-    var filename = 'HomeComponentDirective.js';
-    util.goCreateWithArgs('angulardirective', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
-  });
-
-  describe('aspnet:angulardirective in cwd of project.json', function() {
-    var dir = util.makeTempDir();
-
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
-
-    var arg = 'HomeComponentDirective';
-    var filename = 'HomeComponentDirective.js';
-    console.log(arg, dir);
-    util.goCreateWithArgs('angulardirective', [arg], path.join(dir, 'emptyTest'));
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /directive.\$inject/);
-    util.fileContentCheck(filename, 'Check file content', '.module(\'emptyTest\')');
-  });
-
   describe('aspnet:angularfactory without extension', function() {
     var arg = 'MyService';
     var filename = 'MyService.js';
