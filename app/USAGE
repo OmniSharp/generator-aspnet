@@ -13,7 +13,6 @@ Subgenerators:
   yo aspnet:dockerfile [options]
   yo aspnet:gitignore [options]
   yo aspnet:interface [options] <name>
-  yo aspnet:json [options] <name>
   yo aspnet:jsonschema [options] <name>
   yo aspnet:middleware [options] <name>
   yo aspnet:mvccontroller [options] <name>
