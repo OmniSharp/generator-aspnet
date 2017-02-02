@@ -12,7 +12,6 @@ Subgenerators:
   yo aspnet:class [options] <name>
   yo aspnet:dockerfile [options]
   yo aspnet:gitignore [options]
-  yo aspnet:htmlpage [options] <name>
   yo aspnet:interface [options] <name>
   yo aspnet:javascript [options] <name>
   yo aspnet:json [options] <name>

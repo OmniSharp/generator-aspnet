@@ -115,7 +115,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:class](#class)
 * [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
-* [aspnet:htmlpage](#htmlpage)
 * [aspnet:interface](#interface)
 * [aspnet:javascript](#javascript)
 * [aspnet:json](#json)
@@ -204,20 +203,6 @@ yo aspnet:gitignore
 ```
 
 Produces `.gitignore`
-
-[Return to top](#top)
-
-### htmlpage
-
-Creates a new HTML file
-
-Example:
-
-```
-yo aspnet:htmlpage filename
-```
-
-Produces `filename.html`
 
 [Return to top](#top)
 

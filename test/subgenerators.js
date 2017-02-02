@@ -193,19 +193,6 @@ describe.skip('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
-  describe('aspnet:htmlpage without extension', function() {
-    var arg = 'mypage';
-    var filename = 'mypage.html';
-    util.goCreateWithArgs('htmlpage', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
-  describe('aspnet:htmlpage with extension', function() {
-    var filename = 'mypage.html';
-    util.goCreateWithArgs('htmlpage', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
   describe('aspnet:interface without extension', function() {
     var arg = 'IContact';
     var filename = 'IContact.cs';
