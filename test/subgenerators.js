@@ -33,11 +33,6 @@ describe.skip('Subgenerators without arguments tests', function() {
     util.fileContentCheck('gulpfile.js', 'file content check', /gulp\.task\("default"/);
   });
 
-  describe('aspnet:gruntfile', function() {
-    util.goCreate('gruntfile');
-    util.fileCheck('should create Grunt file', 'Gruntfile.js');
-  });
-
   describe('aspnet:appsettings', function() {
     util.goCreate('appsettings');
     util.fileCheck('should create appsettings json file', 'appsettings.json');

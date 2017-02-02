@@ -115,7 +115,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:class](#class)
 * [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
-* [aspnet:gruntfile](#gruntfile)
 * [aspnet:gulpfile](#gulpfile)
 * [aspnet:htmlpage](#htmlpage)
 * [aspnet:interface](#interface)
@@ -206,20 +205,6 @@ yo aspnet:gitignore
 ```
 
 Produces `.gitignore`
-
-[Return to top](#top)
-
-### gruntfile
-
-Creates a new `Grunt` file
-
-Example:
-
-```
-yo aspnet:gruntfile
-```
-
-Produces `Gruntfile.js`
 
 [Return to top](#top)
 
