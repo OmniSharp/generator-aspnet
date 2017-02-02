@@ -204,19 +204,6 @@ describe.skip('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
-  describe('aspnet:coffeescript without extension', function() {
-    var arg = 'file';
-    var filename = 'file.coffee';
-    util.goCreateWithArgs('coffeescript', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
-  describe('aspnet:coffeescript with extension', function() {
-    var filename = 'file.coffee';
-    util.goCreateWithArgs('coffeescript', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-  });
-
   describe('aspnet:htmlpage without extension', function() {
     var arg = 'mypage';
     var filename = 'mypage.html';

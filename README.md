@@ -113,7 +113,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 
 * [aspnet:appsettings](#appsettings)
 * [aspnet:class](#class)
-* [aspnet:coffeescript](#coffeescript)
 * [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:gruntfile](#gruntfile)
@@ -173,20 +172,6 @@ yo aspnet:class Contact
 ```
 
 Produces `/Contact.cs`
-
-[Return to top](#top)
-
-### coffeescript
-
-Creates a new CoffeeScript file
-
-Example:
-
-```
-yo aspnet:coffeescript filename
-```
-
-Produces `filename.coffee`
 
 [Return to top](#top)
 
