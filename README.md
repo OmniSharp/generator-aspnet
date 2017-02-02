@@ -116,7 +116,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
 * [aspnet:interface](#interface)
-* [aspnet:jsonschema](#jsonschema)
 * [aspnet:jsx](#jsx)
 * [aspnet:middleware](#middleware)
 * [aspnet:mvccontroller](#mvccontroller)
@@ -215,20 +214,6 @@ yo aspnet:interface IContact
 ```
 
 Produces `/IContact.cs`
-
-[Return to top](#top)
-
-### jsonschema
-
-Creates a new JSON schema file
-
-Example:
-
-```
-yo aspnet:jsonschema filename
-```
-
-Produces `filename.json`
 
 [Return to top](#top)
 

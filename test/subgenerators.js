@@ -222,21 +222,6 @@ describe.skip('Subgenerators with named arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', 'namespace emptyTest');
   });
 
-  describe('aspnet:jsonschema without extension', function() {
-    var arg = 'MySchema';
-    var filename = 'MySchema.json';
-    util.goCreateWithArgs('jsonschema', [arg]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /my MySchema JSON format/);
-  });
-
-  describe('aspnet:jsonschema with extension', function() {
-    var filename = 'MySchema.json';
-    util.goCreateWithArgs('jsonschema', [filename]);
-    util.fileCheck('should create ' + filename + ' file', filename);
-    util.fileContentCheck(filename, 'Check file content', /my MySchema JSON format/);
-  });
-
   describe('aspnet:middleware without extension', function() {
     var arg = 'MyMiddleware';
     var filename = 'MyMiddleware.cs';
