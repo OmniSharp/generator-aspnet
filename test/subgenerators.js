@@ -5,7 +5,7 @@ var path = require('path');
 /*
  * Test for all subgenerators NOT requiring a name argument
  */
-describe('Subgenerators without arguments tests', function() {
+describe.skip('Subgenerators without arguments tests', function() {
 
   describe('aspnet:packagejson', function() {
     util.goCreate('packagejson');
@@ -189,7 +189,7 @@ describe('Subgenerators without arguments tests', function() {
 /*
  * Test for all subgenerators requiring a name argument
  */
-describe('Subgenerators with named arguments tests', function() {
+describe.skip('Subgenerators with named arguments tests', function() {
 
   describe('aspnet:angularcontroller without extension', function() {
     var arg = 'HomeController';
