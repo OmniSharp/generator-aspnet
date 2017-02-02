@@ -123,7 +123,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:program](#program)
 * [aspnet:readme](#readme)
 * [aspnet:startup](#startup)
-* [aspnet:stylesheet](#stylesheet)
 * [aspnet:stylesheetless](#stylesheetless)
 * [aspnet:stylesheetscss](#stylesheetscss)
 * [aspnet:taghelper](#taghelper)
@@ -315,20 +314,6 @@ yo aspnet:startup
 ```
 
 Produces `Startup.cs`
-
-[Return to top](#top)
-
-### stylesheet
-
-Creates a new CSS file
-
-Example:
-
-```
-yo aspnet:stylesheet style
-```
-
-Produces `style.css`
 
 [Return to top](#top)
 
