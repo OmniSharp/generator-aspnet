@@ -15,7 +15,7 @@ var yeoman = require('yeoman-generator');
  * util package (test-utility.js). See comments in implementation below
  * @todo use assert.JSONFileContent() from updated yeoman-generator
  */
-describe('aspnet:usersecrets', function() {
+describe.skip('aspnet:usersecrets', function() {
 
   var USER_SECRETS_ID_KEY = 'userSecretsId';
   var USER_SECRETS_NUGET_PACKAGE_KEY = 'dependencies:Microsoft.Extensions.Configuration.UserSecrets';

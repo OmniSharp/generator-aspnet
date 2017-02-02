@@ -12,7 +12,7 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create package json file', 'package.json');
   });
 
-  describe('aspnet:packagejson in cwd of project.json', function() {
+  describe.skip('aspnet:packagejson in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('emptyweb', 'emptyWebTest', dir);
@@ -44,7 +44,7 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create bower file', 'bower.json');
   });
 
-  describe('aspnet:bowerjson in cwd of project.json', function() {
+  describe.skip('aspnet:bowerjson in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('emptyweb', 'emptyWebTest', dir);
