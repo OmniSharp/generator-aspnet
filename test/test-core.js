@@ -1083,6 +1083,43 @@ describe('F# xUnit Test Application', function() {
   });
 });
 
+/*
+ * F# MSTest Unit Test
+ */
+describe('F# MSTest Unit Test', function() {
+
+  util.goCreateApplication('fsharp_mstest', 'fsharpMSTest');
+
+  describe('Checking directories', function() {
+    it('Project directory created', function() {
+      assert.file('fsharpMSTest/');
+    });
+  });
+
+  var files = [
+    'fsharpMSTest/.gitignore',
+    'fsharpMSTest/global.json',
+    'fsharpMSTest/fsharpMSTest.fsproj',
+    'fsharpMSTest/Tests.fs',
+    'fsharpMSTest/xunit.runner.json'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('fsharpMSTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpMSTest/fsharpMSTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
+    });
+
+  })
+
+});
+
 
 /*
  * yo aspnet FSharp Empty Application

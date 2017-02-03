@@ -48,6 +48,7 @@ Full, template based projects available in generator:
 - Class Library (F#)
 - MSTest Test project (MSTest)
 - xUnit Test project (xUnit.net)
+- Unit Test project (MSTest) (F#)
 - xUnit Test project (xUnit.net) (F#)
 
 The Empty Web Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
@@ -91,6 +92,7 @@ The valid project types are:
 - `fsharp_lib` for F# Class Library
 - `fsharp_webapi` for F# Web API Application
 - `fsharp_webbasic` for F# Web Application Basic
+- `fsharp_mstest` for F# Unit Test project (MSTest)
 - `fsharp_xunit` for F# xUnit Test project (xUnit.net)
 
 The valid UI framework types are:
