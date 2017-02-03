@@ -1,8 +1,0 @@
-Description:
-	Creates a new Less style sheet file
-
-Example:
-	yo aspnet:stylesheetless filename
-
-	This will create:
-		filename.less

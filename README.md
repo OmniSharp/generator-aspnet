@@ -115,111 +115,23 @@ The list of related generators [can be seen on our Wiki section](https://github.
 
 The alphabetic list of available sub generators (_to create files after the project has been created_):
 
-* [aspnet:angularcontroller](#angularcontroller)
-* [aspnet:angularcontrolleras](#angularcontrolleras)
-* [aspnet:angulardirective](#angulardirective)
-* [aspnet:angularfactory](#angularfactory)
-* [aspnet:angularmodule](#angularmodule)
 * [aspnet:appsettings](#appsettings)
-* [aspnet:bowerjson](#bowerjson)
 * [aspnet:class](#class)
-* [aspnet:coffeescript](#coffeescript)
 * [aspnet:dockerfile](#dockerfile)
 * [aspnet:gitignore](#gitignore)
-* [aspnet:gruntfile](#gruntfile)
-* [aspnet:gulpfile](#gulpfile)
-* [aspnet:htmlpage](#htmlpage)
 * [aspnet:interface](#interface)
-* [aspnet:javascript](#javascript)
-* [aspnet:json](#json)
-* [aspnet:jsonschema](#jsonschema)
-* [aspnet:jsx](#jsx)
 * [aspnet:middleware](#middleware)
 * [aspnet:mvccontroller](#mvccontroller)
 * [aspnet:mvcview](#mvcview)
 * [aspnet:nuget](#nuget)
-* [aspnet:packagejson](#packagejson)
 * [aspnet:program](#program)
 * [aspnet:readme](#readme)
 * [aspnet:startup](#startup)
-* [aspnet:stylesheet](#stylesheet)
-* [aspnet:stylesheetless](#stylesheetless)
-* [aspnet:stylesheetscss](#stylesheetscss)
 * [aspnet:taghelper](#taghelper)
-* [aspnet:textfile](#textfile)
-* [aspnet:tfignore](#tfignore)
-* [aspnet:typescript](#typescript)
-* [aspnet:typescriptconfig](#typescriptconfig)
-* [aspnet:typescriptjsx](#typescriptjsx)
 * [aspnet:usersecrets](#usersecrets)
 * [aspnet:webapicontroller](#webapicontroller)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
-
-[Return to top](#top)
-
-### angularcontroller
-
-Creates AngularJS controller file using $scope
-
-Example:
-```
-yo aspnet:angularcontroller filename
-```
-
-Produces `filename.js`
-
-[Return to top](#top)
-
-### angularcontrolleras
-
-Creates AngularJS controller file using `Controller As` syntax.
-
-Example:
-```
-yo aspnet:angularcontrolleras filename
-```
-
-Produces `filename.js`
-
-[Return to top](#top)
-
-### angulardirective
-
-Creates AngularJS directive file.
-
-Example:
-```
-yo aspnet:angulardirective filename
-```
-
-Produces `filename.js`
-
-[Return to top](#top)
-
-### angularfactory
-
-Creates AngularJS factory file.
-
-Example:
-```
-yo aspnet:angularfactory filename
-```
-
-Produces `filename.js`
-
-[Return to top](#top)
-
-### angularmodule
-
-Creates AngularJS module file
-
-Example:
-```
-yo aspnet:angularmodule filename
-```
-
-Produces `filename.js`
 
 [Return to top](#top)
 
@@ -237,20 +149,6 @@ Produces `appsettings.json`
 
 [Return to top](#top)
 
-### bowerjson
-
-Creates a new `bower.json` and configuration file.
-
-Example:
-
-```
-yo aspnet:bowerjson
-```
-
-Produces `bower.json` and `.bowerrc`
-
-[Return to top](#top)
-
 ### class
 
 Creates a new ASP.NET Core class
@@ -262,20 +160,6 @@ yo aspnet:class Contact
 ```
 
 Produces `/Contact.cs`
-
-[Return to top](#top)
-
-### coffeescript
-
-Creates a new CoffeeScript file
-
-Example:
-
-```
-yo aspnet:coffeescript filename
-```
-
-Produces `filename.coffee`
 
 [Return to top](#top)
 
@@ -313,48 +197,6 @@ Produces `.gitignore`
 
 [Return to top](#top)
 
-### gruntfile
-
-Creates a new `Grunt` file
-
-Example:
-
-```
-yo aspnet:gruntfile
-```
-
-Produces `Gruntfile.js`
-
-[Return to top](#top)
-
-### gulpfile
-
-Creates a new Gulp file
-
-Example:
-
-```
-yo aspnet:gulpfile
-```
-
-Produces `gulpfile.js`
-
-[Return to top](#top)
-
-### htmlpage
-
-Creates a new HTML file
-
-Example:
-
-```
-yo aspnet:htmlpage filename
-```
-
-Produces `filename.html`
-
-[Return to top](#top)
-
 ### interface
 
 Creates a new ASP.NET Core interface
@@ -366,62 +208,6 @@ yo aspnet:interface IContact
 ```
 
 Produces `/IContact.cs`
-
-[Return to top](#top)
-
-### javascript
-
-Creates a new JavaScript file
-
-Example:
-
-```
-yo aspnet:javascript filename
-```
-
-Produces `filename.js`
-
-[Return to top](#top)
-
-### json
-
-Creates a new JSON file
-
-Example:
-
-```
-yo aspnet:json filename
-```
-
-Produces `filename.json`
-
-[Return to top](#top)
-
-### jsonschema
-
-Creates a new JSON schema file
-
-Example:
-
-```
-yo aspnet:jsonschema filename
-```
-
-Produces `filename.json`
-
-[Return to top](#top)
-
-### jsx
-
-Creates a new React JSX file
-
-Example:
-
-```
-yo aspnet:jsx filename
-```
-
-Produces `filename.jsx`
 
 [Return to top](#top)
 
@@ -486,20 +272,6 @@ Produces `NuGet.config` with unstable NuGet feed
 
 [Return to top](#top)
 
-### packagejson
-
-Creates a new package.json file
-
-Example:
-
-```
-yo aspnet:packagejson
-```
-
-Produces `package.json`
-
-[Return to top](#top)
-
 ### program
 
 Creates a new `Program.cs` file
@@ -542,48 +314,6 @@ Produces `Startup.cs`
 
 [Return to top](#top)
 
-### stylesheet
-
-Creates a new CSS file
-
-Example:
-
-```
-yo aspnet:stylesheet style
-```
-
-Produces `style.css`
-
-[Return to top](#top)
-
-### stylesheetless
-
-Creates a new Less class file
-
-Example:
-
-```
-yo aspnet:stylesheetless filename
-```
-
-Produces `filename.less`
-
-[Return to top](#top)
-
-### stylesheetscss
-
-Creates a new Sass SCSS class file
-
-Example:
-
-```
-yo aspnet:stylesheetscss filename
-```
-
-Produces `filename.scss`
-
-[Return to top](#top)
-
 ### taghelper
 
 Creates a new TagHelper class file
@@ -595,76 +325,6 @@ yo aspnet:taghelper filename
 ```
 
 Produces `filename.cs`
-
-[Return to top](#top)
-
-### textfile
-
-Creates a new Text file
-
-Example:
-
-```
-yo aspnet:textfile filename
-```
-
-Produces `filename.txt`
-
-[Return to top](#top)
-
-### tfignore
-
-Creates a new .tfignore file
-
-Example:
-
-```
-yo aspnet:tfignore
-```
-
-Produces `.tfignore`
-
-[Return to top](#top)
-
-### typescript
-
-Creates a new TypeScript file
-
-Example:
-
-```
-yo aspnet:typescript filename
-```
-
-Produces `filename.ts`
-
-[Return to top](#top)
-
-### typescriptconfig
-
-Creates a new TypeScript configuration file
-
-Example:
-
-```
-yo aspnet:typescriptconfig
-```
-
-Produces `tsconfig.json`
-
-[Return to top](#top)
-
-### typescriptjsx
-
-Creates a new JSX-enabled TypeScript file
-
-Example:
-
-```
-yo aspnet:typescriptjsx filename
-```
-
-Produces `filename.tsx`
 
 [Return to top](#top)
 
