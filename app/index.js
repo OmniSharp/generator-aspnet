@@ -36,6 +36,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         'nancy',
         'classlibrary',
         'xunit',
+        'mstest',
         'fsharp_lib',
         'fsharp_webapi',
         'fsharp_console', 
@@ -100,6 +101,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           }, {
             name: 'Class Library (F#)',
             value: 'fsharp_lib'
+          }, {
+            name: 'Unit Test project (MSTest)',
+            value: 'mstest'
           }, {
             name: 'Unit Test project (xUnit.net)',
             value: 'xunit'
@@ -179,6 +183,9 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           break;
         case 'classlibrary':
           app = 'ClassLibrary';
+          break;
+        case 'mstest':
+          app = 'UnitTest';
           break;
         case 'xunit':
           app = 'UnitTest';
@@ -376,6 +383,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.template(this.sourceRoot() + '/UnitTest1.cs', this.applicationName + '/UnitTest1.cs', this.templatedata);
         this.template(this.sourceRoot() + '/XUnitTestProject.csproj', this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
         this.copy(this.sourceRoot() + '/xunit.runner.json', this.applicationName + '/xunit.runner.json');
+        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
+        break;
+
+      case 'mstest':
+        this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        this.template(this.sourceRoot() + '/UnitTest1.cs', this.applicationName + '/UnitTest1.cs', this.templatedata);
+        this.template(this.sourceRoot() + '/UnitTestProject.csproj', this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 

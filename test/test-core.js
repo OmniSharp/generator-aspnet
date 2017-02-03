@@ -202,6 +202,42 @@ describe('aspnet - xUnit Test Application', function() {
 });
 
 /*
+ * MSTest Unit Test
+ */
+describe('aspnet - MSTest Unit Test', function() {
+
+  util.goCreateApplication('mstest', 'mstest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('mstest/');
+    });
+  });
+
+  var files = [
+    'mstest/.gitignore',
+    'mstest/global.json',
+    'mstest/mstest.csproj',
+    'mstest/UnitTest1.cs'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('mstest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('mstest/mstest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
+    });
+
+  });
+
+});
+
+/*
  * yo aspnet Web Application (Bootstrap)
  */
 describe('aspnet - Web Application (Bootstrap)', function() {

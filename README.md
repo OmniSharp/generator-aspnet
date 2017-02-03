@@ -46,6 +46,7 @@ Full, template based projects available in generator:
 - Nancy ASP.NET Application
 - Class Library
 - Class Library (F#)
+- MSTest Test project (MSTest)
 - xUnit Test project (xUnit.net)
 - Unit Test project (xUnit.net) (F#)
 
@@ -83,6 +84,7 @@ The valid project types are:
 - `webapi` for Web API Application
 - `nancy` for Nancy ASP.NET Application
 - `classlibrary` for Class Library
+- `mstest` MSTest Test project (MSTest)
 - `xunit` xUnit Test project (xUnit.net)
 - `fsharp_emptyweb` for F# Empty Web Application
 - `fsharp_console` for F# Console Application
