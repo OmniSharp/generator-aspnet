@@ -1250,6 +1250,10 @@ describe('aspnet - FSharp Web Application Basic', function() {
       assert.file('fsharpWebBasicTest/Properties');
     });
 
+    it('Controllers directory created', function() {
+      assert.file('fsharpWebBasicTest/Controllers');
+    });
+
     it('Views directory created', function() {
       assert.file('fsharpWebBasicTest/Views');
     });
@@ -1281,26 +1285,29 @@ describe('aspnet - FSharp Web Application Basic', function() {
   });
 
   var files = [
-    'fsharpWebBasicTest/Dockerfile',
     'fsharpWebBasicTest/.bowerrc',
     'fsharpWebBasicTest/.gitignore',
-    'fsharpWebBasicTest/bower.json',
-    'fsharpWebBasicTest/bundleconfig.json',
-    'fsharpWebBasicTest/appsettings.json',
-    'fsharpWebBasicTest/Controllers.fs',
+    'fsharpWebBasicTest/Controllers/HomeController.fs',
+    'fsharpWebBasicTest/Dockerfile',
     'fsharpWebBasicTest/Program.fs',
-    'fsharpWebBasicTest/global.json',
-    'fsharpWebBasicTest/project.json',
     'fsharpWebBasicTest/Properties/launchSettings.json',
     'fsharpWebBasicTest/README.md',
     'fsharpWebBasicTest/Startup.fs',
-    'fsharpWebBasicTest/Views/_ViewImports.cshtml',
-    'fsharpWebBasicTest/Views/_ViewStart.cshtml',
     'fsharpWebBasicTest/Views/Home/About.cshtml',
     'fsharpWebBasicTest/Views/Home/Contact.cshtml',
     'fsharpWebBasicTest/Views/Home/Index.cshtml',
-    'fsharpWebBasicTest/Views/Shared/_Layout.cshtml',
     'fsharpWebBasicTest/Views/Shared/Error.cshtml',
+    'fsharpWebBasicTest/Views/Shared/_Layout.cshtml',
+    'fsharpWebBasicTest/Views/Shared/_ValidationScriptsPartial.cshtml',
+    'fsharpWebBasicTest/Views/_ViewImports.cshtml',
+    'fsharpWebBasicTest/Views/_ViewStart.cshtml',
+    'fsharpWebBasicTest/appsettings.Development.json',
+    'fsharpWebBasicTest/appsettings.json',
+    'fsharpWebBasicTest/bower.json',
+    'fsharpWebBasicTest/bundleconfig.json',
+    'fsharpWebBasicTest/fsharpWebBasicTest.fsproj',
+    'fsharpWebBasicTest/global.json',
+    'fsharpWebBasicTest/web.config',
     'fsharpWebBasicTest/wwwroot/css/site.css',
     'fsharpWebBasicTest/wwwroot/css/site.min.css',
     'fsharpWebBasicTest/wwwroot/favicon.ico',
@@ -1309,8 +1316,7 @@ describe('aspnet - FSharp Web Application Basic', function() {
     'fsharpWebBasicTest/wwwroot/images/banner3.svg',
     'fsharpWebBasicTest/wwwroot/images/banner4.svg',
     'fsharpWebBasicTest/wwwroot/js/site.js',
-    'fsharpWebBasicTest/wwwroot/js/site.min.js',
-    'fsharpWebBasicTest/web.config'
+    'fsharpWebBasicTest/wwwroot/js/site.min.js'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -1331,6 +1337,10 @@ describe('aspnet - FSharp Web Application Basic', function() {
 
     it('global.json contains correct version', function() {
       assert.fileContent('fsharpWebBasicTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpWebBasicTest/fsharpWebBasicTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });

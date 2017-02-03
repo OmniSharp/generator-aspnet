@@ -468,7 +468,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
-        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('appsettings.Development.json'), this.applicationName + '/appsettings.Development.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('FSharpWebBasic.fsproj'), this.applicationName + '/' + this.applicationName + '.fsproj', this.templatedata);
         this.fs.copyTpl(this.templatePath('Program.fs'), this.applicationName + '/Program.fs', this.templatedata);
         // Properties
         this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
@@ -476,7 +477,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('Startup.fs'), this.applicationName + '/Startup.fs', this.templatedata);
         this.fs.copyTpl(this.templatePath('web.config'), this.applicationName + '/web.config', this.templatedata);
         // Controllers
-        this.fs.copyTpl(this.templatePath('Controllers.fs'), this.applicationName + '/Controllers.fs', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Controllers/**/*'), this.applicationName + '/Controllers', this.templatedata);
         // Views
         this.fs.copyTpl(this.templatePath('Views/**/*'), this.applicationName + '/Views', this.templatedata);
 
