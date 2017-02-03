@@ -1048,24 +1048,24 @@ describe('FSharp Console Application', function() {
 });
 
 /*
- * yo aspnet FSharp Unit Test Application
+ * F# xUnit Test Application
  */
-describe('aspnet - Fsharp Unit Test Application', function() {
+describe('F# xUnit Test Application', function() {
 
-  util.goCreateApplication('fsharp_test', 'fsharpTestTest');
+  util.goCreateApplication('fsharp_xunit', 'fsharpTest');
 
   describe('Checking directories', function() {
-    it('Application directory created', function() {
-      assert.file('fsharpTestTest/');
+    it('Project directory created', function() {
+      assert.file('fsharpTest/');
     });
   });
 
   var files = [
-    'fsharpTestTest/.gitignore',
-    'fsharpTestTest/global.json',
-    'fsharpTestTest/project.json',
-    'fsharpTestTest/UnitTest1.fs',
-    'fsharpTestTest/xunit.runner.json'
+    'fsharpTest/.gitignore',
+    'fsharpTest/global.json',
+    'fsharpTest/fsharpTest.fsproj',
+    'fsharpTest/Tests.fs',
+    'fsharpTest/xunit.runner.json'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -1073,7 +1073,11 @@ describe('aspnet - Fsharp Unit Test Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpTestTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpTest/fsharpTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
