@@ -1146,14 +1146,15 @@ describe('aspnet - F# Empty Web Application', function() {
 
   var files = [
     'fsharpEmptyWebTest/.gitignore',
+    'fsharpEmptyWebTest/Dockerfile',
     'fsharpEmptyWebTest/global.json',
-    'fsharpEmptyWebTest/project.json',
     'fsharpEmptyWebTest/Program.fs',
+    'fsharpEmptyWebTest/fsharpEmptyWebTest.fsproj',
     'fsharpEmptyWebTest/Properties/launchSettings.json',
     'fsharpEmptyWebTest/README.md',
+    'fsharpEmptyWebTest/runtimeconfig.template.json',
     'fsharpEmptyWebTest/Startup.fs',
-    'fsharpEmptyWebTest/web.config',
-    'fsharpEmptyWebTest/Dockerfile'
+    'fsharpEmptyWebTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -1170,6 +1171,10 @@ describe('aspnet - F# Empty Web Application', function() {
 
     it('global.json contains correct version', function() {
       assert.fileContent('fsharpEmptyWebTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpEmptyWebTest/fsharpEmptyWebTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
