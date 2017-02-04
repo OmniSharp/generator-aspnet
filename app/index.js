@@ -150,6 +150,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
   _buildTemplateData: function() {
     this.templatedata.namespace = projectName(this.applicationName);
     this.templatedata.applicationname = this.applicationName;
+    this.templatedata.includeApplicationInsights = false;
     this.templatedata.guid = guid.v4();
     this.templatedata.sqlite = (this.type === 'web') ? true : false;
     this.templatedata.ui = this.ui;
@@ -264,11 +265,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.copy(this.sourceRoot() + '/appsettings.json', this.applicationName + '/appsettings.json');
+        this.copy(this.sourceRoot() + '/appsettings.Development.json', this.applicationName + '/appsettings.Development.json');
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.nano.txt', this.applicationName + '/Dockerfile.nano', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Program.cs', this.applicationName + '/Program.cs', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/Company.WebApplication1.csproj', this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
         this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Controllers/ValuesController.cs', this.applicationName + '/Controllers/ValuesController.cs', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
