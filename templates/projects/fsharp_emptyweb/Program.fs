@@ -1,6 +1,9 @@
-﻿open System
-open System.IO
-open Microsoft.AspNetCore.Hosting
+﻿open System;
+open System.Collections.Generic;
+open System.IO;
+open System.Linq;
+open System.Threading.Tasks;
+open Microsoft.AspNetCore.Hosting;
 open <%= namespace %>
 
 [<EntryPoint>]
