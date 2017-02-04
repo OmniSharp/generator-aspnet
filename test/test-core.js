@@ -1198,24 +1198,26 @@ describe('aspnet - Fsharp Web API Application', function() {
       assert.file('fsharpWebAPITest/Properties');
     });
 
-    it('wwwroot directory created', function() {
-      assert.file('fsharpWebAPITest/wwwroot');
+    it('Controllers directory created', function() {
+      assert.file('fsharpWebAPITest/Controllers');
     });
   });
 
 
   var files = [
-    'fsharpWebAPITest/Controllers.fs',
+    'fsharpWebAPITest/.gitignore',
     'fsharpWebAPITest/appsettings.json',
+    'fsharpWebAPITest/appsettings.Development.json',
+    'fsharpWebAPITest/Controllers/ValuesController.fs',
+    'fsharpWebAPITest/Dockerfile',
     'fsharpWebAPITest/global.json',
-    'fsharpWebAPITest/project.json',
     'fsharpWebAPITest/Program.fs',
+    'fsharpWebAPITest/fsharpWebAPITest.fsproj',
     'fsharpWebAPITest/Properties/launchSettings.json',
     'fsharpWebAPITest/README.md',
+    'fsharpWebAPITest/runtimeconfig.template.json',
     'fsharpWebAPITest/Startup.fs',
-    'fsharpWebAPITest/.gitignore',
-    'fsharpWebAPITest/web.config',
-    'fsharpWebAPITest/Dockerfile'
+    'fsharpWebAPITest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -1232,6 +1234,10 @@ describe('aspnet - Fsharp Web API Application', function() {
 
     it('global.json contains correct version', function() {
       assert.fileContent('fsharpWebAPITest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpWebAPITest/fsharpWebAPITest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
