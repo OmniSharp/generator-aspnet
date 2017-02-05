@@ -8,8 +8,8 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0-beta1" />
+  <ItemGroup><% if(includeApplicationInsights){ %>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0-beta1" /><% } %>
     <PackageReference Include="Microsoft.AspNetCore" Version="<%= dotnet.version %>" />
   </ItemGroup>
 
