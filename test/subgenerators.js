@@ -25,7 +25,7 @@ describe.skip('Subgenerators without arguments tests', function() {
   describe('aspnet:startup in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
+    util.goCreateApplication('classlib', 'emptyTest', dir);
 
     util.goCreate('startup', path.join(dir, 'emptyTest'));
     util.fileCheck('should create Startup.cs file', 'Startup.cs');
@@ -116,7 +116,7 @@ describe.skip('Subgenerators without arguments tests', function() {
 
   describe('aspnet:readme in cwd of project.json should contain correct project name', function() {
     var dir = util.makeTempDir();
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
+    util.goCreateApplication('classlib', 'emptyTest', dir);
     util.goCreate('readme', path.join(dir, 'emptyTest'));
     util.fileCheck('should create README.md file', 'README.md');
     util.fileContentCheck('README.md', 'file content check', /^# emptyTest$/m);
@@ -125,7 +125,7 @@ describe.skip('Subgenerators without arguments tests', function() {
   describe('aspnet:readme with --txt option in cwd of project.json should contain correct project name', function() {
     var arg = '--txt';
     var dir = util.makeTempDir();
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
+    util.goCreateApplication('classlib', 'emptyTest', dir);
     util.goCreateWithArgs('readme', [arg], path.join(dir, 'emptyTest'));
     util.fileCheck('should create README.txt file', 'README.txt');
     util.fileContentCheck('README.txt', 'file content check', /^# emptyTest$/m);
@@ -156,7 +156,7 @@ describe.skip('Subgenerators with named arguments tests', function() {
   describe('aspnet:class in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
+    util.goCreateApplication('classlib', 'emptyTest', dir);
 
     var arg = 'MyClass';
     var filename = 'MyClass.cs';
@@ -186,7 +186,7 @@ describe.skip('Subgenerators with named arguments tests', function() {
   describe('aspnet:interface in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
+    util.goCreateApplication('classlib', 'emptyTest', dir);
 
     var arg = 'IContact';
     var filename = 'IContact.cs';
@@ -219,7 +219,7 @@ describe.skip('Subgenerators with named arguments tests', function() {
   describe('aspnet:middleware in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('classlibrary', 'emptyTest', dir);
+    util.goCreateApplication('classlib', 'emptyTest', dir);
 
     var arg = 'MyMiddleware';
     var filename = 'MyMiddleware.cs';

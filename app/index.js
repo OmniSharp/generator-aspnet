@@ -34,7 +34,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         'webbasic',
         'webapi',
         'nancy',
-        'classlibrary',
+        'classlib',
         'xunit',
         'mstest',
         'fsharp_lib',
@@ -98,7 +98,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             value: 'nancy'
           }, {
             name: 'Class Library',
-            value: 'classlibrary'
+            value: 'classlib'
           }, {
             name: 'Class Library (F#)',
             value: 'fsharp_lib'
@@ -186,7 +186,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'nancy':
           app = 'NancyApplication';
           break;
-        case 'classlibrary':
+        case 'classlib':
           app = 'ClassLibrary';
           break;
         case 'mstest':
@@ -376,14 +376,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('ConsoleApp.csproj'), this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
-      case 'classlibrary':
+      case 'classlib':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
 
-        this.template(this.sourceRoot() + '/class.cs', this.applicationName + '/Class1.cs', this.templatedata);
+        this.template(this.sourceRoot() + '/Class1.cs', this.applicationName + '/Class1.cs', this.templatedata);
 
-        this.fs.copyTpl(this.sourceRoot() + '/ClassLibrary.csproj', this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/Company.ClassLibrary1.csproj', this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
       case 'xunit':
