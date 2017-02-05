@@ -20,5 +20,4 @@ Subgenerators:
   yo aspnet:program [options]
   yo aspnet:startup [options]
   yo aspnet:taghelper [options] <name>
-  yo aspnet:usersecrets [options] <name>
   yo aspnet:webapicontroller [options] <name>
