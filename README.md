@@ -89,7 +89,7 @@ The valid project types are:
 - `xunit` xUnit Test project (xUnit.net)
 - `fsharp_emptyweb` for F# Empty Web Application
 - `fsharp_console` for F# Console Application
-- `fsharp_lib` for F# Class Library
+- `fsharp_classlib` for F# Class Library
 - `fsharp_webapi` for F# Web API Application
 - `fsharp_webbasic` for F# Web Application Basic
 - `fsharp_mstest` for F# Unit Test project (MSTest)
