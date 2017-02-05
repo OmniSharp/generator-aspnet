@@ -695,15 +695,16 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
   });
 
   var files = [
-    'webTest/Dockerfile',
     'webTest/.bowerrc',
     'webTest/.gitignore',
+    'webTest/appsettings.json',
+    'webTest/appsettings.Development.json',
     'webTest/bower.json',
     'webTest/bundleconfig.json',
-    'webTest/appsettings.json',
     'webTest/Controllers/HomeController.cs',
+    'webTest/Dockerfile',
     'webTest/Program.cs',
-    'webTest/project.json',
+    'webTest/webTest.csproj',
     'webTest/Properties/launchSettings.json',
     'webTest/README.md',
     'webTest/Startup.cs',
@@ -714,6 +715,7 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     'webTest/Views/Home/Index.cshtml',
     'webTest/Views/Shared/_Layout.cshtml',
     'webTest/Views/Shared/Error.cshtml',
+    'webTest/web.config',
     'webTest/wwwroot/css/site.css',
     'webTest/wwwroot/css/site.min.css',
     'webTest/wwwroot/favicon.ico',
@@ -723,7 +725,6 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     'webTest/wwwroot/images/banner4.svg',
     'webTest/wwwroot/js/site.js',
     'webTest/wwwroot/js/site.min.js',
-    'webTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -802,15 +803,16 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
   });
 
   var files = [
-    'webTest/Dockerfile',
     'webTest/.bowerrc',
     'webTest/.gitignore',
-    'webTest/bower.json',
     'webTest/appsettings.json',
+    'webTest/appsettings.Development.json',
+    'webTest/bower.json',
     'webTest/Controllers/HomeController.cs',
-    'webTest/Program.cs',
+    'webTest/Dockerfile',
     'webTest/global.json',
-    'webTest/project.json',
+    'webTest/Program.cs',
+    'webTest/webTest.csproj',
     'webTest/Properties/launchSettings.json',
     'webTest/README.md',
     'webTest/Startup.cs',
@@ -822,6 +824,7 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     'webTest/Views/Home/Index.cshtml',
     'webTest/Views/Shared/_Layout.cshtml',
     'webTest/Views/Shared/Error.cshtml',
+    'webTest/web.config',
     'webTest/wwwroot/css/site.css',
     'webTest/wwwroot/css/site.min.css',
     'webTest/wwwroot/favicon.ico',
@@ -833,7 +836,6 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     'webTest/wwwroot/js/semantic.validation.js',
     'webTest/wwwroot/js/site.js',
     'webTest/wwwroot/js/site.min.js',
-    'webTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
