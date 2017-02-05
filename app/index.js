@@ -124,11 +124,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
           default: 'bootstrap',
           choices: [
             {
-              name: 'Bootstrap (3.3.6)',
+              name: 'Bootstrap (3.3.7)',
               value: 'bootstrap'
             },
             {
-              name: 'Semantic UI (2.1.8)',
+              name: 'Semantic UI (2.2.2)',
               value: 'semantic'
             }
           ],
@@ -334,7 +334,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
-        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('appsettings.Development.json'), this.applicationName + '/appsettings.Development.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Company.WebApplication1.csproj'), this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
         this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
         // Properties
         this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);

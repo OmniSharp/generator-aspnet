@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
-        <link rel="stylesheet" href="https://oss.maxcdn.com/semantic-ui/2.1.8/semantic.min.css"
+        <link rel="stylesheet" href="https://oss.maxcdn.com/semantic-ui/2.2.2/semantic.min.css"
               asp-fallback-href="~/lib/semantic/dist/semantic.min.css"
               asp-fallback-test-class="ui button" asp-fallback-test-property="cursor" asp-fallback-test-value="pointer" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
@@ -83,13 +83,17 @@
         <script src="~/js/site.js"></script>
     </environment>
     <environment names="Staging,Production">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.4.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery">
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB">
         </script>
-        <script src="https://oss.maxcdn.com/semantic-ui/2.1.8/semantic.min.js"
+        <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.js"
                 asp-fallback-src="~/lib/semantic/dist/semantic.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-0XfhiWRXqhAYf5BFse4UCEkjECt8XD6jjNYREhYYI4ICheLSxfSaYbZn0y/29yO2">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
