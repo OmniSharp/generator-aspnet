@@ -440,16 +440,17 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.copy(this.sourceRoot() + '/appsettings.json', this.applicationName + '/appsettings.json');
+        this.copy(this.sourceRoot() + '/appsettings.Development.json', this.applicationName + '/appsettings.Development.json');
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.nano.txt', this.applicationName + '/Dockerfile.nano', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Startup.fs', this.applicationName + '/Startup.fs', this.templatedata);
         this.fs.copyTpl(this.sourceRoot() + '/Program.fs', this.applicationName + '/Program.fs', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
+        this.fs.copyTpl(this.sourceRoot() + '/Company.WebApplication1.fsproj', this.applicationName + '/' + this.applicationName + '.fsproj', this.templatedata);
         this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
-        this.fs.copyTpl(this.sourceRoot() + '/Controllers.fs', this.applicationName + '/Controllers.fs', this.templatedata);
+        this.fs.copyTpl(this.templatePath() + '/Controllers/**/*', this.applicationName + '/Controllers', this.templatedata);
         this.fs.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
         this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
-        mkdirp.sync(this.applicationName + '/wwwroot');
+        this.fs.copy(this.sourceRoot() + '/runtimeconfig.template.json', this.applicationName + '/runtimeconfig.template.json');
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
