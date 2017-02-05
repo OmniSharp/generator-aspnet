@@ -128,7 +128,6 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:readme](#readme)
 * [aspnet:startup](#startup)
 * [aspnet:taghelper](#taghelper)
-* [aspnet:usersecrets](#usersecrets)
 * [aspnet:webapicontroller](#webapicontroller)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
@@ -325,24 +324,6 @@ yo aspnet:taghelper filename
 ```
 
 Produces `filename.cs`
-
-[Return to top](#top)
-
-### usersecrets
-
-Adds UserSecrets information to ASP.NET Core `project.json` file.
-The generator do not update existing keys if found and does
-not create new `project.json` file.
-
-Example:
-
-```
-yo aspnet:usersecrets
-```
-
-This will add following keys to project.json:
-- "userSecretsId" key
-- "Microsoft.Extensions.Configuration.UserSecrets" key under "dependencies"
 
 [Return to top](#top)
 
