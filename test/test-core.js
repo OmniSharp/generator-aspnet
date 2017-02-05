@@ -133,7 +133,7 @@ describe('aspnet - Class Library', function() {
  */
 describe('aspnet - Console Application', function() {
 
-  util.goCreateApplication('consoleapp', 'consoleAppTest');
+  util.goCreateApplication('console', 'consoleAppTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {

@@ -79,7 +79,7 @@ The project type and application name can be specified as optional command line 
 The valid project types are:
 
 - `emptyweb` for Empty Web Application
-- `consoleapp` for Console Application
+- `console` for Console Application
 - `web` for Web Application
 - `webbasic` for Web Application Basic
 - `webapi` for Web API Application
