@@ -123,7 +123,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:middleware](#middleware)
 * [aspnet:mvccontroller](#mvccontroller)
 * [aspnet:mvcview](#mvcview)
-* [aspnet:nuget](#nuget)
+* [aspnet:nugetconfig](#nugetconfig)
 * [aspnet:program](#program)
 * [aspnet:readme](#readme)
 * [aspnet:startup](#startup)
@@ -256,18 +256,17 @@ Produces `/ContactView.cshtml`
 
 [Return to top](#top)
 
-### nuget
+### nugetconfig
 
-Creates a new `NuGet.config` file. The support for unstable development
-feed is provided by `--unstable` option.
+Creates a new `NuGet.config` file.
 
 Example:
 
 ```
-yo aspnet:nuget --unstable
+yo aspnet:nugetconfig
 ```
 
-Produces `NuGet.config` with unstable NuGet feed
+Produces `NuGet.config`
 
 [Return to top](#top)
 

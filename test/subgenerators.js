@@ -5,7 +5,7 @@ var path = require('path');
 /*
  * Test for all subgenerators NOT requiring a name argument
  */
-describe.skip('Subgenerators without arguments tests', function() {
+describe('Subgenerators without arguments tests', function() {
 
   describe('aspnet:program', function() {
     util.goCreate('program');
@@ -22,7 +22,7 @@ describe.skip('Subgenerators without arguments tests', function() {
     util.fileCheck('should create startup.cs file', 'Startup.cs');
   });
 
-  describe('aspnet:startup in cwd of project.json', function() {
+  describe.skip('aspnet:startup in cwd of project.json', function() {
     var dir = util.makeTempDir();
 
     util.goCreateApplication('classlib', 'emptyTest', dir);
@@ -74,29 +74,10 @@ describe.skip('Subgenerators without arguments tests', function() {
     util.fileContentCheck(filename, 'Calls database migrations', /RUN \["dotnet", "ef", "database", "update"\]/);
   });
 
-  describe('aspnet:nuget', function() {
-    util.goCreate('nuget');
-    var filename = 'NuGet.config';
+  describe('aspnet:nugetconfig', function() {
+    util.goCreate('nugetconfig');
+    var filename = 'nuget.config';
     util.fileCheck('should create NuGet configuration file', filename);
-    util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
-  });
-
-  // unstable feed cannot be found in generated file
-  describe('aspnet:nuget', function() {
-    util.goCreate('nuget');
-    var filename = 'NuGet.config';
-    util.fileCheck('should create NuGet configuration file', filename);
-    util.fileContentCheck(filename, 'Check file content', /api\.nuget\.org/);
-    util.noFileContentCheck(filename, 'Check file content for no unstable feed', /https:\/\/dotnet\.myget\.org\/F\/aspnet1\/api\/v3/);
-  });
-
-  // unstable feed should be found in generated file
-  describe('aspnet:nuget --unstable', function() {
-    var arg = '--unstable';
-    var filename = 'NuGet.config';
-    util.goCreateWithArgs('nuget', [arg]);
-    util.fileCheck('should create ' + filename + ' file with unstable feed', filename);
-    util.fileContentCheck(filename, 'Check file content for unstable feed', /https:\/\/dotnet\.myget\.org\/F\/aspnet1\/api\/v3/);
   });
 
   describe('aspnet:readme creates README.md', function() {
@@ -114,7 +95,7 @@ describe.skip('Subgenerators without arguments tests', function() {
     util.fileContentCheck(filename, 'Check file content', /^# MyNamespace$/m);
   });
 
-  describe('aspnet:readme in cwd of project.json should contain correct project name', function() {
+  describe.skip('aspnet:readme in cwd of project.json should contain correct project name', function() {
     var dir = util.makeTempDir();
     util.goCreateApplication('classlib', 'emptyTest', dir);
     util.goCreate('readme', path.join(dir, 'emptyTest'));
@@ -122,7 +103,7 @@ describe.skip('Subgenerators without arguments tests', function() {
     util.fileContentCheck('README.md', 'file content check', /^# emptyTest$/m);
   });
 
-  describe('aspnet:readme with --txt option in cwd of project.json should contain correct project name', function() {
+  describe.skip('aspnet:readme with --txt option in cwd of project.json should contain correct project name', function() {
     var arg = '--txt';
     var dir = util.makeTempDir();
     util.goCreateApplication('classlib', 'emptyTest', dir);
