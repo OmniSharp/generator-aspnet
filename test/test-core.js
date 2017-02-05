@@ -37,7 +37,7 @@ describe('package.json contains dotnet version information', function() {
  */
 describe('aspnet - Empty Web Application', function() {
 
-  util.goCreateApplication('emptyweb', 'emptyWebTest');
+  util.goCreateApplication('web', 'emptyWebTest');
 
   describe('Checking directories', function() {
 
@@ -242,7 +242,7 @@ describe('aspnet - MSTest Unit Test', function() {
  */
 describe('aspnet - Web Application (Bootstrap)', function() {
 
-  util.goCreateApplication('web', 'webTest');
+  util.goCreateApplication('mvc', 'webTest');
 
   describe('Checking directories', function() {
 
@@ -419,7 +419,7 @@ describe('aspnet - Web Application (Bootstrap)', function() {
  */
 describe('aspnet - Web Application (Semantic UI)', function() {
 
-  util.goCreateApplicationWithOptions('web', 'webTest', 'semantic', {});
+  util.goCreateApplicationWithOptions('mvc', 'webTest', 'semantic', {});
 
   describe('Checking directories', function() {
 
@@ -648,7 +648,7 @@ describe('aspnet - Web Application (Semantic UI)', function() {
  */
 describe('aspnet - Web Application Basic (Bootstrap)', function() {
 
-  util.goCreateApplication('webbasic', 'webTest');
+  util.goCreateApplication('mvcbasic', 'webTest');
 
   describe('Checking directories', function() {
 
@@ -751,7 +751,7 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
  */
 describe('aspnet - Web Application Basic (Semantic UI)', function() {
 
-  util.goCreateApplicationWithOptions('webbasic', 'webTest', 'semantic', {});
+  util.goCreateApplicationWithOptions('mvcbasic', 'webTest', 'semantic', {});
 
   describe('Checking directories', function() {
 
@@ -1128,7 +1128,7 @@ describe('F# MSTest Unit Test', function() {
  */
 describe('aspnet - F# Empty Web Application', function() {
 
-  util.goCreateApplication('fsharp_emptyweb', 'fsharpEmptyWebTest');
+  util.goCreateApplication('fsharp_web', 'fsharpEmptyWebTest');
 
   describe('Checking directories', function() {
 
@@ -1251,85 +1251,85 @@ describe('aspnet - Fsharp Web API Application', function() {
  */
 describe('aspnet - FSharp Web Application Basic', function() {
 
-  util.goCreateApplication('fsharp_webbasic', 'fsharpWebBasicTest');
+  util.goCreateApplication('fsharp_mvcbasic', 'fsharpMvcBasicTest');
 
   describe('Checking directories', function() {
 
     it('Application directory created', function() {
-      assert.file('fsharpWebBasicTest/');
+      assert.file('fsharpMvcBasicTest/');
     });
 
     it('Properties directory created', function() {
-      assert.file('fsharpWebBasicTest/Properties');
+      assert.file('fsharpMvcBasicTest/Properties');
     });
 
     it('Controllers directory created', function() {
-      assert.file('fsharpWebBasicTest/Controllers');
+      assert.file('fsharpMvcBasicTest/Controllers');
     });
 
     it('Views directory created', function() {
-      assert.file('fsharpWebBasicTest/Views');
+      assert.file('fsharpMvcBasicTest/Views');
     });
 
     it('Views/Home directory created', function() {
-      assert.file('fsharpWebBasicTest/Views/Home');
+      assert.file('fsharpMvcBasicTest/Views/Home');
     });
 
     it('Views/Shared directory created', function() {
-      assert.file('fsharpWebBasicTest/Views/Shared');
+      assert.file('fsharpMvcBasicTest/Views/Shared');
     });
 
     it('wwwroot directory created', function() {
-      assert.file('fsharpWebBasicTest/wwwroot');
+      assert.file('fsharpMvcBasicTest/wwwroot');
     });
 
     it('wwwroot/css directory created', function() {
-      assert.file('fsharpWebBasicTest/wwwroot/css');
+      assert.file('fsharpMvcBasicTest/wwwroot/css');
     });
 
     it('wwwroot/images directory created', function() {
-      assert.file('fsharpWebBasicTest/wwwroot/images');
+      assert.file('fsharpMvcBasicTest/wwwroot/images');
     });
 
     it('wwwroot/js directory created', function() {
-      assert.file('fsharpWebBasicTest/wwwroot/js');
+      assert.file('fsharpMvcBasicTest/wwwroot/js');
     });
 
   });
 
   var files = [
-    'fsharpWebBasicTest/.bowerrc',
-    'fsharpWebBasicTest/.gitignore',
-    'fsharpWebBasicTest/Controllers/HomeController.fs',
-    'fsharpWebBasicTest/Dockerfile',
-    'fsharpWebBasicTest/Program.fs',
-    'fsharpWebBasicTest/Properties/launchSettings.json',
-    'fsharpWebBasicTest/README.md',
-    'fsharpWebBasicTest/Startup.fs',
-    'fsharpWebBasicTest/Views/Home/About.cshtml',
-    'fsharpWebBasicTest/Views/Home/Contact.cshtml',
-    'fsharpWebBasicTest/Views/Home/Index.cshtml',
-    'fsharpWebBasicTest/Views/Shared/Error.cshtml',
-    'fsharpWebBasicTest/Views/Shared/_Layout.cshtml',
-    'fsharpWebBasicTest/Views/Shared/_ValidationScriptsPartial.cshtml',
-    'fsharpWebBasicTest/Views/_ViewImports.cshtml',
-    'fsharpWebBasicTest/Views/_ViewStart.cshtml',
-    'fsharpWebBasicTest/appsettings.Development.json',
-    'fsharpWebBasicTest/appsettings.json',
-    'fsharpWebBasicTest/bower.json',
-    'fsharpWebBasicTest/bundleconfig.json',
-    'fsharpWebBasicTest/fsharpWebBasicTest.fsproj',
-    'fsharpWebBasicTest/global.json',
-    'fsharpWebBasicTest/web.config',
-    'fsharpWebBasicTest/wwwroot/css/site.css',
-    'fsharpWebBasicTest/wwwroot/css/site.min.css',
-    'fsharpWebBasicTest/wwwroot/favicon.ico',
-    'fsharpWebBasicTest/wwwroot/images/banner1.svg',
-    'fsharpWebBasicTest/wwwroot/images/banner2.svg',
-    'fsharpWebBasicTest/wwwroot/images/banner3.svg',
-    'fsharpWebBasicTest/wwwroot/images/banner4.svg',
-    'fsharpWebBasicTest/wwwroot/js/site.js',
-    'fsharpWebBasicTest/wwwroot/js/site.min.js'
+    'fsharpMvcBasicTest/.bowerrc',
+    'fsharpMvcBasicTest/.gitignore',
+    'fsharpMvcBasicTest/Controllers/HomeController.fs',
+    'fsharpMvcBasicTest/Dockerfile',
+    'fsharpMvcBasicTest/Program.fs',
+    'fsharpMvcBasicTest/Properties/launchSettings.json',
+    'fsharpMvcBasicTest/README.md',
+    'fsharpMvcBasicTest/Startup.fs',
+    'fsharpMvcBasicTest/Views/Home/About.cshtml',
+    'fsharpMvcBasicTest/Views/Home/Contact.cshtml',
+    'fsharpMvcBasicTest/Views/Home/Index.cshtml',
+    'fsharpMvcBasicTest/Views/Shared/Error.cshtml',
+    'fsharpMvcBasicTest/Views/Shared/_Layout.cshtml',
+    'fsharpMvcBasicTest/Views/Shared/_ValidationScriptsPartial.cshtml',
+    'fsharpMvcBasicTest/Views/_ViewImports.cshtml',
+    'fsharpMvcBasicTest/Views/_ViewStart.cshtml',
+    'fsharpMvcBasicTest/appsettings.Development.json',
+    'fsharpMvcBasicTest/appsettings.json',
+    'fsharpMvcBasicTest/bower.json',
+    'fsharpMvcBasicTest/bundleconfig.json',
+    'fsharpMvcBasicTest/fsharpMvcBasicTest.fsproj',
+    'fsharpMvcBasicTest/global.json',
+    'fsharpMvcBasicTest/web.config',
+    'fsharpMvcBasicTest/wwwroot/css/site.css',
+    'fsharpMvcBasicTest/wwwroot/css/site.min.css',
+    'fsharpMvcBasicTest/wwwroot/favicon.ico',
+    'fsharpMvcBasicTest/wwwroot/images/banner1.svg',
+    'fsharpMvcBasicTest/wwwroot/images/banner2.svg',
+    'fsharpMvcBasicTest/wwwroot/images/banner3.svg',
+    'fsharpMvcBasicTest/wwwroot/images/banner4.svg',
+    'fsharpMvcBasicTest/wwwroot/js/site.js',
+    'fsharpMvcBasicTest/wwwroot/js/site.min.js'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -1337,23 +1337,23 @@ describe('aspnet - FSharp Web Application Basic', function() {
     }
 
     it('bower.json name field is lower case', function() {
-      assert.fileContent('fsharpWebBasicTest/bower.json', /"name": "fsharpwebbasictest"/);
+      assert.fileContent('fsharpMvcBasicTest/bower.json', /"name": "fsharpmvcbasictest"/);
     });
 
     it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('fsharpWebBasicTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
+      assert.noFileContent('fsharpMvcBasicTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     });
 
     it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('fsharpWebBasicTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+      assert.noFileContent('fsharpMvcBasicTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpWebBasicTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpMvcBasicTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
     it('.fsproj contains correct version', function() {
-      assert.fileContent('fsharpWebBasicTest/fsharpWebBasicTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
+      assert.fileContent('fsharpMvcBasicTest/fsharpMvcBasicTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -1367,13 +1367,13 @@ describe('command line options', function() {
   it('keeps project type and application name if passed correctly from CLI', function() {
     var app = require('../app');
     app.prototype.log = function() {}; //stub
-    app.prototype.type = 'webbasic';
+    app.prototype.type = 'mvcbasic';
     app.prototype.applicationName = 'myWebApp';
     app.prototype.ui = 'bootstrap';
 
     app.prototype._checkProjectType();
 
-    assert.equal('webbasic', app.prototype.type);
+    assert.equal('mvcbasic', app.prototype.type);
     assert.equal('myWebApp', app.prototype.applicationName);
     assert.equal('bootstrap', app.prototype.ui);
   });

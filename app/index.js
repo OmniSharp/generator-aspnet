@@ -28,10 +28,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       //normalize to lower case
       this.type = this.type.toLowerCase();
       var validProjectTypes = [
-        'emptyweb',
-        'console',
         'web',
-        'webbasic',
+        'console',
+        'mvc',
+        'mvcbasic',
         'webapi',
         'nancy',
         'classlib',
@@ -40,8 +40,8 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         'fsharp_classlib',
         'fsharp_webapi',
         'fsharp_console',
-        'fsharp_emptyweb',
-        'fsharp_webbasic',
+        'fsharp_web',
+        'fsharp_mvcbasic',
         'fsharp_mstest',
         'fsharp_xunit'];
 
@@ -68,10 +68,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         choices: [
           {
             name: 'Empty Web Application',
-            value: 'emptyweb'
+            value: 'web'
           }, {
             name: 'Empty Web Application (F#)',
-            value: 'fsharp_emptyweb'
+            value: 'fsharp_web'
           }, {
             name: 'Console Application',
             value: 'console'
@@ -80,13 +80,13 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             value: 'fsharp_console'
           }, {
             name: 'Web Application',
-            value: 'web'
+            value: 'mvc'
           }, {
             name: 'Web Application Basic [without Membership and Authorization]',
-            value: 'webbasic'
+            value: 'mvcbasic'
           }, {
             name: 'Web Application Basic [without Membership and Authorization] (F#)',
-            value: 'fsharp_webbasic'
+            value: 'fsharp_mvcbasic'
           }, {
             name: 'Web API Application',
             value: 'webapi'
@@ -133,7 +133,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             }
           ],
           when: function (answers){
-            return answers.type === 'web' || answers.type === 'webbasic';
+            return answers.type === 'mvc' || answers.type === 'mvcbasic';
           }
 
       }
@@ -152,7 +152,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.templatedata.applicationname = this.applicationName;
     this.templatedata.includeApplicationInsights = false;
     this.templatedata.guid = guid.v4();
-    this.templatedata.sqlite = (this.type === 'web') ? true : false;
+    this.templatedata.sqlite = (this.type === 'mvc') ? true : false;
     this.templatedata.ui = this.ui;
     this.templatedata.version = "1.0.0-preview2-1-003177";
     this.templatedata.dotnet = {
@@ -168,16 +168,16 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       var done = this.async();
       var app = '';
       switch (this.type) {
-        case 'emptyweb':
+        case 'web':
           app = 'EmptyWebApplication';
           break;
         case 'console':
           app = 'ConsoleApplication';
           break;
-        case 'web':
+        case 'mvc':
           app = 'WebApplication';
           break;
-        case 'webbasic':
+        case 'mvcbasic':
           app = 'WebApplicationBasic';
           break;
         case 'webapi':
@@ -204,10 +204,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'fsharp_webapi':
           app = "WebAPIApplication";
           break;
-        case 'fsharp_emptyweb':
+        case 'fsharp_web':
           app = "EmptyWebApplication";
           break;
-        case 'fsharp_webbasic':
+        case 'fsharp_mvcbasic':
           app = "WebApplicationBasic";
           break;
         case 'fsharp_mstest':
@@ -237,7 +237,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
 
     switch (this.type) {
 
-      case 'emptyweb':
+      case 'web':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
 
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
@@ -279,7 +279,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
-      case 'web':
+      case 'mvc':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // individual files (configs, etc)
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
@@ -324,7 +324,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('/../../overrides/' + this.ui + '/' + this.type + '/**/*'), this.applicationName + '/', this.templatedata);
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
-      case 'webbasic':
+      case 'mvcbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // individual files (configs, etc)
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
@@ -420,7 +420,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
-      case 'fsharp_emptyweb':
+      case 'fsharp_web':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.template(this.sourceRoot() + '/Program.fs', this.applicationName + '/Program.fs', this.templatedata);
@@ -455,7 +455,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
 
-      case 'fsharp_webbasic':
+      case 'fsharp_mvcbasic':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
         // individual files (configs, etc)
         this.fs.copyTpl(this.sourceRoot() + '/../../Dockerfile.txt', this.applicationName + '/Dockerfile', this.templatedata);
@@ -516,7 +516,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
    * --skip-install option
    */
   end: function() {
-    if(!this.options['skip-install'] && (this.type === 'web' || this.type === 'webbasic' || this.type === "fsharp_webbasic")) {
+    if(!this.options['skip-install'] && (this.type === 'mvc' || this.type === 'mvcbasic' || this.type === "fsharp_mvcbasic")) {
       process.chdir(this.applicationName);
       this.installDependencies({
         npm: false,
@@ -538,22 +538,22 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.log(chalk.green('    cd "' + this.applicationName + '"'));
     this.log(chalk.green('    dotnet restore'));
     this.log(chalk.green('    dotnet build') + ' (optional, build will also happen when it\'s run)');
-    if(this.type === 'web') {
+    if(this.type === 'mvc') {
       this.log(chalk.green('    dotnet ef database update') + ' (to create the SQLite database for the project)');
     }
     switch (this.type) {
       case 'console':
         this.log(chalk.green('    dotnet run'));
         break;
-      case 'emptyweb':
-      case 'nancy':
       case 'web':
+      case 'nancy':
+      case 'mvc':
       case 'webapi':
-      case 'webbasic':
+      case 'mvcbasic':
       case 'fsharp_console':
       case 'fsharp_webapi':
-      case 'fsharp_webbasic':
-      case 'fsharp_emptyweb':
+      case 'fsharp_mvcbasic':
+      case 'fsharp_web':
         this.log(chalk.green('    dotnet run'));
         break;
       case 'xunit':

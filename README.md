@@ -78,20 +78,20 @@ The project type and application name can be specified as optional command line 
 
 The valid project types are:
 
-- `emptyweb` for Empty Web Application
+- `web` for Empty Web Application
 - `console` for Console Application
-- `web` for Web Application
-- `webbasic` for Web Application Basic
+- `mvc` for Web Application
+- `mvcbasic` for Web Application Basic
 - `webapi` for Web API Application
 - `nancy` for Nancy ASP.NET Application
 - `classlib` for Class Library
 - `mstest` MSTest Test project (MSTest)
 - `xunit` xUnit Test project (xUnit.net)
-- `fsharp_emptyweb` for F# Empty Web Application
+- `fsharp_web` for F# Empty Web Application
 - `fsharp_console` for F# Console Application
 - `fsharp_classlib` for F# Class Library
 - `fsharp_webapi` for F# Web API Application
-- `fsharp_webbasic` for F# Web Application Basic
+- `fsharp_mvcbasic` for F# Web Application Basic
 - `fsharp_mstest` for F# Unit Test project (MSTest)
 - `fsharp_xunit` for F# xUnit Test project (xUnit.net)
 
@@ -100,9 +100,9 @@ The valid UI framework types are:
 - `bootstrap` for Bootstrap (this is the default and does not have to be specified explicitly)
 - `semantic` for Semantic UI
 
-> Example: `yo aspnet webbasic "my semantic app" semantic` will create a "Web Application Basic" project called "my semantic app" using the Semantic UI framework.
+> Example: `yo aspnet mvcbasic "my semantic app" semantic` will create a "Web Application Basic" project called "my semantic app" using the Semantic UI framework.
 
-> Example: `yo aspnet webbasic "my bootstrap app"` OR `yo aspnet webbasic "my bootstrap app" bootstrap` will create a "Web Application Basic" project called "my bootstrap app" using the Bootstrap framework.
+> Example: `yo aspnet mvcbasic "my bootstrap app"` OR `yo aspnet mvcbasic "my bootstrap app" bootstrap` will create a "Web Application Basic" project called "my bootstrap app" using the Bootstrap framework.
 
 ## Related yeoman generators
 
