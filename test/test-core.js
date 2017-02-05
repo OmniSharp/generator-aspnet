@@ -914,24 +914,22 @@ describe('aspnet - Web API Application', function() {
       assert.file('webAPITest/Properties');
     });
 
-    it('wwwroot directory created', function() {
-      assert.file('webAPITest/wwwroot');
-    });
   });
 
 
   var files = [
-    'webAPITest/Controllers/ValuesController.cs',
+    'webAPITest/.gitignore',
     'webAPITest/appsettings.json',
+    'webAPITest/appsettings.Development.json',
+    'webAPITest/Controllers/ValuesController.cs',
+    'webAPITest/Dockerfile',
     'webAPITest/global.json',
-    'webAPITest/project.json',
     'webAPITest/Program.cs',
+    'webAPITest/webAPITest.csproj',
     'webAPITest/Properties/launchSettings.json',
     'webAPITest/README.md',
     'webAPITest/Startup.cs',
-    'webAPITest/.gitignore',
     'webAPITest/web.config',
-    'webAPITest/Dockerfile'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -948,6 +946,10 @@ describe('aspnet - Web API Application', function() {
 
     it('global.json contains correct version', function() {
       assert.fileContent('webAPITest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('webAPITest/webAPITest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
