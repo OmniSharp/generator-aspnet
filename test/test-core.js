@@ -242,7 +242,7 @@ describe('aspnet - MSTest Unit Test', function() {
  */
 describe('aspnet - Web Application (Bootstrap)', function() {
 
-  util.goCreateApplication('web', 'webTest');
+  util.goCreateApplication('mvc', 'webTest');
 
   describe('Checking directories', function() {
 
@@ -419,7 +419,7 @@ describe('aspnet - Web Application (Bootstrap)', function() {
  */
 describe('aspnet - Web Application (Semantic UI)', function() {
 
-  util.goCreateApplicationWithOptions('web', 'webTest', 'semantic', {});
+  util.goCreateApplicationWithOptions('mvc', 'webTest', 'semantic', {});
 
   describe('Checking directories', function() {
 

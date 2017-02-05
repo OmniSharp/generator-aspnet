@@ -75,7 +75,7 @@ describe.skip('aspnet:usersecrets', function() {
       var tempDir = util.makeTempDir();
       helpers.run(require.resolve('../app'))
         .withPrompts({
-          type: 'web',
+          type: 'mvc',
           applicationName: 'webTest'
         })
         .inDir(tempDir)

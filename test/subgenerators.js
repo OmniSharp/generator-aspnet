@@ -42,7 +42,7 @@ describe.skip('Subgenerators without arguments tests', function() {
     var arg = 'file';
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('web', 'webTest', dir);
+    util.goCreateApplication('mvc', 'webTest', dir);
     util.goCreateWithArgs('mvccontroller', [arg], path.join(dir, 'webTest'));
 
     util.fileContentCheck('project.json', 'file content check', new RegExp('"Microsoft.NETCore.App":\\s*{\\s*"version": "' + sdkVersion + '"'));
@@ -276,7 +276,7 @@ describe.skip('Subgenerators with named arguments tests', function() {
     var filename = 'file.cs';
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('web', 'webTest', dir);
+    util.goCreateApplication('mvc', 'webTest', dir);
     util.goCreateWithArgs('mvccontroller', [arg], path.join(dir, 'webTest'));
 
     util.fileCheck('should create Controllers/' + filename + ' file', filename);
@@ -300,7 +300,7 @@ describe.skip('Subgenerators with named arguments tests', function() {
     var filename = 'file.cshtml';
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('web', 'webTest', dir);
+    util.goCreateApplication('mvc', 'webTest', dir);
     util.goCreateWithArgs('mvcview', [arg], path.join(dir, 'webTest'));
     util.fileCheck('should create Views/' + filename + ' file', filename);
   });
@@ -338,7 +338,7 @@ describe.skip('Subgenerators with named arguments tests', function() {
     var filename = 'file.cs';
     var dir = util.makeTempDir();
 
-    util.goCreateApplication('web', 'webTest', dir);
+    util.goCreateApplication('mvc', 'webTest', dir);
     util.goCreateWithArgs('webapicontroller', [arg], path.join(dir, 'webTest'));
 
     util.fileCheck('should create Controllers/' + filename + ' file', filename);

@@ -80,7 +80,7 @@ The valid project types are:
 
 - `emptyweb` for Empty Web Application
 - `console` for Console Application
-- `web` for Web Application
+- `mvc` for Web Application
 - `webbasic` for Web Application Basic
 - `webapi` for Web API Application
 - `nancy` for Nancy ASP.NET Application
