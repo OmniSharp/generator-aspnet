@@ -991,7 +991,7 @@ describe('aspnet - Nancy Application', function() {
  */
 describe('FSharp Class Library', function() {
 
-  util.goCreateApplication('fsharp_lib', 'fsharpLibTest');
+  util.goCreateApplication('fsharp_classlib', 'fsharpLibTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
