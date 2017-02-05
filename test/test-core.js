@@ -37,7 +37,7 @@ describe('package.json contains dotnet version information', function() {
  */
 describe('aspnet - Empty Web Application', function() {
 
-  util.goCreateApplication('emptyweb', 'emptyWebTest');
+  util.goCreateApplication('web', 'emptyWebTest');
 
   describe('Checking directories', function() {
 
@@ -1128,7 +1128,7 @@ describe('F# MSTest Unit Test', function() {
  */
 describe('aspnet - F# Empty Web Application', function() {
 
-  util.goCreateApplication('fsharp_emptyweb', 'fsharpEmptyWebTest');
+  util.goCreateApplication('fsharp_web', 'fsharpEmptyWebTest');
 
   describe('Checking directories', function() {
 

@@ -78,7 +78,7 @@ The project type and application name can be specified as optional command line 
 
 The valid project types are:
 
-- `emptyweb` for Empty Web Application
+- `web` for Empty Web Application
 - `console` for Console Application
 - `mvc` for Web Application
 - `webbasic` for Web Application Basic
@@ -87,7 +87,7 @@ The valid project types are:
 - `classlib` for Class Library
 - `mstest` MSTest Test project (MSTest)
 - `xunit` xUnit Test project (xUnit.net)
-- `fsharp_emptyweb` for F# Empty Web Application
+- `fsharp_web` for F# Empty Web Application
 - `fsharp_console` for F# Console Application
 - `fsharp_classlib` for F# Class Library
 - `fsharp_webapi` for F# Web API Application
