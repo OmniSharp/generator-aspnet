@@ -101,7 +101,7 @@ describe('aspnet - Empty Web Application', function() {
  */
 describe('aspnet - Class Library', function() {
 
-  util.goCreateApplication('classlibrary', 'classLibraryTest');
+  util.goCreateApplication('classlib', 'classLibraryTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
@@ -120,7 +120,7 @@ describe('aspnet - Class Library', function() {
     });
 
     it('.csproj contains correct version', function() {
-      assert.fileContent('classLibraryTest/classLibraryTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
+      assert.fileContent('classLibraryTest/classLibraryTest.csproj', /<TargetFramework\>netstandard1\.4<\/TargetFramework>/);
     });
 
   });

@@ -84,7 +84,7 @@ The valid project types are:
 - `webbasic` for Web Application Basic
 - `webapi` for Web API Application
 - `nancy` for Nancy ASP.NET Application
-- `classlibrary` for Class Library
+- `classlib` for Class Library
 - `mstest` MSTest Test project (MSTest)
 - `xunit` xUnit Test project (xUnit.net)
 - `fsharp_emptyweb` for F# Empty Web Application
