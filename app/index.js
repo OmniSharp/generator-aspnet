@@ -150,6 +150,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
   _buildTemplateData: function() {
     this.templatedata.namespace = projectName(this.applicationName);
     this.templatedata.applicationname = this.applicationName;
+    this.templatedata.includeApplicationInsights = false;
     this.templatedata.guid = guid.v4();
     this.templatedata.sqlite = (this.type === 'web') ? true : false;
     this.templatedata.ui = this.ui;
