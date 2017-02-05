@@ -29,7 +29,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       this.type = this.type.toLowerCase();
       var validProjectTypes = [
         'emptyweb',
-        'consoleapp',
+        'console',
         'web',
         'webbasic',
         'webapi',
@@ -74,7 +74,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             value: 'fsharp_emptyweb'
           }, {
             name: 'Console Application',
-            value: 'consoleapp'
+            value: 'console'
           }, {
             name: 'Console Application (F#)',
             value: 'fsharp_console'
@@ -171,7 +171,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         case 'emptyweb':
           app = 'EmptyWebApplication';
           break;
-        case 'consoleapp':
+        case 'console':
           app = 'ConsoleApplication';
           break;
         case 'web':
@@ -369,11 +369,11 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.template(this.sourceRoot() + '/Program.cs', this.applicationName + '/Program.cs', this.templatedata);
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
-      case 'consoleapp':
-        this.sourceRoot(path.join(__dirname, '../templates/projects/consoleapp'));
+      case 'console':
+        this.sourceRoot(path.join(__dirname, '../templates/projects/console'));
         this.fs.copy(path.join(__dirname, '../templates/gitignore.txt'), this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('ConsoleApp.csproj'), this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
+        this.fs.copyTpl(this.templatePath('Company.ConsoleApplication1.csproj'), this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
       case 'classlibrary':
@@ -542,7 +542,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
       this.log(chalk.green('    dotnet ef database update') + ' (to create the SQLite database for the project)');
     }
     switch (this.type) {
-      case 'consoleapp':
+      case 'console':
         this.log(chalk.green('    dotnet run'));
         break;
       case 'emptyweb':
