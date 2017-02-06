@@ -129,6 +129,7 @@ The alphabetic list of available sub generators (_to create files after the proj
 * [aspnet:startup](#startup)
 * [aspnet:taghelper](#taghelper)
 * [aspnet:webapicontroller](#webapicontroller)
+* [aspnet:webconfig](#webconfig)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
 
@@ -339,6 +340,20 @@ yo aspnet:webapicontroller ValuesController
 Produces `/ValuesController.cs`
 
 [Read more about Web API MVC concepts on docs.asp.net](https://docs.asp.net/en/latest/tutorials/first-web-api.html)
+
+[Return to top](#top)
+
+### webconfig
+
+Creates a new Web Config file
+
+Example:
+
+```
+yo aspnet:webconfig
+```
+
+Produces `web.config`
 
 [Return to top](#top)
 

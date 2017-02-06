@@ -112,6 +112,12 @@ describe('Subgenerators without arguments tests', function() {
     util.fileContentCheck('README.txt', 'file content check', /^# emptyTest$/m);
   });
 
+  describe('aspnet:webconfig', function() {
+    util.goCreate('webconfig');
+    var filename = 'web.config';
+    util.fileCheck('should create web.config configuration file', filename);
+  });
+
 });
 
 /*

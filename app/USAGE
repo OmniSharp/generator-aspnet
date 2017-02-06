@@ -21,3 +21,4 @@ Subgenerators:
   yo aspnet:startup [options]
   yo aspnet:taghelper [options] <name>
   yo aspnet:webapicontroller [options] <name>
+  yo aspnet:webconfig [options] <name>

@@ -1,0 +1,8 @@
+Description:
+    Creates a new Web Config file
+
+Example:
+    yo aspnet:webconfig
+
+    This will create:
+        web.config
