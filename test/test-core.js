@@ -320,6 +320,7 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     'mvcTest/appsettings.Development.json',
     'mvcTest/bower.json',
     'mvcTest/bundleconfig.json',
+    'mvcTest/mvcTest.db',
     'mvcTest/Controllers/AccountController.cs',
     'mvcTest/Controllers/HomeController.cs',
     'mvcTest/Controllers/ManageController.cs',

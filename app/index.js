@@ -290,6 +290,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copyTpl(this.templatePath('appsettings.Development.json'), this.applicationName + '/appsettings.Development.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
         this.fs.copy(this.templatePath('bundleconfig.json'), this.applicationName + '/bundleconfig.json');
+        this.fs.copy(this.templatePath('Company.WebApplication1.db'), this.applicationName + '/' + this.applicationName + '.db');
         this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
         this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
         this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
