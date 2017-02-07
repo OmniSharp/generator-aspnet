@@ -320,6 +320,7 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     'mvcTest/appsettings.Development.json',
     'mvcTest/bower.json',
     'mvcTest/bundleconfig.json',
+    'mvcTest/mvcTest.csproj',
     'mvcTest/mvcTest.db',
     'mvcTest/Controllers/AccountController.cs',
     'mvcTest/Controllers/HomeController.cs',
@@ -346,7 +347,6 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     'mvcTest/Models/ManageViewModels/SetPasswordViewModel.cs',
     'mvcTest/Models/ManageViewModels/VerifyPhoneNumberViewModel.cs',
     'mvcTest/Program.cs',
-    'mvcTest/project.json',
     'mvcTest/Properties/launchSettings.json',
     'mvcTest/README.md',
     'mvcTest/Services/IEmailSender.cs',
@@ -412,6 +412,10 @@ describe('aspnet - Web Application (Bootstrap)', function() {
       assert.fileContent('mvcTest/global.json', /1.0.0-preview2-1-003177/);
     });
 
+    it('.csproj contains correct version', function() {
+      assert.fileContent('mvcTest/mvcTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
+    });
+
   });
 
 });
@@ -421,158 +425,159 @@ describe('aspnet - Web Application (Bootstrap)', function() {
  */
 describe('aspnet - Web Application (Semantic UI)', function() {
 
-  util.goCreateApplicationWithOptions('mvc', 'webTest', 'semantic', {});
+  util.goCreateApplicationWithOptions('mvc', 'mvcTest', 'semantic', {});
 
   describe('Checking directories', function() {
 
     it('Application directory created', function() {
-      assert.file('webTest/');
+      assert.file('mvcTest/');
     });
 
     it('Controllers directory created', function() {
-      assert.file('webTest/Controllers');
+      assert.file('mvcTest/Controllers');
     });
 
     it('Data directory created', function() {
-      assert.file('webTest/Data');
+      assert.file('mvcTest/Data');
     });
 
     it('Migrations directory created', function() {
-      assert.file('webTest/Data/Migrations');
+      assert.file('mvcTest/Data/Migrations');
     });
 
     it('Models directory created', function() {
-      assert.file('webTest/Models');
+      assert.file('mvcTest/Models');
     });
 
     it('AccountViewModels directory created', function() {
-      assert.file('webTest/Models/AccountViewModels');
+      assert.file('mvcTest/Models/AccountViewModels');
     });
 
     it('Properties directory created', function() {
-      assert.file('webTest/Properties');
+      assert.file('mvcTest/Properties');
     });
 
     it('Services directory created', function() {
-      assert.file('webTest/Services');
+      assert.file('mvcTest/Services');
     });
 
     it('Services directory created', function() {
-      assert.file('webTest/TagHelpers');
+      assert.file('mvcTest/TagHelpers');
     });
 
     it('Views directory created', function() {
-      assert.file('webTest/Views');
+      assert.file('mvcTest/Views');
     });
 
     it('Views/Home directory created', function() {
-      assert.file('webTest/Views/Home');
+      assert.file('mvcTest/Views/Home');
     });
 
     it('Views/Manage directory created', function() {
-      assert.file('webTest/Views/Manage');
+      assert.file('mvcTest/Views/Manage');
     });
 
     it('Views/Shared directory created', function() {
-      assert.file('webTest/Views/Shared');
+      assert.file('mvcTest/Views/Shared');
     });
 
     it('wwwroot directory created', function() {
-      assert.file('webTest/wwwroot');
+      assert.file('mvcTest/wwwroot');
     });
 
     it('wwwroot/css directory created', function() {
-      assert.file('webTest/wwwroot/css');
+      assert.file('mvcTest/wwwroot/css');
     });
 
     it('wwwroot/images directory created', function() {
-      assert.file('webTest/wwwroot/images');
+      assert.file('mvcTest/wwwroot/images');
     });
 
     it('wwwroot/js directory created', function() {
-      assert.file('webTest/wwwroot/js');
+      assert.file('mvcTest/wwwroot/js');
     });
 
   });
 
 
   var files = [
-    'webTest/.bowerrc',
-    'webTest/.gitignore',
-    'webTest/appsettings.json',
-    'webTest/bower.json',
-    'webTest/bundleconfig.json',
-    'webTest/Dockerfile',
-    'webTest/Program.cs',
-    'webTest/global.json',
-    'webTest/project.json',
-    'webTest/README.md',
-    'webTest/Startup.cs',
-    'webTest/Controllers/AccountController.cs',
-    'webTest/Controllers/HomeController.cs',
-    'webTest/Controllers/ManageController.cs',
-    'webTest/Data//ApplicationDbContext.cs',
-    'webTest/Data/Migrations/00000000000000_CreateIdentitySchema.cs',
-    'webTest/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
-    'webTest/Data/Migrations/ApplicationDbContextModelSnapshot.cs',
-    'webTest/Models/AccountViewModels/ExternalLoginConfirmationViewModel.cs',
-    'webTest/Models/AccountViewModels/ForgotPasswordViewModel.cs',
-    'webTest/Models/AccountViewModels/RegisterViewModel.cs',
-    'webTest/Models/AccountViewModels/ResetPasswordViewModel.cs',
-    'webTest/Models/AccountViewModels/SendCodeViewModel.cs',
-    'webTest/Models/AccountViewModels/VerifyCodeViewModel.cs',
-    'webTest/Models/ApplicationUser.cs',
-    'webTest/Models/ManageViewModels/AddPhoneNumberViewModel.cs',
-    'webTest/Models/ManageViewModels/ChangePasswordViewModel.cs',
-    'webTest/Models/ManageViewModels/ConfigureTwoFactorViewModel.cs',
-    'webTest/Models/ManageViewModels/FactorViewModel.cs',
-    'webTest/Models/ManageViewModels/IndexViewModel.cs',
-    'webTest/Models/ManageViewModels/ManageLoginsViewModel.cs',
-    'webTest/Models/ManageViewModels/SetPasswordViewModel.cs',
-    'webTest/Models/ManageViewModels/VerifyPhoneNumberViewModel.cs',
-    'webTest/Properties/launchSettings.json',
-    'webTest/Services/IEmailSender.cs',
-    'webTest/Services/ISmsSender.cs',
-    'webTest/Services/MessageServices.cs',
-    'webTest/Views/_ViewImports.cshtml',
-    'webTest/Views/_ViewStart.cshtml',
-    'webTest/Views/Account/ConfirmEmail.cshtml',
-    'webTest/Views/Account/ExternalLoginConfirmation.cshtml',
-    'webTest/Views/Account/ExternalLoginFailure.cshtml',
-    'webTest/Views/Account/ForgotPassword.cshtml',
-    'webTest/Views/Account/ForgotPasswordConfirmation.cshtml',
-    'webTest/Views/Account/Lockout.cshtml',
-    'webTest/Views/Account/Login.cshtml',
-    'webTest/Views/Account/Register.cshtml',
-    'webTest/Views/Account/ResetPassword.cshtml',
-    'webTest/Views/Account/ResetPasswordConfirmation.cshtml',
-    'webTest/Views/Account/SendCode.cshtml',
-    'webTest/Views/Account/VerifyCode.cshtml',
-    'webTest/Views/Home/About.cshtml',
-    'webTest/Views/Home/Contact.cshtml',
-    'webTest/Views/Home/Index.cshtml',
-    'webTest/Views/Manage/AddPhoneNumber.cshtml',
-    'webTest/Views/Manage/ChangePassword.cshtml',
-    'webTest/Views/Manage/Index.cshtml',
-    'webTest/Views/Manage/ManageLogins.cshtml',
-    'webTest/Views/Manage/SetPassword.cshtml',
-    'webTest/Views/Manage/VerifyPhoneNumber.cshtml',
-    'webTest/Views/Shared/_Layout.cshtml',
-    'webTest/Views/Shared/_LoginPartial.cshtml',
-    'webTest/Views/Shared/_ValidationScriptsPartial.cshtml',
-    'webTest/Views/Shared/Error.cshtml',
-    'webTest/wwwroot/css/site.css',
-    'webTest/wwwroot/css/site.min.css',
-    'webTest/wwwroot/favicon.ico',
-    'webTest/wwwroot/images/banner1.svg',
-    'webTest/wwwroot/images/banner2.svg',
-    'webTest/wwwroot/images/banner3.svg',
-    'webTest/wwwroot/images/banner4.svg',
-    'webTest/wwwroot/js/semantic.validation.js',
-    'webTest/wwwroot/js/semantic.validation.min.js',
-    'webTest/wwwroot/js/site.js',
-    'webTest/wwwroot/js/site.min.js',
-    'webTest/web.config'
+    'mvcTest/.bowerrc',
+    'mvcTest/.gitignore',
+    'mvcTest/appsettings.json',
+    'mvcTest/bower.json',
+    'mvcTest/bundleconfig.json',
+    'mvcTest/Controllers/AccountController.cs',
+    'mvcTest/Controllers/HomeController.cs',
+    'mvcTest/Controllers/ManageController.cs',
+    'mvcTest/Data//ApplicationDbContext.cs',
+    'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.cs',
+    'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
+    'mvcTest/Data/Migrations/ApplicationDbContextModelSnapshot.cs',
+    'mvcTest/Dockerfile',
+    'mvcTest/global.json',
+    'mvcTest/Models/AccountViewModels/ExternalLoginConfirmationViewModel.cs',
+    'mvcTest/Models/AccountViewModels/ForgotPasswordViewModel.cs',
+    'mvcTest/Models/AccountViewModels/RegisterViewModel.cs',
+    'mvcTest/Models/AccountViewModels/ResetPasswordViewModel.cs',
+    'mvcTest/Models/AccountViewModels/SendCodeViewModel.cs',
+    'mvcTest/Models/AccountViewModels/VerifyCodeViewModel.cs',
+    'mvcTest/Models/ApplicationUser.cs',
+    'mvcTest/Models/ManageViewModels/AddPhoneNumberViewModel.cs',
+    'mvcTest/Models/ManageViewModels/ChangePasswordViewModel.cs',
+    'mvcTest/Models/ManageViewModels/ConfigureTwoFactorViewModel.cs',
+    'mvcTest/Models/ManageViewModels/FactorViewModel.cs',
+    'mvcTest/Models/ManageViewModels/IndexViewModel.cs',
+    'mvcTest/Models/ManageViewModels/ManageLoginsViewModel.cs',
+    'mvcTest/Models/ManageViewModels/SetPasswordViewModel.cs',
+    'mvcTest/Models/ManageViewModels/VerifyPhoneNumberViewModel.cs',
+    'mvcTest/mvcTest.csproj',
+    'mvcTest/mvcTest.db',
+    'mvcTest/Program.cs',
+    'mvcTest/Properties/launchSettings.json',
+    'mvcTest/README.md',
+    'mvcTest/Services/IEmailSender.cs',
+    'mvcTest/Services/ISmsSender.cs',
+    'mvcTest/Services/MessageServices.cs',
+    'mvcTest/Startup.cs',
+    'mvcTest/Views/_ViewImports.cshtml',
+    'mvcTest/Views/_ViewStart.cshtml',
+    'mvcTest/Views/Account/ConfirmEmail.cshtml',
+    'mvcTest/Views/Account/ExternalLoginConfirmation.cshtml',
+    'mvcTest/Views/Account/ExternalLoginFailure.cshtml',
+    'mvcTest/Views/Account/ForgotPassword.cshtml',
+    'mvcTest/Views/Account/ForgotPasswordConfirmation.cshtml',
+    'mvcTest/Views/Account/Lockout.cshtml',
+    'mvcTest/Views/Account/Login.cshtml',
+    'mvcTest/Views/Account/Register.cshtml',
+    'mvcTest/Views/Account/ResetPassword.cshtml',
+    'mvcTest/Views/Account/ResetPasswordConfirmation.cshtml',
+    'mvcTest/Views/Account/SendCode.cshtml',
+    'mvcTest/Views/Account/VerifyCode.cshtml',
+    'mvcTest/Views/Home/About.cshtml',
+    'mvcTest/Views/Home/Contact.cshtml',
+    'mvcTest/Views/Home/Index.cshtml',
+    'mvcTest/Views/Manage/AddPhoneNumber.cshtml',
+    'mvcTest/Views/Manage/ChangePassword.cshtml',
+    'mvcTest/Views/Manage/Index.cshtml',
+    'mvcTest/Views/Manage/ManageLogins.cshtml',
+    'mvcTest/Views/Manage/SetPassword.cshtml',
+    'mvcTest/Views/Manage/VerifyPhoneNumber.cshtml',
+    'mvcTest/Views/Shared/_Layout.cshtml',
+    'mvcTest/Views/Shared/_LoginPartial.cshtml',
+    'mvcTest/Views/Shared/_ValidationScriptsPartial.cshtml',
+    'mvcTest/Views/Shared/Error.cshtml',
+    'mvcTest/web.config',
+    'mvcTest/wwwroot/css/site.css',
+    'mvcTest/wwwroot/css/site.min.css',
+    'mvcTest/wwwroot/favicon.ico',
+    'mvcTest/wwwroot/images/banner1.svg',
+    'mvcTest/wwwroot/images/banner2.svg',
+    'mvcTest/wwwroot/images/banner3.svg',
+    'mvcTest/wwwroot/images/banner4.svg',
+    'mvcTest/wwwroot/js/semantic.validation.js',
+    'mvcTest/wwwroot/js/semantic.validation.min.js',
+    'mvcTest/wwwroot/js/site.js',
+    'mvcTest/wwwroot/js/site.min.js',
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -580,19 +585,23 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     }
 
     it('bower.json name field is lower case', function() {
-      assert.fileContent('webTest/bower.json', /"name": "webtest"/);
+      assert.fileContent('mvcTest/bower.json', /"name": "mvctest"/);
     });
 
     it('Dockerfile includes SQLite', function() {
-      assert.fileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
+      assert.fileContent('mvcTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
     });
 
     it('Dockerfile contains migrations', function() {
-      assert.fileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+      assert.fileContent('mvcTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
     it('global.json contains correct version', function() {
-      assert.fileContent('webTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('mvcTest/global.json', /1.0.0-preview2-1-003177/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('mvcTest/mvcTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -601,45 +610,45 @@ describe('aspnet - Web Application (Semantic UI)', function() {
   describe('Checking file content for overrides', function() {
 
     it('_Layout.cshtml contains menulink tags', function() {
-      assert.fileContent('webTest/Views/Shared/_Layout.cshtml', "menulink");
+      assert.fileContent('mvcTest/Views/Shared/_Layout.cshtml', "menulink");
     });
 
     it('_ViewImports.cshtml contains TagHelper', function() {
-      assert.fileContent('webTest/Views/_ViewImports.cshtml', '*, webTest');
+      assert.fileContent('mvcTest/Views/_ViewImports.cshtml', '*, mvcTest');
     });
 
     it('_ValidationScriptsPartial.cshtml contains reference to semantic.validation.js', function() {
-      assert.fileContent('webTest/Views/Shared/_ValidationScriptsPartial.cshtml', 'semantic.validation.js');
+      assert.fileContent('mvcTest/Views/Shared/_ValidationScriptsPartial.cshtml', 'semantic.validation.js');
     });
 
     it('site.css is overridden', function() {
-      assert.fileContent('webTest/wwwroot/css/site.css', '.masthead');
+      assert.fileContent('mvcTest/wwwroot/css/site.css', '.masthead');
     });
 
     it('site.js is overridden', function() {
-      assert.fileContent('webTest/wwwroot/js/site.js', '.sidebar(');
+      assert.fileContent('mvcTest/wwwroot/js/site.js', '.sidebar(');
     });
 
     //We wont explicitly check every single file in every directory, one file per directory should suffice
 
     it('Views/Account/ConfirmEmail.cshtml contains Semantic UI markup', function() {
-      assert.fileContent('webTest/Views/Account/ConfirmEmail.cshtml', 'ui header');
+      assert.fileContent('mvcTest/Views/Account/ConfirmEmail.cshtml', 'ui header');
     });
 
     it('Views/Home/About.cshtml contains Semantic UI markup', function() {
-      assert.fileContent('webTest/Views/Home/About.cshtml', 'ui container');
+      assert.fileContent('mvcTest/Views/Home/About.cshtml', 'ui container');
     });
 
     it('Views/Manage/AddPhoneNumber.cshtml contains Semantic UI markup', function() {
-      assert.fileContent('webTest/Views/Manage/AddPhoneNumber.cshtml', 'ui header');
+      assert.fileContent('mvcTest/Views/Manage/AddPhoneNumber.cshtml', 'ui header');
     });
 
     it('Views/Shared/Error.cshtml contains Semantic UI markup', function() {
-      assert.fileContent('webTest/Views/Shared/Error.cshtml', 'ui header');
+      assert.fileContent('mvcTest/Views/Shared/Error.cshtml', 'ui header');
     });
 
     it('bower.json contains semantic references', function() {
-      assert.fileContent('webTest/bower.json', 'semantic');
+      assert.fileContent('mvcTest/bower.json', 'semantic');
     });
   });
 

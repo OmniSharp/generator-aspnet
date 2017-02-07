@@ -37,7 +37,7 @@ describe('Subgenerators without arguments tests', function() {
     util.fileCheck('should create .gitignore file', '.gitignore');
   });
 
-  describe('aspnet:dockerfile has the same .NET version', function() {
+  describe.skip('aspnet:dockerfile has the same .NET version', function() {
     var sdkVersion = '1.1.0';
     var arg = 'file';
     var dir = util.makeTempDir();
