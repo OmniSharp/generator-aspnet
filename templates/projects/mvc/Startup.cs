@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,13 +21,13 @@ namespace <%= namespace %>
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
             if (env.IsDevelopment())
             {
                 // For more details on using the user secret store see https://go.microsoft.com/fwlink/?LinkID=532709
-                builder.AddUserSecrets();
+                builder.AddUserSecrets<Startup>();
             }
 
             builder.AddEnvironmentVariables();
@@ -64,7 +64,14 @@ namespace <%= namespace %>
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                <% if(dotnet.targetFramework !== 'netcoreapp1.1'){ %>
                 app.UseBrowserLink();
+                <% } %>
+                <% if(dotnet.targetFramework === 'netcoreapp1.1'){ %>
+                // Browser Link is not compatible with Kestrel 1.1.0
+                // For details on enabling Browser Link, see https://go.microsoft.com/fwlink/?linkid=840936
+                // app.UseBrowserLink()
+                <% } %>
             }
             else
             {

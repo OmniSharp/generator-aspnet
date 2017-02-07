@@ -287,10 +287,12 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         this.fs.copy(this.templatePath('.bowerrc'), this.applicationName + '/.bowerrc');
         this.fs.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
         this.fs.copyTpl(this.templatePath('appsettings.json'), this.applicationName + '/appsettings.json', this.templatedata);
+        this.fs.copyTpl(this.templatePath('appsettings.Development.json'), this.applicationName + '/appsettings.Development.json', this.templatedata);
         this.fs.copyTpl(this.templatePath('bower.json'), this.applicationName + '/bower.json', this.templatedata);
         this.fs.copy(this.templatePath('bundleconfig.json'), this.applicationName + '/bundleconfig.json');
+        this.fs.copy(this.templatePath('Company.WebApplication1.db'), this.applicationName + '/' + this.applicationName + '.db');
+        this.fs.copyTpl(this.templatePath('Company.WebApplication1.csproj'), this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
         this.fs.copyTpl(this.templatePath('Program.cs'), this.applicationName + '/Program.cs', this.templatedata);
-        this.fs.copyTpl(this.templatePath('project.json'), this.applicationName + '/project.json', this.templatedata);
         this.fs.copy(this.templatePath('README.md'), this.applicationName + '/README.md');
         this.fs.copyTpl(this.templatePath('Startup.cs'), this.applicationName + '/Startup.cs', this.templatedata);
         // Controllers
