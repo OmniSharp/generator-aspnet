@@ -13,7 +13,8 @@
     <None Remove="**/*.fs" />
   </ItemGroup>
   <% if(dotnet.targetFramework !== 'netcoreapp1.1'){ %>
-  <ItemGroup>
+  <ItemGroup><% if(includeApplicationInsights){ %>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0-beta1" /><% } %>
     <PackageReference Include="FSharp.NET.Sdk" Version="1.0.0-beta-*" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.2" />
@@ -25,7 +26,8 @@
   </ItemGroup>
   <% } %>
   <% if(dotnet.targetFramework === 'netcoreapp1.1'){ %>
-  <ItemGroup>
+  <ItemGroup><% if(includeApplicationInsights){ %>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0-beta1" /><% } %>
     <PackageReference Include="FSharp.NET.Sdk" Version="1.0.0-beta-*" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.0" />
