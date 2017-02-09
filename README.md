@@ -4,25 +4,22 @@
 ![Version](https://img.shields.io/npm/v/generator-aspnet.svg)
 ![Downloads per month](https://img.shields.io/npm/dm/generator-aspnet.svg)
 
-> NOTE: The content has been updated for .NET Core 1.1.0 (`project.json` based). For more info see https://github.com/OmniSharp/generator-aspnet/wiki/Version-info
+> NOTE: The content has been updated for .NET Core 1.0 SDK – RC4 (`.csproj` based) both LTS (1.0) and Current (1.1) versions
 
-Yeoman generator for ASP.NET Core projects
+## Yeoman generator for ASP.NET Core projects
 
-[![](https://cloud.githubusercontent.com/assets/14539/16569731/0590dada-423a-11e6-997c-1e1e20b1d37e.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core Generator')
+[![](https://cloud.githubusercontent.com/assets/14539/22796181/ac68db70-eef9-11e6-8c85-53215e7c1acc.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core Generator')
 
 ## Getting Started
 
 - Dependencies:
-    - Node.js: `brew install node` for Mac OS X, `choco install nodejs` for Windows OS
-    - Yeoman: `npm install -g yo`
-    - Bower `npm install -g bower`
+  - Node.js: `brew install node` for Mac OS X, `choco install nodejs` for Windows OS
+  - Yeoman: `npm install -g yo`
+  - Bower `npm install -g bower`
 - Install: `npm install -g generator-aspnet`
 - Run: `yo aspnet`
 
 See also: [Building Projects with Yeoman on docs.asp.net](https://docs.asp.net/en/latest/client-side/yeoman.html?#building-projects-with-yeoman)
-
-> NOTE: Starting from RTM release `Web Application` and `Web Application Basic` project templates use [`Bundler Minifier`](https://www.nuget.org/packages/BundlerMinifier.Core/) tool instead of NPM based build systems like Gulp or Grunt. The Bundler tool is installed as part of tooling support for the project, the `project.json` contains relevant scripting integration and one can use that tool independently from console using its `CLI` interface. Visit [Bundler tool WIKI](https://git.io/vo9hw) for details.  
-Also see [ASP NET Community Standup - June 21st, 2016 - Mads Visits](https://www.youtube.com/watch?v=p6NUkeTVsGE) for detailed information about this change introduction.
 
 ## Usage
 
@@ -51,11 +48,8 @@ Full, template based projects available in generator:
 - Unit Test project (MSTest) (F#)
 - xUnit Test project (xUnit.net) (F#)
 
-The Empty Web Application, Console Application, Web Application, Web Application Basic (a.k.a. Web Application No Auth), Web API Application and Class Library are based on the templates introduced with Visual Studio 2015. They are available and maintained in the [ASP.NET Templates project](https://github.com/aspnet/Templates).
+> Hey, we encourage you to contribute to .Net Core templates project: [https://github.com/dotnet/templating](https://github.com/dotnet/templating) in order to put community efforts into a single source project used by everyone in ecosystem. Thanks!
 
-> [ASP.NET Templates](https://github.com/aspnet/Templates) project provides templates which are used in Visual Studio for creating ASP.NET Core applications.
-
-> NOTE: Starting from `RC2` `dotnet` release the web application template project no longer ships with built-in EF migration. For this reason you should call `dotnet ef database update` to scaffold database using template provided migrations!
 
 The Nancy project is based on framework's "Hello World" template:
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
@@ -72,7 +66,9 @@ The templates support both `LTS` and `Current` version of runtime. The `LTS` ver
 
 The project type and application name can be specified as optional command line arguments:
 
-    yo aspnet [projecttype [applicationname] [uiframework]]
+```bash
+yo aspnet [projecttype [applicationname] [uiframework]]
+```
 
 The valid project types are:
 
@@ -101,13 +97,6 @@ The valid UI framework types are:
 > Example: `yo aspnet mvcbasic "my semantic app" semantic` will create a "Web Application Basic" project called "my semantic app" using the Semantic UI framework.
 
 > Example: `yo aspnet mvcbasic "my bootstrap app"` OR `yo aspnet mvcbasic "my bootstrap app" bootstrap` will create a "Web Application Basic" project called "my bootstrap app" using the Bootstrap framework.
-
-## Related yeoman generators
-
-The goal of `generator-aspnet` is to provide an experience consistent with creating new ASP.NET Core `dotnet cli` projects
-and files in Visual Studio 2015.
-
-The list of related generators [can be seen on our Wiki section](https://github.com/OmniSharp/generator-aspnet/wiki#related-yeoman-generators)
 
 ## Sub Generators
 
@@ -150,7 +139,7 @@ Produces `web.config`
 
 ## License
 
-Copyright 2014-2016 OmniSharp
+Copyright 2014-2017 OmniSharp
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
