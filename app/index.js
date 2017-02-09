@@ -154,7 +154,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     this.templatedata.guid = guid.v4();
     this.templatedata.sqlite = (this.type === 'mvc') ? true : false;
     this.templatedata.ui = this.ui;
-    this.templatedata.version = "1.0.0-preview2-1-003177";
+    this.templatedata.version = "1.0.0-rc4-004771";
     this.templatedata.dotnet = {
       version: this.options['versionCurrent'] ?
         pckg.dotnet.current.version : pckg.dotnet.lts.version,
