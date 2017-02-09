@@ -72,7 +72,7 @@ describe('aspnet - Empty Web Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('emptyWebTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('emptyWebTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.csproj contains correct dotnet version', function() {
@@ -107,7 +107,7 @@ describe('aspnet - Class Library', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('classLibraryTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('classLibraryTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.csproj contains correct version', function() {
@@ -144,7 +144,7 @@ describe('aspnet - Console Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('consoleAppTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('consoleAppTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.csproj contains correct version', function() {
@@ -181,7 +181,7 @@ describe('aspnet - xUnit Test Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('xunitTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('xunitTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.csproj contains correct version', function() {
@@ -217,7 +217,7 @@ describe('aspnet - MSTest Unit Test', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('mstest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('mstest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.csproj contains correct version', function() {
@@ -391,7 +391,7 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     });
 
     it('global.json contains correct version', function() {
-      assert.fileContent('mvcTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('mvcTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.csproj contains correct version', function() {
@@ -570,7 +570,7 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     });
 
     it('global.json contains correct version', function() {
-      assert.fileContent('mvcTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('mvcTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.csproj contains correct version', function() {
@@ -821,7 +821,7 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     });
 
     it('global.json contains correct version', function() {
-      assert.fileContent('webTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('webTest/global.json', /1.0.0-rc4-004771/);
     });
 
   });
@@ -904,7 +904,7 @@ describe('aspnet - Web API Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('webAPITest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('webAPITest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.fsproj contains correct version', function() {
@@ -937,7 +937,7 @@ describe('aspnet - Nancy Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('nancyTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('nancyTest/global.json', /1.0.0-rc4-004771/);
     });
 
   });
@@ -965,7 +965,7 @@ describe('FSharp Class Library', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpLibTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpLibTest/global.json', /1.0.0-rc4-004771/);
     });
 
   });
@@ -998,7 +998,7 @@ describe('FSharp Console Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpConsoleTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpConsoleTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.fsproj contains correct version', function() {
@@ -1034,7 +1034,7 @@ describe('F# xUnit Test Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.fsproj contains correct version', function() {
@@ -1070,7 +1070,7 @@ describe('F# MSTest Unit Test', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpMSTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpMSTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.fsproj contains correct version', function() {
@@ -1122,7 +1122,7 @@ describe('aspnet - F# Empty Web Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpEmptyWebTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpEmptyWebTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.fsproj contains correct version', function() {
@@ -1176,7 +1176,7 @@ describe('aspnet - Fsharp Web API Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpWebAPITest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpWebAPITest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.fsproj contains correct version', function() {
@@ -1281,7 +1281,7 @@ describe('aspnet - FSharp Web Application Basic', function() {
     });
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpMvcBasicTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpMvcBasicTest/global.json', /1.0.0-rc4-004771/);
     });
 
     it('.fsproj contains correct version', function() {
