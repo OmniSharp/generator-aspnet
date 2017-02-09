@@ -64,21 +64,12 @@ describe('aspnet - Empty Web Application', function() {
     'emptyWebTest/README.md',
     'emptyWebTest/runtimeconfig.template.json',
     'emptyWebTest/Startup.cs',
-    'emptyWebTest/web.config',
-    'emptyWebTest/Dockerfile'
+    'emptyWebTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
-
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('emptyWebTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('emptyWebTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
-    });
 
     it('global.json contains correct version', function() {
       assert.fileContent('emptyWebTest/global.json', /1.0.0-preview2-1-003177/);
@@ -329,7 +320,6 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.cs',
     'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
     'mvcTest/Data/Migrations/ApplicationDbContextModelSnapshot.cs',
-    'mvcTest/Dockerfile',
     'mvcTest/global.json',
     'mvcTest/Models/AccountViewModels/ExternalLoginConfirmationViewModel.cs',
     'mvcTest/Models/AccountViewModels/ForgotPasswordViewModel.cs',
@@ -398,14 +388,6 @@ describe('aspnet - Web Application (Bootstrap)', function() {
 
     it('bower.json name field is lower case', function() {
       assert.fileContent('mvcTest/bower.json', /"name": "mvctest"/);
-    });
-
-    it('Dockerfile includes SQLite', function() {
-      assert.fileContent('mvcTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile contains migrations', function() {
-      assert.fileContent('mvcTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
     it('global.json contains correct version', function() {
@@ -513,7 +495,6 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.cs',
     'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
     'mvcTest/Data/Migrations/ApplicationDbContextModelSnapshot.cs',
-    'mvcTest/Dockerfile',
     'mvcTest/global.json',
     'mvcTest/Models/AccountViewModels/ExternalLoginConfirmationViewModel.cs',
     'mvcTest/Models/AccountViewModels/ForgotPasswordViewModel.cs',
@@ -586,14 +567,6 @@ describe('aspnet - Web Application (Semantic UI)', function() {
 
     it('bower.json name field is lower case', function() {
       assert.fileContent('mvcTest/bower.json', /"name": "mvctest"/);
-    });
-
-    it('Dockerfile includes SQLite', function() {
-      assert.fileContent('mvcTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile contains migrations', function() {
-      assert.fileContent('mvcTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
     it('global.json contains correct version', function() {
@@ -713,7 +686,6 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     'webTest/bower.json',
     'webTest/bundleconfig.json',
     'webTest/Controllers/HomeController.cs',
-    'webTest/Dockerfile',
     'webTest/Program.cs',
     'webTest/webTest.csproj',
     'webTest/Properties/launchSettings.json',
@@ -744,14 +716,6 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
 
     it('bower.json name field is lower case', function() {
       assert.fileContent('webTest/bower.json', /"name": "webtest"/);
-    });
-
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
   });
@@ -820,7 +784,6 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     'webTest/appsettings.Development.json',
     'webTest/bower.json',
     'webTest/Controllers/HomeController.cs',
-    'webTest/Dockerfile',
     'webTest/global.json',
     'webTest/Program.cs',
     'webTest/webTest.csproj',
@@ -855,14 +818,6 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
 
     it('bower.json name field is lower case', function() {
       assert.fileContent('webTest/bower.json', /"name": "webtest"/);
-    });
-
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
     it('global.json contains correct version', function() {
@@ -935,7 +890,6 @@ describe('aspnet - Web API Application', function() {
     'webAPITest/appsettings.json',
     'webAPITest/appsettings.Development.json',
     'webAPITest/Controllers/ValuesController.cs',
-    'webAPITest/Dockerfile',
     'webAPITest/global.json',
     'webAPITest/Program.cs',
     'webAPITest/webAPITest.csproj',
@@ -948,14 +902,6 @@ describe('aspnet - Web API Application', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
-
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('webAPITest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('webAPITest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
-    });
 
     it('global.json contains correct version', function() {
       assert.fileContent('webAPITest/global.json', /1.0.0-preview2-1-003177/);
@@ -1161,7 +1107,6 @@ describe('aspnet - F# Empty Web Application', function() {
 
   var files = [
     'fsharpEmptyWebTest/.gitignore',
-    'fsharpEmptyWebTest/Dockerfile',
     'fsharpEmptyWebTest/global.json',
     'fsharpEmptyWebTest/Program.fs',
     'fsharpEmptyWebTest/fsharpEmptyWebTest.fsproj',
@@ -1175,14 +1120,6 @@ describe('aspnet - F# Empty Web Application', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
-
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('fsharpEmptyWebTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('fsharpEmptyWebTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
-    });
 
     it('global.json contains correct version', function() {
       assert.fileContent('fsharpEmptyWebTest/global.json', /1.0.0-preview2-1-003177/);
@@ -1224,7 +1161,6 @@ describe('aspnet - Fsharp Web API Application', function() {
     'fsharpWebAPITest/appsettings.json',
     'fsharpWebAPITest/appsettings.Development.json',
     'fsharpWebAPITest/Controllers/ValuesController.fs',
-    'fsharpWebAPITest/Dockerfile',
     'fsharpWebAPITest/global.json',
     'fsharpWebAPITest/Program.fs',
     'fsharpWebAPITest/fsharpWebAPITest.fsproj',
@@ -1238,14 +1174,6 @@ describe('aspnet - Fsharp Web API Application', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
-
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('fsharpWebAPITest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('fsharpWebAPITest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
-    });
 
     it('global.json contains correct version', function() {
       assert.fileContent('fsharpWebAPITest/global.json', /1.0.0-preview2-1-003177/);
@@ -1314,7 +1242,6 @@ describe('aspnet - FSharp Web Application Basic', function() {
     'fsharpMvcBasicTest/.bowerrc',
     'fsharpMvcBasicTest/.gitignore',
     'fsharpMvcBasicTest/Controllers/HomeController.fs',
-    'fsharpMvcBasicTest/Dockerfile',
     'fsharpMvcBasicTest/Program.fs',
     'fsharpMvcBasicTest/Properties/launchSettings.json',
     'fsharpMvcBasicTest/README.md',
@@ -1351,14 +1278,6 @@ describe('aspnet - FSharp Web Application Basic', function() {
 
     it('bower.json name field is lower case', function() {
       assert.fileContent('fsharpMvcBasicTest/bower.json', /"name": "fsharpmvcbasictest"/);
-    });
-
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('fsharpMvcBasicTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('fsharpMvcBasicTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
     it('global.json contains correct version', function() {

@@ -60,8 +60,6 @@ The Empty Web Application, Console Application, Web Application, Web Application
 The Nancy project is based on framework's "Hello World" template:
 [Nancy Getting Started: Introduction](https://github.com/NancyFx/Nancy/wiki/Introduction)
 
-The [Docker](https://www.docker.com/) support with `Dockerfile` configuration files is based on the official [Docker image for ASP.NET Core](https://github.com/aspnet/aspnet-docker)
-
 The xUnit test project uses [xUnit: a free, open source, community-focused unit testing tool for the .NET Framework](https://xunit.github.io/)
 
 The F# Templates are based on [Core F# Templates](https://github.com/odytrice/core-fsharp-templates) projects. They were translated into F# from the original [ASP.NET Templates](https://github.com/aspnet/Templates) 
@@ -115,145 +113,10 @@ The list of related generators [can be seen on our Wiki section](https://github.
 
 The alphabetic list of available sub generators (_to create files after the project has been created_):
 
-* [aspnet:appsettings](#appsettings)
-* [aspnet:class](#class)
-* [aspnet:dockerfile](#dockerfile)
-* [aspnet:gitignore](#gitignore)
-* [aspnet:interface](#interface)
-* [aspnet:middleware](#middleware)
-* [aspnet:mvccontroller](#mvccontroller)
-* [aspnet:mvcview](#mvcview)
 * [aspnet:nugetconfig](#nugetconfig)
-* [aspnet:program](#program)
-* [aspnet:readme](#readme)
-* [aspnet:startup](#startup)
-* [aspnet:taghelper](#taghelper)
-* [aspnet:webapicontroller](#webapicontroller)
 * [aspnet:webconfig](#webconfig)
 
 ** Note: files generated are created in the working directory, no conventions are forced **
-
-[Return to top](#top)
-
-### appsettings
-
-Creates a new appsettings.json file
-
-Example:
-
-```
-yo aspnet:appsettings
-```
-
-Produces `appsettings.json`
-
-[Return to top](#top)
-
-### class
-
-Creates a new ASP.NET Core class
-
-Example:
-
-```
-yo aspnet:class Contact
-```
-
-Produces `/Contact.cs`
-
-[Return to top](#top)
-
-### dockerfile
-
-Creates a new Docker configuration file.
-To create Docker image with SQLite support for EntityFramework use `--sqlite` option
-
-Example:
-```
-yo aspnet:dockerfile
-```
-
-Creates a new `Dockerfile`
-
-Are you curious about Docker, Linux containers and ASP.NET Core Docker image and all these buzz words?
-- [Docker image for ASP.NET 5 (Docker Hub)](https://hub.docker.com/r/microsoft/aspnet/)
-- [Running ASP.NET 5 applications in Linux Containers with Docker (MSDN)](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
-- [ASP.NET 5 : Continuous Integration with Travis-CI, Tutum, Docker, Webhooks and Azure [Advanced]](http://tattoocoder.com/asp-net-5-continuous-integration-with-travis-ci-tutum-docker-webhooks-and-azure/)
-- [ASP.NET 5 on Docker talk at NDC {London}](https://vimeo.com/154588594) by [Mark Rendle](https://twitter.com/markrendle)
-
-[Return to top](#top)
-
-### gitignore
-
-Creates a new .gitignore file
-
-Example:
-
-```
-yo aspnet:gitignore
-```
-
-Produces `.gitignore`
-
-[Return to top](#top)
-
-### interface
-
-Creates a new ASP.NET Core interface
-
-Example:
-
-```
-yo aspnet:interface IContact
-```
-
-Produces `/IContact.cs`
-
-[Return to top](#top)
-
-### middleware
-
-Creates a new C# middleware class file
-
-Example:
-
-```
-yo aspnet:middleware filename
-```
-
-Produces `filename.cs`
-
-[Return to top](#top)
-
-### mvccontroller
-
-Creates a new ASP.NET Core MvcController class
-
-Example:
-
-```
-yo aspnet:mvccontroller ContactController
-```
-
-Produces `/ContactController.cs`
-
-[Read more about MVC Controllers on docs.asp.net](https://docs.asp.net/en/latest/mvc/controllers/index.html)
-
-[Return to top](#top)
-
-### mvcview
-
-Creates a new ASP.NET Core MvcView page file
-
-Example:
-
-```
-yo aspnet:mvcview ContactView
-```
-
-Produces `/ContactView.cshtml`
-
-[Read more about MVC Views on docs.asp.net](https://docs.asp.net/en/latest/mvc/views/index.html?#views)
 
 [Return to top](#top)
 
@@ -268,78 +131,6 @@ yo aspnet:nugetconfig
 ```
 
 Produces `NuGet.config`
-
-[Return to top](#top)
-
-### program
-
-Creates a new `Program.cs` file
-
-Example:
-
-```
-yo aspnet:program
-```
-
-Produces `Program.cs`
-
-[Return to top](#top)
-
-### README
-
-Creates a new REAMDE.md documentation file in Markdown format
-You can optionally pass `--txt` option to use `.txt` extension.
-Example:
-
-```
-yo aspnet:readme [--txt]
-```
-
-Produces `readme.md`
-
-[Return to top](#top)
-
-### startup
-
-Creates a new `Startup.cs` file
-
-Example:
-
-```
-yo aspnet:startup
-```
-
-Produces `Startup.cs`
-
-[Return to top](#top)
-
-### taghelper
-
-Creates a new TagHelper class file
-
-Example:
-
-```
-yo aspnet:taghelper filename
-```
-
-Produces `filename.cs`
-
-[Return to top](#top)
-
-### webapicontroller
-
-Creates a new ASP.NET Core WebApiController class
-
-Example:
-
-```
-yo aspnet:webapicontroller ValuesController
-```
-
-Produces `/ValuesController.cs`
-
-[Read more about Web API MVC concepts on docs.asp.net](https://docs.asp.net/en/latest/tutorials/first-web-api.html)
 
 [Return to top](#top)
 
