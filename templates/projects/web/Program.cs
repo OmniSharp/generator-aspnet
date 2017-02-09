@@ -15,8 +15,8 @@ namespace <%= namespace %>
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseStartup<Startup>()
-                .UseApplicationInsights()
+                .UseStartup<Startup>()<% if(includeApplicationInsights){ %>
+                .UseApplicationInsights()<% } %>
                 .Build();
 
             host.Run();
