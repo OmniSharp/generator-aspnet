@@ -13,13 +13,31 @@ describe('aspnet Core 1.0 generator', function() {
   });
 });
 
+/*
+* package.json contains dotnet target and version information
+*/
+describe('package.json contains dotnet version information', function() {
+  var pckg = require('../package.json');
+  it('contains expected LTS version', function() {
+    yeoman.assert.equal('1.0.3', pckg.dotnet.lts.version);
+  });
+  it('contains expected LTS target framework', function() {
+    yeoman.assert.equal('netcoreapp1.0', pckg.dotnet.lts.targetFramework);
+  });
+  it('contains expected Current version', function() {
+    yeoman.assert.equal('1.1.0', pckg.dotnet.current.version);
+  });
+  it('contains expected LTS version', function() {
+    yeoman.assert.equal('netcoreapp1.1', pckg.dotnet.current.targetFramework);
+  });
+});
 
 /*
  * yo aspnet Empty Application
  */
 describe('aspnet - Empty Web Application', function() {
 
-  util.goCreateApplication('emptyweb', 'emptyWebTest');
+  util.goCreateApplication('web', 'emptyWebTest');
 
   describe('Checking directories', function() {
 
@@ -40,29 +58,29 @@ describe('aspnet - Empty Web Application', function() {
   var files = [
     'emptyWebTest/.gitignore',
     'emptyWebTest/global.json',
-    'emptyWebTest/project.json',
+    'emptyWebTest/emptyWebTest.csproj',
     'emptyWebTest/Program.cs',
     'emptyWebTest/Properties/launchSettings.json',
     'emptyWebTest/README.md',
+    'emptyWebTest/runtimeconfig.template.json',
     'emptyWebTest/Startup.cs',
-    'emptyWebTest/web.config',
-    'emptyWebTest/Dockerfile'
+    'emptyWebTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
 
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('emptyWebTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('emptyWebTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
-    });
-
     it('global.json contains correct version', function() {
-      assert.fileContent('emptyWebTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('emptyWebTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.csproj contains correct dotnet version', function() {
+      assert.fileContent('emptyWebTest/emptyWebTest.csproj', /PackageReference Include="Microsoft.AspNetCore" Version="1.0.3"/);
+    });
+
+    it('.csproj contains correct dotnet target platform', function() {
+      assert.fileContent('emptyWebTest/emptyWebTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -74,7 +92,7 @@ describe('aspnet - Empty Web Application', function() {
  */
 describe('aspnet - Class Library', function() {
 
-  util.goCreateApplication('classlibrary', 'classLibraryTest');
+  util.goCreateApplication('classlib', 'classLibraryTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
@@ -82,14 +100,18 @@ describe('aspnet - Class Library', function() {
     });
   });
 
-  var files = ['classLibraryTest/global.json', 'classLibraryTest/project.json', 'classLibraryTest/Class1.cs', 'classLibraryTest/.gitignore'];
+  var files = ['classLibraryTest/global.json', 'classLibraryTest/classLibraryTest.csproj', 'classLibraryTest/Class1.cs', 'classLibraryTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('classLibraryTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('classLibraryTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('classLibraryTest/classLibraryTest.csproj', /<TargetFramework\>netstandard1\.4<\/TargetFramework>/);
     });
 
   });
@@ -102,7 +124,7 @@ describe('aspnet - Class Library', function() {
  */
 describe('aspnet - Console Application', function() {
 
-  util.goCreateApplication('consoleapp', 'consoleAppTest');
+  util.goCreateApplication('console', 'consoleAppTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
@@ -114,7 +136,7 @@ describe('aspnet - Console Application', function() {
     'consoleAppTest/.gitignore',
     'consoleAppTest/Program.cs',
     'consoleAppTest/global.json',
-    'consoleAppTest/project.json'
+    'consoleAppTest/consoleAppTest.csproj'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -122,7 +144,11 @@ describe('aspnet - Console Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('consoleAppTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('consoleAppTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('consoleAppTest/consoleAppTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -132,22 +158,22 @@ describe('aspnet - Console Application', function() {
 /*
  * yo aspnet Unit Test Application
  */
-describe('aspnet - Unit Test Application', function() {
+describe('aspnet - xUnit Test Application', function() {
 
-  util.goCreateApplication('unittest', 'unittestTest');
+  util.goCreateApplication('xunit', 'xunitTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
-      assert.file('unittestTest/');
+      assert.file('xunitTest/');
     });
   });
 
   var files = [
-    'unittestTest/.gitignore',
-    'unittestTest/global.json',
-    'unittestTest/project.json',
-    'unittestTest/Class1.cs',
-    'unittestTest/xunit.runner.json'
+    'xunitTest/.gitignore',
+    'xunitTest/global.json',
+    'xunitTest/xunitTest.csproj',
+    'xunitTest/UnitTest1.cs',
+    'xunitTest/xunit.runner.json'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -155,7 +181,47 @@ describe('aspnet - Unit Test Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('unittestTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('xunitTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('xunitTest/xunitTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
+    });
+
+  });
+
+});
+
+/*
+ * MSTest Unit Test
+ */
+describe('aspnet - MSTest Unit Test', function() {
+
+  util.goCreateApplication('mstest', 'mstest');
+
+  describe('Checking directories', function() {
+    it('Application directory created', function() {
+      assert.file('mstest/');
+    });
+  });
+
+  var files = [
+    'mstest/.gitignore',
+    'mstest/global.json',
+    'mstest/mstest.csproj',
+    'mstest/UnitTest1.cs'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('mstest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('mstest/mstest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -167,152 +233,153 @@ describe('aspnet - Unit Test Application', function() {
  */
 describe('aspnet - Web Application (Bootstrap)', function() {
 
-  util.goCreateApplication('web', 'webTest');
+  util.goCreateApplication('mvc', 'mvcTest');
 
   describe('Checking directories', function() {
 
     it('Application directory created', function() {
-      assert.file('webTest/');
+      assert.file('mvcTest/');
     });
 
     it('Controllers directory created', function() {
-      assert.file('webTest/Controllers');
+      assert.file('mvcTest/Controllers');
     });
 
     it('Data directory created', function() {
-      assert.file('webTest/Data');
+      assert.file('mvcTest/Data');
     });
 
     it('Migrations directory created', function() {
-      assert.file('webTest/Data/Migrations');
+      assert.file('mvcTest/Data/Migrations');
     });
 
     it('Models directory created', function() {
-      assert.file('webTest/Models');
+      assert.file('mvcTest/Models');
     });
 
     it('AccountViewModels directory created', function() {
-      assert.file('webTest/Models/AccountViewModels');
+      assert.file('mvcTest/Models/AccountViewModels');
     });
 
     it('Properties directory created', function() {
-      assert.file('webTest/Properties');
+      assert.file('mvcTest/Properties');
     });
 
     it('Services directory created', function() {
-      assert.file('webTest/Services');
+      assert.file('mvcTest/Services');
     });
 
     it('Views directory created', function() {
-      assert.file('webTest/Views');
+      assert.file('mvcTest/Views');
     });
 
     it('Views/Home directory created', function() {
-      assert.file('webTest/Views/Home');
+      assert.file('mvcTest/Views/Home');
     });
 
     it('Views/Manage directory created', function() {
-      assert.file('webTest/Views/Manage');
+      assert.file('mvcTest/Views/Manage');
     });
 
     it('Views/Shared directory created', function() {
-      assert.file('webTest/Views/Shared');
+      assert.file('mvcTest/Views/Shared');
     });
 
     it('wwwroot directory created', function() {
-      assert.file('webTest/wwwroot');
+      assert.file('mvcTest/wwwroot');
     });
 
     it('wwwroot/css directory created', function() {
-      assert.file('webTest/wwwroot/css');
+      assert.file('mvcTest/wwwroot/css');
     });
 
     it('wwwroot/images directory created', function() {
-      assert.file('webTest/wwwroot/images');
+      assert.file('mvcTest/wwwroot/images');
     });
 
     it('wwwroot/js directory created', function() {
-      assert.file('webTest/wwwroot/js');
+      assert.file('mvcTest/wwwroot/js');
     });
 
   });
 
 
   var files = [
-    'webTest/.bowerrc',
-    'webTest/.gitignore',
-    'webTest/appsettings.json',
-    'webTest/bower.json',
-    'webTest/bundleconfig.json',
-    'webTest/Dockerfile',
-    'webTest/Program.cs',
-    'webTest/global.json',
-    'webTest/project.json',
-    'webTest/README.md',
-    'webTest/Startup.cs',
-    'webTest/Controllers/AccountController.cs',
-    'webTest/Controllers/HomeController.cs',
-    'webTest/Controllers/ManageController.cs',
-    'webTest/Data//ApplicationDbContext.cs',
-    'webTest/Data/Migrations/00000000000000_CreateIdentitySchema.cs',
-    'webTest/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
-    'webTest/Data/Migrations/ApplicationDbContextModelSnapshot.cs',
-    'webTest/Models/AccountViewModels/ExternalLoginConfirmationViewModel.cs',
-    'webTest/Models/AccountViewModels/ForgotPasswordViewModel.cs',
-    'webTest/Models/AccountViewModels/RegisterViewModel.cs',
-    'webTest/Models/AccountViewModels/ResetPasswordViewModel.cs',
-    'webTest/Models/AccountViewModels/SendCodeViewModel.cs',
-    'webTest/Models/AccountViewModels/VerifyCodeViewModel.cs',
-    'webTest/Models/ApplicationUser.cs',
-    'webTest/Models/ManageViewModels/AddPhoneNumberViewModel.cs',
-    'webTest/Models/ManageViewModels/ChangePasswordViewModel.cs',
-    'webTest/Models/ManageViewModels/ConfigureTwoFactorViewModel.cs',
-    'webTest/Models/ManageViewModels/FactorViewModel.cs',
-    'webTest/Models/ManageViewModels/IndexViewModel.cs',
-    'webTest/Models/ManageViewModels/ManageLoginsViewModel.cs',
-    'webTest/Models/ManageViewModels/SetPasswordViewModel.cs',
-    'webTest/Models/ManageViewModels/VerifyPhoneNumberViewModel.cs',
-    'webTest/Properties/launchSettings.json',
-    'webTest/Services/IEmailSender.cs',
-    'webTest/Services/ISmsSender.cs',
-    'webTest/Services/MessageServices.cs',
-    'webTest/Views/_ViewImports.cshtml',
-    'webTest/Views/_ViewStart.cshtml',
-    'webTest/Views/Account/ConfirmEmail.cshtml',
-    'webTest/Views/Account/ExternalLoginConfirmation.cshtml',
-    'webTest/Views/Account/ExternalLoginFailure.cshtml',
-    'webTest/Views/Account/ForgotPassword.cshtml',
-    'webTest/Views/Account/ForgotPasswordConfirmation.cshtml',
-    'webTest/Views/Account/Lockout.cshtml',
-    'webTest/Views/Account/Login.cshtml',
-    'webTest/Views/Account/Register.cshtml',
-    'webTest/Views/Account/ResetPassword.cshtml',
-    'webTest/Views/Account/ResetPasswordConfirmation.cshtml',
-    'webTest/Views/Account/SendCode.cshtml',
-    'webTest/Views/Account/VerifyCode.cshtml',
-    'webTest/Views/Home/About.cshtml',
-    'webTest/Views/Home/Contact.cshtml',
-    'webTest/Views/Home/Index.cshtml',
-    'webTest/Views/Manage/AddPhoneNumber.cshtml',
-    'webTest/Views/Manage/ChangePassword.cshtml',
-    'webTest/Views/Manage/Index.cshtml',
-    'webTest/Views/Manage/ManageLogins.cshtml',
-    'webTest/Views/Manage/SetPassword.cshtml',
-    'webTest/Views/Manage/VerifyPhoneNumber.cshtml',
-    'webTest/Views/Shared/_Layout.cshtml',
-    'webTest/Views/Shared/_LoginPartial.cshtml',
-    'webTest/Views/Shared/_ValidationScriptsPartial.cshtml',
-    'webTest/Views/Shared/Error.cshtml',
-    'webTest/wwwroot/css/site.css',
-    'webTest/wwwroot/css/site.min.css',
-    'webTest/wwwroot/favicon.ico',
-    'webTest/wwwroot/images/banner1.svg',
-    'webTest/wwwroot/images/banner2.svg',
-    'webTest/wwwroot/images/banner3.svg',
-    'webTest/wwwroot/images/banner4.svg',
-    'webTest/wwwroot/js/site.js',
-    'webTest/wwwroot/js/site.min.js',
-    'webTest/web.config'
+    'mvcTest/.bowerrc',
+    'mvcTest/.gitignore',
+    'mvcTest/appsettings.json',
+    'mvcTest/appsettings.Development.json',
+    'mvcTest/bower.json',
+    'mvcTest/bundleconfig.json',
+    'mvcTest/mvcTest.csproj',
+    'mvcTest/mvcTest.db',
+    'mvcTest/Controllers/AccountController.cs',
+    'mvcTest/Controllers/HomeController.cs',
+    'mvcTest/Controllers/ManageController.cs',
+    'mvcTest/Data//ApplicationDbContext.cs',
+    'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.cs',
+    'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
+    'mvcTest/Data/Migrations/ApplicationDbContextModelSnapshot.cs',
+    'mvcTest/global.json',
+    'mvcTest/Models/AccountViewModels/ExternalLoginConfirmationViewModel.cs',
+    'mvcTest/Models/AccountViewModels/ForgotPasswordViewModel.cs',
+    'mvcTest/Models/AccountViewModels/RegisterViewModel.cs',
+    'mvcTest/Models/AccountViewModels/ResetPasswordViewModel.cs',
+    'mvcTest/Models/AccountViewModels/SendCodeViewModel.cs',
+    'mvcTest/Models/AccountViewModels/VerifyCodeViewModel.cs',
+    'mvcTest/Models/ApplicationUser.cs',
+    'mvcTest/Models/ManageViewModels/AddPhoneNumberViewModel.cs',
+    'mvcTest/Models/ManageViewModels/ChangePasswordViewModel.cs',
+    'mvcTest/Models/ManageViewModels/ConfigureTwoFactorViewModel.cs',
+    'mvcTest/Models/ManageViewModels/FactorViewModel.cs',
+    'mvcTest/Models/ManageViewModels/IndexViewModel.cs',
+    'mvcTest/Models/ManageViewModels/ManageLoginsViewModel.cs',
+    'mvcTest/Models/ManageViewModels/SetPasswordViewModel.cs',
+    'mvcTest/Models/ManageViewModels/VerifyPhoneNumberViewModel.cs',
+    'mvcTest/Program.cs',
+    'mvcTest/Properties/launchSettings.json',
+    'mvcTest/README.md',
+    'mvcTest/Services/IEmailSender.cs',
+    'mvcTest/Services/ISmsSender.cs',
+    'mvcTest/Services/MessageServices.cs',
+    'mvcTest/Startup.cs',
+    'mvcTest/Views/_ViewImports.cshtml',
+    'mvcTest/Views/_ViewStart.cshtml',
+    'mvcTest/Views/Account/ConfirmEmail.cshtml',
+    'mvcTest/Views/Account/ExternalLoginConfirmation.cshtml',
+    'mvcTest/Views/Account/ExternalLoginFailure.cshtml',
+    'mvcTest/Views/Account/ForgotPassword.cshtml',
+    'mvcTest/Views/Account/ForgotPasswordConfirmation.cshtml',
+    'mvcTest/Views/Account/Lockout.cshtml',
+    'mvcTest/Views/Account/Login.cshtml',
+    'mvcTest/Views/Account/Register.cshtml',
+    'mvcTest/Views/Account/ResetPassword.cshtml',
+    'mvcTest/Views/Account/ResetPasswordConfirmation.cshtml',
+    'mvcTest/Views/Account/SendCode.cshtml',
+    'mvcTest/Views/Account/VerifyCode.cshtml',
+    'mvcTest/Views/Home/About.cshtml',
+    'mvcTest/Views/Home/Contact.cshtml',
+    'mvcTest/Views/Home/Index.cshtml',
+    'mvcTest/Views/Manage/AddPhoneNumber.cshtml',
+    'mvcTest/Views/Manage/ChangePassword.cshtml',
+    'mvcTest/Views/Manage/Index.cshtml',
+    'mvcTest/Views/Manage/ManageLogins.cshtml',
+    'mvcTest/Views/Manage/SetPassword.cshtml',
+    'mvcTest/Views/Manage/VerifyPhoneNumber.cshtml',
+    'mvcTest/Views/Shared/_Layout.cshtml',
+    'mvcTest/Views/Shared/_LoginPartial.cshtml',
+    'mvcTest/Views/Shared/_ValidationScriptsPartial.cshtml',
+    'mvcTest/Views/Shared/Error.cshtml',
+    'mvcTest/web.config',
+    'mvcTest/wwwroot/css/site.css',
+    'mvcTest/wwwroot/css/site.min.css',
+    'mvcTest/wwwroot/favicon.ico',
+    'mvcTest/wwwroot/images/banner1.svg',
+    'mvcTest/wwwroot/images/banner2.svg',
+    'mvcTest/wwwroot/images/banner3.svg',
+    'mvcTest/wwwroot/images/banner4.svg',
+    'mvcTest/wwwroot/js/site.js',
+    'mvcTest/wwwroot/js/site.min.js'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -320,19 +387,15 @@ describe('aspnet - Web Application (Bootstrap)', function() {
     }
 
     it('bower.json name field is lower case', function() {
-      assert.fileContent('webTest/bower.json', /"name": "webtest"/);
-    });
-
-    it('Dockerfile includes SQLite', function() {
-      assert.fileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile contains migrations', function() {
-      assert.fileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+      assert.fileContent('mvcTest/bower.json', /"name": "mvctest"/);
     });
 
     it('global.json contains correct version', function() {
-      assert.fileContent('webTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('mvcTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('mvcTest/mvcTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -344,158 +407,158 @@ describe('aspnet - Web Application (Bootstrap)', function() {
  */
 describe('aspnet - Web Application (Semantic UI)', function() {
 
-  util.goCreateApplicationWithOptions('web', 'webTest', 'semantic', {});
+  util.goCreateApplicationWithOptions('mvc', 'mvcTest', 'semantic', {});
 
   describe('Checking directories', function() {
 
     it('Application directory created', function() {
-      assert.file('webTest/');
+      assert.file('mvcTest/');
     });
 
     it('Controllers directory created', function() {
-      assert.file('webTest/Controllers');
+      assert.file('mvcTest/Controllers');
     });
 
     it('Data directory created', function() {
-      assert.file('webTest/Data');
+      assert.file('mvcTest/Data');
     });
 
     it('Migrations directory created', function() {
-      assert.file('webTest/Data/Migrations');
+      assert.file('mvcTest/Data/Migrations');
     });
 
     it('Models directory created', function() {
-      assert.file('webTest/Models');
+      assert.file('mvcTest/Models');
     });
 
     it('AccountViewModels directory created', function() {
-      assert.file('webTest/Models/AccountViewModels');
+      assert.file('mvcTest/Models/AccountViewModels');
     });
 
     it('Properties directory created', function() {
-      assert.file('webTest/Properties');
+      assert.file('mvcTest/Properties');
     });
 
     it('Services directory created', function() {
-      assert.file('webTest/Services');
+      assert.file('mvcTest/Services');
     });
 
     it('Services directory created', function() {
-      assert.file('webTest/TagHelpers');
+      assert.file('mvcTest/TagHelpers');
     });
 
     it('Views directory created', function() {
-      assert.file('webTest/Views');
+      assert.file('mvcTest/Views');
     });
 
     it('Views/Home directory created', function() {
-      assert.file('webTest/Views/Home');
+      assert.file('mvcTest/Views/Home');
     });
 
     it('Views/Manage directory created', function() {
-      assert.file('webTest/Views/Manage');
+      assert.file('mvcTest/Views/Manage');
     });
 
     it('Views/Shared directory created', function() {
-      assert.file('webTest/Views/Shared');
+      assert.file('mvcTest/Views/Shared');
     });
 
     it('wwwroot directory created', function() {
-      assert.file('webTest/wwwroot');
+      assert.file('mvcTest/wwwroot');
     });
 
     it('wwwroot/css directory created', function() {
-      assert.file('webTest/wwwroot/css');
+      assert.file('mvcTest/wwwroot/css');
     });
 
     it('wwwroot/images directory created', function() {
-      assert.file('webTest/wwwroot/images');
+      assert.file('mvcTest/wwwroot/images');
     });
 
     it('wwwroot/js directory created', function() {
-      assert.file('webTest/wwwroot/js');
+      assert.file('mvcTest/wwwroot/js');
     });
 
   });
 
 
   var files = [
-    'webTest/.bowerrc',
-    'webTest/.gitignore',
-    'webTest/appsettings.json',
-    'webTest/bower.json',
-    'webTest/bundleconfig.json',
-    'webTest/Dockerfile',
-    'webTest/Program.cs',
-    'webTest/global.json',
-    'webTest/project.json',
-    'webTest/README.md',
-    'webTest/Startup.cs',
-    'webTest/Controllers/AccountController.cs',
-    'webTest/Controllers/HomeController.cs',
-    'webTest/Controllers/ManageController.cs',
-    'webTest/Data//ApplicationDbContext.cs',
-    'webTest/Data/Migrations/00000000000000_CreateIdentitySchema.cs',
-    'webTest/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
-    'webTest/Data/Migrations/ApplicationDbContextModelSnapshot.cs',
-    'webTest/Models/AccountViewModels/ExternalLoginConfirmationViewModel.cs',
-    'webTest/Models/AccountViewModels/ForgotPasswordViewModel.cs',
-    'webTest/Models/AccountViewModels/RegisterViewModel.cs',
-    'webTest/Models/AccountViewModels/ResetPasswordViewModel.cs',
-    'webTest/Models/AccountViewModels/SendCodeViewModel.cs',
-    'webTest/Models/AccountViewModels/VerifyCodeViewModel.cs',
-    'webTest/Models/ApplicationUser.cs',
-    'webTest/Models/ManageViewModels/AddPhoneNumberViewModel.cs',
-    'webTest/Models/ManageViewModels/ChangePasswordViewModel.cs',
-    'webTest/Models/ManageViewModels/ConfigureTwoFactorViewModel.cs',
-    'webTest/Models/ManageViewModels/FactorViewModel.cs',
-    'webTest/Models/ManageViewModels/IndexViewModel.cs',
-    'webTest/Models/ManageViewModels/ManageLoginsViewModel.cs',
-    'webTest/Models/ManageViewModels/SetPasswordViewModel.cs',
-    'webTest/Models/ManageViewModels/VerifyPhoneNumberViewModel.cs',
-    'webTest/Properties/launchSettings.json',
-    'webTest/Services/IEmailSender.cs',
-    'webTest/Services/ISmsSender.cs',
-    'webTest/Services/MessageServices.cs',
-    'webTest/Views/_ViewImports.cshtml',
-    'webTest/Views/_ViewStart.cshtml',
-    'webTest/Views/Account/ConfirmEmail.cshtml',
-    'webTest/Views/Account/ExternalLoginConfirmation.cshtml',
-    'webTest/Views/Account/ExternalLoginFailure.cshtml',
-    'webTest/Views/Account/ForgotPassword.cshtml',
-    'webTest/Views/Account/ForgotPasswordConfirmation.cshtml',
-    'webTest/Views/Account/Lockout.cshtml',
-    'webTest/Views/Account/Login.cshtml',
-    'webTest/Views/Account/Register.cshtml',
-    'webTest/Views/Account/ResetPassword.cshtml',
-    'webTest/Views/Account/ResetPasswordConfirmation.cshtml',
-    'webTest/Views/Account/SendCode.cshtml',
-    'webTest/Views/Account/VerifyCode.cshtml',
-    'webTest/Views/Home/About.cshtml',
-    'webTest/Views/Home/Contact.cshtml',
-    'webTest/Views/Home/Index.cshtml',
-    'webTest/Views/Manage/AddPhoneNumber.cshtml',
-    'webTest/Views/Manage/ChangePassword.cshtml',
-    'webTest/Views/Manage/Index.cshtml',
-    'webTest/Views/Manage/ManageLogins.cshtml',
-    'webTest/Views/Manage/SetPassword.cshtml',
-    'webTest/Views/Manage/VerifyPhoneNumber.cshtml',
-    'webTest/Views/Shared/_Layout.cshtml',
-    'webTest/Views/Shared/_LoginPartial.cshtml',
-    'webTest/Views/Shared/_ValidationScriptsPartial.cshtml',
-    'webTest/Views/Shared/Error.cshtml',
-    'webTest/wwwroot/css/site.css',
-    'webTest/wwwroot/css/site.min.css',
-    'webTest/wwwroot/favicon.ico',
-    'webTest/wwwroot/images/banner1.svg',
-    'webTest/wwwroot/images/banner2.svg',
-    'webTest/wwwroot/images/banner3.svg',
-    'webTest/wwwroot/images/banner4.svg',
-    'webTest/wwwroot/js/semantic.validation.js',
-    'webTest/wwwroot/js/semantic.validation.min.js',
-    'webTest/wwwroot/js/site.js',
-    'webTest/wwwroot/js/site.min.js',
-    'webTest/web.config'
+    'mvcTest/.bowerrc',
+    'mvcTest/.gitignore',
+    'mvcTest/appsettings.json',
+    'mvcTest/bower.json',
+    'mvcTest/bundleconfig.json',
+    'mvcTest/Controllers/AccountController.cs',
+    'mvcTest/Controllers/HomeController.cs',
+    'mvcTest/Controllers/ManageController.cs',
+    'mvcTest/Data//ApplicationDbContext.cs',
+    'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.cs',
+    'mvcTest/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs',
+    'mvcTest/Data/Migrations/ApplicationDbContextModelSnapshot.cs',
+    'mvcTest/global.json',
+    'mvcTest/Models/AccountViewModels/ExternalLoginConfirmationViewModel.cs',
+    'mvcTest/Models/AccountViewModels/ForgotPasswordViewModel.cs',
+    'mvcTest/Models/AccountViewModels/RegisterViewModel.cs',
+    'mvcTest/Models/AccountViewModels/ResetPasswordViewModel.cs',
+    'mvcTest/Models/AccountViewModels/SendCodeViewModel.cs',
+    'mvcTest/Models/AccountViewModels/VerifyCodeViewModel.cs',
+    'mvcTest/Models/ApplicationUser.cs',
+    'mvcTest/Models/ManageViewModels/AddPhoneNumberViewModel.cs',
+    'mvcTest/Models/ManageViewModels/ChangePasswordViewModel.cs',
+    'mvcTest/Models/ManageViewModels/ConfigureTwoFactorViewModel.cs',
+    'mvcTest/Models/ManageViewModels/FactorViewModel.cs',
+    'mvcTest/Models/ManageViewModels/IndexViewModel.cs',
+    'mvcTest/Models/ManageViewModels/ManageLoginsViewModel.cs',
+    'mvcTest/Models/ManageViewModels/SetPasswordViewModel.cs',
+    'mvcTest/Models/ManageViewModels/VerifyPhoneNumberViewModel.cs',
+    'mvcTest/mvcTest.csproj',
+    'mvcTest/mvcTest.db',
+    'mvcTest/Program.cs',
+    'mvcTest/Properties/launchSettings.json',
+    'mvcTest/README.md',
+    'mvcTest/Services/IEmailSender.cs',
+    'mvcTest/Services/ISmsSender.cs',
+    'mvcTest/Services/MessageServices.cs',
+    'mvcTest/Startup.cs',
+    'mvcTest/Views/_ViewImports.cshtml',
+    'mvcTest/Views/_ViewStart.cshtml',
+    'mvcTest/Views/Account/ConfirmEmail.cshtml',
+    'mvcTest/Views/Account/ExternalLoginConfirmation.cshtml',
+    'mvcTest/Views/Account/ExternalLoginFailure.cshtml',
+    'mvcTest/Views/Account/ForgotPassword.cshtml',
+    'mvcTest/Views/Account/ForgotPasswordConfirmation.cshtml',
+    'mvcTest/Views/Account/Lockout.cshtml',
+    'mvcTest/Views/Account/Login.cshtml',
+    'mvcTest/Views/Account/Register.cshtml',
+    'mvcTest/Views/Account/ResetPassword.cshtml',
+    'mvcTest/Views/Account/ResetPasswordConfirmation.cshtml',
+    'mvcTest/Views/Account/SendCode.cshtml',
+    'mvcTest/Views/Account/VerifyCode.cshtml',
+    'mvcTest/Views/Home/About.cshtml',
+    'mvcTest/Views/Home/Contact.cshtml',
+    'mvcTest/Views/Home/Index.cshtml',
+    'mvcTest/Views/Manage/AddPhoneNumber.cshtml',
+    'mvcTest/Views/Manage/ChangePassword.cshtml',
+    'mvcTest/Views/Manage/Index.cshtml',
+    'mvcTest/Views/Manage/ManageLogins.cshtml',
+    'mvcTest/Views/Manage/SetPassword.cshtml',
+    'mvcTest/Views/Manage/VerifyPhoneNumber.cshtml',
+    'mvcTest/Views/Shared/_Layout.cshtml',
+    'mvcTest/Views/Shared/_LoginPartial.cshtml',
+    'mvcTest/Views/Shared/_ValidationScriptsPartial.cshtml',
+    'mvcTest/Views/Shared/Error.cshtml',
+    'mvcTest/web.config',
+    'mvcTest/wwwroot/css/site.css',
+    'mvcTest/wwwroot/css/site.min.css',
+    'mvcTest/wwwroot/favicon.ico',
+    'mvcTest/wwwroot/images/banner1.svg',
+    'mvcTest/wwwroot/images/banner2.svg',
+    'mvcTest/wwwroot/images/banner3.svg',
+    'mvcTest/wwwroot/images/banner4.svg',
+    'mvcTest/wwwroot/js/semantic.validation.js',
+    'mvcTest/wwwroot/js/semantic.validation.min.js',
+    'mvcTest/wwwroot/js/site.js',
+    'mvcTest/wwwroot/js/site.min.js',
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -503,19 +566,15 @@ describe('aspnet - Web Application (Semantic UI)', function() {
     }
 
     it('bower.json name field is lower case', function() {
-      assert.fileContent('webTest/bower.json', /"name": "webtest"/);
-    });
-
-    it('Dockerfile includes SQLite', function() {
-      assert.fileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile contains migrations', function() {
-      assert.fileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+      assert.fileContent('mvcTest/bower.json', /"name": "mvctest"/);
     });
 
     it('global.json contains correct version', function() {
-      assert.fileContent('webTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('mvcTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.csproj contains correct version', function() {
+      assert.fileContent('mvcTest/mvcTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -524,45 +583,45 @@ describe('aspnet - Web Application (Semantic UI)', function() {
   describe('Checking file content for overrides', function() {
 
     it('_Layout.cshtml contains menulink tags', function() {
-      assert.fileContent('webTest/Views/Shared/_Layout.cshtml', "menulink");
+      assert.fileContent('mvcTest/Views/Shared/_Layout.cshtml', "menulink");
     });
 
     it('_ViewImports.cshtml contains TagHelper', function() {
-      assert.fileContent('webTest/Views/_ViewImports.cshtml', '*, webTest');
+      assert.fileContent('mvcTest/Views/_ViewImports.cshtml', '*, mvcTest');
     });
 
     it('_ValidationScriptsPartial.cshtml contains reference to semantic.validation.js', function() {
-      assert.fileContent('webTest/Views/Shared/_ValidationScriptsPartial.cshtml', 'semantic.validation.js');
+      assert.fileContent('mvcTest/Views/Shared/_ValidationScriptsPartial.cshtml', 'semantic.validation.js');
     });
 
     it('site.css is overridden', function() {
-      assert.fileContent('webTest/wwwroot/css/site.css', '.masthead');
+      assert.fileContent('mvcTest/wwwroot/css/site.css', '.masthead');
     });
 
     it('site.js is overridden', function() {
-      assert.fileContent('webTest/wwwroot/js/site.js', '.sidebar(');
+      assert.fileContent('mvcTest/wwwroot/js/site.js', '.sidebar(');
     });
 
     //We wont explicitly check every single file in every directory, one file per directory should suffice
 
     it('Views/Account/ConfirmEmail.cshtml contains Semantic UI markup', function() {
-      assert.fileContent('webTest/Views/Account/ConfirmEmail.cshtml', 'ui header');
+      assert.fileContent('mvcTest/Views/Account/ConfirmEmail.cshtml', 'ui header');
     });
 
     it('Views/Home/About.cshtml contains Semantic UI markup', function() {
-      assert.fileContent('webTest/Views/Home/About.cshtml', 'ui container');
+      assert.fileContent('mvcTest/Views/Home/About.cshtml', 'ui container');
     });
 
     it('Views/Manage/AddPhoneNumber.cshtml contains Semantic UI markup', function() {
-      assert.fileContent('webTest/Views/Manage/AddPhoneNumber.cshtml', 'ui header');
+      assert.fileContent('mvcTest/Views/Manage/AddPhoneNumber.cshtml', 'ui header');
     });
 
     it('Views/Shared/Error.cshtml contains Semantic UI markup', function() {
-      assert.fileContent('webTest/Views/Shared/Error.cshtml', 'ui header');
+      assert.fileContent('mvcTest/Views/Shared/Error.cshtml', 'ui header');
     });
 
     it('bower.json contains semantic references', function() {
-      assert.fileContent('webTest/bower.json', 'semantic');
+      assert.fileContent('mvcTest/bower.json', 'semantic');
     });
   });
 
@@ -573,7 +632,7 @@ describe('aspnet - Web Application (Semantic UI)', function() {
  */
 describe('aspnet - Web Application Basic (Bootstrap)', function() {
 
-  util.goCreateApplication('webbasic', 'webTest');
+  util.goCreateApplication('mvcbasic', 'webTest');
 
   describe('Checking directories', function() {
 
@@ -620,15 +679,15 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
   });
 
   var files = [
-    'webTest/Dockerfile',
     'webTest/.bowerrc',
     'webTest/.gitignore',
+    'webTest/appsettings.json',
+    'webTest/appsettings.Development.json',
     'webTest/bower.json',
     'webTest/bundleconfig.json',
-    'webTest/appsettings.json',
     'webTest/Controllers/HomeController.cs',
     'webTest/Program.cs',
-    'webTest/project.json',
+    'webTest/webTest.csproj',
     'webTest/Properties/launchSettings.json',
     'webTest/README.md',
     'webTest/Startup.cs',
@@ -639,6 +698,7 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     'webTest/Views/Home/Index.cshtml',
     'webTest/Views/Shared/_Layout.cshtml',
     'webTest/Views/Shared/Error.cshtml',
+    'webTest/web.config',
     'webTest/wwwroot/css/site.css',
     'webTest/wwwroot/css/site.min.css',
     'webTest/wwwroot/favicon.ico',
@@ -648,7 +708,6 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
     'webTest/wwwroot/images/banner4.svg',
     'webTest/wwwroot/js/site.js',
     'webTest/wwwroot/js/site.min.js',
-    'webTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -657,14 +716,6 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
 
     it('bower.json name field is lower case', function() {
       assert.fileContent('webTest/bower.json', /"name": "webtest"/);
-    });
-
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
     });
 
   });
@@ -676,7 +727,7 @@ describe('aspnet - Web Application Basic (Bootstrap)', function() {
  */
 describe('aspnet - Web Application Basic (Semantic UI)', function() {
 
-  util.goCreateApplicationWithOptions('webbasic', 'webTest', 'semantic', {});
+  util.goCreateApplicationWithOptions('mvcbasic', 'webTest', 'semantic', {});
 
   describe('Checking directories', function() {
 
@@ -727,15 +778,15 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
   });
 
   var files = [
-    'webTest/Dockerfile',
     'webTest/.bowerrc',
     'webTest/.gitignore',
-    'webTest/bower.json',
     'webTest/appsettings.json',
+    'webTest/appsettings.Development.json',
+    'webTest/bower.json',
     'webTest/Controllers/HomeController.cs',
-    'webTest/Program.cs',
     'webTest/global.json',
-    'webTest/project.json',
+    'webTest/Program.cs',
+    'webTest/webTest.csproj',
     'webTest/Properties/launchSettings.json',
     'webTest/README.md',
     'webTest/Startup.cs',
@@ -747,6 +798,7 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     'webTest/Views/Home/Index.cshtml',
     'webTest/Views/Shared/_Layout.cshtml',
     'webTest/Views/Shared/Error.cshtml',
+    'webTest/web.config',
     'webTest/wwwroot/css/site.css',
     'webTest/wwwroot/css/site.min.css',
     'webTest/wwwroot/favicon.ico',
@@ -758,7 +810,6 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
     'webTest/wwwroot/js/semantic.validation.js',
     'webTest/wwwroot/js/site.js',
     'webTest/wwwroot/js/site.min.js',
-    'webTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -769,16 +820,8 @@ describe('aspnet - Web Application Basic (Semantic UI)', function() {
       assert.fileContent('webTest/bower.json', /"name": "webtest"/);
     });
 
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('webTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
-    });
-
     it('global.json contains correct version', function() {
-      assert.fileContent('webTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('webTest/global.json', /1.0.0-rc4-004771/);
     });
 
   });
@@ -839,40 +882,33 @@ describe('aspnet - Web API Application', function() {
       assert.file('webAPITest/Properties');
     });
 
-    it('wwwroot directory created', function() {
-      assert.file('webAPITest/wwwroot');
-    });
   });
 
 
   var files = [
-    'webAPITest/Controllers/ValuesController.cs',
+    'webAPITest/.gitignore',
     'webAPITest/appsettings.json',
+    'webAPITest/appsettings.Development.json',
+    'webAPITest/Controllers/ValuesController.cs',
     'webAPITest/global.json',
-    'webAPITest/project.json',
     'webAPITest/Program.cs',
+    'webAPITest/webAPITest.csproj',
     'webAPITest/Properties/launchSettings.json',
     'webAPITest/README.md',
     'webAPITest/Startup.cs',
-    'webAPITest/.gitignore',
     'webAPITest/web.config',
-    'webAPITest/Dockerfile'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
 
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('webAPITest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('webAPITest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
-    });
-
     it('global.json contains correct version', function() {
-      assert.fileContent('webAPITest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('webAPITest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('webAPITest/webAPITest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -901,7 +937,7 @@ describe('aspnet - Nancy Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('nancyTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('nancyTest/global.json', /1.0.0-rc4-004771/);
     });
 
   });
@@ -914,7 +950,7 @@ describe('aspnet - Nancy Application', function() {
  */
 describe('FSharp Class Library', function() {
 
-  util.goCreateApplication('fsharp_lib', 'fsharpLibTest');
+  util.goCreateApplication('fsharp_classlib', 'fsharpLibTest');
 
   describe('Checking directories', function() {
     it('Application directory created', function() {
@@ -922,14 +958,14 @@ describe('FSharp Class Library', function() {
     });
   });
 
-  var files = ['fsharpLibTest/global.json', 'fsharpLibTest/project.json', 'fsharpLibTest/Library.fs', 'fsharpLibTest/.gitignore'];
+  var files = ['fsharpLibTest/global.json', 'fsharpLibTest/fsharpLibTest.fsproj', 'fsharpLibTest/Library.fs', 'fsharpLibTest/.gitignore'];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpLibTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpLibTest/global.json', /1.0.0-rc4-004771/);
     });
 
   });
@@ -954,7 +990,7 @@ describe('FSharp Console Application', function() {
     'fsharpConsoleTest/.gitignore',
     'fsharpConsoleTest/Program.fs',
     'fsharpConsoleTest/global.json',
-    'fsharpConsoleTest/project.json'
+    'fsharpConsoleTest/fsharpConsoleTest.fsproj'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -962,31 +998,35 @@ describe('FSharp Console Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpConsoleTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpConsoleTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpConsoleTest/fsharpConsoleTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
 });
 
 /*
- * yo aspnet FSharp Unit Test Application
+ * F# xUnit Test Application
  */
-describe('aspnet - Fsharp Unit Test Application', function() {
+describe('F# xUnit Test Application', function() {
 
-  util.goCreateApplication('fsharp_test', 'fsharpTestTest');
+  util.goCreateApplication('fsharp_xunit', 'fsharpTest');
 
   describe('Checking directories', function() {
-    it('Application directory created', function() {
-      assert.file('fsharpTestTest/');
+    it('Project directory created', function() {
+      assert.file('fsharpTest/');
     });
   });
 
   var files = [
-    'fsharpTestTest/.gitignore',
-    'fsharpTestTest/global.json',
-    'fsharpTestTest/project.json',
-    'fsharpTestTest/UnitTest1.fs',
-    'fsharpTestTest/xunit.runner.json'
+    'fsharpTest/.gitignore',
+    'fsharpTest/global.json',
+    'fsharpTest/fsharpTest.fsproj',
+    'fsharpTest/Tests.fs',
+    'fsharpTest/xunit.runner.json'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -994,10 +1034,51 @@ describe('aspnet - Fsharp Unit Test Application', function() {
     }
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpTestTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpTest/fsharpTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
+});
+
+/*
+ * F# MSTest Unit Test
+ */
+describe('F# MSTest Unit Test', function() {
+
+  util.goCreateApplication('fsharp_mstest', 'fsharpMSTest');
+
+  describe('Checking directories', function() {
+    it('Project directory created', function() {
+      assert.file('fsharpMSTest/');
+    });
+  });
+
+  var files = [
+    'fsharpMSTest/.gitignore',
+    'fsharpMSTest/global.json',
+    'fsharpMSTest/fsharpMSTest.fsproj',
+    'fsharpMSTest/Tests.fs',
+    'fsharpMSTest/xunit.runner.json'
+  ];
+  describe('Checking files', function() {
+    for (var i = 0; i < files.length; i++) {
+      util.filesCheck(files[i]);
+    }
+
+    it('global.json contains correct version', function() {
+      assert.fileContent('fsharpMSTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpMSTest/fsharpMSTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
+    });
+
+  })
+
 });
 
 
@@ -1006,7 +1087,7 @@ describe('aspnet - Fsharp Unit Test Application', function() {
  */
 describe('aspnet - F# Empty Web Application', function() {
 
-  util.goCreateApplication('fsharp_emptyweb', 'fsharpEmptyWebTest');
+  util.goCreateApplication('fsharp_web', 'fsharpEmptyWebTest');
 
   describe('Checking directories', function() {
 
@@ -1027,29 +1108,25 @@ describe('aspnet - F# Empty Web Application', function() {
   var files = [
     'fsharpEmptyWebTest/.gitignore',
     'fsharpEmptyWebTest/global.json',
-    'fsharpEmptyWebTest/project.json',
     'fsharpEmptyWebTest/Program.fs',
+    'fsharpEmptyWebTest/fsharpEmptyWebTest.fsproj',
     'fsharpEmptyWebTest/Properties/launchSettings.json',
     'fsharpEmptyWebTest/README.md',
+    'fsharpEmptyWebTest/runtimeconfig.template.json',
     'fsharpEmptyWebTest/Startup.fs',
-    'fsharpEmptyWebTest/web.config',
-    'fsharpEmptyWebTest/Dockerfile'
+    'fsharpEmptyWebTest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
 
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('fsharpEmptyWebTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('fsharpEmptyWebTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
-    });
-
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpEmptyWebTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpEmptyWebTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpEmptyWebTest/fsharpEmptyWebTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -1073,40 +1150,37 @@ describe('aspnet - Fsharp Web API Application', function() {
       assert.file('fsharpWebAPITest/Properties');
     });
 
-    it('wwwroot directory created', function() {
-      assert.file('fsharpWebAPITest/wwwroot');
+    it('Controllers directory created', function() {
+      assert.file('fsharpWebAPITest/Controllers');
     });
   });
 
 
   var files = [
-    'fsharpWebAPITest/Controllers.fs',
+    'fsharpWebAPITest/.gitignore',
     'fsharpWebAPITest/appsettings.json',
+    'fsharpWebAPITest/appsettings.Development.json',
+    'fsharpWebAPITest/Controllers/ValuesController.fs',
     'fsharpWebAPITest/global.json',
-    'fsharpWebAPITest/project.json',
     'fsharpWebAPITest/Program.fs',
+    'fsharpWebAPITest/fsharpWebAPITest.fsproj',
     'fsharpWebAPITest/Properties/launchSettings.json',
     'fsharpWebAPITest/README.md',
+    'fsharpWebAPITest/runtimeconfig.template.json',
     'fsharpWebAPITest/Startup.fs',
-    'fsharpWebAPITest/.gitignore',
-    'fsharpWebAPITest/web.config',
-    'fsharpWebAPITest/Dockerfile'
+    'fsharpWebAPITest/web.config'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
 
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('fsharpWebAPITest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('fsharpWebAPITest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
-    });
-
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpWebAPITest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpWebAPITest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpWebAPITest/fsharpWebAPITest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -1118,79 +1192,84 @@ describe('aspnet - Fsharp Web API Application', function() {
  */
 describe('aspnet - FSharp Web Application Basic', function() {
 
-  util.goCreateApplication('fsharp_webbasic', 'fsharpWebBasicTest');
+  util.goCreateApplication('fsharp_mvcbasic', 'fsharpMvcBasicTest');
 
   describe('Checking directories', function() {
 
     it('Application directory created', function() {
-      assert.file('fsharpWebBasicTest/');
+      assert.file('fsharpMvcBasicTest/');
     });
 
     it('Properties directory created', function() {
-      assert.file('fsharpWebBasicTest/Properties');
+      assert.file('fsharpMvcBasicTest/Properties');
+    });
+
+    it('Controllers directory created', function() {
+      assert.file('fsharpMvcBasicTest/Controllers');
     });
 
     it('Views directory created', function() {
-      assert.file('fsharpWebBasicTest/Views');
+      assert.file('fsharpMvcBasicTest/Views');
     });
 
     it('Views/Home directory created', function() {
-      assert.file('fsharpWebBasicTest/Views/Home');
+      assert.file('fsharpMvcBasicTest/Views/Home');
     });
 
     it('Views/Shared directory created', function() {
-      assert.file('fsharpWebBasicTest/Views/Shared');
+      assert.file('fsharpMvcBasicTest/Views/Shared');
     });
 
     it('wwwroot directory created', function() {
-      assert.file('fsharpWebBasicTest/wwwroot');
+      assert.file('fsharpMvcBasicTest/wwwroot');
     });
 
     it('wwwroot/css directory created', function() {
-      assert.file('fsharpWebBasicTest/wwwroot/css');
+      assert.file('fsharpMvcBasicTest/wwwroot/css');
     });
 
     it('wwwroot/images directory created', function() {
-      assert.file('fsharpWebBasicTest/wwwroot/images');
+      assert.file('fsharpMvcBasicTest/wwwroot/images');
     });
 
     it('wwwroot/js directory created', function() {
-      assert.file('fsharpWebBasicTest/wwwroot/js');
+      assert.file('fsharpMvcBasicTest/wwwroot/js');
     });
 
   });
 
   var files = [
-    'fsharpWebBasicTest/Dockerfile',
-    'fsharpWebBasicTest/.bowerrc',
-    'fsharpWebBasicTest/.gitignore',
-    'fsharpWebBasicTest/bower.json',
-    'fsharpWebBasicTest/bundleconfig.json',
-    'fsharpWebBasicTest/appsettings.json',
-    'fsharpWebBasicTest/Controllers.fs',
-    'fsharpWebBasicTest/Program.fs',
-    'fsharpWebBasicTest/global.json',
-    'fsharpWebBasicTest/project.json',
-    'fsharpWebBasicTest/Properties/launchSettings.json',
-    'fsharpWebBasicTest/README.md',
-    'fsharpWebBasicTest/Startup.fs',
-    'fsharpWebBasicTest/Views/_ViewImports.cshtml',
-    'fsharpWebBasicTest/Views/_ViewStart.cshtml',
-    'fsharpWebBasicTest/Views/Home/About.cshtml',
-    'fsharpWebBasicTest/Views/Home/Contact.cshtml',
-    'fsharpWebBasicTest/Views/Home/Index.cshtml',
-    'fsharpWebBasicTest/Views/Shared/_Layout.cshtml',
-    'fsharpWebBasicTest/Views/Shared/Error.cshtml',
-    'fsharpWebBasicTest/wwwroot/css/site.css',
-    'fsharpWebBasicTest/wwwroot/css/site.min.css',
-    'fsharpWebBasicTest/wwwroot/favicon.ico',
-    'fsharpWebBasicTest/wwwroot/images/banner1.svg',
-    'fsharpWebBasicTest/wwwroot/images/banner2.svg',
-    'fsharpWebBasicTest/wwwroot/images/banner3.svg',
-    'fsharpWebBasicTest/wwwroot/images/banner4.svg',
-    'fsharpWebBasicTest/wwwroot/js/site.js',
-    'fsharpWebBasicTest/wwwroot/js/site.min.js',
-    'fsharpWebBasicTest/web.config'
+    'fsharpMvcBasicTest/.bowerrc',
+    'fsharpMvcBasicTest/.gitignore',
+    'fsharpMvcBasicTest/Controllers/HomeController.fs',
+    'fsharpMvcBasicTest/Program.fs',
+    'fsharpMvcBasicTest/Properties/launchSettings.json',
+    'fsharpMvcBasicTest/README.md',
+    'fsharpMvcBasicTest/Startup.fs',
+    'fsharpMvcBasicTest/Views/Home/About.cshtml',
+    'fsharpMvcBasicTest/Views/Home/Contact.cshtml',
+    'fsharpMvcBasicTest/Views/Home/Index.cshtml',
+    'fsharpMvcBasicTest/Views/Shared/Error.cshtml',
+    'fsharpMvcBasicTest/Views/Shared/_Layout.cshtml',
+    'fsharpMvcBasicTest/Views/Shared/_ValidationScriptsPartial.cshtml',
+    'fsharpMvcBasicTest/Views/_ViewImports.cshtml',
+    'fsharpMvcBasicTest/Views/_ViewStart.cshtml',
+    'fsharpMvcBasicTest/appsettings.Development.json',
+    'fsharpMvcBasicTest/appsettings.json',
+    'fsharpMvcBasicTest/bower.json',
+    'fsharpMvcBasicTest/bundleconfig.json',
+    'fsharpMvcBasicTest/fsharpMvcBasicTest.fsproj',
+    'fsharpMvcBasicTest/global.json',
+    'fsharpMvcBasicTest/web.config',
+    'fsharpMvcBasicTest/wwwroot/css/site.css',
+    'fsharpMvcBasicTest/wwwroot/css/site.min.css',
+    'fsharpMvcBasicTest/wwwroot/favicon.ico',
+    'fsharpMvcBasicTest/wwwroot/images/banner1.svg',
+    'fsharpMvcBasicTest/wwwroot/images/banner2.svg',
+    'fsharpMvcBasicTest/wwwroot/images/banner3.svg',
+    'fsharpMvcBasicTest/wwwroot/images/banner4.svg',
+    'fsharpMvcBasicTest/wwwroot/js/site.js',
+    'fsharpMvcBasicTest/wwwroot/js/site.min.js'
   ];
   describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
@@ -1198,19 +1277,15 @@ describe('aspnet - FSharp Web Application Basic', function() {
     }
 
     it('bower.json name field is lower case', function() {
-      assert.fileContent('fsharpWebBasicTest/bower.json', /"name": "fsharpwebbasictest"/);
-    });
-
-    it('Dockerfile does not include SQLite', function() {
-      assert.noFileContent('fsharpWebBasicTest/Dockerfile', /RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev/);
-    });
-
-    it('Dockerfile does not contain migrations', function() {
-      assert.noFileContent('fsharpWebBasicTest/Dockerfile', /RUN \["dotnet", "ef", "database", "update"\]/);
+      assert.fileContent('fsharpMvcBasicTest/bower.json', /"name": "fsharpmvcbasictest"/);
     });
 
     it('global.json contains correct version', function() {
-      assert.fileContent('fsharpWebBasicTest/global.json', /1.0.0-preview2-1-003177/);
+      assert.fileContent('fsharpMvcBasicTest/global.json', /1.0.0-rc4-004771/);
+    });
+
+    it('.fsproj contains correct version', function() {
+      assert.fileContent('fsharpMvcBasicTest/fsharpMvcBasicTest.fsproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
@@ -1224,13 +1299,13 @@ describe('command line options', function() {
   it('keeps project type and application name if passed correctly from CLI', function() {
     var app = require('../app');
     app.prototype.log = function() {}; //stub
-    app.prototype.type = 'webbasic';
+    app.prototype.type = 'mvcbasic';
     app.prototype.applicationName = 'myWebApp';
     app.prototype.ui = 'bootstrap';
 
     app.prototype._checkProjectType();
 
-    assert.equal('webbasic', app.prototype.type);
+    assert.equal('mvcbasic', app.prototype.type);
     assert.equal('myWebApp', app.prototype.applicationName);
     assert.equal('bootstrap', app.prototype.ui);
   });

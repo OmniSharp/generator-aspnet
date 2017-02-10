@@ -1,0 +1,8 @@
+Description:
+    Creates a new NuGet configuration file
+
+Example:
+    yo aspnet:nugetconfig
+
+    This will create:
+        nuget.config

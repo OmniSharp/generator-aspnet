@@ -13,6 +13,11 @@
 ----
 #### OS version (Win/Mac/\*Nix?)
 
+#### Dotnet version
+
+```bash
+dotnet --info
+```
 
 #### NodeJS version
 ```

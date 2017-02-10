@@ -66,5 +66,15 @@
   },
   "scripts": {
     "test": "mocha"
+  },
+  "dotnet": {
+    "lts": {
+      "version": "1.0.3",
+      "targetFramework": "netcoreapp1.0"
+    },
+    "current": {
+      "version": "1.1.0",
+      "targetFramework": "netcoreapp1.1"
+    }
   }
 }

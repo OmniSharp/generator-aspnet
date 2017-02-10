@@ -1,8 +1,0 @@
-Description:
-	Creates a new CSS file
-
-Example:
-	yo aspnet:CSS filename
-
-	This will create:
-		filename.css
