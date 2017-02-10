@@ -1,0 +1,10 @@
+{
+  "name": "<%= namespace.toLowerCase() %>",
+  "private": true,
+  "dependencies": {
+    "jquery": "2.2.4",
+    "jquery-validation": "1.15.0",
+    "jquery-validation-unobtrusive": "3.2.6",
+    "semantic": "2.2.2"
+  }
+}

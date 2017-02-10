@@ -1,0 +1,44 @@
+<Project ToolsVersion="15.0" Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework><%= dotnet.targetFramework %></TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Controllers/*.fs" />
+    <Compile Include="Startup.fs" />
+    <Compile Include="Program.fs" />
+
+    <None Remove="**/*.fs" />
+  </ItemGroup>
+  <% if(dotnet.targetFramework !== 'netcoreapp1.1'){ %>
+  <ItemGroup><% if(includeApplicationInsights){ %>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0-beta1" /><% } %>
+    <PackageReference Include="FSharp.NET.Sdk" Version="1.0.0-beta-*" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.1" />
+    <PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-161023" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.0.1" />
+  </ItemGroup>
+  <% } %>
+  <% if(dotnet.targetFramework === 'netcoreapp1.1'){ %>
+  <ItemGroup><% if(includeApplicationInsights){ %>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0-beta1" /><% } %>
+    <PackageReference Include="FSharp.NET.Sdk" Version="1.0.0-beta-*" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.0" />
+    <PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-161023" />
+  </ItemGroup>
+  <% } %>
+  <ItemGroup>
+    <DotNetCliToolReference Include="dotnet-compile-fsc">
+      <Version>1.0.0-preview2-020000</Version>
+    </DotNetCliToolReference>
+  </ItemGroup>
+
+</Project>

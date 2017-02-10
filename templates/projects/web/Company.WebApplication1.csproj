@@ -1,0 +1,16 @@
+<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework><%= dotnet.targetFramework %></TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup><% if(includeApplicationInsights){ %>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0-beta1" /><% } %>
+    <PackageReference Include="Microsoft.AspNetCore" Version="<%= dotnet.version %>" />
+  </ItemGroup>
+
+</Project>
