@@ -919,28 +919,36 @@ describe('aspnet - Web API Application', function() {
 /*
  * yo aspnet Nancy Application
  */
-describe('aspnet - Nancy Application', function() {
+describe('aspnet - Nancy Application', function () {
 
   util.goCreateApplication('nancy', 'nancyTest');
 
-  describe('Checking directories', function() {
-    it('Application directory created', function() {
+  describe('Checking directories', function () {
+    it('Application directory created', function () {
       assert.file('nancyTest/');
     });
   });
 
+  var files = [
+    'nancyTest/.gitignore',
+    'nancyTest/HomeModule.cs',
+    'nancyTest/Program.cs',
+    'nancyTest/Startup.cs',
+    'nancyTest/nancyTest.csproj'
+  ];
+  describe('Checking files', function () {
 
-  var files = ['nancyTest/global.json', 'nancyTest/project.json', 'nancyTest/Startup.cs', 'nancyTest/HomeModule.cs', 'nancyTest/Program.cs', 'nancyTest/.gitignore'];
-  describe('Checking files', function() {
     for (var i = 0; i < files.length; i++) {
       util.filesCheck(files[i]);
     }
 
-    it('global.json contains correct version', function() {
-      assert.fileContent('nancyTest/global.json', /1.0.0-rc4-004771/);
+    it('.csproj contains correct version', function() {
+      assert.fileContent('nancyTest/nancyTest.csproj', /<TargetFramework\>netcoreapp1\.0<\/TargetFramework>/);
     });
 
   });
+
+
 
 });
 

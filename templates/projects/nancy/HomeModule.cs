@@ -6,7 +6,7 @@ namespace <%= namespace %>
     {
         public HomeModule()
         {
-            Get("/", _ => "Hello World");
+            Get("/", args => "Hello from Nancy running on CoreCLR");
         }
     }
 }

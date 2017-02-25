@@ -351,15 +351,10 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         break;
       case 'nancy':
         this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
-
         this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
-
         this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-
-        this.fs.copyTpl(this.sourceRoot() + '/project.json', this.applicationName + '/project.json', this.templatedata);
-
+        this.fs.copyTpl(this.templatePath('NancyTemplate.csproj'), this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
         this.template(this.sourceRoot() + '/HomeModule.cs', this.applicationName + '/HomeModule.cs', this.templatedata);
-
         this.template(this.sourceRoot() + '/Program.cs', this.applicationName + '/Program.cs', this.templatedata);
         this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
