@@ -10,17 +10,17 @@
   <% if(dotnet.targetFramework !== 'netcoreapp1.1'){ %>
   <ItemGroup><% if(includeApplicationInsights){ %>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0-beta1" /><% } %>
-    <PackageReference Include="Microsoft.AspNetCore" Version="1.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.2" />
   </ItemGroup>
   <% } %>
   <% if(dotnet.targetFramework === 'netcoreapp1.1'){ %>
   <ItemGroup><% if(includeApplicationInsights){ %>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0-beta1" /><% } %>
-    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
   </ItemGroup>
   <% } %>
 </Project>

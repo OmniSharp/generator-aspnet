@@ -19,13 +19,13 @@ describe('aspnet Core 1.0 generator', function() {
 describe('package.json contains dotnet version information', function() {
   var pckg = require('../package.json');
   it('contains expected LTS version', function() {
-    yeoman.assert.equal('1.0.3', pckg.dotnet.lts.version);
+    yeoman.assert.equal('1.0.4', pckg.dotnet.lts.version);
   });
   it('contains expected LTS target framework', function() {
     yeoman.assert.equal('netcoreapp1.0', pckg.dotnet.lts.targetFramework);
   });
   it('contains expected Current version', function() {
-    yeoman.assert.equal('1.1.0', pckg.dotnet.current.version);
+    yeoman.assert.equal('1.1.1', pckg.dotnet.current.version);
   });
   it('contains expected LTS version', function() {
     yeoman.assert.equal('netcoreapp1.1', pckg.dotnet.current.targetFramework);
@@ -76,7 +76,7 @@ describe('aspnet - Empty Web Application', function() {
     });
 
     it('.csproj contains correct dotnet version', function() {
-      assert.fileContent('emptyWebTest/emptyWebTest.csproj', /PackageReference Include="Microsoft.AspNetCore" Version="1.0.3"/);
+      assert.fileContent('emptyWebTest/emptyWebTest.csproj', /PackageReference Include="Microsoft.AspNetCore" Version="1.0.4"/);
     });
 
     it('.csproj contains correct dotnet target platform', function() {
