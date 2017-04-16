@@ -8,7 +8,7 @@
 {
     <div class="right menu">
         <div class="item"><a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a></div>
-        <form asp-area="" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="item">
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="item">
             <button type="submit" class="ui button">Log off</button>
         </form>
     </div>
