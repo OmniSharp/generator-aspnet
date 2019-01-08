@@ -8,6 +8,8 @@
 
 ## Yeoman generator for ASP.NET Core projects
 
+> Now also available as a [project template](https://marketplace.visualstudio.com/items?itemName=GregTrevellick.OmniSharpAspNetVsix) within Visual Studio.
+
 [![](https://cloud.githubusercontent.com/assets/14539/22796181/ac68db70-eef9-11e6-8c85-53215e7c1acc.gif)](https://github.com/OmniSharp/generator-aspnet 'ASP.NET Core Generator')
 
 ## Getting Started
