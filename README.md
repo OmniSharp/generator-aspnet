@@ -1,3 +1,18 @@
+# PROJECT ARCHIVED
+
+**This repo has been archived. You should now be using [`dotnet new`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new) for these scenarios.**
+
+This was truly a community project, with more than 50 contributors. I'd like to specifically thank the following people for their significant contributions. This project couldn't have been a success without you.
+
+ - [peterblazejewicz](https://github.com/peterblazejewicz)
+ - [Spinarooni](https://github.com/Spinarooni)
+ - [scottaddie](https://github.com/scottaddie)
+ - [shirhatti](https://github.com/shirhatti)
+ 
+ If you have some issue with the code and want to discuss, find us on twitter.
+  - [@SayedIHashimi](https://twitter.com/sayedihashimi)
+  - [@blazejewicz](https://twitter.com/blazejewicz)
+
 # generator-aspnet
 
 [![Build Status](https://travis-ci.org/OmniSharp/generator-aspnet.svg?branch=master)](https://travis-ci.org/OmniSharp/generator-aspnet)
